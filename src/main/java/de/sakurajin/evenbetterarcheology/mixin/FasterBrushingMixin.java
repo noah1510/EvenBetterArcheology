@@ -1,6 +1,6 @@
 package de.sakurajin.evenbetterarcheology.mixin;
 
-import de.sakurajin.evenbetterarcheology.item.BetterBrushItem;
+import de.sakurajin.evenbetterarcheology.api.item.BetterBrushItem;
 import net.minecraft.block.entity.BrushableBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.Direction;

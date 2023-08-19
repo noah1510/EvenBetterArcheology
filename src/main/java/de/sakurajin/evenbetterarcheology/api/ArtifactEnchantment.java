@@ -1,4 +1,4 @@
-package de.sakurajin.evenbetterarcheology.enchantment;
+package de.sakurajin.evenbetterarcheology.api;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
