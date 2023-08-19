@@ -10,7 +10,6 @@ import de.sakurajin.evenbetterarcheology.networking.ModMessages;
 import de.sakurajin.evenbetterarcheology.screen.FossilInventoryScreen;
 import de.sakurajin.evenbetterarcheology.screen.IdentifyingScreen;
 import de.sakurajin.evenbetterarcheology.screen.ModScreenHandlers;
-import de.sakurajin.evenbetterarcheology.block.entity.client.*;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
@@ -19,7 +18,7 @@ import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.*;
 
-public class BetterArcheologyClient implements ClientModInitializer {
+public class EvenBetterArcheologyClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         ModMessages.registerS2CPackets();

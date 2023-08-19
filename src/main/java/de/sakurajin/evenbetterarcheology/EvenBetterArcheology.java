@@ -7,7 +7,7 @@ import de.sakurajin.evenbetterarcheology.item.ModItemGroup;
 import de.sakurajin.evenbetterarcheology.item.ModItems;
 import de.sakurajin.evenbetterarcheology.networking.ModMessages;
 import de.sakurajin.evenbetterarcheology.screen.ModScreenHandlers;
-import de.sakurajin.evenbetterarcheology.util.ModConfigs;
+import de.sakurajin.evenbetterarcheology.util.evenbetterarcheologyConfig;
 import de.sakurajin.evenbetterarcheology.villager.ModVillagers;
 import de.sakurajin.evenbetterarcheology.enchantment.ModEnchantments;
 import de.sakurajin.evenbetterarcheology.structures.ModStructureFeatures;
@@ -15,12 +15,13 @@ import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class BetterArcheology implements ModInitializer {
+public class EvenBetterArcheology implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger("evenbetterarcheology");
 	public static final String MOD_ID = "evenbetterarcheology";
+	public static final evenbetterarcheologyConfig CONFIG = evenbetterarcheologyConfig.createAndLoad();
 
 	@Override
 	public void onInitialize() {
@@ -30,7 +31,6 @@ public class BetterArcheology implements ModInitializer {
 
 		LOGGER.info("Even Better Archeology says Hello");	//info message
 
-		ModConfigs.registerConfigs();
 
 		ModItemGroup.registerTab();		//creates CreativeModeTab
 		ModItems.registerModItems();	//registers Items and adds them to the Tab

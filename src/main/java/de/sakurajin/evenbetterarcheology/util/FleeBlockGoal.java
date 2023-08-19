@@ -1,5 +1,6 @@
 package de.sakurajin.evenbetterarcheology.util;
 
+import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.ai.NoPenaltyTargeting;
 import net.minecraft.entity.ai.goal.Goal;
@@ -79,7 +80,7 @@ public class FleeBlockGoal<T extends BlockEntity> extends Goal {
 
         for (BlockPos blockPos : chunk.getBlockEntityPositions()) {
             BlockEntity blockEntity = fleeingEntity.getEntityWorld().getBlockEntity(blockPos);
-            if (blockEntity != null && blockEntity.getPos().isWithinDistance(fleeingEntity.getPos(), ModConfigs.OCELOT_FOSSIL_FLEE_RANGE)) { // Check if within distance
+            if (blockEntity != null && blockEntity.getPos().isWithinDistance(fleeingEntity.getPos(), EvenBetterArcheology.CONFIG.OCELOT_FOSSIL_FLEE_RANGE())) { // Check if within distance
                 blockEntities.add(blockEntity);
             }
         }

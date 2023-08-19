@@ -1,7 +1,6 @@
 package de.sakurajin.evenbetterarcheology.block;
 
-import de.sakurajin.evenbetterarcheology.block.custom.*;
-import de.sakurajin.evenbetterarcheology.BetterArcheology;
+import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import de.sakurajin.evenbetterarcheology.block.custom.*;
 import de.sakurajin.evenbetterarcheology.item.ModItemGroup;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -119,41 +118,41 @@ public class ModBlocks {
     //Registers Block and calls registerBlockItem to add it as an Item as well
     private static Block registerBlock(String name, Block block, RegistryKey<ItemGroup> group) {
         registerBlockItemToGroup(name, block, group, Rarity.COMMON);
-        return Registry.register(Registries.BLOCK, new Identifier(BetterArcheology.MOD_ID, name), block);
+        return Registry.register(Registries.BLOCK, new Identifier(EvenBetterArcheology.MOD_ID, name), block);
     }
 
     private static Block registerBlockWithoutTab(String name, Block block) {
         registerBlockItem(name, block, Rarity.COMMON);
-        return Registry.register(Registries.BLOCK, new Identifier(BetterArcheology.MOD_ID, name), block);
+        return Registry.register(Registries.BLOCK, new Identifier(EvenBetterArcheology.MOD_ID, name), block);
     }
 
     private static Block registerBlockWithRarity(String name, Block block, RegistryKey<ItemGroup> group, Rarity rarity) {
         registerBlockItemToGroup(name, block, group, rarity);
-        return Registry.register(Registries.BLOCK, new Identifier(BetterArcheology.MOD_ID, name), block);
+        return Registry.register(Registries.BLOCK, new Identifier(EvenBetterArcheology.MOD_ID, name), block);
     }
 
     //Registers given Block as an BlockItem and adds it to an ItemGroup
     private static Item registerBlockItemToGroup(String name, Block block, RegistryKey<ItemGroup> group, Rarity rarity) {
-        Item item = Registry.register(Registries.ITEM, new Identifier(BetterArcheology.MOD_ID, name), new BlockItem(block, new FabricItemSettings().rarity(rarity)));
+        Item item = Registry.register(Registries.ITEM, new Identifier(EvenBetterArcheology.MOD_ID, name), new BlockItem(block, new FabricItemSettings().rarity(rarity)));
 
         ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));
         return item;
     }
 
     private static Item registerBlockItem(String name, Block block, Rarity rarity) {
-        return Registry.register(Registries.ITEM, new Identifier(BetterArcheology.MOD_ID, name), new BlockItem(block, new FabricItemSettings().rarity(rarity)));
+        return Registry.register(Registries.ITEM, new Identifier(EvenBetterArcheology.MOD_ID, name), new BlockItem(block, new FabricItemSettings().rarity(rarity)));
     }
 
     private static WoodType registerWoodType(String id) {
-        return WoodTypeRegistry.register(new Identifier(BetterArcheology.MOD_ID, id), new BlockSetType(id));
+        return WoodTypeRegistry.register(new Identifier(EvenBetterArcheology.MOD_ID, id), new BlockSetType(id));
     }
 
     private static BlockSetType registerBlockSetType(String id) {
-        return BlockSetTypeRegistry.registerWood(new Identifier(BetterArcheology.MOD_ID, id));
+        return BlockSetTypeRegistry.registerWood(new Identifier(EvenBetterArcheology.MOD_ID, id));
     }
 
     //LOGGER-----------------------------------------------------------------------------//
     public static void registerModBlocks() {
-        BetterArcheology.LOGGER.info("Registering Blocks from " + BetterArcheology.MOD_ID);
+        EvenBetterArcheology.LOGGER.info("Registering Blocks from " + EvenBetterArcheology.MOD_ID);
     }
 }

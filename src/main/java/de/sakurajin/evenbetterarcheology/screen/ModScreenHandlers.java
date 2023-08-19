@@ -1,6 +1,6 @@
 package de.sakurajin.evenbetterarcheology.screen;
 
-import de.sakurajin.evenbetterarcheology.BetterArcheology;
+import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
@@ -12,7 +12,7 @@ public class ModScreenHandlers {
     public static ScreenHandlerType<FossilInventoryScreenHandler> FOSSIL_SCREEN_HANDLER = new ScreenHandlerType<>(FossilInventoryScreenHandler::new, FeatureFlags.VANILLA_FEATURES);
 
     public static void registerAllScreenHandlers(){
-        Registry.register(Registries.SCREEN_HANDLER, new Identifier(BetterArcheology.MOD_ID, "archeology_table"), IDENTIFYING_SCREEN_HANDLER);
-        Registry.register(Registries.SCREEN_HANDLER, new Identifier(BetterArcheology.MOD_ID, "fossil"), FOSSIL_SCREEN_HANDLER);
+        Registry.register(Registries.SCREEN_HANDLER, new Identifier(EvenBetterArcheology.MOD_ID, "archeology_table"), IDENTIFYING_SCREEN_HANDLER);
+        Registry.register(Registries.SCREEN_HANDLER, new Identifier(EvenBetterArcheology.MOD_ID, "fossil"), FOSSIL_SCREEN_HANDLER);
     }
 }

@@ -1,6 +1,6 @@
 package de.sakurajin.evenbetterarcheology.block.custom;
 
-import de.sakurajin.evenbetterarcheology.BetterArcheology;
+import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import de.sakurajin.evenbetterarcheology.util.ServerPlayerHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -24,7 +24,7 @@ import net.minecraft.world.World;
 public class LootVaseBlock extends Block {
     private static final VoxelShape SHAPE = Block.createCuboidShape(3, 0, 3, 13, 14, 13);
     //advancement id for granting the advancement in onBreak, condition of advancement is "impossible" and needs to be executed here
-    Identifier ADVANCEMENT_ID = new Identifier(BetterArcheology.MOD_ID, "loot_vase_broken");
+    Identifier ADVANCEMENT_ID = new Identifier(EvenBetterArcheology.MOD_ID, "loot_vase_broken");
     public LootVaseBlock(Settings settings) {
         super(settings);
     }

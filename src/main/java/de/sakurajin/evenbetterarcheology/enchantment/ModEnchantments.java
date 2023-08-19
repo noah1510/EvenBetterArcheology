@@ -1,6 +1,6 @@
 package de.sakurajin.evenbetterarcheology.enchantment;
 
-import de.sakurajin.evenbetterarcheology.BetterArcheology;
+import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import de.sakurajin.evenbetterarcheology.item.ModItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.enchantment.Enchantment;
@@ -22,7 +22,7 @@ public class ModEnchantments {
 
     private static Enchantment register(String name, Enchantment enchantment) {
         registerEnchantedBookWith(enchantment);
-        return Registry.register(Registries.ENCHANTMENT, new Identifier(BetterArcheology.MOD_ID, name), enchantment);
+        return Registry.register(Registries.ENCHANTMENT, new Identifier(EvenBetterArcheology.MOD_ID, name), enchantment);
     }
 
     private static void registerEnchantedBookWith(Enchantment enchantment) {
@@ -32,6 +32,6 @@ public class ModEnchantments {
 
     //LOGGER
     public static void registerModEnchantments() {
-        BetterArcheology.LOGGER.info("Registering Enchantments for " + BetterArcheology.MOD_ID);
+        EvenBetterArcheology.LOGGER.info("Registering Enchantments for " + EvenBetterArcheology.MOD_ID);
     }
 }

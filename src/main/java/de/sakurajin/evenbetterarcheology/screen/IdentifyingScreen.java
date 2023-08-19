@@ -1,7 +1,7 @@
 package de.sakurajin.evenbetterarcheology.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import de.sakurajin.evenbetterarcheology.BetterArcheology;
+import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.GameRenderer;
@@ -14,7 +14,7 @@ public class IdentifyingScreen extends HandledScreen<IdentifyingScreenHandler> {
 
     //saves archeology_table_gui as TEXTURE
     private static final Identifier TEXTURE =
-            new Identifier(BetterArcheology.MOD_ID, "textures/gui/archeology_table_gui.png");
+            new Identifier(EvenBetterArcheology.MOD_ID, "textures/gui/archeology_table_gui.png");
 
     public IdentifyingScreen(IdentifyingScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);

@@ -1,7 +1,6 @@
 package de.sakurajin.evenbetterarcheology.enchantment;
 
-import de.sakurajin.evenbetterarcheology.BetterArcheology;
-import de.sakurajin.evenbetterarcheology.util.ModConfigs;
+import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.enchantment.Enchantments;
@@ -42,7 +41,7 @@ public class PenetratingStrikeEnchantment extends ArtifactEnchantment {
      */
     @Override
     public void onTargetDamaged(LivingEntity user, Entity target, int level) {
-        if (!ModConfigs.ARTIFACT_ENCHANTMENTS_ENABLED) {return;}
+        if (!EvenBetterArcheology.CONFIG.ARTIFACT_ENCHANTMENTS_ENABLED()) {return;}
 
         //calculate total Protection of Armor
         int enchantmentProtectionFactor = 0;
@@ -70,8 +69,8 @@ public class PenetratingStrikeEnchantment extends ArtifactEnchantment {
         float totalProtectedDamage = (float) (damageInflicted * damagePercentageProtected);
 
         if (level == 1) {
-            target.damage(user.getDamageSources().mobAttack(user), (float) (totalProtectedDamage * ModConfigs.PENETRATING_STRIKE_PROTECTION_IGNORANCE));
-            BetterArcheology.LOGGER.info("Damage dealt back by Enchantment:" + totalProtectedDamage * ModConfigs.PENETRATING_STRIKE_PROTECTION_IGNORANCE);
+            target.damage(user.getDamageSources().mobAttack(user), (float) (totalProtectedDamage * EvenBetterArcheology.CONFIG.PENETRATING_STRIKE_PROTECTION_IGNORANCE()));
+            EvenBetterArcheology.LOGGER.info("Damage dealt back by Enchantment:" + totalProtectedDamage * EvenBetterArcheology.CONFIG.PENETRATING_STRIKE_PROTECTION_IGNORANCE());
         }
 
         //Audio Feedback

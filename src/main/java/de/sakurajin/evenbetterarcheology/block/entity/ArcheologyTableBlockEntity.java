@@ -1,9 +1,9 @@
 package de.sakurajin.evenbetterarcheology.block.entity;
 
+import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import de.sakurajin.evenbetterarcheology.networking.ModMessages;
 import de.sakurajin.evenbetterarcheology.screen.IdentifyingScreenHandler;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
-import de.sakurajin.evenbetterarcheology.BetterArcheology;
 import de.sakurajin.evenbetterarcheology.item.ModItems;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
@@ -63,7 +63,7 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
     private int maxProgress = 72;
 
     //loottable for crafting results
-    private static final Identifier CRAFTING_LOOT = new Identifier(BetterArcheology.MOD_ID, "identifying_loot");
+    private static final Identifier CRAFTING_LOOT = new Identifier(EvenBetterArcheology.MOD_ID, "identifying_loot");
 
     public ArcheologyTableBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.ARCHEOLOGY_TABLE, pos, state);

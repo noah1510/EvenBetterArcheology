@@ -90,5 +90,22 @@
   "enchantment.betterarcheology.soaring_winds": "Soaring Winds",
   "item.betterarcheology.soaring_winds_tooltip": "Harnesses winds to give a startup-boost when using an Elytra",
   "enchantment.betterarcheology.tunneling": "Tunneling",
-  "item.betterarcheology.tunneling_tooltip": "Also breaks the Block below the mined block"
+  "item.betterarcheology.tunneling_tooltip": "Also breaks the Block below the mined block",
+
+
+  "text.config.even_better_archeology.section.enchantments": "Enchantment Options",
+
+  "text.config.even_better_archeology.option.ARTIFACT_ENCHANTMENTS_ENABLED": "Enable Artifact Enchantments",
+  "text.config.even_better_archeology.option.ARTIFACT_ENCHANTMENTS_ENABLED.tooltip": "Toggle if Artifact Enchantments should be enabled",
+  "text.config.even_better_archeology.option.PENETRATING_STRIKE_PROTECTION_IGNORANCE": "Penetrating Strike Protection Ignorance",
+  "text.config.even_better_archeology.option.PENETRATING_STRIKE_PROTECTION_IGNORANCE.tooltip": "How much Protection should be ignored by Penetrating Strike? (0-1)",
+  "text.config.even_better_archeology.option.SOARING_WINDS_BOOST": "Soaring Winds Boost",
+  "text.config.even_better_archeology.option.SOARING_WINDS_BOOST.tooltip": "Change the boost given per level of Soaring Winds",
+  "text.config.even_better_archeology.option.SOARING_WINDS_MAXLEVEL": "Soaring Winds Max Level",
+  "text.config.even_better_archeology.option.SOARING_WINDS_MAXLEVEL.tooltip": "Change the maximum level of Soaring Winds",
+
+  "text.config.even_better_archeology.section.blocks": "Block Options",
+
+  "text.config.even_better_archeology.option.OCELOT_FOSSIL_FLEE_RANGE": "Ocelot Fossil Flee Range",
+  "text.config.even_better_archeology.option.OCELOT_FOSSIL_FLEE_RANGE.tooltip": "Change the range in which Creepers will flee from Ocelot Fossils"
 }

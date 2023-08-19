@@ -1,6 +1,6 @@
 package de.sakurajin.evenbetterarcheology.item;
 
-import de.sakurajin.evenbetterarcheology.BetterArcheology;
+import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.*;
@@ -38,19 +38,19 @@ public class ModItems {
      * @return Registry entry of given Item
      */
     public static Item registerItem(String name, Item item, RegistryKey<ItemGroup> group) {
-        Item registeredItem = Registry.register(Registries.ITEM, new Identifier(BetterArcheology.MOD_ID, name), item);
+        Item registeredItem = Registry.register(Registries.ITEM, new Identifier(EvenBetterArcheology.MOD_ID, name), item);
 
         ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(registeredItem));
         return registeredItem;
     }
 
     public static Item registerItemWithoutTab(String name, Item item) {
-        return Registry.register(Registries.ITEM, new Identifier(BetterArcheology.MOD_ID, name), item);
+        return Registry.register(Registries.ITEM, new Identifier(EvenBetterArcheology.MOD_ID, name), item);
     }
 
     //LOGGER-----------------------------------------------------------------------------//
     public static void registerModItems() {
         //status message
-        BetterArcheology.LOGGER.info("Registering Items from " + BetterArcheology.MOD_ID);
+        EvenBetterArcheology.LOGGER.info("Registering Items from " + EvenBetterArcheology.MOD_ID);
     }
 }

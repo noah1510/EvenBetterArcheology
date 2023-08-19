@@ -1,6 +1,6 @@
 package de.sakurajin.evenbetterarcheology.enchantment;
 
-import de.sakurajin.evenbetterarcheology.util.ModConfigs;
+import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ElytraItem;
@@ -13,7 +13,7 @@ public class SoaringWindsEnchantment extends ArtifactEnchantment {
 
     @Override
     public int getMaxLevel() {
-        return ModConfigs.SOARING_WINDS_MAXLEVEL;
+        return EvenBetterArcheology.CONFIG.SOARING_WINDS_MAXLEVEL();
     }
 
     @Override

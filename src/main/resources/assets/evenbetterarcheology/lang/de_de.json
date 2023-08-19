@@ -90,5 +90,22 @@
   "enchantment.betterarcheology.soaring_winds": "Aufwinde",
   "item.betterarcheology.soaring_winds_tooltip": "Bändigt den Wind, um beim Starten mit Elytren einen Start-Boost zu geben",
   "enchantment.betterarcheology.tunneling": "Tunnelbau",
-  "item.betterarcheology.tunneling_tooltip": "Baut auch den Block unterhalb des abgebauten Blocks ab"
+  "item.betterarcheology.tunneling_tooltip": "Baut auch den Block unterhalb des abgebauten Blocks ab",
+
+
+  "text.config.even_better_archeology.section.enchantments": "Verzauberungs Optionen",
+
+  "text.config.even_better_archeology.option.ARTIFACT_ENCHANTMENTS_ENABLED": "Artefakt-Verzauberungen aktiviert",
+  "text.config.even_better_archeology.option.ARTIFACT_ENCHANTMENTS_ENABLED.tooltip": "Sollen die Artefakt-Verzauberungen aktiviert sein?",
+  "text.config.even_better_archeology.option.PENETRATING_STRIKE_PROTECTION_IGNORANCE": "Durchdringender Hieb Schutz-Ignoranz",
+  "text.config.even_better_archeology.option.PENETRATING_STRIKE_PROTECTION_IGNORANCE.tooltip": "Wie viel Prozent der Schutz-Verzauberung soll ignoriert werden?",
+  "text.config.even_better_archeology.option.SOARING_WINDS_BOOST": "Aufwinde Boost",
+  "text.config.even_better_archeology.option.SOARING_WINDS_BOOST.tooltip": "Wie viel Boost soll Aufwinde pro Level geben?",
+  "text.config.even_better_archeology.option.SOARING_WINDS_MAXLEVEL": "Aufwinde Maximallevel",
+  "text.config.even_better_archeology.option.SOARING_WINDS_MAXLEVEL.tooltip": "Wie hoch soll das Maximallevel von Aufwinde sein?",
+
+  "text.config.even_better_archeology.section.blocks": "Block Optionen",
+
+  "text.config.even_better_archeology.option.OCELOT_FOSSIL_FLEE_RANGE": "Ocelot Fossil Flucht-Reichwite",
+  "text.config.even_better_archeology.option.OCELOT_FOSSIL_FLEE_RANGE.tooltip": "In welchem Radius sollen Creeper fliehen, wenn sie ein Ocelot-Fossil sehen?"
 }
