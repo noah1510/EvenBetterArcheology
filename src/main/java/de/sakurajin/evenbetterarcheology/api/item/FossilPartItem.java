@@ -1,4 +1,4 @@
-package de.sakurajin.evenbetterarcheology.item;
+package de.sakurajin.evenbetterarcheology.api.item;
 
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;

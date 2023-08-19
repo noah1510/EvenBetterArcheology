@@ -1,6 +1,7 @@
 package de.sakurajin.evenbetterarcheology.item;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
+import de.sakurajin.evenbetterarcheology.api.item.BetterBrushItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.*;

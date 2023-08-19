@@ -1,6 +1,7 @@
 package de.sakurajin.evenbetterarcheology.enchantment;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
+import de.sakurajin.evenbetterarcheology.api.ArtifactEnchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ElytraItem;

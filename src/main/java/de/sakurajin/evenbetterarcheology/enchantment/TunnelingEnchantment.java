@@ -1,12 +1,13 @@
 package de.sakurajin.evenbetterarcheology.enchantment;
 
+import de.sakurajin.evenbetterarcheology.api.ArtifactEnchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.ShovelItem;
 
-public class TunnelingEnchantment extends ArtifactEnchantment{
+public class TunnelingEnchantment extends ArtifactEnchantment {
     public TunnelingEnchantment(Rarity weight, EnchantmentTarget target, EquipmentSlot... slotTypes) {
         super(weight, target, slotTypes);
     }

@@ -1,4 +1,4 @@
-package de.sakurajin.evenbetterarcheology.item;
+package de.sakurajin.evenbetterarcheology.api.item;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
