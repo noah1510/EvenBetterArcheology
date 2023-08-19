@@ -2,13 +2,13 @@
   "variants": {
     "": [
       {
-        "model": "betterarcheology:block/loot_vase_0"
+        "model": "evenbetterarcheology:block/loot_vase_0"
       },
       {
-        "model": "betterarcheology:block/loot_vase_1"
+        "model": "evenbetterarcheology:block/loot_vase_1"
       },
       {
-        "model": "betterarcheology:block/loot_vase_2"
+        "model": "evenbetterarcheology:block/loot_vase_2"
       }
     ]
   }

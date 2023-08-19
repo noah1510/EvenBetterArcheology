@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "betterarcheology:iron_brush"
+        "recipe": "evenbetterarcheology:iron_brush"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "betterarcheology:iron_brush"
+      "evenbetterarcheology:iron_brush"
     ]
   }
 }

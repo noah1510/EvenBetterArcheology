@@ -1,14 +1,14 @@
 {
   "replace": false,
   "values": [
-    "betterarcheology:rotten_log",
-    "betterarcheology:rotten_planks",
-    "betterarcheology:rotten_stairs",
-    "betterarcheology:rotten_slab",
-    "betterarcheology:rotten_fence",
-    "betterarcheology:rotten_fence_gate",
-    "betterarcheology:rotten_trapdoor",
-    "betterarcheology:rotten_door",
-    "betterarcheology:archeology_table"
+    "evenbetterarcheology:rotten_log",
+    "evenbetterarcheology:rotten_planks",
+    "evenbetterarcheology:rotten_stairs",
+    "evenbetterarcheology:rotten_slab",
+    "evenbetterarcheology:rotten_fence",
+    "evenbetterarcheology:rotten_fence_gate",
+    "evenbetterarcheology:rotten_trapdoor",
+    "evenbetterarcheology:rotten_door",
+    "evenbetterarcheology:archeology_table"
   ]
 }

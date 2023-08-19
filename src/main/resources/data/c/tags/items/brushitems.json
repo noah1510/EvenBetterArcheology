@@ -2,7 +2,7 @@
   "replace": false,
   "values": [
     "minecraft:brush",
-    "betterarcheology:iron_brush",
-    "betterarcheology:diamond_brush"
+    "evenbetterarcheology:iron_brush",
+    "evenbetterarcheology:diamond_brush"
   ]
 }

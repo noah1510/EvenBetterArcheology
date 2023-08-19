@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "betterarcheology:ocelot_fossil_body"
+          "name": "evenbetterarcheology:ocelot_fossil_body"
         }
       ],
       "rolls": 1.0

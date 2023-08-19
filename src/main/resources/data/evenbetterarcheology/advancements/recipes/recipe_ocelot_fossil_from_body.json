@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "betterarcheology:ocelot_fossil_body"
+              "evenbetterarcheology:ocelot_fossil_body"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "betterarcheology:ocelot_fossil"
+        "recipe": "evenbetterarcheology:ocelot_fossil"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "betterarcheology:ocelot_fossil"
+      "evenbetterarcheology:ocelot_fossil"
     ]
   }
 }

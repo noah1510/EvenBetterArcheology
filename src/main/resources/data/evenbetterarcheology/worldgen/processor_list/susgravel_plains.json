@@ -7,7 +7,7 @@
           {
             "block_entity_modifier": {
               "type": "minecraft:append_loot",
-              "loot_table": "betterarcheology:archeology/plains_gravel"
+              "loot_table": "evenbetterarcheology:archeology/plains_gravel"
             },
             "input_predicate": {
               "block": "minecraft:gravel",

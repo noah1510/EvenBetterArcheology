@@ -1,13 +1,13 @@
 {
-  "type": "betterarcheology:betterarcheology_structures",
+  "type": "evenbetterarcheology:evenbetterarcheology_structures",
 
-  "start_pool": "betterarcheology:underwater_2",
+  "start_pool": "evenbetterarcheology:underwater_2",
 
   "size": 1,
 
   "max_distance_from_center": 80,
 
-  "biomes": "#betterarcheology:has_structure/underwater",
+  "biomes": "#evenbetterarcheology:has_structure/underwater",
 
   "step": "surface_structures",
 

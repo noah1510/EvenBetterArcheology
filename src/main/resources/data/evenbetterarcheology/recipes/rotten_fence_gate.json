@@ -7,7 +7,7 @@
       "item": "minecraft:stick"
     },
     "W": {
-      "item": "betterarcheology:rotten_planks"
+      "item": "evenbetterarcheology:rotten_planks"
     }
   },
   "pattern": [
@@ -15,7 +15,7 @@
     "#W#"
   ],
   "result": {
-    "item": "betterarcheology:rotten_fence_gate"
+    "item": "evenbetterarcheology:rotten_fence_gate"
   },
   "show_notification": true
 }

@@ -4,7 +4,7 @@
     "group": "wooden_stairs",
     "key": {
         "#": {
-            "item": "betterarcheology:cracked_mud_bricks"
+            "item": "evenbetterarcheology:cracked_mud_bricks"
         }
     },
     "pattern": [
@@ -14,7 +14,7 @@
     ],
     "result": {
         "count": 4,
-        "item": "betterarcheology:cracked_mud_brick_stairs"
+        "item": "evenbetterarcheology:cracked_mud_brick_stairs"
     },
     "show_notification": true
 }

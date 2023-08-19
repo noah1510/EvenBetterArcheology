@@ -10,7 +10,7 @@
 				},
 				{
 					"type": "minecraft:item",
-					"name": "betterarcheology:torrent_totem"
+					"name": "evenbetterarcheology:torrent_totem"
 				}
 			],
 			"conditions": [

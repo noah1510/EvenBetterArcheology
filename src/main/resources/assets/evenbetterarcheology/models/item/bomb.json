@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "betterarcheology:item/bomb"
+    "layer0": "evenbetterarcheology:item/bomb"
   },
   "display": {
     "thirdperson_righthand": {

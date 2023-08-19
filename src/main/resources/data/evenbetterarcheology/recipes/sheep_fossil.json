@@ -2,14 +2,14 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "betterarcheology:sheep_fossil_head"
+      "item": "evenbetterarcheology:sheep_fossil_head"
     },
     {
-      "item": "betterarcheology:sheep_fossil_body"
+      "item": "evenbetterarcheology:sheep_fossil_body"
     }
   ],
   "result": {
-    "item": "betterarcheology:sheep_fossil",
+    "item": "evenbetterarcheology:sheep_fossil",
     "count": 1
   }
 }

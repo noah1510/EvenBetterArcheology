@@ -6,9 +6,9 @@
       "weight": 1,
       "element": {
 
-        "location": "betterarcheology:villager_grave",
+        "location": "evenbetterarcheology:villager_grave",
 
-        "processors": "betterarcheology:fossil_villager",
+        "processors": "evenbetterarcheology:fossil_villager",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

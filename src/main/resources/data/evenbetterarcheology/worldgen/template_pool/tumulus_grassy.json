@@ -6,9 +6,9 @@
       "weight": 1,
       "element": {
 
-        "location": "betterarcheology:tumulus_grassy",
+        "location": "evenbetterarcheology:tumulus_grassy",
 
-        "processors": "betterarcheology:tumulus",
+        "processors": "evenbetterarcheology:tumulus",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

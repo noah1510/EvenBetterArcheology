@@ -6,9 +6,9 @@
       "weight": 1,
       "element": {
 
-        "location": "betterarcheology:underwater_1",
+        "location": "evenbetterarcheology:underwater_1",
 
-        "processors": "betterarcheology:sussand_underwater",
+        "processors": "evenbetterarcheology:sussand_underwater",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

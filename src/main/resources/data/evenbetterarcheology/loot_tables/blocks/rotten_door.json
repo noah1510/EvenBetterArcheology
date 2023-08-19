@@ -10,7 +10,7 @@
           "children": [
             {
               "type": "minecraft:item",
-              "name": "betterarcheology:rotten_door",
+              "name": "evenbetterarcheology:rotten_door",
               "functions": [
                 {
                   "function": "minecraft:set_count",
@@ -30,7 +30,7 @@
                 },
                 {
                   "condition": "minecraft:block_state_property",
-                  "block": "betterarcheology:rotten_door",
+                  "block": "evenbetterarcheology:rotten_door",
                   "properties": {
                     "half": "lower"
                   }
@@ -42,7 +42,7 @@
               "conditions": [
                 {
                   "condition": "minecraft:block_state_property",
-                  "block": "betterarcheology:rotten_door",
+                  "block": "evenbetterarcheology:rotten_door",
                   "properties": {
                     "half": "lower"
                   }

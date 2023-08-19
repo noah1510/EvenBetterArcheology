@@ -6,9 +6,9 @@
       "weight": 1,
       "element": {
 
-        "location": "betterarcheology:temple_jungle",
+        "location": "evenbetterarcheology:temple_jungle",
 
-        "processors": "betterarcheology:temple_jungle",
+        "processors": "evenbetterarcheology:temple_jungle",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

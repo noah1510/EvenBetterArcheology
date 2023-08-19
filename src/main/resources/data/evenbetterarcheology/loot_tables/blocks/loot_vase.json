@@ -10,7 +10,7 @@
           "children": [
             {
               "type": "minecraft:item",
-              "name": "betterarcheology:vase",
+              "name": "evenbetterarcheology:vase",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",
@@ -29,7 +29,7 @@
             },
             {
               "type": "minecraft:loot_table",
-              "name": "betterarcheology:blocks/loot_from_loot_vase"
+              "name": "evenbetterarcheology:blocks/loot_from_loot_vase"
             }
           ]
         }

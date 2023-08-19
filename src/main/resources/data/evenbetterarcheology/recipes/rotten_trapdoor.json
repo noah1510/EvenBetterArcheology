@@ -4,7 +4,7 @@
   "group": "wooden_trapdoor",
   "key": {
     "#": {
-      "item": "betterarcheology:rotten_planks"
+      "item": "evenbetterarcheology:rotten_planks"
     }
   },
   "pattern": [
@@ -13,7 +13,7 @@
   ],
   "result": {
     "count": 2,
-    "item": "betterarcheology:rotten_trapdoor"
+    "item": "evenbetterarcheology:rotten_trapdoor"
   },
   "show_notification": true
 }

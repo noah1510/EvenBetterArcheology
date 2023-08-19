@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/orientable",
   "textures": {
-    "front": "betterarcheology:block/evoker_trap",
+    "front": "evenbetterarcheology:block/evoker_trap",
     "side": "minecraft:block/furnace_side",
     "top": "minecraft:block/furnace_top"
   }

@@ -10,7 +10,7 @@
           "children": [
             {
               "type": "minecraft:item",
-              "name": "betterarcheology:rotten_fence",
+              "name": "evenbetterarcheology:rotten_fence",
               "functions": [
                 {
                   "function": "minecraft:set_count",

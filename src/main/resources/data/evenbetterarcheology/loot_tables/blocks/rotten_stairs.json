@@ -10,7 +10,7 @@
           "children": [
             {
               "type": "minecraft:item",
-              "name": "betterarcheology:rotten_stairs",
+              "name": "evenbetterarcheology:rotten_stairs",
               "functions": [
                 {
                   "function": "minecraft:set_count",

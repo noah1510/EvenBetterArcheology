@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "betterarcheology:block/fossils/villager_fossil",
+		"0": "evenbetterarcheology:block/fossils/villager_fossil",
 		"particle": "item/bone"
 	},
 	"elements": [

@@ -9,17 +9,17 @@
           },
           "input_predicate": {
             "predicate_type": "minecraft:block_match",
-            "block": "betterarcheology:suspicious_dirt"
+            "block": "evenbetterarcheology:suspicious_dirt"
           },
           "output_state": {
-            "Name": "betterarcheology:suspicious_dirt",
+            "Name": "evenbetterarcheology:suspicious_dirt",
             "Properties": {
               "dusted": "0"
             }
           },
           "block_entity_modifier": {
             "type": "minecraft:append_loot",
-            "loot_table": "betterarcheology:archeology/taiga_dirt"
+            "loot_table": "evenbetterarcheology:archeology/taiga_dirt"
           }
         }
       ]

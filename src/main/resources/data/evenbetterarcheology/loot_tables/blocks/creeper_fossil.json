@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "betterarcheology:creeper_fossil"
+          "name": "evenbetterarcheology:creeper_fossil"
         }
       ],
       "rolls": 1.0

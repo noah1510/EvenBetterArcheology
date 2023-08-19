@@ -6,9 +6,9 @@
       "weight": 1,
       "element": {
 
-        "location": "betterarcheology:fossil_chicken",
+        "location": "evenbetterarcheology:fossil_chicken",
 
-        "processors": "betterarcheology:fossil_chicken",
+        "processors": "evenbetterarcheology:fossil_chicken",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

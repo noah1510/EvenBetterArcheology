@@ -8,12 +8,12 @@
         {
           "type": "minecraft:item",
           "weight": 1,
-          "name": "betterarcheology:villager_fossil_head"
+          "name": "evenbetterarcheology:villager_fossil_head"
         },
         {
           "type": "minecraft:item",
           "weight": 1,
-          "name": "betterarcheology:villager_fossil_body"
+          "name": "evenbetterarcheology:villager_fossil_body"
         },
         {
           "type": "minecraft:item",

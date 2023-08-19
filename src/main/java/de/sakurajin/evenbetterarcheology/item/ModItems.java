@@ -14,19 +14,19 @@ public class ModItems {
 
     //ITEM ENTRIES-------------------------------------------------------------------------//
     //BRUSHES
-    public static final Item IRON_BRUSH = registerItem("iron_brush", (Item) (new BetterBrushItem((new Item.Settings()).maxDamage(128), 8)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+    public static final Item IRON_BRUSH = registerItem("iron_brush", (Item) (new BetterBrushItem((new Item.Settings()).maxDamage(128), 8)), ModItemGroup.EVEN_BETTER_ARCHEOLOGY_ITEMGROUP);
 
-    public static final Item DIAMOND_BRUSH = registerItem("diamond_brush", (Item) (new BetterBrushItem((new Item.Settings()).maxDamage(256), 6)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+    public static final Item DIAMOND_BRUSH = registerItem("diamond_brush", (Item) (new BetterBrushItem((new Item.Settings()).maxDamage(256), 6)), ModItemGroup.EVEN_BETTER_ARCHEOLOGY_ITEMGROUP);
 
-    public static final Item ARTIFACT_SHARDS = registerItem("artifact_shards", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+    public static final Item ARTIFACT_SHARDS = registerItem("artifact_shards", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)), ModItemGroup.EVEN_BETTER_ARCHEOLOGY_ITEMGROUP);
 
-    public static final Item UNIDENTIFIED_ARTIFACT = registerItem("unidentified_artifact", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+    public static final Item UNIDENTIFIED_ARTIFACT = registerItem("unidentified_artifact", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)), ModItemGroup.EVEN_BETTER_ARCHEOLOGY_ITEMGROUP);
 
     //LOOT ITEMS
-    public static final Item BOMB_ITEM = registerItem("bomb", new BombItem(new FabricItemSettings().rarity(Rarity.COMMON).maxCount(16)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
-    public static final Item TORRENT_TOTEM = registerItem("torrent_totem", new TorrentTotemItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).maxDamage(32)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+    public static final Item BOMB_ITEM = registerItem("bomb", new BombItem(new FabricItemSettings().rarity(Rarity.COMMON).maxCount(16)), ModItemGroup.EVEN_BETTER_ARCHEOLOGY_ITEMGROUP);
+    public static final Item TORRENT_TOTEM = registerItem("torrent_totem", new TorrentTotemItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).maxDamage(32)), ModItemGroup.EVEN_BETTER_ARCHEOLOGY_ITEMGROUP);
 
-    public static final Item SOUL_TOTEM = registerItem("soul_totem", new SoulTotemItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxDamage(32)), ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP);
+    public static final Item SOUL_TOTEM = registerItem("soul_totem", new SoulTotemItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxDamage(32)), ModItemGroup.EVEN_BETTER_ARCHEOLOGY_ITEMGROUP);
 
     //REGISTERING--------------------------------------------------------------------------//
 

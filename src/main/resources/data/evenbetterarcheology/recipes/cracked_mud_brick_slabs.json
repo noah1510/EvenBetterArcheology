@@ -3,7 +3,7 @@
     "category": "building",
     "key": {
         "#": {
-            "item": "betterarcheology:cracked_mud_bricks"
+            "item": "evenbetterarcheology:cracked_mud_bricks"
         }
     },
     "pattern": [
@@ -11,7 +11,7 @@
     ],
     "result": {
         "count": 6,
-        "item": "betterarcheology:cracked_mud_brick_slab"
+        "item": "evenbetterarcheology:cracked_mud_brick_slab"
     },
     "show_notification": true
 }

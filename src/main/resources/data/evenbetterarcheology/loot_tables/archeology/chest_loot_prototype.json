@@ -99,7 +99,7 @@
 				{
 					"type": "minecraft:item",
 					"weight": 6,
-					"name": "betterarcheology:bomb",
+					"name": "evenbetterarcheology:bomb",
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -473,12 +473,12 @@
 				{
 					"type": "minecraft:loot_table",
 					"weight": 5,
-					"name": "betterarcheology:archeology/sword_loot"
+					"name": "evenbetterarcheology:archeology/sword_loot"
 				},
 				{
 					"type": "minecraft:item",
 					"weight": 1,
-					"name": "betterarcheology:torrent_totem"
+					"name": "evenbetterarcheology:torrent_totem"
 				}
 			],
 			"conditions": [
@@ -499,12 +499,12 @@
 				{
 					"type": "minecraft:item",
 					"weight": 3,
-					"name": "betterarcheology:iron_brush"
+					"name": "evenbetterarcheology:iron_brush"
 				},
 				{
 					"type": "minecraft:item",
 					"weight": 1,
-					"name": "betterarcheology:diamond_brush"
+					"name": "evenbetterarcheology:diamond_brush"
 				}
 			],
 			"conditions": [

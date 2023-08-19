@@ -9,17 +9,17 @@
           },
           "input_predicate": {
             "predicate_type": "minecraft:block_match",
-            "block": "betterarcheology:suspicious_red_sand"
+            "block": "evenbetterarcheology:suspicious_red_sand"
           },
           "output_state": {
-            "Name": "betterarcheology:suspicious_red_sand",
+            "Name": "evenbetterarcheology:suspicious_red_sand",
             "Properties": {
               "dusted": "0"
             }
           },
           "block_entity_modifier": {
             "type": "minecraft:append_loot",
-            "loot_table": "betterarcheology:archeology/mesa_red_sand"
+            "loot_table": "evenbetterarcheology:archeology/mesa_red_sand"
           }
         }
       ]

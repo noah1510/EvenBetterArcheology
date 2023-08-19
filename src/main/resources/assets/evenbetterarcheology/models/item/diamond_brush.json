@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/brush",
   "textures": {
-    "layer0": "betterarcheology:item/brushes/diamond_brush"
+    "layer0": "evenbetterarcheology:item/brushes/diamond_brush"
   }
 }

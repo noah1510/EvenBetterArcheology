@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "betterarcheology:creeper_fossil_body"
+              "evenbetterarcheology:creeper_fossil_body"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "betterarcheology:creeper_fossil"
+        "recipe": "evenbetterarcheology:creeper_fossil"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "betterarcheology:creeper_fossil"
+      "evenbetterarcheology:creeper_fossil"
     ]
   }
 }

@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "betterarcheology:villager_fossil_body"
+          "name": "evenbetterarcheology:villager_fossil_body"
         }
       ],
       "rolls": 1.0

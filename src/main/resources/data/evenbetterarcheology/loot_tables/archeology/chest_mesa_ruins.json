@@ -6,7 +6,7 @@
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"name": "betterarcheology:soul_totem"
+					"name": "evenbetterarcheology:soul_totem"
 				},
 				{
 					"type": "minecraft:item",
@@ -29,7 +29,7 @@
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"name": "betterarcheology:bomb",
+					"name": "evenbetterarcheology:bomb",
 					"functions": [
 						{
 							"function": "minecraft:set_count",

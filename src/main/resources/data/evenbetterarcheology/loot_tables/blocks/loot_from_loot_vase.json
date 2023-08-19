@@ -7,12 +7,12 @@
         {
           "type": "minecraft:loot_table",
           "weight": 3,
-          "name": "betterarcheology:blocks/supply_loot_from_loot_vase"
+          "name": "evenbetterarcheology:blocks/supply_loot_from_loot_vase"
         },
         {
           "type": "minecraft:loot_table",
           "weight": 1,
-          "name": "betterarcheology:blocks/treasure_loot_from_loot_vase"
+          "name": "evenbetterarcheology:blocks/treasure_loot_from_loot_vase"
         }
       ]
     }

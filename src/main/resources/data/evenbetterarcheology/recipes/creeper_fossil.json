@@ -2,14 +2,14 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "betterarcheology:creeper_fossil_head"
+      "item": "evenbetterarcheology:creeper_fossil_head"
     },
     {
-      "item": "betterarcheology:creeper_fossil_body"
+      "item": "evenbetterarcheology:creeper_fossil_body"
     }
   ],
   "result": {
-    "item": "betterarcheology:creeper_fossil",
+    "item": "evenbetterarcheology:creeper_fossil",
     "count": 1
   }
 }

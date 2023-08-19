@@ -1,13 +1,13 @@
 {
-  "type": "betterarcheology:betterarcheology_structures",
+  "type": "evenbetterarcheology:evenbetterarcheology_structures",
 
-  "start_pool": "betterarcheology:tumulus_grassy",
+  "start_pool": "evenbetterarcheology:tumulus_grassy",
 
   "size": 1,
 
   "max_distance_from_center": 80,
 
-  "biomes": "#betterarcheology:has_structure/tumulus_grassy",
+  "biomes": "#evenbetterarcheology:has_structure/tumulus_grassy",
 
   "step": "surface_structures",
 

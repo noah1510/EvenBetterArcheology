@@ -6,9 +6,9 @@
       "weight": 1,
       "element": {
 
-        "location": "betterarcheology:mott",
+        "location": "evenbetterarcheology:mott",
 
-        "processors": "betterarcheology:susdirt_taiga",
+        "processors": "evenbetterarcheology:susdirt_taiga",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

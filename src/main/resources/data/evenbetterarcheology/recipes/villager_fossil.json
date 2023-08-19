@@ -2,14 +2,14 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "betterarcheology:villager_fossil_head"
+      "item": "evenbetterarcheology:villager_fossil_head"
     },
     {
-      "item": "betterarcheology:villager_fossil_body"
+      "item": "evenbetterarcheology:villager_fossil_body"
     }
   ],
   "result": {
-    "item": "betterarcheology:villager_fossil",
+    "item": "evenbetterarcheology:villager_fossil",
     "count": 1
   }
 }

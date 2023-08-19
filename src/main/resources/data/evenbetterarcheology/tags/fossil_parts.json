@@ -1,11 +1,11 @@
 {
   "replace": false,
   "values": [
-    "betterarcheology:villager_fossil_head",
-    "betterarcheology:villager_fossil_body",
-    "betterarcheology:ocelot_fossil_head",
-    "betterarcheology:ocelot_fossil_body",
-    "betterarcheology:sheep_fossil_head",
-    "betterarcheology:sheep_fossil_body"
+    "evenbetterarcheology:villager_fossil_head",
+    "evenbetterarcheology:villager_fossil_body",
+    "evenbetterarcheology:ocelot_fossil_head",
+    "evenbetterarcheology:ocelot_fossil_body",
+    "evenbetterarcheology:sheep_fossil_head",
+    "evenbetterarcheology:sheep_fossil_body"
   ]
 }

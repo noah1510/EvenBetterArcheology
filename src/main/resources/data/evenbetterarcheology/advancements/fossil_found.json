@@ -1,22 +1,22 @@
 {
   "parent": "minecraft:adventure/root",
   "criteria": {
-    "betterarcheology:fossil_found": {
+    "evenbetterarcheology:fossil_found": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "betterarcheology:villager_fossil_head",
-              "betterarcheology:villager_fossil_body",
-              "betterarcheology:ocelot_fossil_head",
-              "betterarcheology:ocelot_fossil_body",
-              "betterarcheology:sheep_fossil_head",
-              "betterarcheology:sheep_fossil_body",
-              "betterarcheology:chicken_fossil_head",
-              "betterarcheology:chicken_fossil_body",
-              "betterarcheology:creeper_fossil_head",
-              "betterarcheology:creeper_fossil_body"
+              "evenbetterarcheology:villager_fossil_head",
+              "evenbetterarcheology:villager_fossil_body",
+              "evenbetterarcheology:ocelot_fossil_head",
+              "evenbetterarcheology:ocelot_fossil_body",
+              "evenbetterarcheology:sheep_fossil_head",
+              "evenbetterarcheology:sheep_fossil_body",
+              "evenbetterarcheology:chicken_fossil_head",
+              "evenbetterarcheology:chicken_fossil_body",
+              "evenbetterarcheology:creeper_fossil_head",
+              "evenbetterarcheology:creeper_fossil_body"
             ]
           }
         ]
@@ -25,7 +25,7 @@
   },
   "display": {
     "icon": {
-      "item": "betterarcheology:villager_fossil_head"
+      "item": "evenbetterarcheology:villager_fossil_head"
     },
     "title": {
       "translate": "advancements.fossil_found"
@@ -40,7 +40,7 @@
   },
   "requirements": [
     [
-      "betterarcheology:fossil_found"
+      "evenbetterarcheology:fossil_found"
     ]
   ],
   "sends_telemetry_event": true

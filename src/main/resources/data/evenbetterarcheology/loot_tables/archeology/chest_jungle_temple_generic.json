@@ -84,7 +84,7 @@
 				{
 					"type": "minecraft:item",
 					"weight": 6,
-					"name": "betterarcheology:bomb",
+					"name": "evenbetterarcheology:bomb",
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -352,12 +352,12 @@
 				{
 					"type": "minecraft:item",
 					"weight": 3,
-					"name": "betterarcheology:iron_brush"
+					"name": "evenbetterarcheology:iron_brush"
 				},
 				{
 					"type": "minecraft:item",
 					"weight": 1,
-					"name": "betterarcheology:diamond_brush"
+					"name": "evenbetterarcheology:diamond_brush"
 				}
 			],
 			"conditions": [

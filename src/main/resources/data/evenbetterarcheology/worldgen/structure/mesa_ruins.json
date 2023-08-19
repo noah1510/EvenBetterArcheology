@@ -1,13 +1,13 @@
 {
-  "type": "betterarcheology:betterarcheology_structures",
+  "type": "evenbetterarcheology:evenbetterarcheology_structures",
 
-  "start_pool": "betterarcheology:mesa_ruins",
+  "start_pool": "evenbetterarcheology:mesa_ruins",
 
   "size": 1,
 
   "max_distance_from_center": 80,
 
-  "biomes": "#betterarcheology:has_structure/mesa_ruins",
+  "biomes": "#evenbetterarcheology:has_structure/mesa_ruins",
 
   "step": "surface_structures",
 

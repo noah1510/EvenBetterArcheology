@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "betterarcheology:artifact_shards"
+      "item": "evenbetterarcheology:artifact_shards"
     },
     "title": {
       "translate": "advancements.shards"
@@ -14,7 +14,7 @@
     "announce_to_chat": false,
     "hidden": false
   },
-  "parent": "betterarcheology:loot_vase_broken",
+  "parent": "evenbetterarcheology:loot_vase_broken",
   "criteria": {
     "has_shards": {
       "trigger": "minecraft:inventory_changed",
@@ -22,7 +22,7 @@
         "items": [
           {
             "items": [
-              "betterarcheology:artifact_shards"
+              "evenbetterarcheology:artifact_shards"
             ]
           }
         ]
@@ -36,7 +36,7 @@
   ],
   "rewards": {
     "recipes": [
-      "betterarcheology:unidentified_artifact"
+      "evenbetterarcheology:unidentified_artifact"
     ]
   }
 }

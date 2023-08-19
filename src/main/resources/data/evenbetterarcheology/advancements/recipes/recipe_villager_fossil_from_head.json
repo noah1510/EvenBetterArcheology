@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "betterarcheology:villager_fossil_head"
+              "evenbetterarcheology:villager_fossil_head"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "betterarcheology:villager_fossil"
+        "recipe": "evenbetterarcheology:villager_fossil"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "betterarcheology:villager_fossil"
+      "evenbetterarcheology:villager_fossil"
     ]
   }
 }

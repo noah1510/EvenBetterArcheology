@@ -6,9 +6,9 @@
       "weight": 1,
       "element": {
 
-        "location": "betterarcheology:fossil_jungle_0",
+        "location": "evenbetterarcheology:fossil_jungle_0",
 
-        "processors": "betterarcheology:fossil_jungle",
+        "processors": "evenbetterarcheology:fossil_jungle",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

@@ -1,11 +1,11 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "betterarcheology:block/archeology_table/archeology_table_front",
-		"1": "betterarcheology:block/archeology_table/archeology_table_side",
-		"2": "betterarcheology:block/archeology_table/archeology_table_top",
-		"3": "betterarcheology:block/archeology_table/archeology_table_bottom",
-		"particle": "betterarcheology:block/archeology_table/archeology_table_front"
+		"0": "evenbetterarcheology:block/archeology_table/archeology_table_front",
+		"1": "evenbetterarcheology:block/archeology_table/archeology_table_side",
+		"2": "evenbetterarcheology:block/archeology_table/archeology_table_top",
+		"3": "evenbetterarcheology:block/archeology_table/archeology_table_bottom",
+		"particle": "evenbetterarcheology:block/archeology_table/archeology_table_front"
 	},
 	"elements": [
 		{

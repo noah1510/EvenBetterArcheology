@@ -10,7 +10,7 @@
           "children": [
             {
               "type": "minecraft:item",
-              "name": "betterarcheology:rotten_slab",
+              "name": "evenbetterarcheology:rotten_slab",
               "functions": [
                 {
                   "function": "minecraft:set_count",

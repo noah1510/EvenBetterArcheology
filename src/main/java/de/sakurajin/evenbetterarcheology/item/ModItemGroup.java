@@ -17,10 +17,10 @@ public class ModItemGroup {
     Creates FabricItemGroup with an ItemStack as a Symbol
     The Name of the Tab is located in the .lang file under "itemGroup.betterarcheology"
      */
-    public static final RegistryKey<ItemGroup> BETTER_ARCHEOLOGY_ITEMGROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(EvenBetterArcheology.MOD_ID, "betterarcheology"));
+    public static final RegistryKey<ItemGroup> EVEN_BETTER_ARCHEOLOGY_ITEMGROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(EvenBetterArcheology.MOD_ID, "evenbetterarcheology"));
 
     public static void registerTab() {
-        Registry.register(Registries.ITEM_GROUP, BETTER_ARCHEOLOGY_ITEMGROUP, FabricItemGroup.builder().displayName(Text.translatable("itemGroup." + EvenBetterArcheology.MOD_ID)).icon(() -> new ItemStack(ModItems.UNIDENTIFIED_ARTIFACT)).entries((context, entries) -> {
+        Registry.register(Registries.ITEM_GROUP, EVEN_BETTER_ARCHEOLOGY_ITEMGROUP, FabricItemGroup.builder().displayName(Text.translatable("itemGroup." + EvenBetterArcheology.MOD_ID)).icon(() -> new ItemStack(ModItems.UNIDENTIFIED_ARTIFACT)).entries((context, entries) -> {
         }).build());
     }
 }

@@ -129,7 +129,7 @@
         {
           "type": "minecraft:item",
           "weight": 1,
-          "name": "betterarcheology:soul_totem"
+          "name": "evenbetterarcheology:soul_totem"
         }
       ]
     }

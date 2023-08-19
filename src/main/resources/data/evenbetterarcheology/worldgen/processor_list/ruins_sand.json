@@ -23,7 +23,7 @@
             },
             "block_entity_modifier": {
               "type": "minecraft:append_loot",
-              "loot_table": "betterarcheology:archeology/plains_gravel"
+              "loot_table": "evenbetterarcheology:archeology/plains_gravel"
             }
           }
         ]
@@ -45,7 +45,7 @@
           },
           "block_entity_modifier": {
             "type": "minecraft:append_loot",
-            "loot_table": "betterarcheology:archeology/chest_buried_ruins_sand"
+            "loot_table": "evenbetterarcheology:archeology/chest_buried_ruins_sand"
           }
         }
       ]

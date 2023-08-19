@@ -19,7 +19,7 @@
           },
           "block_entity_modifier": {
             "type": "minecraft:append_loot",
-            "loot_table": "betterarcheology:archeology/sussand_underwater"
+            "loot_table": "evenbetterarcheology:archeology/sussand_underwater"
           }
         },
         {
@@ -35,7 +35,7 @@
           },
           "block_entity_modifier": {
             "type": "minecraft:append_loot",
-            "loot_table": "betterarcheology:archeology/chest_underwater"
+            "loot_table": "evenbetterarcheology:archeology/chest_underwater"
           }
         }
       ]

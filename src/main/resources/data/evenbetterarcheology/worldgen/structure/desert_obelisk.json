@@ -1,13 +1,13 @@
 {
-  "type": "betterarcheology:betterarcheology_structures",
+  "type": "evenbetterarcheology:evenbetterarcheology_structures",
 
-  "start_pool": "betterarcheology:desert_obelisk",
+  "start_pool": "evenbetterarcheology:desert_obelisk",
 
   "size": 1,
 
   "max_distance_from_center": 80,
 
-  "biomes": "#betterarcheology:has_structure/desert_obelisk",
+  "biomes": "#evenbetterarcheology:has_structure/desert_obelisk",
 
   "step": "surface_structures",
 

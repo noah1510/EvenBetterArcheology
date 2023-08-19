@@ -1,13 +1,13 @@
 {
-  "parent": "betterarcheology:artifact_shards",
+  "parent": "evenbetterarcheology:artifact_shards",
   "criteria": {
-    "betterarcheology:artifact": {
+    "evenbetterarcheology:artifact": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "betterarcheology:unidentified_artifact"
+              "evenbetterarcheology:unidentified_artifact"
             ]
           }
         ]
@@ -16,7 +16,7 @@
   },
   "display": {
     "icon": {
-      "item": "betterarcheology:unidentified_artifact"
+      "item": "evenbetterarcheology:unidentified_artifact"
     },
     "title": {
       "translate": "advancements.artifact"
@@ -31,7 +31,7 @@
   },
   "requirements": [
     [
-      "betterarcheology:artifact"
+      "evenbetterarcheology:artifact"
     ]
   ],
   "sends_telemetry_event": true

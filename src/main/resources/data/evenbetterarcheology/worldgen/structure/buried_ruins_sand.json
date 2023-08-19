@@ -1,13 +1,13 @@
 {
-  "type": "betterarcheology:betterarcheology_structures",
+  "type": "evenbetterarcheology:evenbetterarcheology_structures",
 
-  "start_pool": "betterarcheology:buried_ruins_sand",
+  "start_pool": "evenbetterarcheology:buried_ruins_sand",
 
   "size": 1,
 
   "max_distance_from_center": 80,
 
-  "biomes": "#betterarcheology:has_structure/buried_ruins_sand",
+  "biomes": "#evenbetterarcheology:has_structure/buried_ruins_sand",
 
   "step": "surface_structures",
 

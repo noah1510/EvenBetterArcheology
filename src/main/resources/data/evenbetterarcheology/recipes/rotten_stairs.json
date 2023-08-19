@@ -4,7 +4,7 @@
     "group": "wooden_stairs",
     "key": {
         "#": {
-            "item": "betterarcheology:rotten_planks"
+            "item": "evenbetterarcheology:rotten_planks"
         }
     },
     "pattern": [
@@ -14,7 +14,7 @@
     ],
     "result": {
         "count": 4,
-        "item": "betterarcheology:rotten_stairs"
+        "item": "evenbetterarcheology:rotten_stairs"
     },
     "show_notification": true
 }

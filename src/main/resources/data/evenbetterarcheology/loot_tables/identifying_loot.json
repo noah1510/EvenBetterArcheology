@@ -11,14 +11,14 @@
             {
               "function": "minecraft:set_enchantments",
               "enchantments": {
-                "betterarcheology:penetrating_strike": 1
+                "evenbetterarcheology:penetrating_strike": 1
               }
             },
             {
               "function": "minecraft:set_lore",
               "lore": [
                 {
-                  "translate": "item.betterarcheology.penetrating_strike_tooltip",
+                  "translate": "item.evenbetterarcheology.penetrating_strike_tooltip",
                   "color": "dark_gray"
                 }
               ]
@@ -26,7 +26,7 @@
             {
               "function": "minecraft:set_name",
               "name": {
-                "translate": "item.betterarcheology.identified_artifact"
+                "translate": "item.evenbetterarcheology.identified_artifact"
               }
             }
           ]
@@ -39,14 +39,14 @@
             {
               "function": "minecraft:set_enchantments",
               "enchantments": {
-                "betterarcheology:soaring_winds": 1
+                "evenbetterarcheology:soaring_winds": 1
               }
             },
             {
               "function": "minecraft:set_lore",
               "lore": [
                 {
-                  "translate": "item.betterarcheology.soaring_winds_tooltip",
+                  "translate": "item.evenbetterarcheology.soaring_winds_tooltip",
                   "color": "dark_gray"
                 }
               ]
@@ -54,7 +54,7 @@
             {
               "function": "minecraft:set_name",
               "name": {
-                "translate": "item.betterarcheology.identified_artifact"
+                "translate": "item.evenbetterarcheology.identified_artifact"
               }
             }
           ]
@@ -67,14 +67,14 @@
             {
               "function": "minecraft:set_enchantments",
               "enchantments": {
-                "betterarcheology:tunneling": 1
+                "evenbetterarcheology:tunneling": 1
               }
             },
             {
               "function": "minecraft:set_lore",
               "lore": [
                 {
-                  "translate": "item.betterarcheology.tunneling_tooltip",
+                  "translate": "item.evenbetterarcheology.tunneling_tooltip",
                   "color": "dark_gray"
                 }
               ]
@@ -82,7 +82,7 @@
             {
               "function": "minecraft:set_name",
               "name": {
-                "translate": "item.betterarcheology.identified_artifact"
+                "translate": "item.evenbetterarcheology.identified_artifact"
               }
             }
           ]

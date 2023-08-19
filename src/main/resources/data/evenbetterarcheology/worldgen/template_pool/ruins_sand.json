@@ -6,9 +6,9 @@
       "weight": 1,
       "element": {
 
-        "location": "betterarcheology:ruins_sand",
+        "location": "evenbetterarcheology:ruins_sand",
 
-        "processors": "betterarcheology:ruins_sand",
+        "processors": "evenbetterarcheology:ruins_sand",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

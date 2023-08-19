@@ -9,17 +9,17 @@
           },
           "input_predicate": {
             "predicate_type": "minecraft:block_match",
-            "block": "betterarcheology:fossiliferous_dirt"
+            "block": "evenbetterarcheology:fossiliferous_dirt"
           },
           "output_state": {
-            "Name": "betterarcheology:fossiliferous_dirt",
+            "Name": "evenbetterarcheology:fossiliferous_dirt",
             "Properties": {
               "dusted": "0"
             }
           },
           "block_entity_modifier": {
             "type": "minecraft:append_loot",
-            "loot_table": "betterarcheology:archeology/fossiliferous_dirt_villager"
+            "loot_table": "evenbetterarcheology:archeology/fossiliferous_dirt_villager"
           }
         }
       ]

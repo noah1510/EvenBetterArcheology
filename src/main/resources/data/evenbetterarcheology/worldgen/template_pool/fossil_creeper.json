@@ -6,9 +6,9 @@
       "weight": 1,
       "element": {
 
-        "location": "betterarcheology:fossil_creeper",
+        "location": "evenbetterarcheology:fossil_creeper",
 
-        "processors": "betterarcheology:fossil_creeper",
+        "processors": "evenbetterarcheology:fossil_creeper",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

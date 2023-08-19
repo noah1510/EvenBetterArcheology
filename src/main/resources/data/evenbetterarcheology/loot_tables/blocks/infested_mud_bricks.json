@@ -21,7 +21,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "betterarcheology:infested_mud_bricks"
+          "name": "evenbetterarcheology:infested_mud_bricks"
         }
       ],
       "rolls": 1.0

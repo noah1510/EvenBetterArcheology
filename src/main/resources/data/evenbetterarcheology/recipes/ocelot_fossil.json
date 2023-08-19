@@ -2,14 +2,14 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "betterarcheology:ocelot_fossil_head"
+      "item": "evenbetterarcheology:ocelot_fossil_head"
     },
     {
-      "item": "betterarcheology:ocelot_fossil_body"
+      "item": "evenbetterarcheology:ocelot_fossil_body"
     }
   ],
   "result": {
-    "item": "betterarcheology:ocelot_fossil",
+    "item": "evenbetterarcheology:ocelot_fossil",
     "count": 1
   }
 }

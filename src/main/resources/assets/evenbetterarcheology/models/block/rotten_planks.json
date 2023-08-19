@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "betterarcheology:block/rotten_planks"
+    "all": "evenbetterarcheology:block/rotten_planks"
   }
 }

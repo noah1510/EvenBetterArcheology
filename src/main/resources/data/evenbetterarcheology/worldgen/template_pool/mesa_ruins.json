@@ -6,9 +6,9 @@
       "weight": 1,
       "element": {
 
-        "location": "betterarcheology:mesa_ruins",
+        "location": "evenbetterarcheology:mesa_ruins",
 
-        "processors": "betterarcheology:susredsand_mesa",
+        "processors": "evenbetterarcheology:susredsand_mesa",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

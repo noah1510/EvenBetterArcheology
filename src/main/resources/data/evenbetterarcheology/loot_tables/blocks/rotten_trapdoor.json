@@ -10,7 +10,7 @@
           "children": [
             {
               "type": "minecraft:item",
-              "name": "betterarcheology:rotten_trapdoor",
+              "name": "evenbetterarcheology:rotten_trapdoor",
               "functions": [
                 {
                   "function": "minecraft:set_count",

@@ -10,7 +10,7 @@
           "children": [
             {
               "type": "minecraft:item",
-              "name": "betterarcheology:rotten_planks",
+              "name": "evenbetterarcheology:rotten_planks",
               "functions": [
                 {
                   "function": "minecraft:set_count",

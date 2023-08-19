@@ -51,7 +51,7 @@
 				},
 				{
 					"type": "minecraft:item",
-					"name": "betterarcheology:artifact_shards",
+					"name": "evenbetterarcheology:artifact_shards",
 					"weight": 1
 				}
 			],

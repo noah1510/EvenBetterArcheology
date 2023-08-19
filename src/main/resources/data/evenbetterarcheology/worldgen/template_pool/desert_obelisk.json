@@ -6,9 +6,9 @@
       "weight": 1,
       "element": {
 
-        "location": "betterarcheology:desert_obelisk",
+        "location": "evenbetterarcheology:desert_obelisk",
 
-        "processors": "betterarcheology:desert_obelisk",
+        "processors": "evenbetterarcheology:desert_obelisk",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

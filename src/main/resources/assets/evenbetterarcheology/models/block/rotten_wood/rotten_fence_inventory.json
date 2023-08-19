@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/fence_inventory",
   "textures": {
-    "texture": "betterarcheology:block/rotten_planks"
+    "texture": "evenbetterarcheology:block/rotten_planks"
   }
 }

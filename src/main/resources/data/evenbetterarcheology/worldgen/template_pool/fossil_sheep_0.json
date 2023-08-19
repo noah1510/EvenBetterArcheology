@@ -6,9 +6,9 @@
       "weight": 1,
       "element": {
 
-        "location": "betterarcheology:fossil_sheep_0",
+        "location": "evenbetterarcheology:fossil_sheep_0",
 
-        "processors": "betterarcheology:fossil_sheep",
+        "processors": "evenbetterarcheology:fossil_sheep",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

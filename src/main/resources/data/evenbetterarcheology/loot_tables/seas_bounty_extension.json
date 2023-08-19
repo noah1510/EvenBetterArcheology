@@ -43,12 +43,12 @@
         {
           "type": "minecraft:item",
           "weight": 20,
-          "name": "betterarcheology:iron_brush"
+          "name": "evenbetterarcheology:iron_brush"
         },
         {
           "type": "minecraft:item",
           "weight": 20,
-          "name": "betterarcheology:diamond_brush"
+          "name": "evenbetterarcheology:diamond_brush"
         },
         {
           "type": "minecraft:item",

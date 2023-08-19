@@ -41,5 +41,8 @@
   },
   "suggests": {
     "another-mod": "*"
+  },
+  "conflicts": {
+    "betterarcheology": "*"
   }
 }

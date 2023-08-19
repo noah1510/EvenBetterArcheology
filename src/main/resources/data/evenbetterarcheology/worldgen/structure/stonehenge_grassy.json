@@ -1,13 +1,13 @@
 {
-  "type": "betterarcheology:betterarcheology_structures",
+  "type": "evenbetterarcheology:evenbetterarcheology_structures",
 
-  "start_pool": "betterarcheology:stonehenge_grassy",
+  "start_pool": "evenbetterarcheology:stonehenge_grassy",
 
   "size": 1,
 
   "max_distance_from_center": 80,
 
-  "biomes": "#betterarcheology:has_structure/stonehenge_grassy",
+  "biomes": "#evenbetterarcheology:has_structure/stonehenge_grassy",
 
   "step": "surface_structures",
 

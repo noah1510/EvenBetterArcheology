@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "betterarcheology:cracked_mud_bricks"
+              "evenbetterarcheology:cracked_mud_bricks"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "betterarcheology:cracked_mud_brick_slabs"
+        "recipe": "evenbetterarcheology:cracked_mud_brick_slabs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,8 +28,8 @@
   ],
   "rewards": {
     "recipes": [
-      "betterarcheology:cracked_mud_brick_slabs",
-      "betterarcheology:cracked_mud_brick_slabs_stonecutting"
+      "evenbetterarcheology:cracked_mud_brick_slabs",
+      "evenbetterarcheology:cracked_mud_brick_slabs_stonecutting"
     ]
   }
 }

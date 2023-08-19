@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "betterarcheology:item/rotten_door"
+    "layer0": "evenbetterarcheology:item/rotten_door"
   }
 }

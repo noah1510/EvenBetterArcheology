@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "betterarcheology:block/cracked_mud_bricks"
+      "model": "evenbetterarcheology:block/cracked_mud_bricks"
     }
   }
 }

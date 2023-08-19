@@ -8,12 +8,12 @@
         {
           "type": "minecraft:item",
           "weight": 1,
-          "name": "betterarcheology:ocelot_fossil_head"
+          "name": "evenbetterarcheology:ocelot_fossil_head"
         },
         {
           "type": "minecraft:item",
           "weight": 1,
-          "name": "betterarcheology:ocelot_fossil_body"
+          "name": "evenbetterarcheology:ocelot_fossil_body"
         },
         {
           "type": "minecraft:item",

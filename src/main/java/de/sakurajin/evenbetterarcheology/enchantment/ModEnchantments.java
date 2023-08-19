@@ -26,7 +26,7 @@ public class ModEnchantments {
     }
 
     private static void registerEnchantedBookWith(Enchantment enchantment) {
-        ItemGroupEvents.modifyEntriesEvent(ModItemGroup.BETTER_ARCHEOLOGY_ITEMGROUP).register(entries -> entries.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(enchantment, 1)).setCustomName(Text.translatable("item.betterarcheology.identified_artifact").formatted(Formatting.RESET,
+        ItemGroupEvents.modifyEntriesEvent(ModItemGroup.EVEN_BETTER_ARCHEOLOGY_ITEMGROUP).register(entries -> entries.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(enchantment, 1)).setCustomName(Text.translatable("item.betterarcheology.identified_artifact").formatted(Formatting.RESET,
                 Formatting.YELLOW))));
     }
 

@@ -7,11 +7,11 @@
   ],
   "key": {
     "#": {
-      "item": "betterarcheology:artifact_shards"
+      "item": "evenbetterarcheology:artifact_shards"
     }
   },
   "result": {
-    "item": "betterarcheology:unidentified_artifact",
+    "item": "evenbetterarcheology:unidentified_artifact",
     "count": 1
   }
 }

@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "betterarcheology:chicken_fossil_head"
+              "evenbetterarcheology:chicken_fossil_head"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "betterarcheology:chicken_fossil"
+        "recipe": "evenbetterarcheology:chicken_fossil"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "betterarcheology:chicken_fossil"
+      "evenbetterarcheology:chicken_fossil"
     ]
   }
 }

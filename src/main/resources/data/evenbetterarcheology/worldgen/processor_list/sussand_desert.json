@@ -19,7 +19,7 @@
           },
           "block_entity_modifier": {
             "type": "minecraft:append_loot",
-            "loot_table": "betterarcheology:archeology/desert_sand"
+            "loot_table": "evenbetterarcheology:archeology/desert_sand"
           }
         }
       ]

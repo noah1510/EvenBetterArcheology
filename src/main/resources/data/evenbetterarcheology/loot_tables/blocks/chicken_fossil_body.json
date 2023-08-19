@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "betterarcheology:chicken_fossil_body"
+          "name": "evenbetterarcheology:chicken_fossil_body"
         }
       ],
       "rolls": 1.0

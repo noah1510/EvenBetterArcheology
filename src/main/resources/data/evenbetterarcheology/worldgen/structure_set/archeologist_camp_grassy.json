@@ -1,7 +1,7 @@
 {
   "structures": [
     {
-      "structure": "betterarcheology:archeologist_camp_grassy",
+      "structure": "evenbetterarcheology:archeologist_camp_grassy",
       "weight": 1
     }
   ],
@@ -17,25 +17,25 @@
     "exclusion_zone": {
       "chunk_count": 16,
       "other_set": [
-        "betterarcheology:archeologist_camp_redsand",
-        "betterarcheology:buried_ruins_sand",
-        "betterarcheology:ruins_sand",
+        "evenbetterarcheology:archeologist_camp_redsand",
+        "evenbetterarcheology:buried_ruins_sand",
+        "evenbetterarcheology:ruins_sand",
         "minecraft:desert_pyramid",
         "minecraft:village",
         "minecraft:swamp_hut",
         "minecraft:ruined_portal",
-        "betterarcheology:fossil_jungle_0",
-        "betterarcheology:fossil_jungle_1",
-        "betterarcheology:fossil_sheep_0",
-        "betterarcheology:mesa_ruins",
-        "betterarcheology:mott",
-        "betterarcheology:ruins_sand",
-        "betterarcheology:stonehenge_grassy",
-        "betterarcheology:tumulus_grassy",
-        "betterarcheology:villager_grave",
-        "betterarcheology:fossil_creeper",
-        "betterarcheology:fossil_chicken",
-        "betterarcheology:fossil_chicken_birch"
+        "evenbetterarcheology:fossil_jungle_0",
+        "evenbetterarcheology:fossil_jungle_1",
+        "evenbetterarcheology:fossil_sheep_0",
+        "evenbetterarcheology:mesa_ruins",
+        "evenbetterarcheology:mott",
+        "evenbetterarcheology:ruins_sand",
+        "evenbetterarcheology:stonehenge_grassy",
+        "evenbetterarcheology:tumulus_grassy",
+        "evenbetterarcheology:villager_grave",
+        "evenbetterarcheology:fossil_creeper",
+        "evenbetterarcheology:fossil_chicken",
+        "evenbetterarcheology:fossil_chicken_birch"
       ]
     }
   }

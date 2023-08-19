@@ -6,9 +6,9 @@
       "weight": 1,
       "element": {
 
-        "location": "betterarcheology:buried_ruins_sand",
+        "location": "evenbetterarcheology:buried_ruins_sand",
 
-        "processors": "betterarcheology:susgravel_plains",
+        "processors": "evenbetterarcheology:susgravel_plains",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
