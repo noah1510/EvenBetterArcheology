@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
-  "id": "betterarcheology",
+  "id": "evenbetterarcheology",
   "version": "${version}",
 
-  "name": "Better Archeology",
+  "name": "Even Better Archeology",
   "description": "Discover artifacts & fossils by encountering new structures that'll enhance your adventure and exploration!",
   "authors": [
+    "NoaSakurajin",
     "Pandarix",
     "Dunk3ll1cht"
   ],
   "contact": {
-    "homepage": "https://legacy.curseforge.com/minecraft/mc-mods/better-archeology",
-    "sources": "https://github.com/Pandarix/BetterArcheology"
+    "sources": "https://github.com/noah1510/EvenBetterArcheology"
   },
 
   "license": "MIT",
-  "icon": "assets/betterarcheology/icon.png",
+  "icon": "assets/evenbetterarcheology/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.Pandarix.betterarcheology.BetterArcheology"
+      "de.sakurajin.evenbetterarcheology.BetterArcheology"
     ],
     "client": [
-      "net.Pandarix.betterarcheology.BetterArcheologyClient"
+      "de.sakurajin.evenbetterarcheology.BetterArcheologyClient"
     ]
   },
   "mixins": [
-    "betterarcheology.mixins.json"
+    "evenbetterarcheology.mixins.json"
   ],
 
-  "accessWidener" : "betterarcheology.accesswidener",
+  "accessWidener" : "evenbetterarcheology.accesswidener",
 
   "depends": {
     "fabricloader": ">=0.14.14",

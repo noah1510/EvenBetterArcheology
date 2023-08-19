@@ -58,7 +58,7 @@ processResources {
 }
 
 loom {
-	accessWidenerPath = file("src/main/resources/betterarcheology.accesswidener")
+	accessWidenerPath = file("src/main/resources/evenbetterarcheology.accesswidener")
 }
 
 tasks.withType(JavaCompile).configureEach {
