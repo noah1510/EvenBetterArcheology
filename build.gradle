@@ -1,14 +1,18 @@
 plugins {
-	id 'fabric-loom' version '1.1-SNAPSHOT'
+	id 'fabric-loom' version '1.3-SNAPSHOT'
 	id 'maven-publish'
 }
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
+java {
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
+}
 
-archivesBaseName = project.archives_base_name
-version = project.mod_version
-group = project.maven_group
+base{
+	archivesName = project.archives_name
+	version = project.mod_version
+	group = project.maven_group
+}
 
 repositories {
 	// Add repositories to retrieve artifacts from in here.
@@ -32,6 +36,7 @@ repositories {
 		url = 'https://maven.ladysnake.org/releases'
 	}
 	maven { url 'https://maven.wispforest.io' }
+
 }
 
 dependencies {
