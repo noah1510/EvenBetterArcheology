@@ -53,7 +53,7 @@ dependencies {
 
 	// modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"
 	modCompileOnly("dev.emi:trinkets:${trinkets_version}")
-	//modCompileOnly("io.wispforest:com.glisco:numismaticoverhaul:${numismatic_version}")
+	modCompileOnly("maven.modrinth:numismatic-overhaul:${numismatic_version}")
 }
 
 processResources {
