@@ -1,6 +1,7 @@
 package de.sakurajin.evenbetterarcheology.block.custom;
 
 import com.google.common.collect.ImmutableMap;
+import de.sakurajin.evenbetterarcheology.api.block.FossilBaseBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;

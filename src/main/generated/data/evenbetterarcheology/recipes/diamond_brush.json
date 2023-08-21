@@ -2,20 +2,20 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "#": {
+    "x": {
       "item": "minecraft:diamond"
     },
-    "I": {
+    "y": {
       "item": "minecraft:stick"
     },
-    "X": {
+    "z": {
       "item": "minecraft:feather"
     }
   },
   "pattern": [
-    "X",
-    "#",
-    "I"
+    "x",
+    "y",
+    "z"
   ],
   "result": {
     "item": "evenbetterarcheology:diamond_brush"

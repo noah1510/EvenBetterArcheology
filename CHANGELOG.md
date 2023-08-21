@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0-alpha.3
+
+* Using owo-lib to register items and blocks
+* Using owo-lib for creative menu
+* Using data generators to register brushes
+
 ## 2.0.0-alpha.2
 
 * Support for Numismatic-Overhaul

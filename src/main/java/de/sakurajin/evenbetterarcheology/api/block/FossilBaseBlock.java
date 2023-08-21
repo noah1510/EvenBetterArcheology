@@ -1,4 +1,4 @@
-package de.sakurajin.evenbetterarcheology.block.custom;
+package de.sakurajin.evenbetterarcheology.api.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;

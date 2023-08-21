@@ -1,5 +1,6 @@
 package de.sakurajin.evenbetterarcheology.block.custom;
 
+import de.sakurajin.evenbetterarcheology.api.block.FossilBaseHeadBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;

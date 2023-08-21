@@ -1,15 +1,19 @@
 package de.sakurajin.evenbetterarcheology.enchantment;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
-import de.sakurajin.evenbetterarcheology.item.ModItemGroup;
+import io.wispforest.owo.itemgroup.OwoItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.EnchantedBookItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
@@ -26,7 +30,8 @@ public class ModEnchantments {
     }
 
     private static void registerEnchantedBookWith(Enchantment enchantment) {
-        ItemGroupEvents.modifyEntriesEvent(ModItemGroup.EVEN_BETTER_ARCHEOLOGY_ITEMGROUP).register(entries -> entries.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(enchantment, 1)).setCustomName(Text.translatable("item.evenbetterarcheology.identified_artifact").formatted(Formatting.RESET,
+        var group = Registries.ITEM_GROUP.getKey(EvenBetterArcheology.GROUP).get();
+        ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(enchantment, 1)).setCustomName(Text.translatable("item.evenbetterarcheology.identified_artifact").formatted(Formatting.RESET,
                 Formatting.YELLOW))));
     }
 

@@ -1,4 +1,4 @@
-package de.sakurajin.evenbetterarcheology.block.custom;
+package de.sakurajin.evenbetterarcheology.api.block;
 
 import net.minecraft.block.*;
 import net.minecraft.client.item.TooltipContext;
@@ -52,7 +52,7 @@ public class FossilBaseHeadBlock extends HorizontalFacingBlock {
     //also appends the [2/2] indicator for a set
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
-        tooltip.add(Text.translatable(this.getTranslationKey() + "_tooltip").formatted(Formatting.GRAY).append(Text.translatable("block.betterarcheology.fossil_head_set").formatted(Formatting.BLUE)));
+        tooltip.add(Text.translatable(this.getTranslationKey() + "_tooltip").formatted(Formatting.GRAY).append(Text.translatable("block.evenbetterarcheology.fossil_head_set").formatted(Formatting.BLUE)));
 
         super.appendTooltip(stack, world, tooltip, options);
     }

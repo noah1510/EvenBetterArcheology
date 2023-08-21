@@ -3,7 +3,6 @@ package de.sakurajin.evenbetterarcheology;
 import de.sakurajin.evenbetterarcheology.block.ModBlocks;
 import de.sakurajin.evenbetterarcheology.block.entity.ModBlockEntities;
 import de.sakurajin.evenbetterarcheology.entity.ModEntityTypes;
-import de.sakurajin.evenbetterarcheology.item.ModItemGroup;
 import de.sakurajin.evenbetterarcheology.item.ModItems;
 import de.sakurajin.evenbetterarcheology.networking.ModMessages;
 import de.sakurajin.evenbetterarcheology.screen.ModScreenHandlers;
@@ -11,7 +10,14 @@ import de.sakurajin.evenbetterarcheology.util.evenbetterarcheologyConfig;
 import de.sakurajin.evenbetterarcheology.villager.ModVillagers;
 import de.sakurajin.evenbetterarcheology.enchantment.ModEnchantments;
 import de.sakurajin.evenbetterarcheology.structures.ModStructureFeatures;
+import io.wispforest.owo.itemgroup.Icon;
+import io.wispforest.owo.itemgroup.OwoItemGroup;
+import io.wispforest.owo.registration.reflect.FieldRegistrationHandler;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,6 +29,11 @@ public class EvenBetterArcheology implements ModInitializer {
 	public static final String MOD_ID = "evenbetterarcheology";
 	public static final evenbetterarcheologyConfig CONFIG = evenbetterarcheologyConfig.createAndLoad();
 
+	public static final OwoItemGroup GROUP = OwoItemGroup
+			.builder(new Identifier(MOD_ID, MOD_ID), () -> Icon.of(ModItems.UNIDENTIFIED_ARTIFACT))
+			// additional builder configuration goes between these lines
+			.build();
+
 	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
@@ -30,11 +41,10 @@ public class EvenBetterArcheology implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("Even Better Archeology says Hello");	//info message
+		GROUP.initialize(); //initializes the ItemGroup
 
-
-		ModItemGroup.registerTab();		//creates CreativeModeTab
-		ModItems.registerModItems();	//registers Items and adds them to the Tab
-		ModBlocks.registerModBlocks();	//registers Blocks	and BlockItems
+		FieldRegistrationHandler.register(ModItems.class, MOD_ID, false);	//registers Items and adds them to the Tab
+		FieldRegistrationHandler.register(ModBlocks.class, MOD_ID, false);	//registers Blocks	and BlockItems
 		ModEntityTypes.registerModEntityTypes();
 
 		ModBlockEntities.registerBlockEntities(); //registers Block-Entities
@@ -45,6 +55,7 @@ public class EvenBetterArcheology implements ModInitializer {
 
 		ModMessages.registerC2SPackets();
 		ModEnchantments.registerModEnchantments();
+
 
 		ModStructureFeatures.registerStructureFeatures();
 	}
