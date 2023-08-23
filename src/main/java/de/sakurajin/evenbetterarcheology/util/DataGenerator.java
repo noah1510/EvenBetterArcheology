@@ -21,6 +21,9 @@ public class DataGenerator{
         genHelper.generateStairs("cracked_mud_brick_stairs", "cracked_mud_bricks");
         genHelper.generateSlab("cracked_mud_brick_slab", "cracked_mud_bricks");
         genHelper.generateBlockAndItemFromParent("infested_mud_bricks", "minecraft:block/mud_bricks");
+
+        genHelper.generateSusBlock("suspicious_dirt");
+        genHelper.generateSusBlock("suspicious_red_sand");
     }
 
 }

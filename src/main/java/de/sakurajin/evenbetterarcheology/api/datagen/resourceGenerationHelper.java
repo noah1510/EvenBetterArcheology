@@ -214,4 +214,25 @@ public class resourceGenerationHelper {
         ), new Identifier(modID, name));
     }
 
+    public void generateSusBlock(String name){
+        for (int i = 0; i < 4; i++) {
+            generateBlock(
+                    name + "_" + i,
+                    Map.of(
+                            "all", name+"/"+name+"_" + i
+                    ),
+                    "minecraft:block/cube_all"
+            );
+        }
+
+        generateItem(name, modID+":block/"+name+"_0");
+
+        RESOURCE_PACK.addBlockState(JState.state(JState.variant()
+                .put("dusted=0", JState.model(modID+":block/"+name+"_0"))
+                .put("dusted=1", JState.model(modID+":block/"+name+"_1"))
+                .put("dusted=2", JState.model(modID+":block/"+name+"_2"))
+                .put("dusted=3", JState.model(modID+":block/"+name+"_3"))
+        ), new Identifier(modID, name));
+    }
+
 }
