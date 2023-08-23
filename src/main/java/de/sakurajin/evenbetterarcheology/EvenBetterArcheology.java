@@ -6,6 +6,7 @@ import de.sakurajin.evenbetterarcheology.entity.ModEntityTypes;
 import de.sakurajin.evenbetterarcheology.item.ModItems;
 import de.sakurajin.evenbetterarcheology.networking.ModMessages;
 import de.sakurajin.evenbetterarcheology.screen.ModScreenHandlers;
+import de.sakurajin.evenbetterarcheology.util.DataGenerator;
 import de.sakurajin.evenbetterarcheology.util.evenbetterarcheologyConfig;
 import de.sakurajin.evenbetterarcheology.villager.ModVillagers;
 import de.sakurajin.evenbetterarcheology.enchantment.ModEnchantments;
@@ -13,10 +14,9 @@ import de.sakurajin.evenbetterarcheology.structures.ModStructureFeatures;
 import io.wispforest.owo.itemgroup.Icon;
 import io.wispforest.owo.itemgroup.OwoItemGroup;
 import io.wispforest.owo.registration.reflect.FieldRegistrationHandler;
+import net.devtech.arrp.api.RuntimeResourcePack;
+import net.devtech.arrp.api.RRPCallback;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +33,8 @@ public class EvenBetterArcheology implements ModInitializer {
 			.builder(new Identifier(MOD_ID, MOD_ID), () -> Icon.of(ModItems.UNIDENTIFIED_ARTIFACT))
 			// additional builder configuration goes between these lines
 			.build();
+
+	public static final RuntimeResourcePack RESOURCE_PACK = RuntimeResourcePack.create(MOD_ID+":resources");
 
 	@Override
 	public void onInitialize() {
@@ -56,7 +58,12 @@ public class EvenBetterArcheology implements ModInitializer {
 		ModMessages.registerC2SPackets();
 		ModEnchantments.registerModEnchantments();
 
-
 		ModStructureFeatures.registerStructureFeatures();
+
+		//Generate the data for the resource pack
+		DataGenerator.generate();
+
+		//Register the resource pack
+		RRPCallback.AFTER_VANILLA.register(a -> a.add(RESOURCE_PACK));
 	}
 }

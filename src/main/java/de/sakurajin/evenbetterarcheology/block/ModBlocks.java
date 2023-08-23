@@ -2,6 +2,7 @@ package de.sakurajin.evenbetterarcheology.block;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import de.sakurajin.evenbetterarcheology.api.owo_annotations.ItemRarity;
+import de.sakurajin.evenbetterarcheology.api.owo_annotations.ModdedRarity;
 import de.sakurajin.evenbetterarcheology.api.owo_annotations.NoItemGroup;
 import de.sakurajin.evenbetterarcheology.block.custom.*;
 import io.wispforest.owo.itemgroup.OwoItemSettings;
@@ -33,55 +34,55 @@ public class ModBlocks implements BlockRegistryContainer {
 
     //-------------FOSSILS---------------//
     //Villager
-    @ItemRarity(Rarity.UNCOMMON)
+    @ItemRarity(ModdedRarity.UNCOMMON)
     public static final Block VILLAGER_FOSSIL = new VillagerFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK).luminance((state) -> {
         return state.get(VillagerFossilBlock.INVENTORY_LUMINANCE);
     }));
 
-    @ItemRarity(Rarity.UNCOMMON)
+    @ItemRarity(ModdedRarity.UNCOMMON)
     public static final Block VILLAGER_FOSSIL_HEAD = new VillagerFossilHeadBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
 
-    @ItemRarity(Rarity.UNCOMMON)
+    @ItemRarity(ModdedRarity.UNCOMMON)
     public static final Block VILLAGER_FOSSIL_BODY = new VillagerFossilBodyBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
 
     //Ocelot
-    @ItemRarity(Rarity.UNCOMMON)
+    @ItemRarity(ModdedRarity.UNCOMMON)
     public static final Block OCELOT_FOSSIL = new OcelotFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK));
 
-    @ItemRarity(Rarity.UNCOMMON)
+    @ItemRarity(ModdedRarity.UNCOMMON)
     public static final Block OCELOT_FOSSIL_HEAD = new OcelotFossilHeadBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
 
-    @ItemRarity(Rarity.UNCOMMON)
+    @ItemRarity(ModdedRarity.UNCOMMON)
     public static final Block OCELOT_FOSSIL_BODY = new OcelotFossilBodyBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
 
     //Sheep
-    @ItemRarity(Rarity.UNCOMMON)
+    @ItemRarity(ModdedRarity.UNCOMMON)
     public static final Block SHEEP_FOSSIL = new SheepFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK));
 
-    @ItemRarity(Rarity.UNCOMMON)
+    @ItemRarity(ModdedRarity.UNCOMMON)
     public static final Block SHEEP_FOSSIL_HEAD = new SheepFossilHeadBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
 
-    @ItemRarity(Rarity.UNCOMMON)
+    @ItemRarity(ModdedRarity.UNCOMMON)
     public static final Block SHEEP_FOSSIL_BODY = new SheepFossilBodyBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
 
     //Sheep
-    @ItemRarity(Rarity.UNCOMMON)
+    @ItemRarity(ModdedRarity.UNCOMMON)
     public static final Block CHICKEN_FOSSIL = new ChickenFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK));
 
-    @ItemRarity(Rarity.UNCOMMON)
+    @ItemRarity(ModdedRarity.UNCOMMON)
     public static final Block CHICKEN_FOSSIL_HEAD = new ChickenFossilHeadBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
 
-    @ItemRarity(Rarity.UNCOMMON)
+    @ItemRarity(ModdedRarity.UNCOMMON)
     public static final Block CHICKEN_FOSSIL_BODY = new ChickenFossilBodyBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
 
     //Creeper
-    @ItemRarity(Rarity.UNCOMMON)
+    @ItemRarity(ModdedRarity.UNCOMMON)
     public static final Block CREEPER_FOSSIL = new CreeperFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK));
 
-    @ItemRarity(Rarity.UNCOMMON)
+    @ItemRarity(ModdedRarity.UNCOMMON)
     public static final Block CREEPER_FOSSIL_HEAD = new CreeperFossilHeadBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
 
-    @ItemRarity(Rarity.UNCOMMON)
+    @ItemRarity(ModdedRarity.UNCOMMON)
     public static final Block CREEPER_FOSSIL_BODY = new CreeperFossilBodyBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
 
 
@@ -150,7 +151,13 @@ public class ModBlocks implements BlockRegistryContainer {
         }
 
         if (field.isAnnotationPresent(ItemRarity.class)){
-            settings.rarity(field.getAnnotation(ItemRarity.class).value());
+            Rarity rarity = switch (field.getAnnotation(ItemRarity.class).value()) {
+                case UNCOMMON -> Rarity.UNCOMMON;
+                case RARE -> Rarity.RARE;
+                case EPIC -> Rarity.EPIC;
+                default -> Rarity.COMMON;
+            };
+            settings.rarity(rarity);
         }
 
         // finally, create and register the block item

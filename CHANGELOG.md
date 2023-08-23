@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.0-alpha.4
+
+* Using arrp to generate data dynamically
+* Fixing broken build due to implementation of the ItemRarity Tag
+
 ## 2.0.0-alpha.3
 
 * Using owo-lib to register items and blocks

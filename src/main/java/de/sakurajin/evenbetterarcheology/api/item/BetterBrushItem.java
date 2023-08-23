@@ -3,6 +3,9 @@ package de.sakurajin.evenbetterarcheology.api.item;
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import io.wispforest.owo.itemgroup.OwoItemGroup;
 import io.wispforest.owo.itemgroup.OwoItemSettings;
+import net.devtech.arrp.api.RuntimeResourcePack;
+import net.devtech.arrp.json.models.JModel;
+import net.devtech.arrp.json.recipe.*;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -11,6 +14,8 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.BrushableBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BrushableBlockEntity;
+import net.minecraft.data.client.Model;
+import net.minecraft.data.client.TextureKey;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.entity.EquipmentSlot;
@@ -33,14 +38,67 @@ import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import java.util.Optional;
 import java.util.function.Consumer;
 
 public class BetterBrushItem extends BrushItem {
-    private float brushingSpeed;
+    private final float brushingSpeed;
+    private final Item material;
+    private String modID;
+    private String name;
 
-    public BetterBrushItem(Settings settings, float pBrushingSpeed) {
+    public BetterBrushItem(Settings settings, float pBrushingSpeed, Item material, String modID, String name) {
         super(settings);
         brushingSpeed = pBrushingSpeed;
+        this.material = material;
+        this.modID = modID;
+        this.name = name;
+    }
+
+    public void generateResourceData(RuntimeResourcePack pack) {
+        if(material == null) throw new RuntimeException("Material is null cannot generate Resource Data");
+        boolean guessModId = modID == null;
+        boolean guessName = name == null;
+
+        String materialTranslationKey = material.getTranslationKey();
+        var materialArray = materialTranslationKey.split("\\.");
+
+        if (guessName || guessModId) {
+            var brushArray = this.getTranslationKey().split("\\.");
+            if(brushArray.length == 0){
+                throw new RuntimeException("Translation Key is invalid or not yet set");
+            }
+
+            if(guessModId) {
+                if(brushArray.length > 2){
+                    modID = brushArray[1];
+                }else{
+                    modID = brushArray[0];
+                }
+            }
+            name = brushArray[brushArray.length-1];
+        }
+
+        String materialName = materialArray[materialArray.length-1];
+
+        pack.addRecipe(
+            new Identifier(modID, "crafting_"+name+"_"+materialName),
+            JRecipe.shaped(
+                JPattern.pattern("x", "y", "z"),
+                JKeys.keys()
+                    .key("x", JIngredient.ingredient().item(material))
+                    .key("y", JIngredient.ingredient().item(Items.STICK))
+                    .key("z", JIngredient.ingredient().item(Items.FEATHER)),
+                JResult.item(this)
+            )
+        );
+
+        pack.addModel(
+            JModel.model(new Identifier("minecraft", "item/brush"))
+                .textures(JModel.textures().layer0(modID +":item/" + name)),
+            new Identifier(modID, "item/" + name)
+        );
+
     }
 
     public float getBrushingSpeed(){
@@ -100,10 +158,10 @@ public class BetterBrushItem extends BrushItem {
 
     public static class Builder{
         private float brushingSpeed = 1.0f;
-        private RegistryKey<ItemGroup> group = null;
         private String name = null;
-        private String modid = null;
         private OwoItemSettings settings = new OwoItemSettings();
+        private Item material = null;
+        private String modID = null;
 
         public Builder setBrushingSpeed(float pBrushingSpeed){
             brushingSpeed = pBrushingSpeed;
@@ -125,13 +183,18 @@ public class BetterBrushItem extends BrushItem {
             return this;
         }
 
-        public Builder setGroup(RegistryKey<ItemGroup> group){
-            this.group = group;
+        public Builder setGroup(OwoItemGroup group){
+            settings.group(group);
             return this;
         }
 
-        public Builder setGroup(OwoItemGroup group){
-            settings.group(group);
+        public Builder setMaterial(Item material){
+            this.material = material;
+            return this;
+        }
+
+        public Builder setModID(String modID){
+            this.modID = modID;
             return this;
         }
 
@@ -140,25 +203,9 @@ public class BetterBrushItem extends BrushItem {
             return this;
         }
 
-        public Builder setModid(String modid){
-            this.modid = modid;
-            return this;
-        }
-
         public BetterBrushItem build(){
-            BetterBrushItem item = new BetterBrushItem(settings, brushingSpeed);
-            return item;
+            return new BetterBrushItem(settings, brushingSpeed, material, modID, name);
         }
 
-        public Item buildAndRegister(){
-            if (name == null) throw new IllegalArgumentException("Name must not be null");
-            if (modid == null) throw new IllegalArgumentException("Modid must not be null");
-
-            BetterBrushItem item = build();
-            Item registeredItem = Registry.register(Registries.ITEM, new Identifier(modid, name), item);
-            if(group != null) ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(registeredItem));
-
-            return registeredItem;
-        }
     }
 }

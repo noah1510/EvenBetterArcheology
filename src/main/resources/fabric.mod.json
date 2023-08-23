@@ -19,9 +19,6 @@
 
   "environment": "*",
   "entrypoints": {
-    "fabric-datagen": [
-      "de.sakurajin.evenbetterarcheology.util.DataGenerator"
-    ],
     "main": [
       "de.sakurajin.evenbetterarcheology.EvenBetterArcheology"
     ],
