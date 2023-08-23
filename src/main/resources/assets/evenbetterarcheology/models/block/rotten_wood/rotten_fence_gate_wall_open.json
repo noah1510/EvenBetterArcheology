@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_fence_gate_wall_open",
   "textures": {
-    "texture": "evenbetterarcheology:block/rotten_planks"
+    "texture": "evenbetterarcheology:block/rotten_log/rotten_planks"
   }
 }

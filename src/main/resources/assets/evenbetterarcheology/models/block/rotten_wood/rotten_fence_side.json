@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/fence_side",
   "textures": {
-    "texture": "evenbetterarcheology:block/rotten_planks"
+    "texture": "evenbetterarcheology:block/rotten_log/rotten_planks"
   }
 }

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "evenbetterarcheology:block/cracked_mud_bricks",
-    "side": "evenbetterarcheology:block/cracked_mud_bricks",
-    "top": "evenbetterarcheology:block/cracked_mud_bricks"
-  }
-}

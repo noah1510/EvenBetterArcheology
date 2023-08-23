@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "evenbetterarcheology:block/rotten_log/rotten_log_top",
-    "side": "evenbetterarcheology:block/rotten_log/rotten_log"
-  }
-}

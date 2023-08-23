@@ -17,6 +17,7 @@ import io.wispforest.owo.registration.reflect.FieldRegistrationHandler;
 import net.devtech.arrp.api.RuntimeResourcePack;
 import net.devtech.arrp.api.RRPCallback;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -65,5 +66,9 @@ public class EvenBetterArcheology implements ModInitializer {
 
 		//Register the resource pack
 		RRPCallback.AFTER_VANILLA.register(a -> a.add(RESOURCE_PACK));
+
+		if (FabricLoader.getInstance().isDevelopmentEnvironment()){
+			RESOURCE_PACK.dump();
+		}
 	}
 }
