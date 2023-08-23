@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0-alpha.5
+
+* Adding custom annotations to generate data of blocks
+* Using Arrp to generate even more data
+* moving some textures in other folders
+
 ## 2.0.0-alpha.4
 
 * Using arrp to generate data dynamically

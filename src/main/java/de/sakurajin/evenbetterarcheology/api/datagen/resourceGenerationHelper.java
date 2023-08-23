@@ -235,4 +235,15 @@ public class resourceGenerationHelper {
         ), new Identifier(modID, name));
     }
 
+    public void autoGenerateSimple(String name, String[] texture, generationType type){
+        switch (type) {
+            case CUBE -> generateCube(name, texture[0]);
+            case PILLAR -> generateCubeColumn(name, texture[0], texture[1]);
+            case SUSPICIOUS -> generateSusBlock(name);
+            case STAIRS -> generateStairs(name, texture[0]);
+            case SLAB -> generateSlab(name, texture[0]);
+            case FROM_PARENT -> generateBlockAndItemFromParent(name, texture[0]);
+        }
+    }
+
 }

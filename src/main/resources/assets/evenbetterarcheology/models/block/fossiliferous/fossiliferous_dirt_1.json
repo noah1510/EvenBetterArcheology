@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "evenbetterarcheology:block/fossiliferous_dirt_1"
-  }
-}

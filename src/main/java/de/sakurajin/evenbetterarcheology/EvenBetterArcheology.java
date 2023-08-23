@@ -1,12 +1,13 @@
 package de.sakurajin.evenbetterarcheology;
 
+import de.sakurajin.evenbetterarcheology.api.datagen.resourceGenerationHelper;
+import de.sakurajin.evenbetterarcheology.api.item.BetterBrushItem;
 import de.sakurajin.evenbetterarcheology.block.ModBlocks;
 import de.sakurajin.evenbetterarcheology.block.entity.ModBlockEntities;
 import de.sakurajin.evenbetterarcheology.entity.ModEntityTypes;
 import de.sakurajin.evenbetterarcheology.item.ModItems;
 import de.sakurajin.evenbetterarcheology.networking.ModMessages;
 import de.sakurajin.evenbetterarcheology.screen.ModScreenHandlers;
-import de.sakurajin.evenbetterarcheology.util.DataGenerator;
 import de.sakurajin.evenbetterarcheology.util.evenbetterarcheologyConfig;
 import de.sakurajin.evenbetterarcheology.villager.ModVillagers;
 import de.sakurajin.evenbetterarcheology.enchantment.ModEnchantments;
@@ -36,6 +37,7 @@ public class EvenBetterArcheology implements ModInitializer {
 			.build();
 
 	public static final RuntimeResourcePack RESOURCE_PACK = RuntimeResourcePack.create(MOD_ID+":resources");
+	public static final resourceGenerationHelper RESOURCE_GENERATION_HELPER = new resourceGenerationHelper(MOD_ID, RESOURCE_PACK);
 
 	@Override
 	public void onInitialize() {
@@ -61,8 +63,9 @@ public class EvenBetterArcheology implements ModInitializer {
 
 		ModStructureFeatures.registerStructureFeatures();
 
-		//Generate the data for the resource pack
-		DataGenerator.generate();
+		//Generate the other data for the resource pack
+		((BetterBrushItem)ModItems.IRON_BRUSH).generateResourceData(EvenBetterArcheology.RESOURCE_PACK);
+		((BetterBrushItem)ModItems.DIAMOND_BRUSH).generateResourceData(EvenBetterArcheology.RESOURCE_PACK);
 
 		//Register the resource pack
 		RRPCallback.AFTER_VANILLA.register(a -> a.add(RESOURCE_PACK));

@@ -1,6 +1,8 @@
 package de.sakurajin.evenbetterarcheology.block;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
+import de.sakurajin.evenbetterarcheology.api.datagen.generationType;
+import de.sakurajin.evenbetterarcheology.api.owo_annotations.GenerateBlock;
 import de.sakurajin.evenbetterarcheology.api.owo_annotations.ItemRarity;
 import de.sakurajin.evenbetterarcheology.api.owo_annotations.ModdedRarity;
 import de.sakurajin.evenbetterarcheology.api.owo_annotations.NoItemGroup;
@@ -12,7 +14,6 @@ import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeRegistry
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeRegistry;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
@@ -25,11 +26,14 @@ import java.lang.reflect.Field;
 public class ModBlocks implements BlockRegistryContainer {
 
     //-----------SUS VARIANTS-------------//
+    @GenerateBlock(type = generationType.SUSPICIOUS)
     public static final Block SUSPICIOUS_RED_SAND = new SusBlock(Blocks.RED_SAND, FabricBlockSettings.copy(Blocks.SUSPICIOUS_SAND), SoundEvents.ITEM_BRUSH_BRUSHING_SAND, SoundEvents.ITEM_BRUSH_BRUSHING_SAND_COMPLETE);
 
+    @GenerateBlock(type = generationType.SUSPICIOUS)
     public static final Block SUSPICIOUS_DIRT = new SusBlock(Blocks.DIRT, FabricBlockSettings.copy(Blocks.SUSPICIOUS_GRAVEL), SoundEvents.ITEM_BRUSH_BRUSHING_GRAVEL, SoundEvents.ITEM_BRUSH_BRUSHING_GRAVEL_COMPLETE);
 
     //---------FOSSILIFEROUS BLOCKS-----------//
+    @GenerateBlock(type = generationType.SUSPICIOUS)
     public static final Block FOSSILIFEROUS_DIRT = new SusBlock(Blocks.DIRT, FabricBlockSettings.copy(Blocks.SUSPICIOUS_GRAVEL), SoundEvents.BLOCK_GRAVEL_HIT, SoundEvents.BLOCK_GRAVEL_BREAK);
 
     //-------------FOSSILS---------------//
@@ -90,12 +94,16 @@ public class ModBlocks implements BlockRegistryContainer {
     public static final WoodType ROTTEN_WOOD_TYPE = registerWoodType("rotten_wood");
     public static final BlockSetType ROTTEN_WOOD_BLOCKSET = registerBlockSetType("rotten_wood");
 
+    @GenerateBlock(textures = {"rotten_log/rotten_log_top", "rotten_log/rotten_log"}, type = generationType.PILLAR)
     public static final Block ROTTEN_LOG = new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).sounds(BlockSoundGroup.NETHER_STEM));
 
+    @GenerateBlock(textures = {"rotten_log/rotten_planks"}, type = generationType.CUBE)
     public static final Block ROTTEN_PLANKS = new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS).sounds(BlockSoundGroup.NETHER_STEM));
 
+    @GenerateBlock(textures = {"rotten_log/rotten_planks"}, type = generationType.SLAB)
     public static final Block ROTTEN_SLAB = new SlabBlock(FabricBlockSettings.copy(Blocks.OAK_SLAB).sounds(BlockSoundGroup.NETHER_STEM));
 
+    @GenerateBlock(textures = {"rotten_log/rotten_planks"}, type = generationType.STAIRS)
     public static final Block ROTTEN_STAIRS = new StairsBlock(ROTTEN_PLANKS.getDefaultState(), FabricBlockSettings.copy(Blocks.OAK_STAIRS).sounds(BlockSoundGroup.NETHER_STEM));
 
     public static final Block ROTTEN_FENCE = new FenceBlock(FabricBlockSettings.copy(Blocks.OAK_FENCE).sounds(BlockSoundGroup.NETHER_STEM));
@@ -107,12 +115,16 @@ public class ModBlocks implements BlockRegistryContainer {
     public static final Block ROTTEN_DOOR = new DoorBlock(FabricBlockSettings.copy(Blocks.OAK_DOOR).sounds(BlockSoundGroup.NETHER_STEM), ROTTEN_WOOD_BLOCKSET);
 
     //-------------MUD Brick Stuff----------------//
+    @GenerateBlock(textures = {"minecraft:block/mud_bricks"}, type = generationType.FROM_PARENT)
     public static final Block INFESTED_MUD_BRICKS = new InfestedMudBricks(Blocks.MUD_BRICKS, FabricBlockSettings.copy(Blocks.INFESTED_STONE_BRICKS));
 
+    @GenerateBlock(textures = {"cracked_mud_bricks"}, type = generationType.CUBE)
     public static final Block CRACKED_MUD_BRICKS = new Block(FabricBlockSettings.copy(Blocks.MUD_BRICKS));
 
+    @GenerateBlock(textures = {"cracked_mud_bricks"}, type = generationType.SLAB)
     public static final Block CRACKED_MUD_BRICK_SLAB = new SlabBlock(FabricBlockSettings.copy(Blocks.MUD_BRICK_SLAB));
 
+    @GenerateBlock(textures = {"cracked_mud_bricks"}, type = generationType.STAIRS)
     public static final Block CRACKED_MUD_BRICK_STAIRS = new StairsBlock(CRACKED_MUD_BRICKS.getDefaultState(), FabricBlockSettings.copy(Blocks.MUD_BRICK_STAIRS));
 
     public static final Block ARCHEOLOGY_TABLE = new ArchelogyTable(FabricBlockSettings.copy(Blocks.CRAFTING_TABLE));
@@ -158,6 +170,15 @@ public class ModBlocks implements BlockRegistryContainer {
                 default -> Rarity.COMMON;
             };
             settings.rarity(rarity);
+        }
+
+        if (field.isAnnotationPresent(GenerateBlock.class)){
+            GenerateBlock annotation = field.getAnnotation(GenerateBlock.class);
+            EvenBetterArcheology.RESOURCE_GENERATION_HELPER.autoGenerateSimple(
+                    identifier,
+                    annotation.textures(),
+                    annotation.type()
+            );
         }
 
         // finally, create and register the block item
