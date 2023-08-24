@@ -1,4 +1,4 @@
-package de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.BlockItemOptions;
+package de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.ItemOptions;
 
 import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.ModdedRarity;
 
@@ -9,6 +9,6 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface BlockItemRarity {
+public @interface ItemRarity {
     ModdedRarity value();
 }

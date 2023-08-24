@@ -1,8 +1,14 @@
 package de.sakurajin.evenbetterarcheology.item;
 
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.DatagenModContainer;
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Generation.ItemModelGeneratateable;
 import de.sakurajin.evenbetterarcheology.entity.BombEntity;
 import de.sakurajin.evenbetterarcheology.util.ServerPlayerHelper;
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
+import net.devtech.arrp.json.models.JDisplay;
+import net.devtech.arrp.json.models.JModel;
+import net.devtech.arrp.json.models.JPosition;
+import net.devtech.arrp.json.models.JTextures;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -13,7 +19,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
-public class BombItem extends Item {
+public class BombItem extends Item implements ItemModelGeneratateable {
     //gets id of advancement for having thrown a bomb which has the condition "impossible" because it needs to be triggered here
     Identifier ADVANCEMENT_ID = new Identifier(EvenBetterArcheology.DATA.MOD_ID, "used_bomb_item");
     public BombItem(Settings settings) {
@@ -46,5 +52,23 @@ public class BombItem extends Item {
         itemStack.decrement(1);
 
         return TypedActionResult.consume(itemStack);
+    }
+
+    @Override
+    public void generateItemModel(DatagenModContainer container, String identifier) {
+        JDisplay display = new JDisplay()
+            .setThirdperson_righthand(
+                    new JPosition().rotation(0,0,55).translation(0,2,0.75f).scale(0.5f,0.5f,0.5f)
+            ).setThirdperson_lefthand(
+                    new JPosition().rotation(0,0,-55).translation(0,2,0.5f).scale(0.5f,0.5f,0.5f)
+            ).setFirstperson_righthand(
+                    new JPosition().rotation(0,-90,25).translation(1.13f,3.2f,1.13f).scale(0.5f,0.5f,0.5f)
+            ).setFirstperson_lefthand(
+                    new JPosition().rotation(0,90,-25).translation(1.13f, 3.2f, 1.13f).scale(0.5f,0.5f,0.5f)
+            );
+
+        container.RESOURCE_PACK.addModel(
+                new JModel().textures(new JTextures().layer0(container.MOD_ID + ":item/" + identifier)).display(display).parent("item/generated"),
+                new Identifier(container.MOD_ID, "item/" + identifier));
     }
 }

@@ -1,9 +1,9 @@
 package de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Parsers;
 
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.BlockItemOptions.BlockItemRarity;
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.ItemOptions.ItemRarity;
 import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.BlockItemOptions.BlockItemTexture;
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.BlockItemOptions.NoItemGroup;
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.BlockItemOptions.NoItemModel;
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.ItemOptions.NoItemGroup;
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.ItemOptions.NoItemModel;
 import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.DatagenModContainer;
 import io.wispforest.owo.itemgroup.OwoItemSettings;
 import io.wispforest.owo.registration.reflect.BlockRegistryContainer;
@@ -32,8 +32,8 @@ public class BlockItemGenerator implements AnnotationParser{
             settings.group(container.GROUP);
         }
 
-        if (field.isAnnotationPresent(BlockItemRarity.class)){
-            Rarity rarity = switch (field.getAnnotation(BlockItemRarity.class).value()) {
+        if (field.isAnnotationPresent(ItemRarity.class)){
+            Rarity rarity = switch (field.getAnnotation(ItemRarity.class).value()) {
                 case UNCOMMON -> Rarity.UNCOMMON;
                 case RARE -> Rarity.RARE;
                 case EPIC -> Rarity.EPIC;
@@ -52,7 +52,7 @@ public class BlockItemGenerator implements AnnotationParser{
                 parentTexture = field.getAnnotation(BlockItemTexture.class).value();
             }
 
-            container.RESOURCE_GENERATION_HELPER.generateItem(identifier, parentTexture);
+            container.MODEL_GENERATION_HELPER.generateItem(identifier, parentTexture);
         }
     }
 }

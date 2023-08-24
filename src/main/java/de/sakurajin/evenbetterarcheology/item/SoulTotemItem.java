@@ -1,6 +1,8 @@
 package de.sakurajin.evenbetterarcheology.item;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.DatagenModContainer;
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Generation.ItemModelGeneratateable;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -26,7 +28,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class SoulTotemItem extends Item {
+public class SoulTotemItem extends Item implements ItemModelGeneratateable {
     public SoulTotemItem(Settings settings) {
         super(settings);
     }
@@ -105,5 +107,10 @@ public class SoulTotemItem extends Item {
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         super.appendTooltip(stack, world, tooltip, context);
         tooltip.add(Text.translatable(this.getTranslationKey() + "_description").formatted(Formatting.DARK_AQUA));
+    }
+
+    @Override
+    public void generateItemModel(DatagenModContainer container, String identifier) {
+        container.MODEL_GENERATION_HELPER.generateItem(identifier, "minecraft:item/handheld", identifier);
     }
 }

@@ -1,9 +1,10 @@
 package de.sakurajin.evenbetterarcheology.api.item;
 
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.DatagenModContainer;
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Generation.ItemModelGeneratateable;
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Generation.RecepieGeneratable;
 import io.wispforest.owo.itemgroup.OwoItemGroup;
 import io.wispforest.owo.itemgroup.OwoItemSettings;
-import net.devtech.arrp.api.RuntimeResourcePack;
-import net.devtech.arrp.json.models.JModel;
 import net.devtech.arrp.json.recipe.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -29,64 +30,41 @@ import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BetterBrushItem extends BrushItem {
+public class BetterBrushItem extends BrushItem implements ItemModelGeneratateable, RecepieGeneratable {
     private final float brushingSpeed;
     private final Item material;
-    private String modID;
-    private String name;
+    private final String materialName;
 
-    public BetterBrushItem(Settings settings, float pBrushingSpeed, Item material, String modID, String name) {
+
+    public BetterBrushItem(Settings settings, float pBrushingSpeed, Item material) {
         super(settings);
         brushingSpeed = pBrushingSpeed;
         this.material = material;
-        this.modID = modID;
-        this.name = name;
-    }
-
-    public void generateResourceData(RuntimeResourcePack pack) {
-        if(material == null) throw new RuntimeException("Material is null cannot generate Resource Data");
-        boolean guessModId = modID == null;
-        boolean guessName = name == null;
 
         String materialTranslationKey = material.getTranslationKey();
         var materialArray = materialTranslationKey.split("\\.");
+        this.materialName = materialArray[materialArray.length-1];
+    }
 
-        if (guessName || guessModId) {
-            var brushArray = this.getTranslationKey().split("\\.");
-            if(brushArray.length == 0){
-                throw new RuntimeException("Translation Key is invalid or not yet set");
-            }
+    @Override
+    public void generateItemModel(DatagenModContainer container, String identifier) {
+        container.MODEL_GENERATION_HELPER.generateItem(identifier, "minecraft:item/brush", identifier);
+    }
 
-            if(guessModId) {
-                if(brushArray.length > 2){
-                    modID = brushArray[1];
-                }else{
-                    modID = brushArray[0];
-                }
-            }
-            name = brushArray[brushArray.length-1];
-        }
+    public void generateRecepie(DatagenModContainer container, String identifier){
+        if(material == null) throw new RuntimeException("Material is null cannot generate Resource Data");
 
-        String materialName = materialArray[materialArray.length-1];
-
-        pack.addRecipe(
-            new Identifier(modID, "crafting_"+name+"_"+materialName),
-            JRecipe.shaped(
-                JPattern.pattern("x", "y", "z"),
-                JKeys.keys()
-                    .key("x", JIngredient.ingredient().item(material))
-                    .key("y", JIngredient.ingredient().item(Items.STICK))
-                    .key("z", JIngredient.ingredient().item(Items.FEATHER)),
-                JResult.item(this)
-            )
+        container.RESOURCE_PACK.addRecipe(
+                new Identifier(identifier, "crafting_"+identifier+"_"+materialName),
+                JRecipe.shaped(
+                        JPattern.pattern("x", "y", "z"),
+                        JKeys.keys()
+                                .key("x", JIngredient.ingredient().item(material))
+                                .key("y", JIngredient.ingredient().item(Items.STICK))
+                                .key("z", JIngredient.ingredient().item(Items.FEATHER)),
+                        JResult.item(this)
+                )
         );
-
-        pack.addModel(
-            JModel.model(new Identifier("minecraft", "item/brush"))
-                .textures(JModel.textures().layer0(modID +":item/" + name)),
-            new Identifier(modID, "item/" + name)
-        );
-
     }
 
     public float getBrushingSpeed(){
@@ -146,10 +124,8 @@ public class BetterBrushItem extends BrushItem {
 
     public static class Builder{
         private float brushingSpeed = 1.0f;
-        private String name = null;
         private OwoItemSettings settings = new OwoItemSettings();
         private Item material = null;
-        private String modID = null;
 
         public Builder setBrushingSpeed(float pBrushingSpeed){
             brushingSpeed = pBrushingSpeed;
@@ -181,18 +157,8 @@ public class BetterBrushItem extends BrushItem {
             return this;
         }
 
-        public Builder setModID(String modID){
-            this.modID = modID;
-            return this;
-        }
-
-        public Builder setName(String name){
-            this.name = name;
-            return this;
-        }
-
         public BetterBrushItem build(){
-            return new BetterBrushItem(settings, brushingSpeed, material, modID, name);
+            return new BetterBrushItem(settings, brushingSpeed, material);
         }
 
     }

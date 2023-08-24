@@ -1,4 +1,4 @@
-package de.sakurajin.evenbetterarcheology.api.AnnotationEngine;
+package de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Generation;
 
 import net.devtech.arrp.api.RuntimeResourcePack;
 import net.devtech.arrp.json.blockstate.JState;
@@ -8,11 +8,11 @@ import net.minecraft.util.Identifier;
 
 import java.util.Map;
 
-public class resourceGenerationHelper {
+public class ModelGenerationHelper {
     private final String modID;
     private final RuntimeResourcePack RESOURCE_PACK;
 
-    public resourceGenerationHelper(String modID, RuntimeResourcePack RESOURCE_PACK){
+    public ModelGenerationHelper(String modID, RuntimeResourcePack RESOURCE_PACK){
         this.modID = modID;
         this.RESOURCE_PACK = RESOURCE_PACK;
     }
@@ -30,6 +30,12 @@ public class resourceGenerationHelper {
     public void generateItem(String name, String parent){
         Identifier ItemID = new Identifier(modID, "item/"+name);
         RESOURCE_PACK.addModel(new JModel().parent(parent), ItemID);
+    }
+
+    public void generateItem(String name, String parent, String texture){
+        Identifier ItemID = new Identifier(modID, "item/"+name);
+        RESOURCE_PACK.addModel(new JModel().parent(parent).textures(
+            new JTextures().var("layer0", modID+":item/"+texture)), ItemID);
     }
 
     /**

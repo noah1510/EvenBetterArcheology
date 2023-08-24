@@ -6,6 +6,6 @@ public class SusBlock implements BlockGenerationType {
     @Override
     public void generate(String name, DatagenModContainer container, String[] textures) {
         if (textures.length != 0) throw new IllegalArgumentException("textures must have a length of 0");
-        container.RESOURCE_GENERATION_HELPER.generateSusBlock(name);
+        container.MODEL_GENERATION_HELPER.generateSusBlock(name);
     }
 }

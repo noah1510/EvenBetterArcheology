@@ -13,12 +13,9 @@ import de.sakurajin.evenbetterarcheology.villager.ModVillagers;
 import de.sakurajin.evenbetterarcheology.enchantment.ModEnchantments;
 import de.sakurajin.evenbetterarcheology.structures.ModStructureFeatures;
 import io.wispforest.owo.itemgroup.Icon;
-import io.wispforest.owo.itemgroup.OwoItemGroup;
-import io.wispforest.owo.registration.reflect.FieldRegistrationHandler;
 import net.devtech.arrp.api.RRPCallback;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.util.Identifier;
 
 public class EvenBetterArcheology implements ModInitializer {
 	public static final DatagenModContainer DATA = new DatagenModContainer("evenbetterarcheology", () -> Icon.of(ModItems.UNIDENTIFIED_ARTIFACT));
@@ -50,10 +47,6 @@ public class EvenBetterArcheology implements ModInitializer {
 		ModEnchantments.registerModEnchantments();
 
 		ModStructureFeatures.registerStructureFeatures();
-
-		//Generate the other data for the resource pack
-		((BetterBrushItem)ModItems.IRON_BRUSH).generateResourceData(DATA.RESOURCE_PACK);
-		((BetterBrushItem)ModItems.DIAMOND_BRUSH).generateResourceData(DATA.RESOURCE_PACK);
 
 		//Register the resource pack
 		RRPCallback.AFTER_VANILLA.register(a -> a.add(DATA.RESOURCE_PACK));

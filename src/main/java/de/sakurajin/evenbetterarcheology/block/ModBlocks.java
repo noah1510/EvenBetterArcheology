@@ -2,12 +2,12 @@ package de.sakurajin.evenbetterarcheology.block;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.BlockItemOptions.BlockItemTexture;
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.BlockItemOptions.NoItemModel;
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.ItemOptions.NoItemModel;
 import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Containers.ParsedBlockRegistryContainer;
 import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.GenerateBlock;
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.BlockItemOptions.BlockItemRarity;
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.ItemOptions.ItemRarity;
 import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.ModdedRarity;
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.BlockItemOptions.NoItemGroup;
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.ItemOptions.NoItemGroup;
 import de.sakurajin.evenbetterarcheology.block.custom.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeRegistry;
@@ -36,70 +36,70 @@ public class ModBlocks extends ParsedBlockRegistryContainer {
 
     //-------------FOSSILS---------------//
     //Villager
-    @BlockItemRarity(ModdedRarity.UNCOMMON)
-    @NoItemModel
+    @ItemRarity(ModdedRarity.UNCOMMON)
+    @BlockItemTexture("evenbetterarcheology:block/fossils/villager_fossil_0")
     public static final Block VILLAGER_FOSSIL = new VillagerFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK).luminance((state) -> {
         return state.get(VillagerFossilBlock.INVENTORY_LUMINANCE);
     }));
 
-    @BlockItemRarity(ModdedRarity.UNCOMMON)
-    @NoItemModel
+    @ItemRarity(ModdedRarity.UNCOMMON)
+    @BlockItemTexture("evenbetterarcheology:block/fossils/villager_fossil_head_0")
     public static final Block VILLAGER_FOSSIL_HEAD = new VillagerFossilHeadBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
 
-    @BlockItemRarity(ModdedRarity.UNCOMMON)
-    @NoItemModel
+    @ItemRarity(ModdedRarity.UNCOMMON)
+    @BlockItemTexture("evenbetterarcheology:block/fossils/villager_fossil_body_0")
     public static final Block VILLAGER_FOSSIL_BODY = new VillagerFossilBodyBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
 
     //Ocelot
-    @BlockItemRarity(ModdedRarity.UNCOMMON)
-    @NoItemModel
+    @ItemRarity(ModdedRarity.UNCOMMON)
+    @BlockItemTexture("evenbetterarcheology:block/fossils/ocelot_fossil_0")
     public static final Block OCELOT_FOSSIL = new OcelotFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK));
 
-    @BlockItemRarity(ModdedRarity.UNCOMMON)
-    @NoItemModel
+    @ItemRarity(ModdedRarity.UNCOMMON)
+    @BlockItemTexture("evenbetterarcheology:block/fossils/ocelot_fossil_head_0")
     public static final Block OCELOT_FOSSIL_HEAD = new OcelotFossilHeadBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
 
-    @BlockItemRarity(ModdedRarity.UNCOMMON)
-    @NoItemModel
+    @ItemRarity(ModdedRarity.UNCOMMON)
+    @BlockItemTexture("evenbetterarcheology:block/fossils/ocelot_fossil_body_0")
     public static final Block OCELOT_FOSSIL_BODY = new OcelotFossilBodyBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
 
     //Sheep
-    @BlockItemRarity(ModdedRarity.UNCOMMON)
-    @NoItemModel
+    @ItemRarity(ModdedRarity.UNCOMMON)
+    @BlockItemTexture("evenbetterarcheology:block/fossils/sheep_fossil_0")
     public static final Block SHEEP_FOSSIL = new SheepFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK));
 
-    @BlockItemRarity(ModdedRarity.UNCOMMON)
-    @NoItemModel
+    @ItemRarity(ModdedRarity.UNCOMMON)
+    @BlockItemTexture("evenbetterarcheology:block/fossils/sheep_fossil_head")
     public static final Block SHEEP_FOSSIL_HEAD = new SheepFossilHeadBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
 
-    @BlockItemRarity(ModdedRarity.UNCOMMON)
-    @NoItemModel
+    @ItemRarity(ModdedRarity.UNCOMMON)
+    @BlockItemTexture("evenbetterarcheology:block/fossils/sheep_fossil_body_1")
     public static final Block SHEEP_FOSSIL_BODY = new SheepFossilBodyBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
 
     //Sheep
-    @BlockItemRarity(ModdedRarity.UNCOMMON)
-    @NoItemModel
+    @ItemRarity(ModdedRarity.UNCOMMON)
+    @BlockItemTexture("evenbetterarcheology:block/fossils/chicken_fossil_0")
     public static final Block CHICKEN_FOSSIL = new ChickenFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK));
 
-    @BlockItemRarity(ModdedRarity.UNCOMMON)
-    @NoItemModel
+    @ItemRarity(ModdedRarity.UNCOMMON)
+    @BlockItemTexture("evenbetterarcheology:block/fossils/chicken_fossil_head_0")
     public static final Block CHICKEN_FOSSIL_HEAD = new ChickenFossilHeadBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
 
-    @BlockItemRarity(ModdedRarity.UNCOMMON)
-    @NoItemModel
+    @ItemRarity(ModdedRarity.UNCOMMON)
+    @BlockItemTexture("evenbetterarcheology:block/fossils/chicken_fossil_body_0")
     public static final Block CHICKEN_FOSSIL_BODY = new ChickenFossilBodyBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
 
     //Creeper
-    @BlockItemRarity(ModdedRarity.UNCOMMON)
-    @NoItemModel
+    @ItemRarity(ModdedRarity.UNCOMMON)
+    @BlockItemTexture("evenbetterarcheology:block/fossils/creeper_fossil_0")
     public static final Block CREEPER_FOSSIL = new CreeperFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK));
 
-    @BlockItemRarity(ModdedRarity.UNCOMMON)
-    @NoItemModel
+    @ItemRarity(ModdedRarity.UNCOMMON)
+    @BlockItemTexture("evenbetterarcheology:block/fossils/creeper_fossil_head_0")
     public static final Block CREEPER_FOSSIL_HEAD = new CreeperFossilHeadBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
 
-    @BlockItemRarity(ModdedRarity.UNCOMMON)
-    @NoItemModel
+    @ItemRarity(ModdedRarity.UNCOMMON)
+    @BlockItemTexture("evenbetterarcheology:block/fossils/creeper_fossil_body_0")
     public static final Block CREEPER_FOSSIL_BODY = new CreeperFossilBodyBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
 
 
@@ -144,25 +144,20 @@ public class ModBlocks extends ParsedBlockRegistryContainer {
     @GenerateBlock(textures = {"cracked_mud_bricks"}, type = de.sakurajin.evenbetterarcheology.api.AnnotationEngine.BlockGenerationTypes.Stairs.class)
     public static final Block CRACKED_MUD_BRICK_STAIRS = new StairsBlock(CRACKED_MUD_BRICKS.getDefaultState(), FabricBlockSettings.copy(Blocks.MUD_BRICK_STAIRS));
 
-    @NoItemModel
     public static final Block ARCHEOLOGY_TABLE = new ArchelogyTable(FabricBlockSettings.copy(Blocks.CRAFTING_TABLE));
 
-    @NoItemModel
+    @BlockItemTexture("evenbetterarcheology:block/loot_vase_0")
     public static final Block VASE = new VaseBlock(FabricBlockSettings.copy(Blocks.FLOWER_POT).sounds(BlockSoundGroup.DECORATED_POT));
 
-    @NoItemModel
+    @BlockItemTexture("evenbetterarcheology:block/loot_vase_3")
     public static final Block VASE_CREEPER = new VaseBlock(FabricBlockSettings.copy(Blocks.FLOWER_POT).sounds(BlockSoundGroup.DECORATED_POT));
 
-    @NoItemModel
     @NoItemGroup
     public static final Block LOOT_VASE = new LootVaseBlock(FabricBlockSettings.copy(Blocks.FLOWER_POT).sounds(BlockSoundGroup.DECORATED_POT));
 
-    @NoItemModel
     @NoItemGroup
     public static final Block LOOT_VASE_CREEPER =new LootVaseBlock(FabricBlockSettings.copy(Blocks.FLOWER_POT).sounds(BlockSoundGroup.DECORATED_POT));
 
-    @NoItemModel
-    @NoItemGroup
     public static final Block EVOKER_TRAP = new EvokerTrapBlock(FabricBlockSettings.copy(Blocks.STONE).strength(25f));
 
     private static WoodType registerWoodType(String id) {
