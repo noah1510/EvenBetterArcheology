@@ -1,7 +1,7 @@
 package de.sakurajin.evenbetterarcheology.item;
 
 import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Generation.ItemModelGeneratateable;
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Item.ItemModelGeneratateable;
 import de.sakurajin.evenbetterarcheology.entity.BombEntity;
 import de.sakurajin.evenbetterarcheology.util.ServerPlayerHelper;
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;

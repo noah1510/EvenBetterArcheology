@@ -52,7 +52,7 @@ public class BlockItemGenerator implements AnnotationParser{
                 parentTexture = field.getAnnotation(BlockItemTexture.class).value();
             }
 
-            container.MODEL_GENERATION_HELPER.generateItem(identifier, parentTexture);
+            container.MODEL_GENERATION_HELPER.generateItemModel(identifier, parentTexture);
         }
     }
 }

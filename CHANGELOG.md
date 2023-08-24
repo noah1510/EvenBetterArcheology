@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.0.0-alpha.6
+
+* More work on the data generation API
+* Generation of blockstates, block models and block item is now split
+* Created interface to generate data in block classes
+* Generating models for items
+* Generating more block models
+* Allow automatically adding items to creative menu
+
 ## 2.0.0-alpha.5
 
 * Adding custom annotations to generate data of blocks

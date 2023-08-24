@@ -2,7 +2,7 @@ package de.sakurajin.evenbetterarcheology.item;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Generation.ItemModelGeneratateable;
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Item.ItemModelGeneratateable;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -111,6 +111,6 @@ public class SoulTotemItem extends Item implements ItemModelGeneratateable {
 
     @Override
     public void generateItemModel(DatagenModContainer container, String identifier) {
-        container.MODEL_GENERATION_HELPER.generateItem(identifier, "minecraft:item/handheld", identifier);
+        container.MODEL_GENERATION_HELPER.generateItemModel(identifier, "minecraft:item/handheld", identifier);
     }
 }

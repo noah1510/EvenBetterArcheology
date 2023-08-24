@@ -1,5 +1,7 @@
 package de.sakurajin.evenbetterarcheology.block.custom;
 
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.DatagenModContainer;
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Item.BlockStateGenerateable;
 import de.sakurajin.evenbetterarcheology.block.entity.ArcheologyTableBlockEntity;
 import de.sakurajin.evenbetterarcheology.block.entity.ModBlockEntities;
 import net.minecraft.block.*;
@@ -21,7 +23,7 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvider {
+public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvider, BlockStateGenerateable {
     //indicates if the table is currently "crafting" the identified artifact
     //triggers particle creation
     public static final BooleanProperty DUSTING = BooleanProperty.of("dusting");
@@ -110,6 +112,11 @@ public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvid
                     0.0,
                     3.0 * random.nextDouble() * (random.nextBoolean() ? 1 : -1));
         }
+    }
+
+    @Override
+    public void generateBlockState(DatagenModContainer container, String identifier) {
+        container.MODEL_GENERATION_HELPER.generateBlockState(identifier);
     }
 };
 

@@ -1,5 +1,7 @@
 package de.sakurajin.evenbetterarcheology.block.custom;
 
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.DatagenModContainer;
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Item.BlockGenerateable;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalFacingBlock;
@@ -17,7 +19,9 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 
-public class EvokerTrapBlock extends HorizontalFacingBlock {
+import java.util.Map;
+
+public class EvokerTrapBlock extends HorizontalFacingBlock implements BlockGenerateable {
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     public static final BooleanProperty TRIGGERED = Properties.TRIGGERED;
 
@@ -101,5 +105,30 @@ public class EvokerTrapBlock extends HorizontalFacingBlock {
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(FACING, TRIGGERED, ACTIVE);
+    }
+
+    @Override
+    public void generateBlockModel(DatagenModContainer container, String identifier) {
+        container.MODEL_GENERATION_HELPER.generateBlockModel(
+            identifier, Map.of(
+                "front", "evoker_trap",
+                "side", "minecraft:block/furnace_side",
+                "top", "minecraft:block/furnace_top"
+            ), "minecraft:block/orientable");
+    }
+
+    @Override
+    public void generateBlockState(DatagenModContainer container, String identifier) {
+        container.MODEL_GENERATION_HELPER.generateBlockStateOrientable(identifier);
+    }
+
+    @Override
+    public void generateItemModel(DatagenModContainer container, String identifier) {
+        container.MODEL_GENERATION_HELPER.generateBlockItemModel(identifier);
+    }
+
+    @Override
+    public void generateRecepie(DatagenModContainer container, String identifier) {
+
     }
 }

@@ -1,8 +1,8 @@
 package de.sakurajin.evenbetterarcheology.api.item;
 
 import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Generation.ItemModelGeneratateable;
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Generation.RecepieGeneratable;
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Item.ItemModelGeneratateable;
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Item.RecepieGeneratable;
 import io.wispforest.owo.itemgroup.OwoItemGroup;
 import io.wispforest.owo.itemgroup.OwoItemSettings;
 import net.devtech.arrp.json.recipe.*;
@@ -48,7 +48,7 @@ public class BetterBrushItem extends BrushItem implements ItemModelGeneratateabl
 
     @Override
     public void generateItemModel(DatagenModContainer container, String identifier) {
-        container.MODEL_GENERATION_HELPER.generateItem(identifier, "minecraft:item/brush", identifier);
+        container.MODEL_GENERATION_HELPER.generateItemModel(identifier, "minecraft:item/brush", identifier);
     }
 
     public void generateRecepie(DatagenModContainer container, String identifier){

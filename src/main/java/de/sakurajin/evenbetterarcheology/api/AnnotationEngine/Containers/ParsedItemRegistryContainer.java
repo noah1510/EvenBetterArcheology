@@ -3,8 +3,8 @@ package de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Containers;
 import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.ItemOptions.NoItemGroup;
 import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.ItemOptions.NoItemModel;
 import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Generation.ItemModelGeneratateable;
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Generation.RecepieGeneratable;
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Item.ItemModelGeneratateable;
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Item.RecepieGeneratable;
 import io.wispforest.owo.registration.reflect.ItemRegistryContainer;
 import io.wispforest.owo.util.pond.OwoItemExtensions;
 import net.minecraft.item.Item;
@@ -24,12 +24,10 @@ public abstract class ParsedItemRegistryContainer extends ParsedContainerBase im
             ((OwoItemExtensions) value).owo$setGroup(initializer.GROUP);
         }
 
-        if (!field.isAnnotationPresent(NoItemModel.class)){
-            if (value instanceof ItemModelGeneratateable){
-                ((ItemModelGeneratateable) value).generateItemModel(initializer, identifier);
-            }else{
-                initializer.MODEL_GENERATION_HELPER.generateItem(identifier, "minecraft:item/generated", identifier);
-            }
+        if (value instanceof ItemModelGeneratateable){
+            ((ItemModelGeneratateable) value).generateItemModel(initializer, identifier);
+        }else if (!field.isAnnotationPresent(NoItemModel.class)){
+            initializer.MODEL_GENERATION_HELPER.generateItemModel(identifier, "minecraft:item/generated", identifier);
         }
 
         if (value instanceof RecepieGeneratable) {

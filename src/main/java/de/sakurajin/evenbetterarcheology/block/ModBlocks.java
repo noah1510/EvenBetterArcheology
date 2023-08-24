@@ -4,7 +4,7 @@ import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.BlockItemOptions.BlockItemTexture;
 import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.ItemOptions.NoItemModel;
 import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Containers.ParsedBlockRegistryContainer;
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.GenerateBlock;
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.BlockOptions.GenerateBlock;
 import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.ItemOptions.ItemRarity;
 import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.ModdedRarity;
 import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.ItemOptions.NoItemGroup;
@@ -22,16 +22,16 @@ public class ModBlocks extends ParsedBlockRegistryContainer {
 
     //-----------SUS VARIANTS-------------//
     @BlockItemTexture("evenbetterarcheology:block/suspicious_red_sand_0")
-    @GenerateBlock(type = de.sakurajin.evenbetterarcheology.api.AnnotationEngine.BlockGenerationTypes.SusBlock.class)
+    @GenerateBlock
     public static final Block SUSPICIOUS_RED_SAND = new SusBlock(Blocks.RED_SAND, FabricBlockSettings.copy(Blocks.SUSPICIOUS_SAND), SoundEvents.ITEM_BRUSH_BRUSHING_SAND, SoundEvents.ITEM_BRUSH_BRUSHING_SAND_COMPLETE);
 
     @BlockItemTexture("evenbetterarcheology:block/suspicious_dirt_0")
-    @GenerateBlock(type = de.sakurajin.evenbetterarcheology.api.AnnotationEngine.BlockGenerationTypes.SusBlock.class)
+    @GenerateBlock
     public static final Block SUSPICIOUS_DIRT = new SusBlock(Blocks.DIRT, FabricBlockSettings.copy(Blocks.SUSPICIOUS_GRAVEL), SoundEvents.ITEM_BRUSH_BRUSHING_GRAVEL, SoundEvents.ITEM_BRUSH_BRUSHING_GRAVEL_COMPLETE);
 
     //---------FOSSILIFEROUS BLOCKS-----------//
     @BlockItemTexture("evenbetterarcheology:block/fossiliferous_dirt_0")
-    @GenerateBlock(type = de.sakurajin.evenbetterarcheology.api.AnnotationEngine.BlockGenerationTypes.SusBlock.class)
+    @GenerateBlock
     public static final Block FOSSILIFEROUS_DIRT = new SusBlock(Blocks.DIRT, FabricBlockSettings.copy(Blocks.SUSPICIOUS_GRAVEL), SoundEvents.BLOCK_GRAVEL_HIT, SoundEvents.BLOCK_GRAVEL_BREAK);
 
     //-------------FOSSILS---------------//
@@ -107,16 +107,16 @@ public class ModBlocks extends ParsedBlockRegistryContainer {
     public static final WoodType ROTTEN_WOOD_TYPE = registerWoodType("rotten_wood");
     public static final BlockSetType ROTTEN_WOOD_BLOCKSET = registerBlockSetType("rotten_wood");
 
-    @GenerateBlock(textures = {"rotten_log/rotten_log_top", "rotten_log/rotten_log"}, type = de.sakurajin.evenbetterarcheology.api.AnnotationEngine.BlockGenerationTypes.CubeColumn.class)
+    @GenerateBlock(textures = {"rotten_log/rotten_log_top", "rotten_log/rotten_log"})
     public static final Block ROTTEN_LOG = new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).sounds(BlockSoundGroup.NETHER_STEM));
 
     @GenerateBlock(textures = {"rotten_log/rotten_planks"}, type = de.sakurajin.evenbetterarcheology.api.AnnotationEngine.BlockGenerationTypes.CubeAll.class)
     public static final Block ROTTEN_PLANKS = new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS).sounds(BlockSoundGroup.NETHER_STEM));
 
-    @GenerateBlock(textures = {"rotten_log/rotten_planks"}, type = de.sakurajin.evenbetterarcheology.api.AnnotationEngine.BlockGenerationTypes.Slab.class)
+    @GenerateBlock(textures = {"rotten_log/rotten_planks"})
     public static final Block ROTTEN_SLAB = new SlabBlock(FabricBlockSettings.copy(Blocks.OAK_SLAB).sounds(BlockSoundGroup.NETHER_STEM));
 
-    @GenerateBlock(textures = {"rotten_log/rotten_planks"}, type = de.sakurajin.evenbetterarcheology.api.AnnotationEngine.BlockGenerationTypes.Stairs.class)
+    @GenerateBlock(textures = {"rotten_log/rotten_planks"})
     public static final Block ROTTEN_STAIRS = new StairsBlock(ROTTEN_PLANKS.getDefaultState(), FabricBlockSettings.copy(Blocks.OAK_STAIRS).sounds(BlockSoundGroup.NETHER_STEM));
 
     @NoItemModel
@@ -138,12 +138,13 @@ public class ModBlocks extends ParsedBlockRegistryContainer {
     @GenerateBlock(textures = {"cracked_mud_bricks"}, type = de.sakurajin.evenbetterarcheology.api.AnnotationEngine.BlockGenerationTypes.CubeAll.class)
     public static final Block CRACKED_MUD_BRICKS = new Block(FabricBlockSettings.copy(Blocks.MUD_BRICKS));
 
-    @GenerateBlock(textures = {"cracked_mud_bricks"}, type = de.sakurajin.evenbetterarcheology.api.AnnotationEngine.BlockGenerationTypes.Slab.class)
+    @GenerateBlock(textures = {"cracked_mud_bricks"})
     public static final Block CRACKED_MUD_BRICK_SLAB = new SlabBlock(FabricBlockSettings.copy(Blocks.MUD_BRICK_SLAB));
 
-    @GenerateBlock(textures = {"cracked_mud_bricks"}, type = de.sakurajin.evenbetterarcheology.api.AnnotationEngine.BlockGenerationTypes.Stairs.class)
+    @GenerateBlock(textures = {"cracked_mud_bricks"})
     public static final Block CRACKED_MUD_BRICK_STAIRS = new StairsBlock(CRACKED_MUD_BRICKS.getDefaultState(), FabricBlockSettings.copy(Blocks.MUD_BRICK_STAIRS));
 
+    @GenerateBlock(generateModel = false)
     public static final Block ARCHEOLOGY_TABLE = new ArchelogyTable(FabricBlockSettings.copy(Blocks.CRAFTING_TABLE));
 
     @BlockItemTexture("evenbetterarcheology:block/loot_vase_0")
@@ -158,6 +159,7 @@ public class ModBlocks extends ParsedBlockRegistryContainer {
     @NoItemGroup
     public static final Block LOOT_VASE_CREEPER =new LootVaseBlock(FabricBlockSettings.copy(Blocks.FLOWER_POT).sounds(BlockSoundGroup.DECORATED_POT));
 
+    @GenerateBlock
     public static final Block EVOKER_TRAP = new EvokerTrapBlock(FabricBlockSettings.copy(Blocks.STONE).strength(25f));
 
     private static WoodType registerWoodType(String id) {

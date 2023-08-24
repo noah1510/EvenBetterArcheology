@@ -1,8 +1,8 @@
 package de.sakurajin.evenbetterarcheology;
 
 import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.item.BetterBrushItem;
 import de.sakurajin.evenbetterarcheology.block.ModBlocks;
+import de.sakurajin.evenbetterarcheology.block.custom.SusBlock;
 import de.sakurajin.evenbetterarcheology.block.entity.ModBlockEntities;
 import de.sakurajin.evenbetterarcheology.entity.ModEntityTypes;
 import de.sakurajin.evenbetterarcheology.item.ModItems;
@@ -18,7 +18,11 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 
 public class EvenBetterArcheology implements ModInitializer {
-	public static final DatagenModContainer DATA = new DatagenModContainer("evenbetterarcheology", () -> Icon.of(ModItems.UNIDENTIFIED_ARTIFACT));
+	public static final DatagenModContainer DATA = new DatagenModContainer(
+			"evenbetterarcheology",
+			() -> Icon.of(ModItems.UNIDENTIFIED_ARTIFACT),
+			RRPCallback.AFTER_VANILLA
+	);
 
 	public static final evenbetterarcheologyConfig CONFIG = evenbetterarcheologyConfig.createAndLoad();
 
@@ -31,6 +35,8 @@ public class EvenBetterArcheology implements ModInitializer {
 		}
 
         DATA.GROUP.initialize(); //initializes the ItemGroup
+
+		DATA.registerBlockGenerationType(SusBlock.class, de.sakurajin.evenbetterarcheology.api.AnnotationEngine.BlockGenerationTypes.SusBlock.class);
 
 		DATA.registerContainer(ModItems.class, false);	//registers Items and adds them to the Tab
 		DATA.registerContainer(ModBlocks.class, false);	//registers Blocks	and BlockItems
@@ -47,9 +53,6 @@ public class EvenBetterArcheology implements ModInitializer {
 		ModEnchantments.registerModEnchantments();
 
 		ModStructureFeatures.registerStructureFeatures();
-
-		//Register the resource pack
-		RRPCallback.AFTER_VANILLA.register(a -> a.add(DATA.RESOURCE_PACK));
 
 		if (FabricLoader.getInstance().isDevelopmentEnvironment()){
 			DATA.RESOURCE_PACK.dump();

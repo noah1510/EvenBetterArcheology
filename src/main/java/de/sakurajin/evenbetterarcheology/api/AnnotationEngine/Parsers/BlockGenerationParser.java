@@ -1,6 +1,6 @@
 package de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Parsers;
 
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.GenerateBlock;
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.BlockOptions.GenerateBlock;
 import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.BlockGenerationTypes.BlockGenerationType;
 import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.DatagenModContainer;
 import net.minecraft.item.ItemConvertible;
@@ -19,7 +19,14 @@ public class BlockGenerationParser implements AnnotationParser{
                     return;
                 }
 
-                ((BlockGenerationType)annotation.type().getConstructor().newInstance()).generate(identifier, container, annotation.textures());
+                BlockGenerationType generator = annotation.type().getConstructor(String[].class).newInstance((Object)annotation.textures());
+
+                if (annotation.generateModel()){
+                    generator.generateModel(identifier, value, container);
+                }
+                if (annotation.generateState()){
+                    generator.generateState(identifier, value, container);
+                }
             }catch(Exception e) {
                 container.LOGGER.error("Could not generate Block ", e);
             }

@@ -1,5 +1,6 @@
-package de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations;
+package de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.BlockOptions;
 
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.BlockGenerationTypes.AutoDetectBlock;
 import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.BlockGenerationTypes.BlockGenerationType;
 
 import java.lang.annotation.ElementType;
@@ -11,5 +12,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface GenerateBlock{
     String[] textures() default {};
-    Class<?> type();
+    Class<? extends BlockGenerationType> type() default AutoDetectBlock.class;
+    boolean generateModel() default true;
+    boolean generateState() default true;
 }
