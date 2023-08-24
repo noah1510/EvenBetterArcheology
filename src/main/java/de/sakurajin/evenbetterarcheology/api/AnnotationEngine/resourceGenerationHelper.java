@@ -1,4 +1,4 @@
-package de.sakurajin.evenbetterarcheology.api.datagen;
+package de.sakurajin.evenbetterarcheology.api.AnnotationEngine;
 
 import net.devtech.arrp.api.RuntimeResourcePack;
 import net.devtech.arrp.json.blockstate.JState;
@@ -35,15 +35,6 @@ public class resourceGenerationHelper {
     /**
      * @apiNote This does not generate block models
      */
-    public void generateBlockAndItem(String name, Map<String, String> textures, String parent){
-        String basePath = modID + ":block";
-        generateBlock_Impl(basePath, name, textures, parent);
-        generateItem(name, modID+":block/"+name);
-    }
-
-    /**
-     * @apiNote This does not generate block models
-     */
     public void generateBlock(String name, Map<String, String> textures, String parent){
         String basePath = modID + ":block";
         generateBlock_Impl(basePath, name, textures, parent);
@@ -58,7 +49,7 @@ public class resourceGenerationHelper {
                 "top", texture_top,
                 "side", texture_side
         );
-        generateBlockAndItem(
+        generateBlock(
                 name,
                 textures,
                 "minecraft:block/stairs"
@@ -129,7 +120,7 @@ public class resourceGenerationHelper {
                 "end", texture_end,
                 "side", texture_side
         );
-        generateBlockAndItem(
+        generateBlock(
                 name,
                 textures,
                 "minecraft:block/cube_column"
@@ -151,7 +142,7 @@ public class resourceGenerationHelper {
     }
 
     public void generateCube(String name, String texture){
-        generateBlockAndItem(
+        generateBlock(
                 name,
                 Map.of(
                         "all", texture
@@ -174,7 +165,7 @@ public class resourceGenerationHelper {
                 "bottom", texture_bottom,
                 "side", texture_side
         );
-        generateBlockAndItem(
+        generateBlock(
                 name,
                 textures,
                 "minecraft:block/slab"
@@ -203,7 +194,7 @@ public class resourceGenerationHelper {
     }
 
     public void generateBlockAndItemFromParent(String name, String parent){
-        generateBlockAndItem(
+        generateBlock(
                 name,
                 Map.of(),
                 parent
@@ -225,25 +216,12 @@ public class resourceGenerationHelper {
             );
         }
 
-        generateItem(name, modID+":block/"+name+"_0");
-
         RESOURCE_PACK.addBlockState(JState.state(JState.variant()
                 .put("dusted=0", JState.model(modID+":block/"+name+"_0"))
                 .put("dusted=1", JState.model(modID+":block/"+name+"_1"))
                 .put("dusted=2", JState.model(modID+":block/"+name+"_2"))
                 .put("dusted=3", JState.model(modID+":block/"+name+"_3"))
         ), new Identifier(modID, name));
-    }
-
-    public void autoGenerateSimple(String name, String[] texture, generationType type){
-        switch (type) {
-            case CUBE -> generateCube(name, texture[0]);
-            case PILLAR -> generateCubeColumn(name, texture[0], texture[1]);
-            case SUSPICIOUS -> generateSusBlock(name);
-            case STAIRS -> generateStairs(name, texture[0]);
-            case SLAB -> generateSlab(name, texture[0]);
-            case FROM_PARENT -> generateBlockAndItemFromParent(name, texture[0]);
-        }
     }
 
 }

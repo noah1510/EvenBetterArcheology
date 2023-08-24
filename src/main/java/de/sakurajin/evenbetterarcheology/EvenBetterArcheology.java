@@ -1,6 +1,6 @@
 package de.sakurajin.evenbetterarcheology;
 
-import de.sakurajin.evenbetterarcheology.api.datagen.resourceGenerationHelper;
+import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.DatagenModContainer;
 import de.sakurajin.evenbetterarcheology.api.item.BetterBrushItem;
 import de.sakurajin.evenbetterarcheology.block.ModBlocks;
 import de.sakurajin.evenbetterarcheology.block.entity.ModBlockEntities;
@@ -15,41 +15,29 @@ import de.sakurajin.evenbetterarcheology.structures.ModStructureFeatures;
 import io.wispforest.owo.itemgroup.Icon;
 import io.wispforest.owo.itemgroup.OwoItemGroup;
 import io.wispforest.owo.registration.reflect.FieldRegistrationHandler;
-import net.devtech.arrp.api.RuntimeResourcePack;
 import net.devtech.arrp.api.RRPCallback;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class EvenBetterArcheology implements ModInitializer {
-	// This logger is used to write text to the console and the log file.
-	// It is considered best practice to use your mod id as the logger's name.
-	// That way, it's clear which mod wrote info, warnings, and errors.
-	public static final Logger LOGGER = LoggerFactory.getLogger("evenbetterarcheology");
-	public static final String MOD_ID = "evenbetterarcheology";
+	public static final DatagenModContainer DATA = new DatagenModContainer("evenbetterarcheology", () -> Icon.of(ModItems.UNIDENTIFIED_ARTIFACT));
+
 	public static final evenbetterarcheologyConfig CONFIG = evenbetterarcheologyConfig.createAndLoad();
-
-	public static final OwoItemGroup GROUP = OwoItemGroup
-			.builder(new Identifier(MOD_ID, MOD_ID), () -> Icon.of(ModItems.UNIDENTIFIED_ARTIFACT))
-			// additional builder configuration goes between these lines
-			.build();
-
-	public static final RuntimeResourcePack RESOURCE_PACK = RuntimeResourcePack.create(MOD_ID+":resources");
-	public static final resourceGenerationHelper RESOURCE_GENERATION_HELPER = new resourceGenerationHelper(MOD_ID, RESOURCE_PACK);
 
 	@Override
 	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
+		DATA.LOGGER.info("Even Better Archeology says Hello");	//info message
+        if (DATA.GROUP == null) {
+			DATA.LOGGER.error("Something went wrong when creating the item group");
+			throw new RuntimeException("Something went wrong when creating the item group");
+		}
 
-		LOGGER.info("Even Better Archeology says Hello");	//info message
-		GROUP.initialize(); //initializes the ItemGroup
+        DATA.GROUP.initialize(); //initializes the ItemGroup
 
-		FieldRegistrationHandler.register(ModItems.class, MOD_ID, false);	//registers Items and adds them to the Tab
-		FieldRegistrationHandler.register(ModBlocks.class, MOD_ID, false);	//registers Blocks	and BlockItems
+		DATA.registerContainer(ModItems.class, false);	//registers Items and adds them to the Tab
+		DATA.registerContainer(ModBlocks.class, false);	//registers Blocks	and BlockItems
+
 		ModEntityTypes.registerModEntityTypes();
 
 		ModBlockEntities.registerBlockEntities(); //registers Block-Entities
@@ -64,14 +52,14 @@ public class EvenBetterArcheology implements ModInitializer {
 		ModStructureFeatures.registerStructureFeatures();
 
 		//Generate the other data for the resource pack
-		((BetterBrushItem)ModItems.IRON_BRUSH).generateResourceData(EvenBetterArcheology.RESOURCE_PACK);
-		((BetterBrushItem)ModItems.DIAMOND_BRUSH).generateResourceData(EvenBetterArcheology.RESOURCE_PACK);
+		((BetterBrushItem)ModItems.IRON_BRUSH).generateResourceData(DATA.RESOURCE_PACK);
+		((BetterBrushItem)ModItems.DIAMOND_BRUSH).generateResourceData(DATA.RESOURCE_PACK);
 
 		//Register the resource pack
-		RRPCallback.AFTER_VANILLA.register(a -> a.add(RESOURCE_PACK));
+		RRPCallback.AFTER_VANILLA.register(a -> a.add(DATA.RESOURCE_PACK));
 
 		if (FabricLoader.getInstance().isDevelopmentEnvironment()){
-			RESOURCE_PACK.dump();
+			DATA.RESOURCE_PACK.dump();
 		}
 	}
 }

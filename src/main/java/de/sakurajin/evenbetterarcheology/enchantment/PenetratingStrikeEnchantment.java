@@ -71,7 +71,7 @@ public class PenetratingStrikeEnchantment extends ArtifactEnchantment {
 
         if (level == 1) {
             target.damage(user.getDamageSources().mobAttack(user), (float) (totalProtectedDamage * EvenBetterArcheology.CONFIG.PENETRATING_STRIKE_PROTECTION_IGNORANCE()));
-            EvenBetterArcheology.LOGGER.info("Damage dealt back by Enchantment:" + totalProtectedDamage * EvenBetterArcheology.CONFIG.PENETRATING_STRIKE_PROTECTION_IGNORANCE());
+            EvenBetterArcheology.DATA.LOGGER.info("Damage dealt back by Enchantment:" + totalProtectedDamage * EvenBetterArcheology.CONFIG.PENETRATING_STRIKE_PROTECTION_IGNORANCE());
         }
 
         //Audio Feedback

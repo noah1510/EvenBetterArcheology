@@ -18,27 +18,27 @@ public class ModBlockEntities {
 
     public static void registerBlockEntities() {
         ARCHEOLOGY_TABLE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
-                new Identifier(EvenBetterArcheology.MOD_ID, "archeology_table"),
+                new Identifier(EvenBetterArcheology.DATA.MOD_ID, "archeology_table"),
                 FabricBlockEntityTypeBuilder.create(ArcheologyTableBlockEntity::new,
                         ModBlocks.ARCHEOLOGY_TABLE).build(null));
 
         VILLAGER_FOSSIL = Registry.register(Registries.BLOCK_ENTITY_TYPE,
-                new Identifier(EvenBetterArcheology.MOD_ID, "villager_fossil"),
+                new Identifier(EvenBetterArcheology.DATA.MOD_ID, "villager_fossil"),
                 FabricBlockEntityTypeBuilder.create(VillagerFossilBlockEntity::new,
                         ModBlocks.VILLAGER_FOSSIL).build(null));
 
         CHICKEN_FOSSIL = Registry.register(Registries.BLOCK_ENTITY_TYPE,
-                new Identifier(EvenBetterArcheology.MOD_ID, "chicken_fossil"),
+                new Identifier(EvenBetterArcheology.DATA.MOD_ID, "chicken_fossil"),
                 FabricBlockEntityTypeBuilder.create(ChickenFossilBlockEntity::new,
                         ModBlocks.CHICKEN_FOSSIL).build(null));
 
         SUSBLOCK = Registry.register(Registries.BLOCK_ENTITY_TYPE,
-                new Identifier(EvenBetterArcheology.MOD_ID, "sus_block"),
+                new Identifier(EvenBetterArcheology.DATA.MOD_ID, "sus_block"),
                 FabricBlockEntityTypeBuilder.create(SusBlockEntity::new,
                         ModBlocks.SUSPICIOUS_DIRT, ModBlocks.SUSPICIOUS_RED_SAND, ModBlocks.FOSSILIFEROUS_DIRT).build(null));
 
         FLEE_FROM = Registry.register(Registries.BLOCK_ENTITY_TYPE,
-                new Identifier(EvenBetterArcheology.MOD_ID, "flee_from"),
+                new Identifier(EvenBetterArcheology.DATA.MOD_ID, "flee_from"),
                 FabricBlockEntityTypeBuilder.create(FleeFromBlockEntity::new,
                         ModBlocks.OCELOT_FOSSIL).build(null));
     }

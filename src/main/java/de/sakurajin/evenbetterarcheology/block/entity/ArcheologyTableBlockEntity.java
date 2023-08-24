@@ -63,7 +63,7 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
     private int maxProgress = 72;
 
     //loottable for crafting results
-    private static final Identifier CRAFTING_LOOT = new Identifier(EvenBetterArcheology.MOD_ID, "identifying_loot");
+    private static final Identifier CRAFTING_LOOT = new Identifier(EvenBetterArcheology.DATA.MOD_ID, "identifying_loot");
 
     public ArcheologyTableBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.ARCHEOLOGY_TABLE, pos, state);

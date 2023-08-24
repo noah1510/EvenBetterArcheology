@@ -1,19 +1,14 @@
 package de.sakurajin.evenbetterarcheology.enchantment;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
-import io.wispforest.owo.itemgroup.OwoItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.EnchantedBookItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
@@ -26,17 +21,17 @@ public class ModEnchantments {
 
     private static Enchantment register(String name, Enchantment enchantment) {
         registerEnchantedBookWith(enchantment);
-        return Registry.register(Registries.ENCHANTMENT, new Identifier(EvenBetterArcheology.MOD_ID, name), enchantment);
+        return Registry.register(Registries.ENCHANTMENT, new Identifier(EvenBetterArcheology.DATA.MOD_ID, name), enchantment);
     }
 
     private static void registerEnchantedBookWith(Enchantment enchantment) {
-        var group = Registries.ITEM_GROUP.getKey(EvenBetterArcheology.GROUP).get();
+        var group = Registries.ITEM_GROUP.getKey(EvenBetterArcheology.DATA.GROUP).get();
         ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(enchantment, 1)).setCustomName(Text.translatable("item.evenbetterarcheology.identified_artifact").formatted(Formatting.RESET,
                 Formatting.YELLOW))));
     }
 
     //LOGGER
     public static void registerModEnchantments() {
-        EvenBetterArcheology.LOGGER.info("Registering Enchantments for " + EvenBetterArcheology.MOD_ID);
+        EvenBetterArcheology.DATA.LOGGER.info("Registering Enchantments for " + EvenBetterArcheology.DATA.MOD_ID);
     }
 }

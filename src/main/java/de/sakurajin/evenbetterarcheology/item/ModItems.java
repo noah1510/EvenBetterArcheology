@@ -16,14 +16,14 @@ public class ModItems implements ItemRegistryContainer {
 
     public static final Item DIAMOND_BRUSH = BetterBrushItem.Builder().setBrushingSpeed(6).setMaxDamage(256).setMaterial(Items.DIAMOND).build();
 
-    public static final Item ARTIFACT_SHARDS = new Item(new OwoItemSettings().group(EvenBetterArcheology.GROUP).rarity(Rarity.UNCOMMON));
+    public static final Item ARTIFACT_SHARDS = new Item(new OwoItemSettings().group(EvenBetterArcheology.DATA.GROUP).rarity(Rarity.UNCOMMON));
 
-    public static final Item UNIDENTIFIED_ARTIFACT = new Item(new OwoItemSettings().group(EvenBetterArcheology.GROUP).rarity(Rarity.UNCOMMON));
+    public static final Item UNIDENTIFIED_ARTIFACT = new Item(new OwoItemSettings().group(EvenBetterArcheology.DATA.GROUP).rarity(Rarity.UNCOMMON));
 
     //LOOT ITEMS
     @AssignedName("bomb")
-    public static final Item BOMB_ITEM = new BombItem(new OwoItemSettings().group(EvenBetterArcheology.GROUP).rarity(Rarity.COMMON).maxCount(16));
-    public static final Item TORRENT_TOTEM = new TorrentTotemItem(new OwoItemSettings().group(EvenBetterArcheology.GROUP).rarity(Rarity.UNCOMMON).maxCount(1).maxDamage(32));
-    public static final Item SOUL_TOTEM = new SoulTotemItem(new OwoItemSettings().group(EvenBetterArcheology.GROUP).rarity(Rarity.UNCOMMON).maxDamage(32));
+    public static final Item BOMB_ITEM = new BombItem(new OwoItemSettings().group(EvenBetterArcheology.DATA.GROUP).rarity(Rarity.COMMON).maxCount(16));
+    public static final Item TORRENT_TOTEM = new TorrentTotemItem(new OwoItemSettings().group(EvenBetterArcheology.DATA.GROUP).rarity(Rarity.UNCOMMON).maxCount(1).maxDamage(32));
+    public static final Item SOUL_TOTEM = new SoulTotemItem(new OwoItemSettings().group(EvenBetterArcheology.DATA.GROUP).rarity(Rarity.UNCOMMON).maxDamage(32));
 
 }

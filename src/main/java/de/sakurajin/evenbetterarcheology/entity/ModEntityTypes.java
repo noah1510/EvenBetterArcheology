@@ -12,11 +12,11 @@ import net.minecraft.util.Identifier;
 public class ModEntityTypes {
     public static final EntityType<BombEntity> BOMB_ENTITY = Registry.register(
             Registries.ENTITY_TYPE,
-            new Identifier(EvenBetterArcheology.MOD_ID, "bombentity"),
+            new Identifier(EvenBetterArcheology.DATA.MOD_ID, "bombentity"),
             FabricEntityTypeBuilder.<BombEntity>create(SpawnGroup.MISC, BombEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
     );
 
     public static void registerModEntityTypes() {
-        EvenBetterArcheology.LOGGER.info("ModEntityTypes of " + EvenBetterArcheology.MOD_ID + " registered.");
+        EvenBetterArcheology.DATA.LOGGER.info("ModEntityTypes of " + EvenBetterArcheology.DATA.MOD_ID + " registered.");
     }
 }

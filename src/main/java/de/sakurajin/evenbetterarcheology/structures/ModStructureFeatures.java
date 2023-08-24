@@ -10,6 +10,6 @@ public class ModStructureFeatures {
     public static StructureType<ModStructures> BETTERARCHEOLOGY_STRUCTURES;
 
     public static void registerStructureFeatures() {
-        BETTERARCHEOLOGY_STRUCTURES = Registry.register(Registries.STRUCTURE_TYPE, new Identifier(EvenBetterArcheology.MOD_ID, "evenbetterarcheology_structures"), () -> ModStructures.CODEC);
+        BETTERARCHEOLOGY_STRUCTURES = Registry.register(Registries.STRUCTURE_TYPE, new Identifier(EvenBetterArcheology.DATA.MOD_ID, "evenbetterarcheology_structures"), () -> ModStructures.CODEC);
     }
 }

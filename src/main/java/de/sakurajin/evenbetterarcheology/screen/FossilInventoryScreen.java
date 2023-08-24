@@ -10,7 +10,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class FossilInventoryScreen extends HandledScreen<FossilInventoryScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier(EvenBetterArcheology.MOD_ID, "textures/gui/fossil_gui.png");
+    private static final Identifier TEXTURE = new Identifier(EvenBetterArcheology.DATA.MOD_ID, "textures/gui/fossil_gui.png");
 
     public FossilInventoryScreen(FossilInventoryScreenHandler handler, PlayerInventory inventory, Text title){
         super(handler, inventory, title);
