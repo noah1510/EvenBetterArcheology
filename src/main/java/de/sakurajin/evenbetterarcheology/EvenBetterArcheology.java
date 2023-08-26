@@ -1,8 +1,7 @@
 package de.sakurajin.evenbetterarcheology;
 
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.DatagenModContainer;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
 import de.sakurajin.evenbetterarcheology.block.ModBlocks;
-import de.sakurajin.evenbetterarcheology.block.custom.SusBlock;
 import de.sakurajin.evenbetterarcheology.block.entity.ModBlockEntities;
 import de.sakurajin.evenbetterarcheology.entity.ModEntityTypes;
 import de.sakurajin.evenbetterarcheology.item.ModItems;
@@ -35,8 +34,6 @@ public class EvenBetterArcheology implements ModInitializer {
 		}
 
         DATA.GROUP.initialize(); //initializes the ItemGroup
-
-		DATA.registerBlockGenerationType(SusBlock.class, de.sakurajin.evenbetterarcheology.api.AnnotationEngine.BlockGenerationTypes.SusBlock.class);
 
 		DATA.registerContainer(ModItems.class, false);	//registers Items and adds them to the Tab
 		DATA.registerContainer(ModBlocks.class, false);	//registers Blocks	and BlockItems

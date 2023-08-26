@@ -1,7 +1,7 @@
 package de.sakurajin.evenbetterarcheology.block.entity.client;
 
-import de.sakurajin.evenbetterarcheology.block.custom.FossilBaseWithEntityBlock;
-import de.sakurajin.evenbetterarcheology.block.entity.VillagerFossilBlockEntity;
+import de.sakurajin.evenbetterarcheology.api.block.FossilBaseWithEntityBlock;
+import de.sakurajin.evenbetterarcheology.block.fossils.blockEntity.VillagerFossilBlockEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;

@@ -1,61 +1,46 @@
 package de.sakurajin.evenbetterarcheology.api.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockRenderType;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.HorizontalFacingBlock;
-import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.DirectionProperty;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.RecepieGeneratable;
+import net.devtech.arrp.json.recipe.JIngredient;
+import net.devtech.arrp.json.recipe.JIngredients;
+import net.devtech.arrp.json.recipe.JRecipe;
+import net.devtech.arrp.json.recipe.JResult;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.shape.VoxelShape;
 
-import java.util.List;
+import java.util.Map;
 
-public class FossilBaseBlock extends HorizontalFacingBlock {
-    public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
+public abstract class FossilBaseBlock extends FossilBaseCommon implements RecepieGeneratable {
 
-    protected FossilBaseBlock(Settings settings) {
-        super(settings);
+    protected String[] craftingParts;
+
+    protected FossilBaseBlock(Settings settings, String[] textureVariants, int blockItemIndex, VoxelShape SHAPE) {
+        this(settings, textureVariants, blockItemIndex, SHAPE, null);
     }
 
-    //used to give all fossil blocks their own tooltip
-    //gets blocks translationkey itself and appends "_tooltip" to get the xyz_tooltip lang content
-    @Override
-    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
-        tooltip.add(Text.translatable(this.getTranslationKey() + "_tooltip").formatted(Formatting.GRAY));
-        super.appendTooltip(stack, world, tooltip, options);
+    protected FossilBaseBlock(Settings settings, String[] textureVariants, int blockItemIndex, VoxelShape SHAPE, String translationSuffixKey) {
+        super(settings, textureVariants, blockItemIndex, SHAPE, translationSuffixKey);
+    }
+
+    protected FossilBaseBlock(Settings settings, String[] textureVariants, int blockItemIndex, Map<Direction, VoxelShape> SHAPE_DIRECTED) {
+        this(settings, textureVariants, blockItemIndex, SHAPE_DIRECTED, null);
+    }
+
+    protected FossilBaseBlock(Settings settings, String[] textureVariants, int blockItemIndex, Map<Direction, VoxelShape> SHAPE_DIRECTED, String translationSuffixKey) {
+        super(settings, textureVariants, blockItemIndex, SHAPE_DIRECTED, translationSuffixKey);
     }
 
     @Override
-    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
-        super.onBreak(world, pos, state, player);
-        if (!world.isClient()) {
-            world.playSound(null, pos, SoundEvents.ENTITY_SKELETON_HURT, SoundCategory.BLOCKS, 0.1f, 0.35f);
+    public void generateRecepie(DatagenModContainer container, String identifier) {
+        if(craftingParts != null && craftingParts.length > 0){
+            JIngredients ingredients = JIngredients.ingredients();
+            for (String craftingPart : craftingParts) {
+                ingredients.add(JIngredient.ingredient().item(craftingPart));
+            }
+            container.RESOURCE_PACK.addRecipe(container.DATA_GEN_HELPER.getSimpleID(identifier),
+                    JRecipe.shapeless(ingredients, JResult.item(this.asItem()))
+            );
         }
-    }
-
-    @Override
-    public BlockRenderType getRenderType(BlockState state) {
-        return BlockRenderType.MODEL;
-    }
-
-    @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
-    }
-
-    @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING);
     }
 }

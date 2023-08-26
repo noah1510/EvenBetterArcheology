@@ -1,67 +1,26 @@
 package de.sakurajin.evenbetterarcheology.api.block;
 
-import net.minecraft.block.*;
-import net.minecraft.client.item.TooltipContext;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.DirectionProperty;
-import net.minecraft.text.Text;
-import net.minecraft.util.BlockMirror;
-import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
-import net.minecraft.world.BlockView;
-import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
+import java.util.Map;
 
-public class FossilBaseHeadBlock extends HorizontalFacingBlock {
-    public static DirectionProperty FACING = HorizontalFacingBlock.FACING;
+public abstract class FossilBaseHeadBlock extends FossilBaseCommon {
 
-    public FossilBaseHeadBlock(Settings settings) {
-        super(settings);
-        this.setDefaultState(this.getDefaultState().with(FACING, Direction.NORTH));
+    public FossilBaseHeadBlock(Settings settings, String[] textureVariants, int blockItemIndex, VoxelShape SHAPE) {
+        this(settings, textureVariants, blockItemIndex, SHAPE, "block.evenbetterarcheology.fossil_head_set");
     }
 
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return VoxelShapes.empty();
+    public FossilBaseHeadBlock(Settings settings, String[] textureVariants, int blockItemIndex, VoxelShape SHAPE, String translationSuffixKey) {
+        super(settings, textureVariants, blockItemIndex, SHAPE, translationSuffixKey);
     }
 
-    @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        super.appendProperties(builder);
-        builder.add(FACING);
+
+    public FossilBaseHeadBlock(Settings settings, String[] textureVariants, int blockItemIndex, Map<Direction, VoxelShape> SHAPE_DIRECTED) {
+        this(settings, textureVariants, blockItemIndex, SHAPE_DIRECTED, "block.evenbetterarcheology.fossil_head_set");
     }
 
-    @Override
-    public BlockRenderType getRenderType(BlockState state) {
-        return BlockRenderType.MODEL;
-    }
-
-    @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
-    }
-
-    //used to give all fossil blocks their own tooltip
-    //gets blocks translationkey itself and appends "_tooltip" to get the xyz_tooltip lang content
-    //also appends the [2/2] indicator for a set
-    @Override
-    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
-        tooltip.add(Text.translatable(this.getTranslationKey() + "_tooltip").formatted(Formatting.GRAY).append(Text.translatable("block.evenbetterarcheology.fossil_head_set").formatted(Formatting.BLUE)));
-
-        super.appendTooltip(stack, world, tooltip, options);
-    }
-
-    public BlockState rotate(BlockState state, BlockRotation rotation) {
-        return (BlockState) state.with(FACING, rotation.rotate((Direction) state.get(FACING)));
-    }
-
-    public BlockState mirror(BlockState state, BlockMirror mirror) {
-        return state.rotate(mirror.getRotation((Direction) state.get(FACING)));
+    public FossilBaseHeadBlock(Settings settings, String[] textureVariants, int blockItemIndex, Map<Direction, VoxelShape> SHAPE_DIRECTED, String translationSuffixKey) {
+        super(settings, textureVariants, blockItemIndex, SHAPE_DIRECTED, translationSuffixKey);
     }
 }

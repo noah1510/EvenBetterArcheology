@@ -1,9 +1,11 @@
 package de.sakurajin.evenbetterarcheology.block.custom;
 
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Item.BlockStateGenerateable;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockStateGenerateable;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.RecepieGeneratable;
 import de.sakurajin.evenbetterarcheology.block.entity.ArcheologyTableBlockEntity;
 import de.sakurajin.evenbetterarcheology.block.entity.ModBlockEntities;
+import net.devtech.arrp.json.recipe.*;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -23,7 +25,7 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvider, BlockStateGenerateable {
+public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvider, BlockStateGenerateable, RecepieGeneratable {
     //indicates if the table is currently "crafting" the identified artifact
     //triggers particle creation
     public static final BooleanProperty DUSTING = BooleanProperty.of("dusting");
@@ -116,7 +118,25 @@ public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvid
 
     @Override
     public void generateBlockState(DatagenModContainer container, String identifier) {
-        container.MODEL_GENERATION_HELPER.generateBlockState(identifier);
+        container.DATA_GEN_HELPER.generateBlockState(identifier);
+    }
+
+    @Override
+    public void generateRecepie(DatagenModContainer container, String identifier) {
+        container.RESOURCE_PACK.addRecipe(container.DATA_GEN_HELPER.getSimpleID(identifier),
+            JRecipe.shaped(
+                JPattern.pattern(
+                    "bS",
+                    "00",
+                    "00"
+                ),
+                JKeys.keys()
+                    .key("b", JIngredient.ingredient().tag("c:brushitems"))
+                    .key("S", JIngredient.ingredient().item("evenbetterarcheology:artifact_shards"))
+                    .key("0", JIngredient.ingredient().tag("minecraft:planks")),
+                JResult.item(this.asItem())
+            )
+        );
     }
 };
 

@@ -1,7 +1,7 @@
 package de.sakurajin.evenbetterarcheology.networking.packet;
 
 import de.sakurajin.evenbetterarcheology.block.entity.ArcheologyTableBlockEntity;
-import de.sakurajin.evenbetterarcheology.block.entity.VillagerFossilBlockEntity;
+import de.sakurajin.evenbetterarcheology.block.fossils.blockEntity.VillagerFossilBlockEntity;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;

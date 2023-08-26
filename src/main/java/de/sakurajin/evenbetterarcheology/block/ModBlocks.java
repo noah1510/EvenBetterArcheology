@@ -1,14 +1,18 @@
 package de.sakurajin.evenbetterarcheology.block;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.BlockItemOptions.BlockItemTexture;
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.ItemOptions.NoItemModel;
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Containers.ParsedBlockRegistryContainer;
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.BlockOptions.GenerateBlock;
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.ItemOptions.ItemRarity;
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.ModdedRarity;
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Annotations.ItemOptions.NoItemGroup;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Annotations.ItemOptions.NoItemModel;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Containers.ParsedBlockRegistryContainer;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.Blocks.CubeAll;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.Blocks.CubeColumn;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.Blocks.Slab;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.Blocks.Stairs;
 import de.sakurajin.evenbetterarcheology.block.custom.*;
+import de.sakurajin.evenbetterarcheology.block.fossils.*;
+import net.devtech.arrp.json.recipe.JIngredient;
+import net.devtech.arrp.json.recipe.JRecipe;
+import net.devtech.arrp.json.recipe.JResult;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeRegistry;
@@ -21,103 +25,66 @@ public class ModBlocks extends ParsedBlockRegistryContainer {
     public ModBlocks() {super(EvenBetterArcheology.DATA);}
 
     //-----------SUS VARIANTS-------------//
-    @BlockItemTexture("evenbetterarcheology:block/suspicious_red_sand_0")
-    @GenerateBlock
-    public static final Block SUSPICIOUS_RED_SAND = new SusBlock(Blocks.RED_SAND, FabricBlockSettings.copy(Blocks.SUSPICIOUS_SAND), SoundEvents.ITEM_BRUSH_BRUSHING_SAND, SoundEvents.ITEM_BRUSH_BRUSHING_SAND_COMPLETE);
+    public static final Block SUSPICIOUS_RED_SAND = new SusBlock (Blocks.RED_SAND, SoundEvents.ITEM_BRUSH_BRUSHING_SAND, SoundEvents.ITEM_BRUSH_BRUSHING_SAND_COMPLETE);
 
-    @BlockItemTexture("evenbetterarcheology:block/suspicious_dirt_0")
-    @GenerateBlock
-    public static final Block SUSPICIOUS_DIRT = new SusBlock(Blocks.DIRT, FabricBlockSettings.copy(Blocks.SUSPICIOUS_GRAVEL), SoundEvents.ITEM_BRUSH_BRUSHING_GRAVEL, SoundEvents.ITEM_BRUSH_BRUSHING_GRAVEL_COMPLETE);
+    public static final Block SUSPICIOUS_DIRT = new SusBlock(Blocks.DIRT, SoundEvents.ITEM_BRUSH_BRUSHING_GRAVEL, SoundEvents.ITEM_BRUSH_BRUSHING_GRAVEL_COMPLETE);
 
     //---------FOSSILIFEROUS BLOCKS-----------//
-    @BlockItemTexture("evenbetterarcheology:block/fossiliferous_dirt_0")
-    @GenerateBlock
-    public static final Block FOSSILIFEROUS_DIRT = new SusBlock(Blocks.DIRT, FabricBlockSettings.copy(Blocks.SUSPICIOUS_GRAVEL), SoundEvents.BLOCK_GRAVEL_HIT, SoundEvents.BLOCK_GRAVEL_BREAK);
+
+    public static final Block FOSSILIFEROUS_DIRT = new SusBlock(Blocks.DIRT, SoundEvents.BLOCK_GRAVEL_HIT, SoundEvents.BLOCK_GRAVEL_BREAK);
 
     //-------------FOSSILS---------------//
     //Villager
-    @ItemRarity(ModdedRarity.UNCOMMON)
-    @BlockItemTexture("evenbetterarcheology:block/fossils/villager_fossil_0")
-    public static final Block VILLAGER_FOSSIL = new VillagerFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK).luminance((state) -> {
-        return state.get(VillagerFossilBlock.INVENTORY_LUMINANCE);
-    }));
+    public static final Block VILLAGER_FOSSIL = new VillagerFossilBlock();
 
-    @ItemRarity(ModdedRarity.UNCOMMON)
-    @BlockItemTexture("evenbetterarcheology:block/fossils/villager_fossil_head_0")
-    public static final Block VILLAGER_FOSSIL_HEAD = new VillagerFossilHeadBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
+    public static final Block VILLAGER_FOSSIL_HEAD = new VillagerFossilHeadBlock();
 
-    @ItemRarity(ModdedRarity.UNCOMMON)
-    @BlockItemTexture("evenbetterarcheology:block/fossils/villager_fossil_body_0")
-    public static final Block VILLAGER_FOSSIL_BODY = new VillagerFossilBodyBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
+    public static final Block VILLAGER_FOSSIL_BODY = new VillagerFossilBodyBlock();
 
     //Ocelot
-    @ItemRarity(ModdedRarity.UNCOMMON)
-    @BlockItemTexture("evenbetterarcheology:block/fossils/ocelot_fossil_0")
-    public static final Block OCELOT_FOSSIL = new OcelotFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK));
+    public static final Block OCELOT_FOSSIL = new OcelotFossilBlock();
 
-    @ItemRarity(ModdedRarity.UNCOMMON)
-    @BlockItemTexture("evenbetterarcheology:block/fossils/ocelot_fossil_head_0")
-    public static final Block OCELOT_FOSSIL_HEAD = new OcelotFossilHeadBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
+    public static final Block OCELOT_FOSSIL_HEAD = new OcelotFossilHeadBlock();
 
-    @ItemRarity(ModdedRarity.UNCOMMON)
-    @BlockItemTexture("evenbetterarcheology:block/fossils/ocelot_fossil_body_0")
-    public static final Block OCELOT_FOSSIL_BODY = new OcelotFossilBodyBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
+    public static final Block OCELOT_FOSSIL_BODY = new OcelotFossilBodyBlock();
 
     //Sheep
-    @ItemRarity(ModdedRarity.UNCOMMON)
-    @BlockItemTexture("evenbetterarcheology:block/fossils/sheep_fossil_0")
-    public static final Block SHEEP_FOSSIL = new SheepFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK));
+    public static final Block SHEEP_FOSSIL = new SheepFossilBlock();
 
-    @ItemRarity(ModdedRarity.UNCOMMON)
-    @BlockItemTexture("evenbetterarcheology:block/fossils/sheep_fossil_head")
-    public static final Block SHEEP_FOSSIL_HEAD = new SheepFossilHeadBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
+    public static final Block SHEEP_FOSSIL_HEAD = new SheepFossilHeadBlock();
 
-    @ItemRarity(ModdedRarity.UNCOMMON)
-    @BlockItemTexture("evenbetterarcheology:block/fossils/sheep_fossil_body_1")
-    public static final Block SHEEP_FOSSIL_BODY = new SheepFossilBodyBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
+    public static final Block SHEEP_FOSSIL_BODY = new SheepFossilBodyBlock();
 
-    //Sheep
-    @ItemRarity(ModdedRarity.UNCOMMON)
-    @BlockItemTexture("evenbetterarcheology:block/fossils/chicken_fossil_0")
-    public static final Block CHICKEN_FOSSIL = new ChickenFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK));
+    //Chicken
+    public static final Block CHICKEN_FOSSIL = new ChickenFossilBlock();
 
-    @ItemRarity(ModdedRarity.UNCOMMON)
-    @BlockItemTexture("evenbetterarcheology:block/fossils/chicken_fossil_head_0")
-    public static final Block CHICKEN_FOSSIL_HEAD = new ChickenFossilHeadBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
+    public static final Block CHICKEN_FOSSIL_HEAD = new ChickenFossilHeadBlock();
 
-    @ItemRarity(ModdedRarity.UNCOMMON)
-    @BlockItemTexture("evenbetterarcheology:block/fossils/chicken_fossil_body_0")
-    public static final Block CHICKEN_FOSSIL_BODY = new ChickenFossilBodyBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
+    public static final Block CHICKEN_FOSSIL_BODY = new ChickenFossilBodyBlock();
 
     //Creeper
-    @ItemRarity(ModdedRarity.UNCOMMON)
-    @BlockItemTexture("evenbetterarcheology:block/fossils/creeper_fossil_0")
-    public static final Block CREEPER_FOSSIL = new CreeperFossilBlock(FabricBlockSettings.copy(Blocks.BONE_BLOCK));
+    public static final Block CREEPER_FOSSIL = new CreeperFossilBlock();
+    public static final Block CREEPER_FOSSIL_HEAD = new CreeperFossilHeadBlock();
 
-    @ItemRarity(ModdedRarity.UNCOMMON)
-    @BlockItemTexture("evenbetterarcheology:block/fossils/creeper_fossil_head_0")
-    public static final Block CREEPER_FOSSIL_HEAD = new CreeperFossilHeadBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
-
-    @ItemRarity(ModdedRarity.UNCOMMON)
-    @BlockItemTexture("evenbetterarcheology:block/fossils/creeper_fossil_body_0")
-    public static final Block CREEPER_FOSSIL_BODY = new CreeperFossilBodyBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).sounds(BlockSoundGroup.BONE));
+    public static final Block CREEPER_FOSSIL_BODY = new CreeperFossilBodyBlock();
 
 
     //-----------ROTTEN WOOD-------------//
     public static final WoodType ROTTEN_WOOD_TYPE = registerWoodType("rotten_wood");
     public static final BlockSetType ROTTEN_WOOD_BLOCKSET = registerBlockSetType("rotten_wood");
 
-    @GenerateBlock(textures = {"rotten_log/rotten_log_top", "rotten_log/rotten_log"})
-    public static final Block ROTTEN_LOG = new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).sounds(BlockSoundGroup.NETHER_STEM));
+    public static final Block ROTTEN_LOG = new CubeColumn(FabricBlockSettings.copyOf(Blocks.OAK_LOG).sounds(BlockSoundGroup.NETHER_STEM), "rotten_log/rotten_log_top", "rotten_log/rotten_log");
 
-    @GenerateBlock(textures = {"rotten_log/rotten_planks"}, type = de.sakurajin.evenbetterarcheology.api.AnnotationEngine.BlockGenerationTypes.CubeAll.class)
-    public static final Block ROTTEN_PLANKS = new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS).sounds(BlockSoundGroup.NETHER_STEM));
+    public static final Block ROTTEN_PLANKS = new CubeAll(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).sounds(BlockSoundGroup.NETHER_STEM), "rotten_log/rotten_planks");
 
-    @GenerateBlock(textures = {"rotten_log/rotten_planks"})
-    public static final Block ROTTEN_SLAB = new SlabBlock(FabricBlockSettings.copy(Blocks.OAK_SLAB).sounds(BlockSoundGroup.NETHER_STEM));
+    public static final Block ROTTEN_SLAB = new Slab(
+        FabricBlockSettings.copyOf(Blocks.OAK_SLAB).sounds(BlockSoundGroup.NETHER_STEM),
+        new Identifier(EvenBetterArcheology.DATA.MOD_ID, "cracked_mud_bricks"),
+        false,
+        new String[]{"cracked_mud_bricks"}
+    );
 
-    @GenerateBlock(textures = {"rotten_log/rotten_planks"})
-    public static final Block ROTTEN_STAIRS = new StairsBlock(ROTTEN_PLANKS.getDefaultState(), FabricBlockSettings.copy(Blocks.OAK_STAIRS).sounds(BlockSoundGroup.NETHER_STEM));
+    public static final Block ROTTEN_STAIRS = new Stairs(ROTTEN_PLANKS, FabricBlockSettings.copyOf(Blocks.OAK_STAIRS).sounds(BlockSoundGroup.NETHER_STEM), new String[]{"rotten_log/rotten_planks"}, false);
 
     @NoItemModel
     public static final Block ROTTEN_FENCE = new FenceBlock(FabricBlockSettings.copy(Blocks.OAK_FENCE).sounds(BlockSoundGroup.NETHER_STEM));
@@ -132,34 +99,48 @@ public class ModBlocks extends ParsedBlockRegistryContainer {
     public static final Block ROTTEN_DOOR = new DoorBlock(FabricBlockSettings.copy(Blocks.OAK_DOOR).sounds(BlockSoundGroup.NETHER_STEM), ROTTEN_WOOD_BLOCKSET);
 
     //-------------MUD Brick Stuff----------------//
-    @GenerateBlock(textures = {"minecraft:block/mud_bricks"}, type = de.sakurajin.evenbetterarcheology.api.AnnotationEngine.BlockGenerationTypes.FromParent.class)
     public static final Block INFESTED_MUD_BRICKS = new InfestedMudBricks(Blocks.MUD_BRICKS, FabricBlockSettings.copy(Blocks.INFESTED_STONE_BRICKS));
 
-    @GenerateBlock(textures = {"cracked_mud_bricks"}, type = de.sakurajin.evenbetterarcheology.api.AnnotationEngine.BlockGenerationTypes.CubeAll.class)
-    public static final Block CRACKED_MUD_BRICKS = new Block(FabricBlockSettings.copy(Blocks.MUD_BRICKS));
+    public static final Block CRACKED_MUD_BRICKS = new CubeAll(Blocks.MUD_BRICKS, "cracked_mud_bricks") {
+        @Override
+        public void generateRecepie(DatagenModContainer container, String identifier) {
+            super.generateRecepie(container, identifier);
+            container.RESOURCE_PACK.addRecipe(container.DATA_GEN_HELPER.getSimpleID("cracked_mud_bricks_from_smelt"),
+                JRecipe.smelting(JIngredient.ingredient().item("mud_bricks"), JResult.item(this.asItem())).cookingTime(200).experience(0.1f)
+            );
+        }
+    };
 
-    @GenerateBlock(textures = {"cracked_mud_bricks"})
-    public static final Block CRACKED_MUD_BRICK_SLAB = new SlabBlock(FabricBlockSettings.copy(Blocks.MUD_BRICK_SLAB));
+    public static final Block CRACKED_MUD_BRICK_SLAB = new Slab(
+        FabricBlockSettings.copyOf(Blocks.MUD_BRICK_SLAB),
+        new Identifier(EvenBetterArcheology.DATA.MOD_ID, "cracked_mud_bricks"),
+        new String[]{"cracked_mud_bricks"}
+    );
 
-    @GenerateBlock(textures = {"cracked_mud_bricks"})
-    public static final Block CRACKED_MUD_BRICK_STAIRS = new StairsBlock(CRACKED_MUD_BRICKS.getDefaultState(), FabricBlockSettings.copy(Blocks.MUD_BRICK_STAIRS));
+    public static final Block CRACKED_MUD_BRICK_STAIRS = new Stairs(CRACKED_MUD_BRICKS, FabricBlockSettings.copyOf(Blocks.MUD_BRICK_STAIRS), new String[]{"cracked_mud_bricks"});
 
-    @GenerateBlock(generateModel = false)
     public static final Block ARCHEOLOGY_TABLE = new ArchelogyTable(FabricBlockSettings.copy(Blocks.CRAFTING_TABLE));
 
-    @BlockItemTexture("evenbetterarcheology:block/loot_vase_0")
-    public static final Block VASE = new VaseBlock(FabricBlockSettings.copy(Blocks.FLOWER_POT).sounds(BlockSoundGroup.DECORATED_POT));
+    public static final Block VASE = new VaseBlock(
+            new String[]{"0", "1", "2"},
+            false
+    );
 
-    @BlockItemTexture("evenbetterarcheology:block/loot_vase_3")
-    public static final Block VASE_CREEPER = new VaseBlock(FabricBlockSettings.copy(Blocks.FLOWER_POT).sounds(BlockSoundGroup.DECORATED_POT));
+    public static final Block VASE_CREEPER = new VaseBlock(
+            new String[]{"3", "4", "5"},
+            false
+    );
 
-    @NoItemGroup
-    public static final Block LOOT_VASE = new LootVaseBlock(FabricBlockSettings.copy(Blocks.FLOWER_POT).sounds(BlockSoundGroup.DECORATED_POT));
+    public static final Block LOOT_VASE = new VaseBlock(
+            new String[]{"0", "1", "2"},
+            true
+    );
 
-    @NoItemGroup
-    public static final Block LOOT_VASE_CREEPER =new LootVaseBlock(FabricBlockSettings.copy(Blocks.FLOWER_POT).sounds(BlockSoundGroup.DECORATED_POT));
+    public static final Block LOOT_VASE_CREEPER = new VaseBlock(
+            new String[]{"3", "4", "5"},
+            true
+    );
 
-    @GenerateBlock
     public static final Block EVOKER_TRAP = new EvokerTrapBlock(FabricBlockSettings.copy(Blocks.STONE).strength(25f));
 
     private static WoodType registerWoodType(String id) {

@@ -1,10 +1,28 @@
 package de.sakurajin.evenbetterarcheology.block.custom;
 
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockGenerateable;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.Blocks.CubeAll;
 import net.minecraft.block.Block;
 import net.minecraft.block.InfestedBlock;
 
-public class InfestedMudBricks extends InfestedBlock {
+public class InfestedMudBricks extends InfestedBlock implements BlockGenerateable {
     public InfestedMudBricks(Block regularBlock, Settings settings) {
         super(regularBlock, settings);
+    }
+
+    @Override
+    public void generateBlockModel(DatagenModContainer container, String identifier) {
+        CubeAll.eGenerateBlockModel(container, identifier, "minecraft:block/mud_bricks");
+    }
+
+    @Override
+    public void generateBlockState(DatagenModContainer container, String identifier) {
+        container.DATA_GEN_HELPER.generateBlockState(identifier);
+    }
+
+    @Override
+    public void generateRecepie(DatagenModContainer container, String identifier) {
+
     }
 }

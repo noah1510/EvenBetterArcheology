@@ -1,11 +1,12 @@
 package de.sakurajin.evenbetterarcheology.block.custom;
 
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Item.BlockGenerateable;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockGenerateable;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.entity.mob.EvokerFangsEntity;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
@@ -109,7 +110,7 @@ public class EvokerTrapBlock extends HorizontalFacingBlock implements BlockGener
 
     @Override
     public void generateBlockModel(DatagenModContainer container, String identifier) {
-        container.MODEL_GENERATION_HELPER.generateBlockModel(
+        container.DATA_GEN_HELPER.generateBlockModel(
             identifier, Map.of(
                 "front", "evoker_trap",
                 "side", "minecraft:block/furnace_side",
@@ -119,16 +120,21 @@ public class EvokerTrapBlock extends HorizontalFacingBlock implements BlockGener
 
     @Override
     public void generateBlockState(DatagenModContainer container, String identifier) {
-        container.MODEL_GENERATION_HELPER.generateBlockStateOrientable(identifier);
+        container.DATA_GEN_HELPER.generateBlockStateOrientable(identifier);
     }
 
     @Override
     public void generateItemModel(DatagenModContainer container, String identifier) {
-        container.MODEL_GENERATION_HELPER.generateBlockItemModel(identifier);
+        container.DATA_GEN_HELPER.generateBlockItemModel(identifier);
     }
 
     @Override
     public void generateRecepie(DatagenModContainer container, String identifier) {
 
+    }
+
+    @Override
+    public ItemConvertible generateBlockItem(DatagenModContainer container, String identifier) {
+        return container.DATA_GEN_HELPER.generateBlockItem(this, container.settings());
     }
 }

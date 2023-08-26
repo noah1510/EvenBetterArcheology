@@ -1,9 +1,8 @@
 package de.sakurajin.evenbetterarcheology.api.item;
 
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Item.ItemModelGeneratateable;
-import de.sakurajin.evenbetterarcheology.api.AnnotationEngine.Item.RecepieGeneratable;
-import io.wispforest.owo.itemgroup.OwoItemGroup;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.ItemModelGeneratateable;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.RecepieGeneratable;
 import io.wispforest.owo.itemgroup.OwoItemSettings;
 import net.devtech.arrp.json.recipe.*;
 import net.minecraft.block.Block;
@@ -48,9 +47,10 @@ public class BetterBrushItem extends BrushItem implements ItemModelGeneratateabl
 
     @Override
     public void generateItemModel(DatagenModContainer container, String identifier) {
-        container.MODEL_GENERATION_HELPER.generateItemModel(identifier, "minecraft:item/brush", identifier);
+        container.DATA_GEN_HELPER.generateItemModel(identifier, "minecraft:item/brush", identifier);
     }
 
+    @Override
     public void generateRecepie(DatagenModContainer container, String identifier){
         if(material == null) throw new RuntimeException("Material is null cannot generate Resource Data");
 
@@ -118,14 +118,20 @@ public class BetterBrushItem extends BrushItem implements ItemModelGeneratateabl
         }
     }
 
-    public static Builder Builder(){
-        return new Builder();
+    public static Builder Builder(DatagenModContainer container){
+        return new Builder(container);
     }
 
     public static class Builder{
         private float brushingSpeed = 1.0f;
-        private OwoItemSettings settings = new OwoItemSettings();
+        private final OwoItemSettings settings;
         private Item material = null;
+        private final DatagenModContainer container;
+
+        public Builder(DatagenModContainer container) {
+            this.container = container;
+            this.settings = this.container.settings();
+        }
 
         public Builder setBrushingSpeed(float pBrushingSpeed){
             brushingSpeed = pBrushingSpeed;
@@ -144,11 +150,6 @@ public class BetterBrushItem extends BrushItem implements ItemModelGeneratateabl
 
         public Builder setRarity(Rarity rarity){
             settings.rarity(rarity);
-            return this;
-        }
-
-        public Builder setGroup(OwoItemGroup group){
-            settings.group(group);
             return this;
         }
 

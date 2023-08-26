@@ -3,6 +3,9 @@ package de.sakurajin.evenbetterarcheology.block.entity;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import de.sakurajin.evenbetterarcheology.block.ModBlocks;
+import de.sakurajin.evenbetterarcheology.block.fossils.blockEntity.ChickenFossilBlockEntity;
+import de.sakurajin.evenbetterarcheology.block.fossils.blockEntity.FleeFromBlockEntity;
+import de.sakurajin.evenbetterarcheology.block.fossils.blockEntity.VillagerFossilBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;

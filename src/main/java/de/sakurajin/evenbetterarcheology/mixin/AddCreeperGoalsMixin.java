@@ -1,6 +1,6 @@
 package de.sakurajin.evenbetterarcheology.mixin;
 
-import de.sakurajin.evenbetterarcheology.block.entity.FleeFromBlockEntity;
+import de.sakurajin.evenbetterarcheology.block.fossils.blockEntity.FleeFromBlockEntity;
 import de.sakurajin.evenbetterarcheology.util.FleeBlockGoal;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.ai.goal.GoalSelector;

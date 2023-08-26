@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-alpha.7
+
+* Another rework of the Datageneration API (Should be mostly stable now)
+* Generating almost all blockstate and item models in code
+* Generating all recipes in code
+* Rewritten implementation of the fossils (they now share as much code as possible)
+* Rewritten vases (loot vase and regular vase are the same class now just with a bool to differentiate them)
+
 ## 2.0.0-alpha.6
 
 * More work on the data generation API
