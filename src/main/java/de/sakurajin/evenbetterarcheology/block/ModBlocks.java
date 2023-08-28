@@ -1,13 +1,10 @@
 package de.sakurajin.evenbetterarcheology.block;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Annotations.ItemOptions.NoItemModel;
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Containers.ParsedBlockRegistryContainer;
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.Blocks.CubeAll;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.Blocks.CubeColumn;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.Blocks.Slab;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.Blocks.Stairs;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.Blocks.*;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.GeneratedWoodType;
 import de.sakurajin.evenbetterarcheology.block.custom.*;
 import de.sakurajin.evenbetterarcheology.block.fossils.*;
 import net.devtech.arrp.json.recipe.JIngredient;
@@ -35,68 +32,64 @@ public class ModBlocks extends ParsedBlockRegistryContainer {
 
     //-------------FOSSILS---------------//
     //Villager
-    public static final Block VILLAGER_FOSSIL = new VillagerFossilBlock();
+    public static final Block VILLAGER_FOSSIL = new VillagerFossilFull();
 
     public static final Block VILLAGER_FOSSIL_HEAD = new VillagerFossilHeadBlock();
 
     public static final Block VILLAGER_FOSSIL_BODY = new VillagerFossilBodyBlock();
 
     //Ocelot
-    public static final Block OCELOT_FOSSIL = new OcelotFossilBlock();
+    public static final Block OCELOT_FOSSIL = new OcelotFossilFull();
 
     public static final Block OCELOT_FOSSIL_HEAD = new OcelotFossilHeadBlock();
 
     public static final Block OCELOT_FOSSIL_BODY = new OcelotFossilBodyBlock();
 
     //Sheep
-    public static final Block SHEEP_FOSSIL = new SheepFossilBlock();
+    public static final Block SHEEP_FOSSIL = new SheepFossilFull();
 
     public static final Block SHEEP_FOSSIL_HEAD = new SheepFossilHeadBlock();
 
     public static final Block SHEEP_FOSSIL_BODY = new SheepFossilBodyBlock();
 
     //Chicken
-    public static final Block CHICKEN_FOSSIL = new ChickenFossilBlock();
+    public static final Block CHICKEN_FOSSIL = new ChickenFossilFull();
 
     public static final Block CHICKEN_FOSSIL_HEAD = new ChickenFossilHeadBlock();
 
     public static final Block CHICKEN_FOSSIL_BODY = new ChickenFossilBodyBlock();
 
     //Creeper
-    public static final Block CREEPER_FOSSIL = new CreeperFossilBlock();
+    public static final Block CREEPER_FOSSIL = new CreeperFossilFull();
     public static final Block CREEPER_FOSSIL_HEAD = new CreeperFossilHeadBlock();
 
     public static final Block CREEPER_FOSSIL_BODY = new CreeperFossilBodyBlock();
 
 
     //-----------ROTTEN WOOD-------------//
-    public static final WoodType ROTTEN_WOOD_TYPE = registerWoodType("rotten_wood");
-    public static final BlockSetType ROTTEN_WOOD_BLOCKSET = registerBlockSetType("rotten_wood");
 
-    public static final Block ROTTEN_LOG = new CubeColumn(FabricBlockSettings.copyOf(Blocks.OAK_LOG).sounds(BlockSoundGroup.NETHER_STEM), "rotten_log/rotten_log_top", "rotten_log/rotten_log");
-
-    public static final Block ROTTEN_PLANKS = new CubeAll(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).sounds(BlockSoundGroup.NETHER_STEM), "rotten_log/rotten_planks");
-
-    public static final Block ROTTEN_SLAB = new Slab(
-        FabricBlockSettings.copyOf(Blocks.OAK_SLAB).sounds(BlockSoundGroup.NETHER_STEM),
-        new Identifier(EvenBetterArcheology.DATA.MOD_ID, "cracked_mud_bricks"),
-        false,
-        new String[]{"cracked_mud_bricks"}
+    public static final GeneratedWoodType ROTTEN_WOOD_TYPE = new GeneratedWoodType(
+            "rotten_wood",
+            EvenBetterArcheology.DATA,
+            "minecraft:oak",
+            new GeneratedWoodType.SettingsOverride[]{settings -> settings.sounds(BlockSoundGroup.NETHER_STEM)}
     );
 
-    public static final Block ROTTEN_STAIRS = new Stairs(ROTTEN_PLANKS, FabricBlockSettings.copyOf(Blocks.OAK_STAIRS).sounds(BlockSoundGroup.NETHER_STEM), new String[]{"rotten_log/rotten_planks"}, false);
+    public static final Block ROTTEN_WOOD_LOG = ROTTEN_WOOD_TYPE.getLog(null);
 
-    @NoItemModel
-    public static final Block ROTTEN_FENCE = new FenceBlock(FabricBlockSettings.copy(Blocks.OAK_FENCE).sounds(BlockSoundGroup.NETHER_STEM));
+    public static final Block ROTTEN_WOOD_PLANKS = ROTTEN_WOOD_TYPE.getPlanks(null);
 
-    @NoItemModel
-    public static final Block ROTTEN_FENCE_GATE = new FenceGateBlock(FabricBlockSettings.copy(Blocks.OAK_FENCE_GATE).sounds(BlockSoundGroup.NETHER_STEM), ROTTEN_WOOD_TYPE);
+    public static final Block ROTTEN_WOOD_SLAB = ROTTEN_WOOD_TYPE.getSlabs(null);
 
-    @NoItemModel
-    public static final Block ROTTEN_TRAPDOOR = new TrapdoorBlock(FabricBlockSettings.copy(Blocks.OAK_TRAPDOOR).sounds(BlockSoundGroup.NETHER_STEM), ROTTEN_WOOD_BLOCKSET);
+    public static final Block ROTTEN_WOOD_STAIRS = ROTTEN_WOOD_TYPE.getStairs(null);
 
-    @NoItemModel
-    public static final Block ROTTEN_DOOR = new DoorBlock(FabricBlockSettings.copy(Blocks.OAK_DOOR).sounds(BlockSoundGroup.NETHER_STEM), ROTTEN_WOOD_BLOCKSET);
+    public static final Block ROTTEN_WOOD_FENCE = ROTTEN_WOOD_TYPE.getFence(null);
+
+    public static final Block ROTTEN_WOOD_FENCE_GATE = ROTTEN_WOOD_TYPE.getFenceGate(null);
+
+    public static final Block ROTTEN_WOOD_TRAPDOOR = ROTTEN_WOOD_TYPE.getTrapdoor(null);
+
+    public static final Block ROTTEN_WOOD_DOOR = ROTTEN_WOOD_TYPE.getDoor(null);
 
     //-------------MUD Brick Stuff----------------//
     public static final Block INFESTED_MUD_BRICKS = new InfestedMudBricks(Blocks.MUD_BRICKS, FabricBlockSettings.copy(Blocks.INFESTED_STONE_BRICKS));
@@ -105,19 +98,15 @@ public class ModBlocks extends ParsedBlockRegistryContainer {
         @Override
         public void generateRecepie(DatagenModContainer container, String identifier) {
             super.generateRecepie(container, identifier);
-            container.RESOURCE_PACK.addRecipe(container.DATA_GEN_HELPER.getSimpleID("cracked_mud_bricks_from_smelt"),
+            container.RESOURCE_PACK.addRecipe(container.getSimpleID("cracked_mud_bricks_from_smelt"),
                 JRecipe.smelting(JIngredient.ingredient().item("mud_bricks"), JResult.item(this.asItem())).cookingTime(200).experience(0.1f)
             );
         }
     };
 
-    public static final Block CRACKED_MUD_BRICK_SLAB = new Slab(
-        FabricBlockSettings.copyOf(Blocks.MUD_BRICK_SLAB),
-        new Identifier(EvenBetterArcheology.DATA.MOD_ID, "cracked_mud_bricks"),
-        new String[]{"cracked_mud_bricks"}
-    );
+    public static final Block CRACKED_MUD_BRICK_SLAB = new Slab(FabricBlockSettings.copyOf(Blocks.MUD_BRICK_SLAB), "cracked_mud_bricks", new String[]{"cracked_mud_bricks"});
 
-    public static final Block CRACKED_MUD_BRICK_STAIRS = new Stairs(CRACKED_MUD_BRICKS, FabricBlockSettings.copyOf(Blocks.MUD_BRICK_STAIRS), new String[]{"cracked_mud_bricks"});
+    public static final Block CRACKED_MUD_BRICK_STAIRS = new Stairs(FabricBlockSettings.copyOf(Blocks.MUD_BRICK_STAIRS), CRACKED_MUD_BRICKS, new String[]{"cracked_mud_bricks"});
 
     public static final Block ARCHEOLOGY_TABLE = new ArchelogyTable(FabricBlockSettings.copy(Blocks.CRAFTING_TABLE));
 
@@ -142,13 +131,5 @@ public class ModBlocks extends ParsedBlockRegistryContainer {
     );
 
     public static final Block EVOKER_TRAP = new EvokerTrapBlock(FabricBlockSettings.copy(Blocks.STONE).strength(25f));
-
-    private static WoodType registerWoodType(String id) {
-        return WoodTypeRegistry.register(new Identifier(EvenBetterArcheology.DATA.MOD_ID, id), new BlockSetType(id));
-    }
-
-    private static BlockSetType registerBlockSetType(String id) {
-        return BlockSetTypeRegistry.registerWood(new Identifier(EvenBetterArcheology.DATA.MOD_ID, id));
-    }
 
 }

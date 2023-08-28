@@ -2,9 +2,9 @@ package de.sakurajin.evenbetterarcheology.block.fossils.blockEntity;
 
 import de.sakurajin.evenbetterarcheology.block.entity.ImplementedInventory;
 import de.sakurajin.evenbetterarcheology.block.entity.ModBlockEntities;
+import de.sakurajin.evenbetterarcheology.block.fossils.VillagerFossilFull;
 import de.sakurajin.evenbetterarcheology.networking.ModMessages;
 import de.sakurajin.evenbetterarcheology.screen.FossilInventoryScreenHandler;
-import de.sakurajin.evenbetterarcheology.block.fossils.VillagerFossilBlock;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
@@ -25,6 +25,8 @@ import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Objects;
 
 public class VillagerFossilBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
@@ -59,7 +61,7 @@ public class VillagerFossilBlockEntity extends BlockEntity implements NamedScree
     public void onClose(PlayerEntity player) {
         ImplementedInventory.super.onClose(player);
         int luminance = Block.getBlockFromItem(this.getInventoryContents().getItem()).getDefaultState().getLuminance();
-        player.getWorld().setBlockState(this.getPos(), world.getBlockState(this.getPos()).with(VillagerFossilBlock.INVENTORY_LUMINANCE, luminance));
+        player.getWorld().setBlockState(this.getPos(), Objects.requireNonNull(world).getBlockState(this.getPos()).with(VillagerFossilFull.INVENTORY_LUMINANCE, luminance));
     }
 
     @Nullable
@@ -94,7 +96,7 @@ public class VillagerFossilBlockEntity extends BlockEntity implements NamedScree
             }
 
             int luminance = Block.getBlockFromItem(this.getInventoryContents().getItem()).getDefaultState().getLuminance();
-            world.setBlockState(this.getPos(), getCachedState().with(VillagerFossilBlock.INVENTORY_LUMINANCE, luminance));
+            world.setBlockState(this.getPos(), getCachedState().with(VillagerFossilFull.INVENTORY_LUMINANCE, luminance));
         }
 
         super.markDirty();

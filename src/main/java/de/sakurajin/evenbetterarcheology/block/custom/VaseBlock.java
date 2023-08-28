@@ -87,13 +87,13 @@ public class VaseBlock extends Block implements BlockGenerateable {
 
     @Override
     public void generateItemModel(DatagenModContainer container, String identifier) {
-        String texture = container.DATA_GEN_HELPER.getStringID("vase/vase_"+texture_variants[0], "block");
-        container.DATA_GEN_HELPER.generateItemModel(identifier,texture);
+        String texture = container.getStringID("vase/vase_"+texture_variants[0], "block");
+        container.generateItemModel(identifier,texture);
     }
 
     @Override
     public ItemConvertible generateBlockItem(DatagenModContainer container, String identifier) {
-        return container.DATA_GEN_HELPER.generateBlockItem(this, container.settings(!isLootVase));
+        return container.generateBlockItem(this, container.settings(!isLootVase));
     }
 
     @Override

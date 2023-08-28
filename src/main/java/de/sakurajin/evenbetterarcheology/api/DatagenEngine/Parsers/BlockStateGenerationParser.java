@@ -6,12 +6,16 @@ import net.minecraft.item.ItemConvertible;
 
 import java.lang.reflect.Field;
 
-public class BlockStateGenerationParser implements AnnotationParser{
 
+/**
+ * This parser is used to generate block states for blocks that implement the BlockStateGenerateable interface
+ */
+public class BlockStateGenerationParser implements DataGenerationParser {
     @Override
     public void parse(String namespace, ItemConvertible value, String identifier, Field field, DatagenModContainer container) {
-        if (value instanceof BlockStateGenerateable){
-            ((BlockStateGenerateable) value).generateBlockState(container, identifier);
-        }
+        if (!(value instanceof BlockStateGenerateable)) return;
+
+        //generate the block state
+        ((BlockStateGenerateable) value).generateBlockState(container, identifier);
     }
 }

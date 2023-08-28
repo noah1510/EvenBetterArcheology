@@ -21,7 +21,7 @@ public class CubeAll extends Block implements BlockGenerateable {
     }
 
     public static void eGenerateBlockModel(DatagenModContainer container, String identifier, String texture) {
-        container.DATA_GEN_HELPER.generateBlockModel(
+        container.generateBlockModel(
             identifier,
             Map.of(
                     "all", texture
@@ -37,21 +37,16 @@ public class CubeAll extends Block implements BlockGenerateable {
 
     @Override
     public void generateBlockState(DatagenModContainer container, String identifier) {
-        container.DATA_GEN_HELPER.generateBlockState(identifier);
+        container.generateBlockState(identifier);
     }
 
     @Override
     public void generateItemModel(DatagenModContainer container, String identifier) {
-        container.DATA_GEN_HELPER.generateBlockItemModel(identifier);
-    }
-
-    @Override
-    public void generateRecepie(DatagenModContainer container, String identifier) {
-
+        container.generateBlockItemModel(identifier);
     }
 
     @Override
     public ItemConvertible generateBlockItem(DatagenModContainer container, String identifier) {
-        return container.DATA_GEN_HELPER.generateBlockItem(this, container.settings());
+        return container.generateBlockItem(this, container.settings());
     }
 }

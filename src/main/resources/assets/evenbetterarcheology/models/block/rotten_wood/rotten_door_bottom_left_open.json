@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/door_bottom_left_open",
-  "textures": {
-    "bottom": "evenbetterarcheology:block/rotten_door_bottom",
-    "top": "evenbetterarcheology:block/rotten_door_top"
-  }
-}

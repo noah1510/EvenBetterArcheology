@@ -110,7 +110,7 @@ public class EvokerTrapBlock extends HorizontalFacingBlock implements BlockGener
 
     @Override
     public void generateBlockModel(DatagenModContainer container, String identifier) {
-        container.DATA_GEN_HELPER.generateBlockModel(
+        container.generateBlockModel(
             identifier, Map.of(
                 "front", "evoker_trap",
                 "side", "minecraft:block/furnace_side",
@@ -120,12 +120,12 @@ public class EvokerTrapBlock extends HorizontalFacingBlock implements BlockGener
 
     @Override
     public void generateBlockState(DatagenModContainer container, String identifier) {
-        container.DATA_GEN_HELPER.generateBlockStateOrientable(identifier);
+        container.generateBlockStateOrientable(identifier);
     }
 
     @Override
     public void generateItemModel(DatagenModContainer container, String identifier) {
-        container.DATA_GEN_HELPER.generateBlockItemModel(identifier);
+        container.generateBlockItemModel(identifier);
     }
 
     @Override
@@ -135,6 +135,6 @@ public class EvokerTrapBlock extends HorizontalFacingBlock implements BlockGener
 
     @Override
     public ItemConvertible generateBlockItem(DatagenModContainer container, String identifier) {
-        return container.DATA_GEN_HELPER.generateBlockItem(this, container.settings());
+        return container.generateBlockItem(this, container.settings());
     }
 }

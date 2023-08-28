@@ -1,13 +1,13 @@
 package de.sakurajin.evenbetterarcheology.block.fossils;
 
-import de.sakurajin.evenbetterarcheology.api.block.FossilBaseHeadBlock;
+import de.sakurajin.evenbetterarcheology.api.block.FossilBase;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.shape.VoxelShape;
 
-public class ChickenFossilHeadBlock extends FossilBaseHeadBlock {
+public class ChickenFossilHeadBlock extends FossilBase {
     private static final VoxelShape CHICKEN_HEAD_SHAPE = Block.createCuboidShape(4, 0, 4, 12, 4, 12);
 
     public ChickenFossilHeadBlock() {
@@ -18,7 +18,8 @@ public class ChickenFossilHeadBlock extends FossilBaseHeadBlock {
                 "fossils/chicken_fossil_head_1",
                 "fossils/chicken_fossil_head_2"},
             0,
-            CHICKEN_HEAD_SHAPE
+            CHICKEN_HEAD_SHAPE,
+            "block.evenbetterarcheology.fossil_head_set"
         );
     }
 }

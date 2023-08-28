@@ -5,6 +5,7 @@ import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.ItemModelG
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.RecepieGeneratable;
 import io.wispforest.owo.itemgroup.OwoItemSettings;
 import net.devtech.arrp.json.recipe.*;
+import net.devtech.arrp.json.tags.JTag;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BrushableBlock;
@@ -47,7 +48,7 @@ public class BetterBrushItem extends BrushItem implements ItemModelGeneratateabl
 
     @Override
     public void generateItemModel(DatagenModContainer container, String identifier) {
-        container.DATA_GEN_HELPER.generateItemModel(identifier, "minecraft:item/brush", identifier);
+        container.generateItemModel(identifier, "minecraft:item/brush", identifier);
     }
 
     @Override

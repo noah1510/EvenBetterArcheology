@@ -1,23 +1,19 @@
 package de.sakurajin.evenbetterarcheology.block.fossils;
 
 import com.google.common.collect.ImmutableMap;
-import de.sakurajin.evenbetterarcheology.api.block.FossilBaseBodyBlock;
+import de.sakurajin.evenbetterarcheology.api.block.FossilBase;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.ShapeContext;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
-import net.minecraft.world.BlockView;
 
 import java.util.Map;
 import java.util.stream.Stream;
 
-public class CreeperFossilBodyBlock extends FossilBaseBodyBlock {
+public class CreeperFossilBodyBlock extends FossilBase {
     //Map of hitboxes for every direction the model can be facing
     private static final Map<Direction, VoxelShape> SHAPES_FOR_DIRECTION = ImmutableMap.of(
             Direction.NORTH, Stream.of(
@@ -46,7 +42,8 @@ public class CreeperFossilBodyBlock extends FossilBaseBodyBlock {
                 "fossils/creeper_fossil_body_2"
             },
             0,
-            SHAPES_FOR_DIRECTION
+            SHAPES_FOR_DIRECTION,
+            "block.evenbetterarcheology.fossil_body_set"
         );
     }
 }

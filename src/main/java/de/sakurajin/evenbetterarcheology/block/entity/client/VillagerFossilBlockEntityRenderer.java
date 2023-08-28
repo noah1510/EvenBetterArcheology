@@ -1,6 +1,6 @@
 package de.sakurajin.evenbetterarcheology.block.entity.client;
 
-import de.sakurajin.evenbetterarcheology.api.block.FossilBaseWithEntityBlock;
+import de.sakurajin.evenbetterarcheology.api.block.FossilCraftableWithEntity;
 import de.sakurajin.evenbetterarcheology.block.fossils.blockEntity.VillagerFossilBlockEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -34,8 +34,8 @@ public class VillagerFossilBlockEntityRenderer implements BlockEntityRenderer<Vi
 
         matrices.push();
 
-        BlockState state = entity.getWorld().getBlockState(entity.getPos());
-        Direction facing = state.getBlock() instanceof FossilBaseWithEntityBlock ? state.get(FossilBaseWithEntityBlock.FACING) : Direction.NORTH;
+        BlockState state = Objects.requireNonNull(entity.getWorld()).getBlockState(entity.getPos());
+        Direction facing = state.getBlock() instanceof FossilCraftableWithEntity ? state.get(FossilCraftableWithEntity.FACING) : Direction.NORTH;
 
         //rotation based on direction the Block ist facing
         switch (facing) {

@@ -37,7 +37,7 @@ public class SusBlock extends BrushableBlock implements BlockGenerateable{
 
     @Override
     public ItemConvertible generateBlockItem(DatagenModContainer container, String identifier) {
-        return container.DATA_GEN_HELPER.generateBlockItem(this, container.settings());
+        return container.generateBlockItem(this, container.settings());
     }
 
     private void initTextures(String identifier){
@@ -72,7 +72,7 @@ public class SusBlock extends BrushableBlock implements BlockGenerateable{
 
     @Override
     public void generateItemModel(DatagenModContainer container, String identifier) {
-        container.DATA_GEN_HELPER.generateItemModel(identifier, container.MOD_ID+":block/"+identifier+"_0");
+        container.generateItemModel(identifier, container.MOD_ID+":block/"+identifier+"_0");
     }
 
     @Override

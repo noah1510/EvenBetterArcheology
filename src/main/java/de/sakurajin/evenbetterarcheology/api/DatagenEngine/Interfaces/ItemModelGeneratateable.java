@@ -7,9 +7,9 @@ import net.minecraft.item.Item;
 public interface ItemModelGeneratateable {
     public default void generateItemModel(DatagenModContainer container, String identifier){
         if (this instanceof Block){
-            container.DATA_GEN_HELPER.generateBlockItemModel(identifier);
+            container.generateBlockItemModel(identifier);
         }else if (this instanceof Item){
-            container.DATA_GEN_HELPER.generateItemModel(identifier);
+            container.generateItemModel(identifier);
         }else{
             throw new RuntimeException("ItemModelGeneratateable is not implemented for this class");
         }

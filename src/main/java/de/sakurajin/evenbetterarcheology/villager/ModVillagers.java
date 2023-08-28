@@ -33,7 +33,7 @@ public class ModVillagers {
         // level 1 trades
         trades.add(new NumismaticTradeHelper.TradeParameters(
                 80,
-                ModBlocks.ROTTEN_PLANKS,
+                ModBlocks.ROTTEN_WOOD_PLANKS,
                 4,
                 16,
                 true,

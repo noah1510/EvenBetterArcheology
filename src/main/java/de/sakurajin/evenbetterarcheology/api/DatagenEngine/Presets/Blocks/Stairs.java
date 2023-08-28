@@ -18,11 +18,11 @@ public class Stairs extends StairsBlock implements BlockGenerateable {
     private final Block baseBlock;
     private final boolean stonecuttable;
 
-    public Stairs(Block BaseBlock, FabricBlockSettings settings, String[] textures){
-        this(BaseBlock, settings, textures, true);
+    public Stairs(FabricBlockSettings settings, Block BaseBlock, String[] textures){
+        this(settings, BaseBlock, textures, true);
     }
 
-    public Stairs(Block BaseBlock, FabricBlockSettings settings, String[] textures, boolean stonecuttable){
+    public Stairs(FabricBlockSettings settings, Block BaseBlock, String[] textures, boolean stonecuttable){
         super(BaseBlock.getDefaultState(), settings);
         this.baseBlock = BaseBlock;
         this.stonecuttable = stonecuttable;
@@ -46,19 +46,19 @@ public class Stairs extends StairsBlock implements BlockGenerateable {
                 "top", texture_top,
                 "side", texture_side
         );
-        container.DATA_GEN_HELPER.generateBlockModel(
+        container.generateBlockModel(
                 identifier,
                 textures,
                 "minecraft:block/stairs"
         );
 
-        container.DATA_GEN_HELPER.generateBlockModel(
+        container.generateBlockModel(
                 identifier+"_inner",
                 textures,
                 "minecraft:block/inner_stairs"
         );
 
-        container.DATA_GEN_HELPER.generateBlockModel(
+        container.generateBlockModel(
                 identifier+"_outer",
                 textures,
                 "minecraft:block/outer_stairs"
@@ -117,18 +117,18 @@ public class Stairs extends StairsBlock implements BlockGenerateable {
 
     @Override
     public void generateItemModel(DatagenModContainer container, String identifier) {
-        container.DATA_GEN_HELPER.generateBlockItemModel(identifier);
+        container.generateBlockItemModel(identifier);
     }
 
     @Override
     public void generateRecepie(DatagenModContainer container, String identifier) {
-        Identifier blockItemID = container.DATA_GEN_HELPER.getSimpleID(identifier);
+        Identifier blockItemID = container.getSimpleID(identifier);
 
         container.RESOURCE_PACK.addRecipe(
                 new Identifier(container.MOD_ID, identifier+"_from_blocks"),
                 JRecipe.shaped(
                         JPattern.pattern("#  ","## ","###"),
-                        JKeys.keys().key("#", JIngredient.ingredient().item(baseBlock.toString())),
+                        JKeys.keys().key("#", JIngredient.ingredient().item(baseBlock.asItem())),
                         JResult.itemStack(this.asItem(), 6)
                 ));
 
@@ -136,7 +136,7 @@ public class Stairs extends StairsBlock implements BlockGenerateable {
             container.RESOURCE_PACK.addRecipe(
                     new Identifier(container.MOD_ID, identifier+"_cut_from_block"),
                     JRecipe.stonecutting(
-                            JIngredient.ingredient().item(baseBlock.toString()),
+                            JIngredient.ingredient().item(baseBlock.asItem()),
                             JResult.itemStack(this.asItem(), 1)
                     ));
         }

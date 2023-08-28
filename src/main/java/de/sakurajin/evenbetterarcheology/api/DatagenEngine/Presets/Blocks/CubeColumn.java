@@ -28,13 +28,13 @@ public class CubeColumn extends PillarBlock implements BlockModelGenerateable, B
                 "end", texture_end,
                 "side", texture_side
         );
-        container.DATA_GEN_HELPER.generateBlockModel(
+        container.generateBlockModel(
                 identifier,
                 textures,
                 "minecraft:block/cube_column"
         );
 
-        container.DATA_GEN_HELPER.generateBlockModel(
+        container.generateBlockModel(
                 identifier+"_horizontal",
                 textures,
                 "minecraft:block/cube_column_horizontal"
@@ -53,11 +53,11 @@ public class CubeColumn extends PillarBlock implements BlockModelGenerateable, B
 
     @Override
     public void generateItemModel(DatagenModContainer container, String identifier) {
-        container.DATA_GEN_HELPER.generateBlockItemModel(identifier);
+        container.generateBlockItemModel(identifier);
     }
 
     @Override
     public ItemConvertible generateBlockItem(DatagenModContainer container, String identifier) {
-        return container.DATA_GEN_HELPER.generateBlockItem(this, container.settings());
+        return container.generateBlockItem(this, container.settings());
     }
 }

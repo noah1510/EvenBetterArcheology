@@ -1,8 +1,8 @@
 package de.sakurajin.evenbetterarcheology.item;
 
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.Item.CraftableItem;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -17,7 +17,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class TorrentTotemItem extends Item {
+public class TorrentTotemItem extends CraftableItem {
     public TorrentTotemItem(Settings settings) {
         super(settings);
     }

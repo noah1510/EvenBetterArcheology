@@ -2,20 +2,36 @@ package de.sakurajin.evenbetterarcheology.item;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Parsers.DataGenerationParser;
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.Item.CraftableItem;
 import de.sakurajin.evenbetterarcheology.api.item.BetterBrushItem;
-import io.wispforest.owo.itemgroup.OwoItemSettings;
 import io.wispforest.owo.registration.annotations.AssignedName;
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Containers.ParsedItemRegistryContainer;
 import net.devtech.arrp.json.recipe.*;
+import net.devtech.arrp.json.tags.JTag;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 
+import java.lang.reflect.Field;
+
 
 public class ModItems extends ParsedItemRegistryContainer {
-    public ModItems() {super(EvenBetterArcheology.DATA);}
+    public ModItems() {
+        super(EvenBetterArcheology.DATA);
+        addParser(new DataGenerationParser() {
+            private final JTag brushTag = JTag.tag().add(new Identifier("minecraft", "brush"));
+
+            @Override
+            public void parse(String namespace, ItemConvertible value, String identifier, Field field, DatagenModContainer container) {
+                if(!(value instanceof BetterBrushItem)) return;
+                brushTag.add(container.getSimpleID(identifier));
+                container.RESOURCE_PACK.addTag(new Identifier("c:items/brushitems"), brushTag);
+            }
+        });
+    }
 
     //ITEM ENTRIES-------------------------------------------------------------------------//
     //BRUSHES
@@ -23,7 +39,7 @@ public class ModItems extends ParsedItemRegistryContainer {
 
     public static final Item DIAMOND_BRUSH = BetterBrushItem.Builder(EvenBetterArcheology.DATA).setBrushingSpeed(6).setMaxDamage(256).setMaterial(Items.DIAMOND).build();
 
-    public static final Item ARTIFACT_SHARDS = new Item(EvenBetterArcheology.DATA.settings().rarity(Rarity.UNCOMMON));
+    public static final Item ARTIFACT_SHARDS = new CraftableItem(EvenBetterArcheology.DATA.settings().rarity(Rarity.UNCOMMON)){};
 
     public static final Item UNIDENTIFIED_ARTIFACT = new CraftableItem(EvenBetterArcheology.DATA.settings().rarity(Rarity.UNCOMMON)) {
         @Override

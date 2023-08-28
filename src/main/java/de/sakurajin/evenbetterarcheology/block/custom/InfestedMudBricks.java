@@ -18,7 +18,7 @@ public class InfestedMudBricks extends InfestedBlock implements BlockGenerateabl
 
     @Override
     public void generateBlockState(DatagenModContainer container, String identifier) {
-        container.DATA_GEN_HELPER.generateBlockState(identifier);
+        container.generateBlockState(identifier);
     }
 
     @Override

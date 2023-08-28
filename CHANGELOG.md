@@ -3,10 +3,12 @@
 ## 2.0.0-alpha.7
 
 * Another rework of the Datageneration API (Should be mostly stable now)
-* Generating almost all blockstate and item models in code
+* Generating all blockstate and item models in code
 * Generating all recipes in code
 * Rewritten implementation of the fossils (they now share as much code as possible)
 * Rewritten vases (loot vase and regular vase are the same class now just with a bool to differentiate them)
+* Renamed rotton_x to rotton_wood_x (eg. rotton_planks -> rotton_wood_planks). This should be the last breaking change.
+* Adding some documentation using doxygen
 
 ## 2.0.0-alpha.6
 

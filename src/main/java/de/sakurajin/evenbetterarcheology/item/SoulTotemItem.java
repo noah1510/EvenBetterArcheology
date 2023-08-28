@@ -111,6 +111,6 @@ public class SoulTotemItem extends Item implements ItemModelGeneratateable {
 
     @Override
     public void generateItemModel(DatagenModContainer container, String identifier) {
-        container.DATA_GEN_HELPER.generateItemModel(identifier, "minecraft:item/handheld", identifier);
+        container.generateItemModel(identifier, "minecraft:item/handheld", identifier);
     }
 }

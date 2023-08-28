@@ -16,14 +16,14 @@ public class Slab extends SlabBlock implements BlockGenerateable {
     private final String texture_top;
     private final String texture_side;
     private final String texture_double;
-    private final Identifier baseBlock;
+    private final String baseBlock;
     private final boolean stonecuttable;
 
-    public Slab(FabricBlockSettings settings, Identifier baseBlock, String[] textures){
+    public Slab(FabricBlockSettings settings, String baseBlock, String[] textures){
         this(settings, baseBlock, true, textures);
     }
 
-    public Slab(FabricBlockSettings settings, Identifier baseBlock, boolean stonecuttable, String[] textures){
+    public Slab(FabricBlockSettings settings, String baseBlock, boolean stonecuttable, String[] textures){
         super(settings);
         this.baseBlock = baseBlock;
         this.stonecuttable = stonecuttable;
@@ -55,13 +55,13 @@ public class Slab extends SlabBlock implements BlockGenerateable {
                 "bottom", texture_bottom,
                 "side", texture_side
         );
-        container.DATA_GEN_HELPER.generateBlockModel(
+        container.generateBlockModel(
                 identifier,
                 textures,
                 "minecraft:block/slab"
         );
 
-        container.DATA_GEN_HELPER.generateBlockModel(
+        container.generateBlockModel(
                 identifier+"_double",
                 Map.of(
                         "all", texture_double
@@ -69,7 +69,7 @@ public class Slab extends SlabBlock implements BlockGenerateable {
                 "minecraft:block/cube_all"
         );
 
-        container.DATA_GEN_HELPER.generateBlockModel(
+        container.generateBlockModel(
                 identifier+"_top",
                 textures,
                 "minecraft:block/slab_top"
@@ -88,20 +88,21 @@ public class Slab extends SlabBlock implements BlockGenerateable {
 
     @Override
     public void generateItemModel(DatagenModContainer container, String identifier) {
-        container.DATA_GEN_HELPER.generateBlockItemModel(identifier);
+        container.generateBlockItemModel(identifier);
     }
 
     @Override
     public void generateRecepie(DatagenModContainer container, String identifier) {
         if(baseBlock == null) return;
+        String baseBlockID = container.getStringID(baseBlock);
 
-        Identifier blockItemID = container.DATA_GEN_HELPER.getSimpleID(identifier);
+        Identifier blockItemID = container.getSimpleID(identifier);
 
         container.RESOURCE_PACK.addRecipe(
             new Identifier(container.MOD_ID, identifier+"_from_blocks"),
             JRecipe.shaped(
                 JPattern.pattern("###"),
-                JKeys.keys().key("#", JIngredient.ingredient().item(baseBlock.toString())),
+                JKeys.keys().key("#", JIngredient.ingredient().item(baseBlockID)),
                 JResult.itemStack(this.asItem(), 6)
         ));
 
@@ -110,14 +111,14 @@ public class Slab extends SlabBlock implements BlockGenerateable {
             JRecipe.shaped(
                 JPattern.pattern("#", "#"),
                 JKeys.keys().key("#", JIngredient.ingredient().item(blockItemID.toString())),
-                JResult.result(baseBlock.toString())
+                JResult.result(baseBlockID)
         ));
 
         if(stonecuttable){
             container.RESOURCE_PACK.addRecipe(
                 new Identifier(container.MOD_ID, identifier+"_cut"),
                 JRecipe.stonecutting(
-                    JIngredient.ingredient().item(baseBlock.toString()),
+                    JIngredient.ingredient().item(baseBlockID),
                     JResult.itemStack(this.asItem(), 2)
             ));
         }
@@ -125,6 +126,6 @@ public class Slab extends SlabBlock implements BlockGenerateable {
 
     @Override
     public ItemConvertible generateBlockItem(DatagenModContainer container, String identifier) {
-        return container.DATA_GEN_HELPER.generateBlockItem(this, container.settings());
+        return container.generateBlockItem(this, container.settings());
     }
 }

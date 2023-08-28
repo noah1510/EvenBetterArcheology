@@ -1,17 +1,13 @@
 package de.sakurajin.evenbetterarcheology.block.fossils;
 
-import de.sakurajin.evenbetterarcheology.api.block.FossilBaseHeadBlock;
+import de.sakurajin.evenbetterarcheology.api.block.FossilBase;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.ShapeContext;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
 
-public class VillagerFossilHeadBlock extends FossilBaseHeadBlock {
+public class VillagerFossilHeadBlock extends FossilBase {
     private static final VoxelShape VILLAGER_HEAD_SHAPE = Block.createCuboidShape(3, 0, 3, 13, 10, 13);
 
     public VillagerFossilHeadBlock() {
@@ -23,7 +19,8 @@ public class VillagerFossilHeadBlock extends FossilBaseHeadBlock {
                 "fossils/villager_fossil_head_2",
             },
             0,
-            VILLAGER_HEAD_SHAPE
+            VILLAGER_HEAD_SHAPE,
+            "block.evenbetterarcheology.fossil_head_set"
         );
     }
 }

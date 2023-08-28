@@ -1,8 +1,7 @@
 package de.sakurajin.evenbetterarcheology.block.custom;
 
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockStateGenerateable;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.RecepieGeneratable;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockGenerateable;
 import de.sakurajin.evenbetterarcheology.block.entity.ArcheologyTableBlockEntity;
 import de.sakurajin.evenbetterarcheology.block.entity.ModBlockEntities;
 import net.devtech.arrp.json.recipe.*;
@@ -25,7 +24,7 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvider, BlockStateGenerateable, RecepieGeneratable {
+public class ArchelogyTable extends BlockWithEntity implements BlockGenerateable {
     //indicates if the table is currently "crafting" the identified artifact
     //triggers particle creation
     public static final BooleanProperty DUSTING = BooleanProperty.of("dusting");
@@ -118,25 +117,27 @@ public class ArchelogyTable extends BlockWithEntity implements BlockEntityProvid
 
     @Override
     public void generateBlockState(DatagenModContainer container, String identifier) {
-        container.DATA_GEN_HELPER.generateBlockState(identifier);
+        container.generateBlockState(identifier);
     }
 
     @Override
     public void generateRecepie(DatagenModContainer container, String identifier) {
-        container.RESOURCE_PACK.addRecipe(container.DATA_GEN_HELPER.getSimpleID(identifier),
+        container.RESOURCE_PACK.addRecipe(container.getSimpleID(identifier),
             JRecipe.shaped(
                 JPattern.pattern(
                     "bS",
-                    "00",
-                    "00"
+                    "OO",
+                    "OO"
                 ),
                 JKeys.keys()
                     .key("b", JIngredient.ingredient().tag("c:brushitems"))
                     .key("S", JIngredient.ingredient().item("evenbetterarcheology:artifact_shards"))
-                    .key("0", JIngredient.ingredient().tag("minecraft:planks")),
+                    .key("O", JIngredient.ingredient().tag("minecraft:planks")),
                 JResult.item(this.asItem())
             )
         );
     }
-};
 
+    @Override
+    public void generateBlockModel(DatagenModContainer container, String identifier) {}
+}

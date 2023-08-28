@@ -6,12 +6,13 @@ import net.minecraft.item.ItemConvertible;
 
 import java.lang.reflect.Field;
 
-public class RecepieGenerationParser implements AnnotationParser{
+/**
+ * This parser is used to generate crafting recepies for items that implement the RecepieGeneratable interface
+ */
+public class RecepieGenerationParser implements DataGenerationParser {
     @Override
     public void parse(String namespace, ItemConvertible value, String identifier, Field field, DatagenModContainer container) {
-        if(! (value instanceof RecepieGeneratable)){
-            return;
-        }
+        if(! (value instanceof RecepieGeneratable)) return;
 
         ((RecepieGeneratable) value).generateRecepie(container, identifier);
     }

@@ -55,23 +55,12 @@ public class SusBlockEntityRenderer implements BlockEntityRenderer<SusBlockEntit
         float[] fs = new float[]{0.5F, 0.0F, 0.5F};
         float f = (float)dustedLevel / 10.0F * 0.75F;
         switch (direction) {
-            case EAST:
-                fs[0] = 0.73F + f;
-                break;
-            case WEST:
-                fs[0] = 0.25F - f;
-                break;
-            case UP:
-                fs[1] = 0.25F + f;
-                break;
-            case DOWN:
-                fs[1] = -0.23F - f;
-                break;
-            case NORTH:
-                fs[2] = 0.25F - f;
-                break;
-            case SOUTH:
-                fs[2] = 0.73F + f;
+            case EAST -> fs[0] = 0.73F + f;
+            case WEST -> fs[0] = 0.25F - f;
+            case UP -> fs[1] = 0.25F + f;
+            case DOWN -> fs[1] = -0.23F - f;
+            case NORTH -> fs[2] = 0.25F - f;
+            case SOUTH -> fs[2] = 0.73F + f;
         }
 
         return fs;
