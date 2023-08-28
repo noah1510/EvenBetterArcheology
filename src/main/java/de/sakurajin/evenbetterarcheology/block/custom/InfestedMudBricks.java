@@ -22,7 +22,7 @@ public class InfestedMudBricks extends InfestedBlock implements BlockGenerateabl
     }
 
     @Override
-    public void generateRecepie(DatagenModContainer container, String identifier) {
-
+    public void generateTags(DatagenModContainer container, String identifier) {
+        container.addTag("minecraft:blocks/mineable/pickaxe", identifier);
     }
 }

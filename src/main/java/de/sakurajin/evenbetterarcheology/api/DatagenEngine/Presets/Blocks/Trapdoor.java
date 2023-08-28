@@ -89,4 +89,10 @@ public class Trapdoor extends TrapdoorBlock implements BlockGenerateable {
             )
         );
     }
+
+    @Override
+    public void generateTags(DatagenModContainer container, String identifier) {
+        container.addTag("minecraft:blocks/trapdoors", identifier);
+        container.addTag("minecraft:items/trapdoors", identifier);
+    }
 }

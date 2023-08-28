@@ -28,7 +28,17 @@ public class ModBlocks extends ParsedBlockRegistryContainer {
 
     //---------FOSSILIFEROUS BLOCKS-----------//
 
-    public static final Block FOSSILIFEROUS_DIRT = new SusBlock(Blocks.DIRT, SoundEvents.BLOCK_GRAVEL_HIT, SoundEvents.BLOCK_GRAVEL_BREAK);
+    public static final Block FOSSILIFEROUS_DIRT = new SusBlock(Blocks.DIRT, SoundEvents.BLOCK_GRAVEL_HIT, SoundEvents.BLOCK_GRAVEL_BREAK){
+        @Override
+        public void generateTags(DatagenModContainer container, String identifier) {
+            container.addTag("minecraft:blocks/mineable/shovel", identifier);
+            container.addTag("minecraft:blocks/bamboo_plantable", identifier);
+            container.addTag("minecraft:blocks/dirt", identifier);
+            container.addTag("minecraft:blocks/sand", identifier);
+            container.addTag("minecraft:blocks/enderman_holdable", identifier);
+            container.addTag("minecraft:blocks/lush_ground_replaceable", identifier);
+        }
+    };
 
     //-------------FOSSILS---------------//
     //Villager
@@ -75,21 +85,29 @@ public class ModBlocks extends ParsedBlockRegistryContainer {
             new GeneratedWoodType.SettingsOverride[]{settings -> settings.sounds(BlockSoundGroup.NETHER_STEM)}
     );
 
-    public static final Block ROTTEN_WOOD_LOG = ROTTEN_WOOD_TYPE.getLog(null);
+    public static final Block ROTTEN_WOOD_LOG = ROTTEN_WOOD_TYPE.getLog(new GeneratedWoodType.GenerationSettings(
+            new DatagenModContainer.BlockLootOptions(true, "minecraft:stick", 8)));
 
-    public static final Block ROTTEN_WOOD_PLANKS = ROTTEN_WOOD_TYPE.getPlanks(null);
+    public static final Block ROTTEN_WOOD_PLANKS = ROTTEN_WOOD_TYPE.getPlanks(new GeneratedWoodType.GenerationSettings(
+            new DatagenModContainer.BlockLootOptions(true, "minecraft:stick", 2)));
 
-    public static final Block ROTTEN_WOOD_SLAB = ROTTEN_WOOD_TYPE.getSlabs(null);
+    public static final Block ROTTEN_WOOD_SLAB = ROTTEN_WOOD_TYPE.getSlabs(new GeneratedWoodType.GenerationSettings(
+            new DatagenModContainer.BlockLootOptions(true, "minecraft:stick", 1)));
 
-    public static final Block ROTTEN_WOOD_STAIRS = ROTTEN_WOOD_TYPE.getStairs(null);
+    public static final Block ROTTEN_WOOD_STAIRS = ROTTEN_WOOD_TYPE.getStairs(new GeneratedWoodType.GenerationSettings(
+            new DatagenModContainer.BlockLootOptions(true, "minecraft:stick", 3)));
 
-    public static final Block ROTTEN_WOOD_FENCE = ROTTEN_WOOD_TYPE.getFence(null);
+    public static final Block ROTTEN_WOOD_FENCE = ROTTEN_WOOD_TYPE.getFence(new GeneratedWoodType.GenerationSettings(
+            new DatagenModContainer.BlockLootOptions(true, "minecraft:stick", 1)));
 
-    public static final Block ROTTEN_WOOD_FENCE_GATE = ROTTEN_WOOD_TYPE.getFenceGate(null);
+    public static final Block ROTTEN_WOOD_FENCE_GATE = ROTTEN_WOOD_TYPE.getFenceGate(new GeneratedWoodType.GenerationSettings(
+            new DatagenModContainer.BlockLootOptions(true, "minecraft:stick", 1)));
 
-    public static final Block ROTTEN_WOOD_TRAPDOOR = ROTTEN_WOOD_TYPE.getTrapdoor(null);
+    public static final Block ROTTEN_WOOD_TRAPDOOR = ROTTEN_WOOD_TYPE.getTrapdoor(new GeneratedWoodType.GenerationSettings(
+            new DatagenModContainer.BlockLootOptions(true, "minecraft:stick", 4)));
 
-    public static final Block ROTTEN_WOOD_DOOR = ROTTEN_WOOD_TYPE.getDoor(null);
+    public static final Block ROTTEN_WOOD_DOOR = ROTTEN_WOOD_TYPE.getDoor(new GeneratedWoodType.GenerationSettings(
+            new DatagenModContainer.BlockLootOptions(true, "minecraft:stick", 4)));
 
     //-------------MUD Brick Stuff----------------//
     public static final Block INFESTED_MUD_BRICKS = new InfestedMudBricks(Blocks.MUD_BRICKS, FabricBlockSettings.copy(Blocks.INFESTED_STONE_BRICKS));
@@ -102,11 +120,29 @@ public class ModBlocks extends ParsedBlockRegistryContainer {
                 JRecipe.smelting(JIngredient.ingredient().item("mud_bricks"), JResult.item(this.asItem())).cookingTime(200).experience(0.1f)
             );
         }
+
+        @Override
+        public void generateTags(DatagenModContainer container, String identifier) {
+            super.generateTags(container, identifier);
+            container.addTag("minecraft:blocks/mineable/pickaxe", identifier);
+        }
     };
 
-    public static final Block CRACKED_MUD_BRICK_SLAB = new Slab(FabricBlockSettings.copyOf(Blocks.MUD_BRICK_SLAB), "cracked_mud_bricks", new String[]{"cracked_mud_bricks"});
+    public static final Block CRACKED_MUD_BRICK_SLAB = new Slab(FabricBlockSettings.copyOf(Blocks.MUD_BRICK_SLAB), "cracked_mud_bricks", new String[]{"cracked_mud_bricks"}){
+        @Override
+        public void generateTags(DatagenModContainer container, String identifier) {
+            super.generateTags(container, identifier);
+            container.addTag("minecraft:blocks/mineable/pickaxe", identifier);
+        }
+    };
 
-    public static final Block CRACKED_MUD_BRICK_STAIRS = new Stairs(FabricBlockSettings.copyOf(Blocks.MUD_BRICK_STAIRS), CRACKED_MUD_BRICKS, new String[]{"cracked_mud_bricks"});
+    public static final Block CRACKED_MUD_BRICK_STAIRS = new Stairs(FabricBlockSettings.copyOf(Blocks.MUD_BRICK_STAIRS), CRACKED_MUD_BRICKS, new String[]{"cracked_mud_bricks"}){
+        @Override
+        public void generateTags(DatagenModContainer container, String identifier) {
+            super.generateTags(container, identifier);
+            container.addTag("minecraft:blocks/mineable/pickaxe", identifier);
+        }
+    };
 
     public static final Block ARCHEOLOGY_TABLE = new ArchelogyTable(FabricBlockSettings.copy(Blocks.CRAFTING_TABLE));
 

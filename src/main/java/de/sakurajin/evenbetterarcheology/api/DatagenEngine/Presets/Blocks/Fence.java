@@ -69,4 +69,10 @@ public class Fence extends FenceBlock implements BlockGenerateable {
                 )
         );
     }
+
+    @Override
+    public void generateTags(DatagenModContainer container, String identifier) {
+        container.addTag("minecraft:blocks/fences", identifier);
+        container.addTag("minecraft:items/fences", identifier);
+    }
 }

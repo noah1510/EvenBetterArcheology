@@ -137,4 +137,9 @@ public class EvokerTrapBlock extends HorizontalFacingBlock implements BlockGener
     public ItemConvertible generateBlockItem(DatagenModContainer container, String identifier) {
         return container.generateBlockItem(this, container.settings());
     }
+
+    @Override
+    public void generateTags(DatagenModContainer container, String identifier) {
+        container.addTag("minecraft:blocks/mineable/pickaxe", identifier);
+    }
 }

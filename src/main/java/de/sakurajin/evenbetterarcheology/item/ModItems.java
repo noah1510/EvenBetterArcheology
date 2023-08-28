@@ -21,16 +21,7 @@ import java.lang.reflect.Field;
 public class ModItems extends ParsedItemRegistryContainer {
     public ModItems() {
         super(EvenBetterArcheology.DATA);
-        addParser(new DataGenerationParser() {
-            private final JTag brushTag = JTag.tag().add(new Identifier("minecraft", "brush"));
-
-            @Override
-            public void parse(String namespace, ItemConvertible value, String identifier, Field field, DatagenModContainer container) {
-                if(!(value instanceof BetterBrushItem)) return;
-                brushTag.add(container.getSimpleID(identifier));
-                container.RESOURCE_PACK.addTag(new Identifier("c:items/brushitems"), brushTag);
-            }
-        });
+        EvenBetterArcheology.DATA.addTag("c:items/brushitems", "minecraft:brush");
     }
 
     //ITEM ENTRIES-------------------------------------------------------------------------//

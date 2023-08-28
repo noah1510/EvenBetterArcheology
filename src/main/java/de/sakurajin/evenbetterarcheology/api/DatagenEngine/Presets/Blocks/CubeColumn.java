@@ -1,6 +1,7 @@
 package de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.Blocks;
 
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockGenerateable;
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockItemGenerateable;
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockStateGenerateable;
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockModelGenerateable;
@@ -12,7 +13,7 @@ import net.minecraft.util.Identifier;
 
 import java.util.Map;
 
-public class CubeColumn extends PillarBlock implements BlockModelGenerateable, BlockStateGenerateable, BlockItemGenerateable {
+public class CubeColumn extends PillarBlock implements BlockGenerateable {
     private final String texture_end;
     private final String texture_side;
 

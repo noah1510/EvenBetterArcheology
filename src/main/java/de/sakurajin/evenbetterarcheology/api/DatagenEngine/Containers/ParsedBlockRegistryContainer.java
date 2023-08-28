@@ -22,6 +22,8 @@ import java.lang.reflect.Field;
  * * BlockItemGenerationParser
  * * ItemModelGenerationParser
  * * RecepieGenerationParser
+ * * LootTableParser
+ * * TagGenerationParser
  *
  * You can add your own parsers to the DatagenModContainer to add your own annotations or handle interface implementations.
  * @see ParsedContainerBase for more information about adding Parsers
@@ -41,6 +43,8 @@ public abstract class ParsedBlockRegistryContainer extends ParsedContainerBase i
         addParser(new BlockItemGenerationParser());
         addParser(new ItemModelGenerationParser());
         addParser(new RecepieGenerationParser());
+        addParser(new LootTableParser());
+        addParser(new TagGenerationParser());
     }
 
     /**

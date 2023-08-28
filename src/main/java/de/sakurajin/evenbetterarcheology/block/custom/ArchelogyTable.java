@@ -140,4 +140,10 @@ public class ArchelogyTable extends BlockWithEntity implements BlockGenerateable
 
     @Override
     public void generateBlockModel(DatagenModContainer container, String identifier) {}
+
+    @Override
+    public void generateTags(DatagenModContainer container, String identifier) {
+        container.addTag("minecraft:blocks/mineable/axe", identifier);
+        container.addTag("minecraft:point_of_interest_type/acquirable_job_site", identifier+"_poi");
+    }
 }

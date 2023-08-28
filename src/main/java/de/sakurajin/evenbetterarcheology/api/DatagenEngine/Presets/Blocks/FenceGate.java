@@ -94,4 +94,12 @@ public class FenceGate extends FenceGateBlock implements BlockGenerateable {
             )
         );
     }
+
+    @Override
+    public void generateTags(DatagenModContainer container, String identifier) {
+        container.addTag("minecraft:blocks/mineable/axe", identifier);
+        container.addTag("minecraft:blocks/unstable_bottom_center", identifier);
+        container.addTag("minecraft:blocks/fence_gates", identifier);
+        container.addTag("minecraft:items/fence_gates", identifier);
+    }
 }

@@ -6,6 +6,8 @@ import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockGener
 import de.sakurajin.evenbetterarcheology.util.ServerPlayerHelper;
 import net.devtech.arrp.json.blockstate.JState;
 import net.devtech.arrp.json.blockstate.JVariant;
+import net.devtech.arrp.json.loot.JEntry;
+import net.devtech.arrp.json.loot.JLootTable;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -26,6 +28,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
 
 public class VaseBlock extends Block implements BlockGenerateable {
     private static final VoxelShape SHAPE = Block.createCuboidShape(3, 0, 3, 13, 14, 13);
@@ -97,5 +101,60 @@ public class VaseBlock extends Block implements BlockGenerateable {
     }
 
     @Override
-    public void generateRecepie(DatagenModContainer container, String identifier) {}
+    public void generateLootTable(DatagenModContainer container, String identifier){
+        if(!isLootVase){
+            container.createBlockLootTable(identifier, null);
+            return;
+        }
+
+        // add the loot table for this type of loot vase
+        container.RESOURCE_PACK.addLootTable(
+            container.getSimpleID("blocks/"+identifier),
+            JLootTable.loot("minecraft:block")
+                .pool(
+                    JLootTable.pool()
+                    .rolls(1)
+                    .entry(
+                        JLootTable.entry().type("minecraft:alternatives")
+                            .child(container.addSilkTouchRequirement(JLootTable.entry().type("minecraft:item").name(container.getStringID(identifier)).function(JLootTable.function("minecraft:set_count").parameter("count", 1))))
+                            .child(JLootTable.entry().type("minecraft:loot_table").name("evenbetterarcheology:blocks/loot_from_loot_vase")
+                        )
+                    )
+                )
+        );
+
+        generateCommonLootTables(container);
+    }
+
+    private static boolean commonLootTablesGenerated = false;
+    private static void generateCommonLootTables(DatagenModContainer container){
+        if(commonLootTablesGenerated){return;}
+
+        // add the loot table to select between basic loot and rare loot
+        container.RESOURCE_PACK.addLootTable(
+            new Identifier(EvenBetterArcheology.DATA.MOD_ID, "blocks/loot_from_loot_vase"),
+            JLootTable.loot("minecraft:block")
+                .pool(
+                    JLootTable.pool()
+                        .rolls(1)
+                        .entry(JLootTable.entry().type("minecraft:loot_table").weight(3).name("evenbetterarcheology:blocks/supply_loot_from_loot_vase"))
+                        .entry(JLootTable.entry().type("minecraft:loot_table").weight(1).name("evenbetterarcheology:blocks/treasure_loot_from_loot_vase"))
+                )
+        );
+
+        // add the basic loot table
+        /*JEntry commonLoot = JLootTable.entry();
+        
+
+        container.RESOURCE_PACK.addLootTable(
+                container.getSimpleID("blocks/loot_from_loot_vase_basic"),
+                JLootTable.loot("minecraft:block").pool(
+                    JLootTable.pool().rolls(JLootTable.roll(2,3)).entry(commonLoot)
+                )
+        );*/
+
+        commonLootTablesGenerated = true;
+    }
+
+
 }

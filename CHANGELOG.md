@@ -9,6 +9,8 @@
 * Rewritten vases (loot vase and regular vase are the same class now just with a bool to differentiate them)
 * Renamed rotton_x to rotton_wood_x (eg. rotton_planks -> rotton_wood_planks). This should be the last breaking change.
 * Adding some documentation using doxygen
+* Creating all tags using the data generation API
+* Transition loot tables to use the new data generation API
 
 ## 2.0.0-alpha.6
 

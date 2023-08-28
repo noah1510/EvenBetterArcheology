@@ -1,8 +1,7 @@
 package de.sakurajin.evenbetterarcheology.api.item;
 
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.ItemModelGeneratateable;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.RecepieGeneratable;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.ItemGenerateable;
 import io.wispforest.owo.itemgroup.OwoItemSettings;
 import net.devtech.arrp.json.recipe.*;
 import net.devtech.arrp.json.tags.JTag;
@@ -30,7 +29,7 @@ import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BetterBrushItem extends BrushItem implements ItemModelGeneratateable, RecepieGeneratable {
+public class BetterBrushItem extends BrushItem implements ItemGenerateable{
     private final float brushingSpeed;
     private final Item material;
     private final String materialName;
@@ -44,6 +43,11 @@ public class BetterBrushItem extends BrushItem implements ItemModelGeneratateabl
         String materialTranslationKey = material.getTranslationKey();
         var materialArray = materialTranslationKey.split("\\.");
         this.materialName = materialArray[materialArray.length-1];
+    }
+
+    @Override
+    public void generateTags(DatagenModContainer container, String identifier) {
+        container.addTag("c:items/brushitems", identifier);
     }
 
     @Override

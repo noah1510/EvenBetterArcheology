@@ -4,11 +4,14 @@ import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockGenerateable;
 import net.devtech.arrp.json.blockstate.JState;
 import net.devtech.arrp.json.blockstate.JVariant;
+import net.devtech.arrp.json.loot.JEntry;
+import net.devtech.arrp.json.loot.JLootTable;
 import net.devtech.arrp.json.models.JModel;
 import net.devtech.arrp.json.models.JTextures;
 import net.devtech.arrp.json.recipe.*;
 import net.minecraft.block.BlockSetType;
 import net.minecraft.block.DoorBlock;
+import net.minecraft.util.JsonHelper;
 
 public class Door extends DoorBlock implements BlockGenerateable {
     private final String textureBaseName;
@@ -110,6 +113,21 @@ public class Door extends DoorBlock implements BlockGenerateable {
                 JKeys.keys().key("#", JIngredient.ingredient().item(container.getStringID(this.plankName))),
                 JResult.itemStack(this.asItem(), 3)
             )
+        );
+    }
+
+    @Override
+    public void generateTags(DatagenModContainer container, String identifier) {
+        container.addTag("minecraft:blocks/doors", identifier);
+        container.addTag("minecraft:items/doors", identifier);
+    }
+
+    @Override
+    public JEntry addExtraConditions(DatagenModContainer container, String identifier, JEntry entry){
+        return entry.condition(JLootTable
+            .predicate("minecraft:block_state_property")
+            .parameter("block", container.getStringID(identifier))
+            .parameter("properties", JsonHelper.deserialize("{\"half\":\"lower\"}"))
         );
     }
 }

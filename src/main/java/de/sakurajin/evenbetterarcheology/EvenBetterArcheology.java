@@ -15,6 +15,10 @@ import io.wispforest.owo.itemgroup.Icon;
 import net.devtech.arrp.api.RRPCallback;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+
+import javax.xml.crypto.Data;
 
 public class EvenBetterArcheology implements ModInitializer {
 	public static final DatagenModContainer DATA = new DatagenModContainer(
@@ -50,6 +54,8 @@ public class EvenBetterArcheology implements ModInitializer {
 		ModEnchantments.registerModEnchantments();
 
 		ModStructureFeatures.registerStructureFeatures();
+
+		DATA.registerAllTags();
 
 		if (FabricLoader.getInstance().isDevelopmentEnvironment()){
 			DATA.RESOURCE_PACK.dump();

@@ -2,7 +2,7 @@ package de.sakurajin.evenbetterarcheology.item;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.ItemModelGeneratateable;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.ItemModelGenerateable;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -28,7 +28,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class SoulTotemItem extends Item implements ItemModelGeneratateable {
+public class SoulTotemItem extends Item implements ItemModelGenerateable {
     public SoulTotemItem(Settings settings) {
         super(settings);
     }

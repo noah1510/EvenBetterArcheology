@@ -142,4 +142,10 @@ public class Stairs extends StairsBlock implements BlockGenerateable {
         }
     }
 
+    @Override
+    public void generateTags(DatagenModContainer container, String identifier) {
+        container.addTag("minecraft:blocks/stairs", identifier);
+        container.addTag("minecraft:items/stairs", identifier);
+    }
+
 }

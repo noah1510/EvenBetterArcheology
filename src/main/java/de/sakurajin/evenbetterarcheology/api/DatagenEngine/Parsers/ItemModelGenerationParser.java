@@ -1,7 +1,7 @@
 package de.sakurajin.evenbetterarcheology.api.DatagenEngine.Parsers;
 
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.ItemModelGeneratateable;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.ItemModelGenerateable;
 import io.wispforest.owo.registration.reflect.BlockRegistryContainer;
 import net.minecraft.item.ItemConvertible;
 
@@ -15,9 +15,9 @@ public class ItemModelGenerationParser implements DataGenerationParser {
     @Override
     public void parse(String namespace, ItemConvertible value, String identifier, Field field, DatagenModContainer container) {
         if (field.isAnnotationPresent(BlockRegistryContainer.NoBlockItem.class)) return;
-        if (!(value instanceof ItemModelGeneratateable)) return;
+        if (!(value instanceof ItemModelGenerateable)) return;
 
         //generate the item model
-        ((ItemModelGeneratateable) value).generateItemModel(container, identifier);
+        ((ItemModelGenerateable) value).generateItemModel(container, identifier);
     }
 }

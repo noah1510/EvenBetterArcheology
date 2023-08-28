@@ -4,7 +4,7 @@ import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
-public interface ItemModelGeneratateable {
+public interface ItemModelGenerateable {
     public default void generateItemModel(DatagenModContainer container, String identifier){
         if (this instanceof Block){
             container.generateBlockItemModel(identifier);

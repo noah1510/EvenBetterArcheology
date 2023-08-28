@@ -128,4 +128,10 @@ public class Slab extends SlabBlock implements BlockGenerateable {
     public ItemConvertible generateBlockItem(DatagenModContainer container, String identifier) {
         return container.generateBlockItem(this, container.settings());
     }
+
+    @Override
+    public void generateTags(DatagenModContainer container, String identifier) {
+        container.addTag("minecraft:blocks/slabs", identifier);
+        container.addTag("minecraft:items/slabs", identifier);
+    }
 }

@@ -16,11 +16,49 @@ import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class GeneratedWoodType {
     @FunctionalInterface
     public interface SettingsOverride{
         FabricBlockSettings override(FabricBlockSettings settings);
+    }
+
+    public static class GenerationSettings{
+        public HashMap<String, ArrayList<String>> extraTags = new HashMap<>();
+        public SettingsOverride[] settingsOverrides = null;
+        public FabricBlockSettings blockSettings = null;
+        public DatagenModContainer.BlockLootOptions lootOptions = null;
+
+        public GenerationSettings addTags(String tag, String... values){
+            if(!extraTags.containsKey(tag)){
+                extraTags.put(tag, new ArrayList<>());
+            }
+            extraTags.get(tag).addAll(Arrays.asList(values));
+            return this;
+        }
+
+        public GenerationSettings SettingsOverrides(SettingsOverride... settingsOverrides){
+            this.settingsOverrides = settingsOverrides;
+            return this;
+        }
+
+        public GenerationSettings BlockSettings(FabricBlockSettings blockSettings){
+            this.blockSettings = blockSettings;
+            return this;
+        }
+
+        public GenerationSettings setLootOptions(DatagenModContainer.BlockLootOptions lootOptions){
+            this.lootOptions = lootOptions;
+            return this;
+        }
+
+        public GenerationSettings(){}
+
+        public GenerationSettings(DatagenModContainer.BlockLootOptions lootOptions){this.lootOptions = lootOptions;}
+        public static GenerationSettings create(){
+            return new GenerationSettings();
+        }
     }
 
     private final String name;
@@ -72,27 +110,61 @@ public class GeneratedWoodType {
         return textureFolder + "/" + suffix;
     }
 
-    private FabricBlockSettings getSettingsOf(String suffix, FabricBlockSettings settings){
-        if(settings == null){
-            settings = FabricBlockSettings.copyOf(Registries.BLOCK.get(new Identifier(baseWoodType+"_"+suffix)));
+    private FabricBlockSettings getSettingsOf(String suffix, GenerationSettings settings){
+        FabricBlockSettings blockSettings;
+        if(settings == null || settings.blockSettings == null){
+            blockSettings = FabricBlockSettings.copyOf(Registries.BLOCK.get(new Identifier(baseWoodType+"_"+suffix)));
+        }else{
+            blockSettings = settings.blockSettings;
         }
+
         for (SettingsOverride override : settingsOverrides) {
-            settings = override.override(settings);
+            blockSettings = override.override(blockSettings);
         }
-        return settings;
+
+        if(settings != null && settings.settingsOverrides != null){
+            for (SettingsOverride override : settings.settingsOverrides) {
+                blockSettings = override.override(blockSettings);
+            }
+        }
+
+        return blockSettings;
     }
 
-    public CubeColumn getLog(FabricBlockSettings settings){
+    public CubeColumn getLog(GenerationSettings genSettings){
         if(log == null){
-            settings = getSettingsOf("log", settings);
-            log = new CubeColumn(settings, getTextureName("log_top"), getTextureName("log"));
+            var blockSettings = getSettingsOf("log", genSettings);
+            log = new CubeColumn(blockSettings, getTextureName("log_top"), getTextureName("log")){
+                @Override
+                public void generateTags(DatagenModContainer container, String identifier) {
+                    super.generateTags(container, identifier);
+                    container.addTag("minecraft:blocks/mineable/axe", identifier);
+                    container.addTag("minecraft:blocks/enderman_holdable", identifier);
+                    container.addTag("minecraft:blocks/logs", identifier);
+                    container.addTag("minecraft:blocks/logs_that_burn", identifier);
+                    container.addTag("minecraft:items/logs", identifier);
+                    container.addTag("minecraft:items/logs_that_burn", identifier);
+                    container.addTag(name, identifier);
+                    container.addTags(genSettings.extraTags);
+                }
+
+                @Override
+                public void generateLootTable(DatagenModContainer container, String identifier) {
+                    if(genSettings.lootOptions != null){
+                        genSettings.lootOptions.conditionAdder = (entry) -> addExtraConditions(container, identifier, entry);
+                        container.createBlockLootTable(identifier, genSettings.lootOptions);
+                    }else{
+                        super.generateLootTable(container, identifier);
+                    }
+                }
+            };
         }
         return log;
     }
 
-    public CubeAll getPlanks(FabricBlockSettings settings){
+    public CubeAll getPlanks(GenerationSettings genSettings){
         if (planks == null) {
-            settings = getSettingsOf("planks", settings);
+            var settings = getSettingsOf("planks", genSettings);
             planks = new CubeAll(settings, getTextureName("planks")) {
                 @Override
                 public void generateRecepie(DatagenModContainer container, String identifier) {
@@ -104,70 +176,207 @@ public class GeneratedWoodType {
                             )
                     );
                 }
+                @Override
+                public void generateTags(DatagenModContainer container, String identifier) {
+                    super.generateTags(container, identifier);
+                    container.addTag("minecraft:blocks/mineable/axe", identifier);
+                    container.addTag("minecraft:blocks/enderman_holdable", identifier);
+                    container.addTag("minecraft:blocks/planks", identifier);
+                    container.addTag("minecraft:items/planks", identifier);
+                    container.addTag(name, identifier);
+                    container.addTags(genSettings.extraTags);
+                }
+
+                @Override
+                public void generateLootTable(DatagenModContainer container, String identifier) {
+                    if(genSettings.lootOptions != null){
+                        genSettings.lootOptions.conditionAdder = (entry) -> addExtraConditions(container, identifier, entry);
+                        container.createBlockLootTable(identifier, genSettings.lootOptions);
+                    }else{
+                        super.generateLootTable(container, identifier);
+                    }
+                }
             };
         }
         return planks;
     }
 
-    public Slab getSlabs(FabricBlockSettings settings){
+    public Slab getSlabs(GenerationSettings genSettings){
         if (slabs == null){
-            settings = getSettingsOf("slab", settings);
-            slabs = new Slab(settings, name+"_planks", false, new String[]{getTextureName("planks")});
+            var settings = getSettingsOf("slab", genSettings);
+            slabs = new Slab(settings, name+"_planks", false, new String[]{getTextureName("planks")}){
+                @Override
+                public void generateTags(DatagenModContainer container, String identifier) {
+                    super.generateTags(container, identifier);
+                    container.addTag("minecraft:blocks/mineable/axe", identifier);
+                    container.addTag("minecraft:blocks/wodden_slabs", identifier);
+                    container.addTag("minecraft:items/wooden_slabs", identifier);
+                    container.addTag(name, identifier);
+                    container.addTags(genSettings.extraTags);
+                }
+
+                @Override
+                public void generateLootTable(DatagenModContainer container, String identifier) {
+                    if(genSettings.lootOptions != null){
+                        genSettings.lootOptions.conditionAdder = (entry) -> addExtraConditions(container, identifier, entry);
+                        container.createBlockLootTable(identifier, genSettings.lootOptions);
+                    }else{
+                        super.generateLootTable(container, identifier);
+                    }
+                }
+            };
         }
         return slabs;
     }
 
-    public Stairs getStairs(FabricBlockSettings settings){
+    public Stairs getStairs(GenerationSettings genSettings){
         if (stairs == null){
             if(planks == null){
                 throw new IllegalStateException("Stairs can only be generated after planks have been generated");
             }
-            settings = getSettingsOf("stairs", settings);
-            stairs = new Stairs(settings, planks, new String[]{getTextureName("planks")}, false);
+            var settings = getSettingsOf("stairs", genSettings);
+            stairs = new Stairs(settings, planks, new String[]{getTextureName("planks")}, false){
+                @Override
+                public void generateTags(DatagenModContainer container, String identifier) {
+                    super.generateTags(container, identifier);
+                    container.addTag("minecraft:blocks/mineable/axe", identifier);
+                    container.addTag("minecraft:blocks/wodden_stairs", identifier);
+                    container.addTag("minecraft:items/wooden_stairs", identifier);
+                    container.addTag(name, identifier);
+                    container.addTags(genSettings.extraTags);
+                }
+
+                @Override
+                public void generateLootTable(DatagenModContainer container, String identifier) {
+                    if(genSettings.lootOptions != null){
+                        genSettings.lootOptions.conditionAdder = (entry) -> addExtraConditions(container, identifier, entry);
+                        container.createBlockLootTable(identifier, genSettings.lootOptions);
+                    }else{
+                        super.generateLootTable(container, identifier);
+                    }
+                }
+            };
         }
         return stairs;
     }
 
-    public Fence getFence(FabricBlockSettings settings){
+    public Fence getFence(GenerationSettings genSettings){
         if (fence == null){
             if(planks == null){
                 throw new IllegalStateException("Fence can only be generated after planks have been generated");
             }
-            settings = getSettingsOf("fence", settings);
-            fence = new Fence(settings, getTextureName("planks"), name+"_planks");
+            var settings = getSettingsOf("fence", genSettings);
+            fence = new Fence(settings, getTextureName("planks"), name+"_planks"){
+                @Override
+                public void generateTags(DatagenModContainer container, String identifier) {
+                    super.generateTags(container, identifier);
+                    container.addTag("minecraft:blocks/mineable/axe", identifier);
+                    container.addTag("minecraft:blocks/wodden_fences", identifier);
+                    container.addTag("minecraft:items/wooden_fences", identifier);
+                    container.addTag(name, identifier);
+                    container.addTags(genSettings.extraTags);
+                }
+
+                @Override
+                public void generateLootTable(DatagenModContainer container, String identifier) {
+                    if(genSettings.lootOptions != null){
+                        genSettings.lootOptions.conditionAdder = (entry) -> addExtraConditions(container, identifier, entry);
+                        container.createBlockLootTable(identifier, genSettings.lootOptions);
+                    }else{
+                        super.generateLootTable(container, identifier);
+                    }
+                }
+            };
         }
         return fence;
     }
 
-    public FenceGate getFenceGate(FabricBlockSettings settings){
+    public FenceGate getFenceGate(GenerationSettings genSettings){
         if (fenceGate == null){
             if(planks == null){
                 throw new IllegalStateException("FenceGate can only be generated after planks have been generated");
             }
-            settings = getSettingsOf("fence_gate", settings);
-            fenceGate = new FenceGate(settings, this.woodType, getTextureName("planks"), name+"_planks");
+            var settings = getSettingsOf("fence_gate", genSettings);
+            fenceGate = new FenceGate(settings, this.woodType, getTextureName("planks"), name+"_planks"){
+                @Override
+                public void generateTags(DatagenModContainer container, String identifier) {
+                    super.generateTags(container, identifier);
+                    container.addTag(name, identifier);
+                    container.addTags(genSettings.extraTags);
+                }
+
+                @Override
+                public void generateLootTable(DatagenModContainer container, String identifier) {
+                    if(genSettings.lootOptions != null){
+                        genSettings.lootOptions.conditionAdder = (entry) -> addExtraConditions(container, identifier, entry);
+                        container.createBlockLootTable(identifier, genSettings.lootOptions);
+                    }else{
+                        super.generateLootTable(container, identifier);
+                    }
+                }
+            };
         }
         return fenceGate;
     }
 
-    public Door getDoor(FabricBlockSettings settings){
+    public Door getDoor(GenerationSettings genSettings){
         if (door == null){
             if(planks == null){
                 throw new IllegalStateException("Door can only be generated after planks have been generated");
             }
-            settings = getSettingsOf("door", settings);
-            door = new Door(settings, this.blockSetType, getTextureName("door"), name+"_planks");
+            var settings = getSettingsOf("door", genSettings);
+            door = new Door(settings, this.blockSetType, getTextureName("door"), name+"_planks"){
+                @Override
+                public void generateTags(DatagenModContainer container, String identifier) {
+                    super.generateTags(container, identifier);
+                    container.addTag("minecraft:blocks/mineable/axe", identifier);
+                    container.addTag("minecraft:blocks/wodden_doors", identifier);
+                    container.addTag("minecraft:items/wooden_doors", identifier);
+                    container.addTag(name, identifier);
+                    container.addTags(genSettings.extraTags);
+                }
+
+                @Override
+                public void generateLootTable(DatagenModContainer container, String identifier) {
+                    if(genSettings.lootOptions != null){
+                        genSettings.lootOptions.conditionAdder = (entry) -> addExtraConditions(container, identifier, entry);
+                        container.createBlockLootTable(identifier, genSettings.lootOptions);
+                    }else{
+                        super.generateLootTable(container, identifier);
+                    }
+                }
+            };
         }
         return door;
     }
 
-    public Trapdoor getTrapdoor(FabricBlockSettings settings){
+    public Trapdoor getTrapdoor(GenerationSettings genSettings){
         if (trapdoor == null){
             if(planks == null){
                 throw new IllegalStateException("Trapdoor can only be generated after planks have been generated");
             }
-            settings = getSettingsOf("trapdoor", settings);
-            trapdoor = new Trapdoor(settings, this.blockSetType, getTextureName("trapdoor"), name+"_planks");
+            var settings = getSettingsOf("trapdoor", genSettings);
+            trapdoor = new Trapdoor(settings, this.blockSetType, getTextureName("trapdoor"), name+"_planks"){
+                @Override
+                public void generateTags(DatagenModContainer container, String identifier) {
+                    super.generateTags(container, identifier);
+                    container.addTag("minecraft:blocks/mineable/axe", identifier);
+                    container.addTag("minecraft:blocks/wodden_trapdoors", identifier);
+                    container.addTag("minecraft:items/wooden_trapdoors", identifier);
+                    container.addTag(name, identifier);
+                    container.addTags(genSettings.extraTags);
+                }
+
+                @Override
+                public void generateLootTable(DatagenModContainer container, String identifier) {
+                    if(genSettings.lootOptions != null){
+                        genSettings.lootOptions.conditionAdder = (entry) -> addExtraConditions(container, identifier, entry);
+                        container.createBlockLootTable(identifier, genSettings.lootOptions);
+                    }else{
+                        super.generateLootTable(container, identifier);
+                    }
+                }
+            };
         }
         return trapdoor;
     }

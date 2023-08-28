@@ -1,7 +1,7 @@
 package de.sakurajin.evenbetterarcheology.item;
 
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.ItemModelGeneratateable;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.ItemModelGenerateable;
 import de.sakurajin.evenbetterarcheology.entity.BombEntity;
 import de.sakurajin.evenbetterarcheology.util.ServerPlayerHelper;
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
@@ -19,7 +19,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
-public class BombItem extends Item implements ItemModelGeneratateable {
+public class BombItem extends Item implements ItemModelGenerateable {
     //gets id of advancement for having thrown a bomb which has the condition "impossible" because it needs to be triggered here
     Identifier ADVANCEMENT_ID = new Identifier(EvenBetterArcheology.DATA.MOD_ID, "used_bomb_item");
     public BombItem(Settings settings) {
