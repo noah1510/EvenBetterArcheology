@@ -21,7 +21,7 @@ jobs:
         if: ${{ github.ref_type != 'tag' }}
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          repo_token: "${{ secrets.CI_GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
           prerelease: true
           title: "Pre Release 1.20"
@@ -30,6 +30,6 @@ jobs:
         if: ${{ github.ref_type == 'tag' && startsWith(github.ref_name, 'v') }}
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          repo_token: "${{ secrets.CI_GITHUB_TOKEN }}"
           prerelease: ${{ contains(github.ref_name, '-') }}
           files: "build/libs/*.jar"
