@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0-alpha.8
+
+* Move worldgen tags to the new data generation API (This should allow for easier adding of mod biomes)
+* Create an Identifier class that allows tags
+* Use mc-publish github action to publish releases to modrinth
+
 ## 2.0.0-alpha.7
 
 * Another rework of the Datageneration API (Should be mostly stable now)

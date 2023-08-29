@@ -13,6 +13,97 @@ public class StructureDataGenerator {
         generateProcessorsParts(container);
 
         generateStructureProcessors(container);
+
+        generateBiomeTags(container);
+        generateStructureTags(container);
+    }
+
+    private void generateBiomeTags(DatagenModContainer container){
+        String biomePrefix = "worldgen/biome/";
+
+        container.addTag(biomePrefix + "is_desert", "minecraft:desert");
+        container.addTag(biomePrefix + "is_thick_jungle", "minecraft:jungle", "minecraft:bamboo_jungle");
+        container.addTag(biomePrefix + "is_birch_forest", "minecraft:birch_forest", "minecraft:old_growth_birch_forest");
+        container.addTag(biomePrefix + "is_grassy",
+                "minecraft:plains",
+                "minecraft:sunflower_plains",
+                "minecraft:forest",
+                "minecraft:birch_forest",
+                "minecraft:dark_forest",
+                "minecraft:old_growth_birch_forest",
+                "minecraft:old_growth_pine_taiga",
+                "minecraft:old_growth_spruce_taiga",
+                "minecraft:taiga",
+                "minecraft:meadow",
+                "minecraft:cherry_grove"
+        );
+        container.addTag(biomePrefix + "is_flowery",
+                "minecraft:plains",
+                "minecraft:sunflower_plains",
+                "minecraft:forest",
+                "minecraft:meadow"
+        );
+        container.addTag(biomePrefix + "is_cold_forest",
+                "minecraft:dark_forest",
+                "minecraft:old_growth_pine_taiga",
+                "minecraft:old_growth_spruce_taiga",
+                "minecraft:taiga",
+                "minecraft:snowy_taiga",
+                "minecraft:stony_peaks"
+        );
+    }
+
+    private void generateStructureTags(DatagenModContainer container){
+        String structurePrefix = "worldgen/biome/has_structure/";
+
+        //structures in the badlands biomes
+        container.addTag(structurePrefix+"archeologist_camp_redsand", "#minecraft:is_badlands");
+        container.addTag(structurePrefix+"mesa_ruins", "#minecraft:is_badlands");
+
+        //structures in the desert biomes
+        container.addTag(structurePrefix+"archeologist_camp_sand", "#evenbetterarcheology:is_desert");
+        container.addTag(structurePrefix+"buried_ruins_sand", "#evenbetterarcheology:is_desert");
+        container.addTag(structurePrefix+"ruins_sand", "#evenbetterarcheology:is_desert");
+        container.addTag(structurePrefix+"desert_obelisk", "#evenbetterarcheology:is_desert");
+
+        //structures in all jungle biomes
+        container.addTag(structurePrefix+"fossil_jungle_0", "#minecraft:is_jungle");
+        container.addTag(structurePrefix+"fossil_jungle_1", "#minecraft:is_jungle");
+
+        //structures in thick jungle biomes
+        container.addTag(structurePrefix+"temple_jungle", "#evenbetterarcheology:is_thick_jungle");
+
+        //structures underwater
+        container.addTag(structurePrefix+"underwater", "#minecraft:is_ocean");
+
+        //structures in all birch forest biomes
+        container.addTag(structurePrefix+"fossil_chicken_birch", "#evenbetterarcheology:is_birch_forest");
+
+        //structures in all grassy biomes
+        container.addTag(structurePrefix+"archeologist_camp_grassy", "#evenbetterarcheology:is_grassy");
+        container.addTag(structurePrefix+"fossil_creeper", "#evenbetterarcheology:is_grassy");
+        container.addTag(structurePrefix+"stonehenge_grassy", "#evenbetterarcheology:is_grassy");
+        container.addTag(structurePrefix+"tumulus_grassy", "#evenbetterarcheology:is_grassy");
+        container.addTag(structurePrefix+"fossil_sheep", "#evenbetterarcheology:is_grassy");
+
+        //structures in all flowery biomes
+        container.addTag(structurePrefix+"fossil_chicken", "#evenbetterarcheology:is_flowery");
+
+        //structures in all cold forest biomes
+        container.addTag(structurePrefix+"mott", "#evenbetterarcheology:is_cold_forest");
+
+        //structures with custom biome lists
+        container.addTag(structurePrefix+"villager_grave",
+                "#minecraft:is_hill",
+                "#minecraft:is_taiga",
+                "#minecraft:is_jungle",
+                "#minecraft:is_forest",
+                "minecraft:savanna",
+                "minecraft:plains",
+                "minecraft:sunflower_plains",
+                "minecraft:swamp"
+        );
+
     }
 
     private void generateStructureProcessors(DatagenModContainer container){

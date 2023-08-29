@@ -110,10 +110,15 @@ public class DatagenModContainer{
     public void registerAllTags(){
         for(Map.Entry<String, ArrayList<String>> entry : tags.entrySet()){
             JTag tag = new JTag();
-            for (String id : entry.getValue()) {
-                tag.add(getSimpleID(id));
+            try {
+                for (String id : entry.getValue()) {
+                    tag.add(getSimpleID(id));
+                }
+                RESOURCE_PACK.addTag(getSimpleID(entry.getKey()), tag);
+            }catch (Exception e) {
+                LOGGER.error("Failed to register tag "+entry.getKey() + " with the following data:" + entry.getValue(), e);
+                throw e;
             }
-            RESOURCE_PACK.addTag(getSimpleID(entry.getKey()), tag);
         }
     }
 
@@ -128,8 +133,7 @@ public class DatagenModContainer{
     }
 
     public Identifier getSimpleID(String name){
-        if (name.contains(":")){return new Identifier(name);}
-        return new Identifier(MOD_ID, name);
+        return TagIdentifier.ofDefault(name, MOD_ID);
     }
 
     public void generateBlockItemModel(String name){
