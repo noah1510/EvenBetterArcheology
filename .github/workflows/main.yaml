@@ -17,6 +17,7 @@ jobs:
           cache: gradle
       - name: Build with Gradle
         run: ./gradlew build
+
       - name: Release latest if push to 1.20
         if: ${{ github.ref_type != 'tag' }}
         uses: "marvinpinto/action-automatic-releases@latest"
@@ -26,10 +27,28 @@ jobs:
           prerelease: true
           title: "Pre Release 1.20"
           files: "build/libs/*.jar"
-      - name: Release if tag
+
+      - name: Publish to Modrinth and github if tagged
         if: ${{ github.ref_type == 'tag' && startsWith(github.ref_name, 'v') }}
-        uses: "marvinpinto/action-automatic-releases@latest"
+        uses: Kir-Antipov/mc-publish@v3.3
         with:
-          repo_token: "${{ secrets.CI_GITHUB_TOKEN }}"
-          prerelease: ${{ contains(github.ref_name, '-') }}
-          files: "build/libs/*.jar"
+          modrinth-featured: true
+          modrinth-unfeature-mode: subset
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+
+          github-tag: ${{ github.ref_name }}
+          github-generate-changelog: true
+          github-draft: false
+          github-token: ${{ secrets.CI_GITHUB_TOKEN }}
+
+          version: ${{ github.ref_name.replace('v', '') }}
+          version-type: release
+          changelog-file: CHANGELOG.md
+
+          loaders: fabric
+          game-version-filter: none
+          java: 17
+
+          retry-attempts: 2
+          retry-delay: 10000
+          fail-mode: fail

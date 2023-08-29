@@ -44,9 +44,29 @@
   },
   "suggests": {
     "cit-resewn": ">=1.1.3+1.20",
-    "numismatic-overhaul": "*"
+    "numismatic-overhaul": "*",
+    "modmenu": "*",
+    "trinkets": "*",
+    "elytra-slot": "*"
   },
   "conflicts": {
     "betterarcheology": "*"
+  },
+  "custom": {
+    "mc-publish": {
+      "modrinth": "LWRxA5tQ",
+      "loaders": ["fabric"],
+      "dependencies": [
+        "fabric-api(required)",
+        "owo-lib(required)",
+        "advanced_runtime_resource_pack(required){modrinth:arrp}",
+        "cit-resewn(recommended)",
+        "modmenu(optional)",
+        "numismatic-overhaul(optional)",
+        "trinkets(optional)",
+        "elytra-slot(optional)",
+        "betterarcheology(incompatible)"
+      ]
+    }
   }
 }
