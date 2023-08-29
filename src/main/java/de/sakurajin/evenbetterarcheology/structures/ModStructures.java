@@ -138,6 +138,6 @@ public class ModStructures extends Structure {
 
     @Override
     public StructureType<?> getType() {
-        return ModStructureFeatures.BETTERARCHEOLOGY_STRUCTURES; // Helps the game know how to turn this structure back to json to save to chunks
+        return ModStructureFeatures.EVENBETTERARCHEOLOGY_STRUCTURES; // Helps the game know how to turn this structure back to json to save to chunks
     }
 }

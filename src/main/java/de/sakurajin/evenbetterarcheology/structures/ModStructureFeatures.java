@@ -7,9 +7,9 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.structure.StructureType;
 
 public class ModStructureFeatures {
-    public static StructureType<ModStructures> BETTERARCHEOLOGY_STRUCTURES;
+    public static StructureType<ModStructures> EVENBETTERARCHEOLOGY_STRUCTURES;
 
     public static void registerStructureFeatures() {
-        BETTERARCHEOLOGY_STRUCTURES = Registry.register(Registries.STRUCTURE_TYPE, new Identifier(EvenBetterArcheology.DATA.MOD_ID, "evenbetterarcheology_structures"), () -> ModStructures.CODEC);
+        EVENBETTERARCHEOLOGY_STRUCTURES = Registry.register(Registries.STRUCTURE_TYPE, new Identifier(EvenBetterArcheology.DATA.MOD_ID, "evenbetterarcheology_structures"), () -> ModStructures.CODEC);
     }
 }

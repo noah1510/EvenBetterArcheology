@@ -8,7 +8,7 @@
 
         "location": "evenbetterarcheology:villager_grave",
 
-        "processors": "evenbetterarcheology:fossil_villager",
+        "processors": "evenbetterarcheology:villager_grave",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

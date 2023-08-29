@@ -8,7 +8,7 @@
 
         "location": "evenbetterarcheology:tumulus_grassy",
 
-        "processors": "evenbetterarcheology:tumulus",
+        "processors": "evenbetterarcheology:tumulus_grassy",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

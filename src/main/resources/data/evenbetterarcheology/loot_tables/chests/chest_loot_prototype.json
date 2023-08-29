@@ -473,7 +473,7 @@
 				{
 					"type": "minecraft:loot_table",
 					"weight": 5,
-					"name": "evenbetterarcheology:archeology/sword_loot"
+					"name": "evenbetterarcheology:chests/sword_loot"
 				},
 				{
 					"type": "minecraft:item",

@@ -7,6 +7,7 @@ import de.sakurajin.evenbetterarcheology.entity.ModEntityTypes;
 import de.sakurajin.evenbetterarcheology.item.ModItems;
 import de.sakurajin.evenbetterarcheology.networking.ModMessages;
 import de.sakurajin.evenbetterarcheology.screen.ModScreenHandlers;
+import de.sakurajin.evenbetterarcheology.structures.StructureDataGenerator;
 import de.sakurajin.evenbetterarcheology.util.evenbetterarcheologyConfig;
 import de.sakurajin.evenbetterarcheology.villager.ModVillagers;
 import de.sakurajin.evenbetterarcheology.enchantment.ModEnchantments;
@@ -55,6 +56,7 @@ public class EvenBetterArcheology implements ModInitializer {
 
 		ModStructureFeatures.registerStructureFeatures();
 
+		var structureData = new StructureDataGenerator(DATA);
 		DATA.registerAllTags();
 
 		if (FabricLoader.getInstance().isDevelopmentEnvironment()){

@@ -11,6 +11,8 @@
 * Adding some documentation using doxygen
 * Creating all tags using the data generation API
 * Transition loot tables to use the new data generation API
+* Updated nbt data of the structures (now they actually have the mod blocks and the chests have loot)
+* Migrate the structure processors to the new data generation API
 
 ## 2.0.0-alpha.6
 
