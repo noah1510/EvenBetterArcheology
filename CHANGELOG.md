@@ -10,8 +10,6 @@
   * Traverse
   * William Wythers' Overhauled Overworld
   * Regions Unexplored
-* Manually add tags for compatibility with the following mods:
-  * tectonic (both mod and with config option datapack)
 * Create an Identifier class that allows tags
 * Create a loot distribution class to generate loot tables
 * Generate the Archeoloy Tabe loot table in code

@@ -55,8 +55,8 @@ public class EvenBetterArcheology implements ModInitializer {
 		var structureData = new StructureDataGenerator(DATA);
 
 		//load all compatibility stuff
-		de.sakurajin.evenbetterarcheology.compatibility.tectonic.init(DATA);
 
+		//generate all tags
 		DATA.registerAllTags();
 
 		if (FabricLoader.getInstance().isDevelopmentEnvironment()){

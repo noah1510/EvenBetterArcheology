@@ -110,9 +110,6 @@
   "text.config.even_better_archeology.option.OCELOT_FOSSIL_FLEE_RANGE": "Ocelot Fossil Flee Range",
   "text.config.even_better_archeology.option.OCELOT_FOSSIL_FLEE_RANGE.tooltip": "Change the range in which Creepers will flee from Ocelot Fossils",
 
-  "text.config.even_better_archeology.section.worldgen": "World Generation Options",
-
-  "text.config.even_better_archeology.option.ALWAYS_CREATE_TECTONIC_COMPATIBILITY": "Always generate Tectonic Compatibility",
-  "text.config.even_better_archeology.option.ALWAYS_CREATE_TECTONIC_COMPATIBILITY.tooltip": "This always generates the compatibility tags with Tectonic even if the mod is not installed. Enable this if you use tectonic as datapck."
+  "text.config.even_better_archeology.section.worldgen": "World Generation Options"
 
 }

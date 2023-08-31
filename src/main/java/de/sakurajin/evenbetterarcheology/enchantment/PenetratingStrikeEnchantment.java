@@ -42,7 +42,10 @@ public class PenetratingStrikeEnchantment extends ArtifactEnchantment {
      */
     @Override
     public void onTargetDamaged(LivingEntity user, Entity target, int level) {
-        if (!EvenBetterArcheology.CONFIG.ARTIFACT_ENCHANTMENTS_ENABLED()) {return;}
+        if (!EvenBetterArcheology.CONFIG.ARTIFACT_ENCHANTMENTS_ENABLED()) {
+            super.onTargetDamaged(user, target, level);
+            return;
+        }
 
         //calculate total Protection of Armor
         int enchantmentProtectionFactor = 0;
@@ -69,9 +72,10 @@ public class PenetratingStrikeEnchantment extends ArtifactEnchantment {
         //calculates total damage that was reduced
         float totalProtectedDamage = (float) (damageInflicted * damagePercentageProtected);
 
-        if (level == 1) {
-            target.damage(user.getDamageSources().mobAttack(user), (float) (totalProtectedDamage * EvenBetterArcheology.CONFIG.PENETRATING_STRIKE_PROTECTION_IGNORANCE()));
-            EvenBetterArcheology.DATA.LOGGER.info("Damage dealt back by Enchantment:" + totalProtectedDamage * EvenBetterArcheology.CONFIG.PENETRATING_STRIKE_PROTECTION_IGNORANCE());
+        if (level > 0) {
+            double penetration = EvenBetterArcheology.CONFIG.PENETRATING_STRIKE_PROTECTION_IGNORANCE();
+
+            target.damage(user.getDamageSources().mobAttack(user), (float) (totalProtectedDamage * penetration));
         }
 
         //Audio Feedback

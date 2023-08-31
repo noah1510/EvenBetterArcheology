@@ -85,7 +85,7 @@
   "entity.minecraft.villager.archeologist": "Archäologe",
 
   "enchantment.evenbetterarcheology.penetrating_strike": "Durchdringender Hieb",
-  "item.evenbetterarcheology.penetrating_strike_tooltip": "Ignoriert die Effekte von Schutz-Verzauberungen teilweise",
+  "item.evenbetterarcheology.penetrating_strike_tooltip": "Ignoriert teilweise die Effekte von Schutz-Verzauberungen",
   "enchantment.evenbetterarcheology.seas_bounty": "Reichtum des Meeres",
   "item.evenbetterarcheology.seas_bounty_tooltip": "Ermöglicht das Fangen eines größeren Spektrums von Schätzen",
   "enchantment.evenbetterarcheology.soaring_winds": "Aufwinde",
@@ -110,9 +110,6 @@
   "text.config.even_better_archeology.option.OCELOT_FOSSIL_FLEE_RANGE": "Ocelot Fossil Flucht-Reichwite",
   "text.config.even_better_archeology.option.OCELOT_FOSSIL_FLEE_RANGE.tooltip": "In welchem Radius sollen Creeper fliehen, wenn sie ein Ocelot-Fossil sehen?",
 
-  "text.config.even_better_archeology.section.worldgen": "Weltgenerierungs Optionen",
-
-  "text.config.even_better_archeology.option.ALWAYS_CREATE_TECTONIC_COMPATIBILITY": "Tectonic Kompatibilität erzwingen",
-  "text.config.even_better_archeology.option.ALWAYS_CREATE_TECTONIC_COMPATIBILITY.tooltip": "Schaltet die Tectonic Kompatibilität immer an, auch wenn Tectonic nicht als mod installiert ist. Nutze diese Option, wenn Tectonic als Datapack installiert ist."
+  "text.config.even_better_archeology.section.worldgen": "Weltgenerierungs Optionen"
 
 }

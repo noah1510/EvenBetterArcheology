@@ -167,7 +167,7 @@ public class ArchelogyTable extends BlockWithEntity implements BlockGenerateable
         JsonArray loreArray = new JsonArray();
         JsonObject lore = new JsonObject();
         lore.addProperty("translate", translationKey);
-        lore.addProperty("color", "dark_gray");
+        //lore.addProperty("color", "dark_gray");
         loreArray.add(lore);
 
         JsonObject name = new JsonObject();
@@ -187,13 +187,13 @@ public class ArchelogyTable extends BlockWithEntity implements BlockGenerateable
         container.createBlockLootTable(identifier, null);
 
         JPool identifyPool = JLootTable.pool().rolls(1);
-        identifyPool.entry(createModEnchantmentBook("evenbetterarcheology:penetrating_strike", "item.evenbetterarcheology.penetrating_strike", 1, 80));
+        identifyPool.entry(createModEnchantmentBook("evenbetterarcheology:penetrating_strike", "item.evenbetterarcheology.penetrating_strike_tooltip", 1, 80));
 
         int soaringWindsMaxLevel = EvenBetterArcheology.CONFIG.SOARING_WINDS_MAXLEVEL();
         var scaleWeigths = LootDistributionHelper.getDistribution(3, soaringWindsMaxLevel);
         for(int i = 0; i < soaringWindsMaxLevel; i++){
             int weight = (int) Math.ceil(scaleWeigths.get(i) * 90);
-            identifyPool.entry(createModEnchantmentBook("evenbetterarcheology:soaring_winds", "item.evenbetterarcheology.soaring_winds", i+1, weight));
+            identifyPool.entry(createModEnchantmentBook("evenbetterarcheology:soaring_winds", "item.evenbetterarcheology.soaring_winds_tooltip", i+1, weight));
         }
 
         identifyPool.entry(createModEnchantmentBook("evenbetterarcheology:tunneling", "item.evenbetterarcheology.tunneling_tooltip", 1, 80));
