@@ -108,6 +108,18 @@ public class DatagenModContainer{
     }
 
     public void registerAllTags(){
+        //first generate all tags to have them at all
+        for(Map.Entry<String, ArrayList<String>> entry : tags.entrySet()){
+            JTag tag = new JTag();
+            try {
+                RESOURCE_PACK.addTag(getSimpleID(entry.getKey()), tag);
+            }catch (Exception e) {
+                LOGGER.error("Failed to register empty tag "+entry.getKey(), e);
+                throw e;
+            }
+        }
+
+        //now regenerate the tags with the actual data
         for(Map.Entry<String, ArrayList<String>> entry : tags.entrySet()){
             JTag tag = new JTag();
             try {
@@ -123,16 +135,28 @@ public class DatagenModContainer{
     }
 
     public String getStringID(String name){
-        return getStringID(name, null);
+        return getSimpleID(name, null).toString();
     }
 
     public String getStringID(String name, String type){
-        if(name.contains(":")){return name;}
-        if(type == null){return MOD_ID+":"+name;}
-        return MOD_ID+":"+type+"/"+name;
+        return getSimpleID(name, type).toString();
     }
 
     public Identifier getSimpleID(String name){
+        return getSimpleID(name, null);
+    }
+
+    public Identifier getSimpleID(String name, String type){
+        if(name.contains(":")){return new TagIdentifier(name);}
+
+        if(type != null){
+            if(name.startsWith("#")){
+                name = name.substring(1);
+                type = "#" + type;
+            }
+            name = type+"/"+name;
+        }
+
         return TagIdentifier.ofDefault(name, MOD_ID);
     }
 

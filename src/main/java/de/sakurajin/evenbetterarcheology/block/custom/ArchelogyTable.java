@@ -1,10 +1,18 @@
 package de.sakurajin.evenbetterarcheology.block.custom;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockGenerateable;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.LootDistributionHelper;
 import de.sakurajin.evenbetterarcheology.block.entity.ArcheologyTableBlockEntity;
 import de.sakurajin.evenbetterarcheology.block.entity.ModBlockEntities;
+import net.devtech.arrp.json.loot.JEntry;
+import net.devtech.arrp.json.loot.JLootTable;
+import net.devtech.arrp.json.loot.JPool;
 import net.devtech.arrp.json.recipe.*;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -145,5 +153,63 @@ public class ArchelogyTable extends BlockWithEntity implements BlockGenerateable
     public void generateTags(DatagenModContainer container, String identifier) {
         container.addTag("minecraft:blocks/mineable/axe", identifier);
         container.addTag("minecraft:point_of_interest_type/acquirable_job_site", identifier+"_poi");
+    }
+
+    private JEntry createModEnchantmentBook(
+            String enchantmentID,
+            String translationKey,
+            int level,
+            int weight
+    ){
+        JsonObject enchantment = new JsonObject();
+        enchantment.addProperty(enchantmentID, level);
+
+        JsonArray loreArray = new JsonArray();
+        JsonObject lore = new JsonObject();
+        lore.addProperty("translate", translationKey);
+        lore.addProperty("color", "dark_gray");
+        loreArray.add(lore);
+
+        JsonObject name = new JsonObject();
+        name.addProperty("translate", "item.evenbetterarcheology.identified_artifact");
+
+        return JLootTable.entry()
+            .type("minecraft:item")
+            .name("minecraft:enchanted_book")
+            .weight(weight)
+            .function(JLootTable.function("minecraft:set_enchantments").parameter("enchantments", enchantment))
+            .function(JLootTable.function("minecraft:set_lore").parameter("lore", loreArray))
+            .function(JLootTable.function("minecraft:set_name").parameter("name", name));
+    }
+
+    @Override
+    public void generateLootTable(DatagenModContainer container, String identifier){
+        container.createBlockLootTable(identifier, null);
+
+        JPool identifyPool = JLootTable.pool().rolls(1);
+        identifyPool.entry(createModEnchantmentBook("evenbetterarcheology:penetrating_strike", "item.evenbetterarcheology.penetrating_strike", 1, 80));
+
+        int soaringWindsMaxLevel = EvenBetterArcheology.CONFIG.SOARING_WINDS_MAXLEVEL();
+        var scaleWeigths = LootDistributionHelper.getDistribution(3, soaringWindsMaxLevel);
+        for(int i = 0; i < soaringWindsMaxLevel; i++){
+            int weight = (int) Math.ceil(scaleWeigths.get(i) * 90);
+            identifyPool.entry(createModEnchantmentBook("evenbetterarcheology:soaring_winds", "item.evenbetterarcheology.soaring_winds", i+1, weight));
+        }
+
+        identifyPool.entry(createModEnchantmentBook("evenbetterarcheology:tunneling", "item.evenbetterarcheology.tunneling_tooltip", 1, 80));
+
+        if(FabricLoader.getInstance().isModLoaded("artifacts")){
+            identifyPool.entry(
+                JLootTable.entry()
+                    .type("minecraft:loot_table")
+                    .name("artifacts:artifact")
+                    .weight(20)
+            );
+        }
+
+        container.RESOURCE_PACK.addLootTable(
+            container.getSimpleID("identifying_loot"),
+            JLootTable.loot("minecraft:generic").pool(identifyPool)
+        );
     }
 }

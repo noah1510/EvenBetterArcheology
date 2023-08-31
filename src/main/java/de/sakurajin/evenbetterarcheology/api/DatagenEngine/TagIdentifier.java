@@ -14,15 +14,11 @@ public class TagIdentifier extends Identifier {
     }
 
     public TagIdentifier(String name) {
-        this(tagSplit(name, ':'));
+        this(tagSplit(name, "minecraft"));
     }
 
     public static TagIdentifier ofDefault(String path, String defaultNamespace) {
-        if(path.contains(":")){
-            return new TagIdentifier(path);
-        }else{
-            return new TagIdentifier(defaultNamespace, path);
-        }
+        return new TagIdentifier(tagSplit(path, defaultNamespace));
     }
 
     protected static String tagValidatePath(String namespace, String path) {
@@ -40,14 +36,22 @@ public class TagIdentifier extends Identifier {
         return namespace;
     }
 
-    protected static String[] tagSplit(String name, char separator) {
-        if(name.startsWith("#")) {
-            var split = split(name.substring(1), separator);
-            split[0] = "#" + split[0];
-            return split;
-        }else{
-            return split(name, separator);
+    protected static String[] tagSplit(String name, String defaultNamespace) {
+        boolean isTag = name.startsWith("#");
+
+        String[] splitName = name.split(":");
+        if(splitName.length == 1) {
+            splitName = new String[]{defaultNamespace, splitName[0]};
+            if(isTag){
+                splitName[0] = "#" + splitName[0];
+                splitName[1] = splitName[1].substring(1);
+            }
         }
+        if(splitName.length != 2) {
+            throw new InvalidIdentifierException("Not a valid tag identifier: " + name);
+        }
+
+        return splitName;
     }
 
 }

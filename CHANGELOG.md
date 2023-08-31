@@ -3,7 +3,20 @@
 ## 2.0.0-alpha.8
 
 * Move worldgen tags to the new data generation API (This should allow for easier adding of mod biomes)
+* Use more tags instead of specifying biomes directly. The following mods should generate Even Better Archeology structures now:
+  * terralith
+  * wider wild
+  * terrestria
+  * Traverse
+  * William Wythers' Overhauled Overworld
+  * Regions Unexplored
+* Manually add tags for compatibility with the following mods:
+  * tectonic (both mod and with config option datapack)
 * Create an Identifier class that allows tags
+* Create a loot distribution class to generate loot tables
+* Generate the Archeoloy Tabe loot table in code
+  * add all levels of soaring winds to loot table
+  * add artifacts form the artifacts mod as possible loot
 * Use mc-publish github action to publish releases to modrinth
 
 ## 2.0.0-alpha.7

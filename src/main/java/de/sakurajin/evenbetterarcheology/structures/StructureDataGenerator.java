@@ -24,31 +24,21 @@ public class StructureDataGenerator {
         container.addTag(biomePrefix + "is_desert", "minecraft:desert");
         container.addTag(biomePrefix + "is_thick_jungle", "minecraft:jungle", "minecraft:bamboo_jungle");
         container.addTag(biomePrefix + "is_birch_forest", "minecraft:birch_forest", "minecraft:old_growth_birch_forest");
-        container.addTag(biomePrefix + "is_grassy",
-                "minecraft:plains",
-                "minecraft:sunflower_plains",
-                "minecraft:forest",
-                "minecraft:birch_forest",
-                "minecraft:dark_forest",
-                "minecraft:old_growth_birch_forest",
-                "minecraft:old_growth_pine_taiga",
-                "minecraft:old_growth_spruce_taiga",
-                "minecraft:taiga",
-                "minecraft:meadow",
-                "minecraft:cherry_grove"
-        );
         container.addTag(biomePrefix + "is_flowery",
                 "minecraft:plains",
                 "minecraft:sunflower_plains",
                 "minecraft:forest",
+                "minecraft:cherry_grove",
                 "minecraft:meadow"
         );
+        container.addTag(biomePrefix + "is_grassy",
+                "#minecraft:is_taiga",
+                "#is_flowery",
+                "#is_birch_forest"
+        );
         container.addTag(biomePrefix + "is_cold_forest",
+                "#minecraft:is_taiga",
                 "minecraft:dark_forest",
-                "minecraft:old_growth_pine_taiga",
-                "minecraft:old_growth_spruce_taiga",
-                "minecraft:taiga",
-                "minecraft:snowy_taiga",
                 "minecraft:stony_peaks"
         );
     }
@@ -84,7 +74,7 @@ public class StructureDataGenerator {
         container.addTag(structurePrefix+"fossil_creeper", "#evenbetterarcheology:is_grassy");
         container.addTag(structurePrefix+"stonehenge_grassy", "#evenbetterarcheology:is_grassy");
         container.addTag(structurePrefix+"tumulus_grassy", "#evenbetterarcheology:is_grassy");
-        container.addTag(structurePrefix+"fossil_sheep", "#evenbetterarcheology:is_grassy");
+        container.addTag(structurePrefix+"fossil_sheep_0", "#evenbetterarcheology:is_grassy");
 
         //structures in all flowery biomes
         container.addTag(structurePrefix+"fossil_chicken", "#evenbetterarcheology:is_flowery");

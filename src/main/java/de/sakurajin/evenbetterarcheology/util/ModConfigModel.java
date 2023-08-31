@@ -1,9 +1,6 @@
 package de.sakurajin.evenbetterarcheology.util;
 
-import io.wispforest.owo.config.annotation.Config;
-import io.wispforest.owo.config.annotation.Modmenu;
-import io.wispforest.owo.config.annotation.RangeConstraint;
-import io.wispforest.owo.config.annotation.SectionHeader;
+import io.wispforest.owo.config.annotation.*;
 
 @Modmenu(modId = "evenbetterarcheology")
 @Config(name = "even_better_archeology", wrapperName = "evenbetterarcheologyConfig")
@@ -22,4 +19,8 @@ public class ModConfigModel {
     @SectionHeader("blocks")
     @RangeConstraint(min = 1, max = 100)
     public int OCELOT_FOSSIL_FLEE_RANGE = 20;
+
+    @SectionHeader("worldgen")
+    @RestartRequired
+    public boolean ALWAYS_CREATE_TECTONIC_COMPATIBILITY = false;
 }

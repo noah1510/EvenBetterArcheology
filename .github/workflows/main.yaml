@@ -29,7 +29,7 @@ jobs:
           files: "build/libs/*.jar"
 
       - name: Publish to Modrinth and github if tagged
-        if: ${{ github.ref_type == 'tag' && startsWith(github.ref_name, 'v') }}
+        if: ${{ github.ref_type == 'tag' }}
         uses: Kir-Antipov/mc-publish@v3.3
         with:
           modrinth-featured: true
@@ -41,7 +41,7 @@ jobs:
           github-draft: false
           github-token: ${{ secrets.CI_GITHUB_TOKEN }}
 
-          version: ${{ github.ref_name.replace('v', '') }}
+          version: ${{ github.ref_name }}
           version-type: release
           changelog-file: CHANGELOG.md
 
