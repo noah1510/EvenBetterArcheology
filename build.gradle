@@ -72,6 +72,9 @@ dependencies {
 	// modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"
 	modCompileOnly("dev.emi:trinkets:${trinkets_version}")
 	modCompileOnly("maven.modrinth:numismatic-overhaul:${numismatic_version}")
+
+	modCompileOnly("maven.modrinth:libz:${libz_version}")
+	modCompileOnly("maven.modrinth:levelz:${levelz_version}")
 }
 
 processResources {

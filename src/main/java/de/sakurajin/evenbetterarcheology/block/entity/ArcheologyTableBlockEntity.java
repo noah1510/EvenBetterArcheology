@@ -203,7 +203,7 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
             ObjectArrayList<ItemStack> objectArrayList = lootTable.generateLoot(lootContextParameterSet, world.random.nextLong());
 
             //return first LootTable entry as crafting output
-            if (objectArrayList.size() == 0) {
+            if (objectArrayList.isEmpty()) {
                 return ItemStack.EMPTY;
             }
             if (objectArrayList.size() == 1) {

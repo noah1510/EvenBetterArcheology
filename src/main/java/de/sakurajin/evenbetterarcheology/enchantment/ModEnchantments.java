@@ -25,8 +25,7 @@ public class ModEnchantments {
     }
 
     private static void registerEnchantedBookWith(Enchantment enchantment) {
-        var group = Registries.ITEM_GROUP.getKey(EvenBetterArcheology.DATA.GROUP).get();
-        ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(enchantment, 1)).setCustomName(Text.translatable("item.evenbetterarcheology.identified_artifact").formatted(Formatting.RESET,
+        ItemGroupEvents.modifyEntriesEvent(EvenBetterArcheology.DATA.VANILLA_GROUP_KEY).register(entries -> entries.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(enchantment, enchantment.getMaxLevel())).setCustomName(Text.translatable("item.evenbetterarcheology.identified_artifact").formatted(Formatting.RESET,
                 Formatting.YELLOW))));
     }
 

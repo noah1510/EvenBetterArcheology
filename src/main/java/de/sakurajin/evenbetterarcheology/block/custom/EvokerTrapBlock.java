@@ -129,11 +129,6 @@ public class EvokerTrapBlock extends HorizontalFacingBlock implements BlockGener
     }
 
     @Override
-    public void generateRecepie(DatagenModContainer container, String identifier) {
-
-    }
-
-    @Override
     public ItemConvertible generateBlockItem(DatagenModContainer container, String identifier) {
         return container.generateBlockItem(this, container.settings());
     }

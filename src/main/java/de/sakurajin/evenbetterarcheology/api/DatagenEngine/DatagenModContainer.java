@@ -1,6 +1,7 @@
 package de.sakurajin.evenbetterarcheology.api.DatagenEngine;
 
 import com.google.gson.JsonObject;
+import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import io.wispforest.owo.itemgroup.OwoItemGroup;
 import io.wispforest.owo.itemgroup.OwoItemSettings;
 import io.wispforest.owo.registration.reflect.FieldRegistrationHandler;
@@ -16,6 +17,9 @@ import net.devtech.arrp.json.tags.JTag;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
 import org.jetbrains.annotations.NotNull;
@@ -36,6 +40,9 @@ public class DatagenModContainer{
 
     @Nullable
     public final OwoItemGroup GROUP;
+
+    @Nullable
+    public final RegistryKey<ItemGroup> VANILLA_GROUP_KEY;
 
     private final HashMap<String, ArrayList<String>> tags = new HashMap<>();
 
@@ -63,8 +70,14 @@ public class DatagenModContainer{
 
         if(groupIconSupplier == null){
             GROUP = null;
+            VANILLA_GROUP_KEY = null;
         }else{
             GROUP = OwoItemGroup.builder(new Identifier(MOD_ID, MOD_ID), groupIconSupplier).build();
+            var key = Registries.ITEM_GROUP.getKey(GROUP);
+            if(key.isEmpty()){
+                throw new RuntimeException("Failed to register item group for mod "+MOD_ID);
+            }
+            VANILLA_GROUP_KEY = key.get();
         }
 
         event.register(a -> a.add(RESOURCE_PACK));
