@@ -22,5 +22,5 @@ public class ModConfigModel {
 
     @SectionHeader("worldgen")
     @RestartRequired
-    public boolean ALWAYS_CREATE_TECTONIC_COMPATIBILITY = false;
+    public boolean CREATE_TECTONIC_COMPATIBILITY = false;
 }

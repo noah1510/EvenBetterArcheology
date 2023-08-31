@@ -6,11 +6,7 @@ import net.fabricmc.loader.api.FabricLoader;
 
 public class tectonic {
     public static void init(DatagenModContainer container) {
-        if (
-            !FabricLoader.getInstance().isModLoaded("tectonic") &&
-            !FabricLoader.getInstance().isModLoaded("terratonic") &&
-            !EvenBetterArcheology.CONFIG.ALWAYS_CREATE_TECTONIC_COMPATIBILITY()
-        ) {return;}
+        if (!EvenBetterArcheology.CONFIG.CREATE_TECTONIC_COMPATIBILITY()) {return;}
 
         String biomePrefix = "worldgen/biome/";
 

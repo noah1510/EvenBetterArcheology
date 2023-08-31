@@ -16,16 +16,12 @@ import io.wispforest.owo.itemgroup.Icon;
 import net.devtech.arrp.api.RRPCallback;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-
-import javax.xml.crypto.Data;
 
 public class EvenBetterArcheology implements ModInitializer {
 	public static final DatagenModContainer DATA = new DatagenModContainer(
 			"evenbetterarcheology",
 			() -> Icon.of(ModItems.UNIDENTIFIED_ARTIFACT),
-			RRPCallback.AFTER_VANILLA
+			RRPCallback.BETWEEN_MODS_AND_USER
 	);
 
 	public static final evenbetterarcheologyConfig CONFIG = evenbetterarcheologyConfig.createAndLoad();
