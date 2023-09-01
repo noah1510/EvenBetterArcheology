@@ -1,24 +1,15 @@
 package de.sakurajin.evenbetterarcheology.api.DatagenEngine.Parsers;
 
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.DataGenerateable;
 import net.minecraft.item.ItemConvertible;
 
 import java.lang.reflect.Field;
 
-/**
- * This interface is used to parse annotations.
- * You can add your own parsers to the DatagenModContainer to add your own annotations or handle interface implementations.
- */
-public interface DataGenerationParser {
-    /**
-     * This method is called by the ParsedContainerBase to parse annotations.
-     * Usually this function receives its values from the owo registration system.
-     *
-     * @param namespace The namespace of the mod
-     * @param value The item/block object itself
-     * @param identifier The name of the item/block
-     * @param field All the annotation fields added to this item/block
-     * @param container The DatagenModContainer
-     */
-    void parse(String namespace, ItemConvertible value, String identifier, Field field, DatagenModContainer container);
+public class DataGenerationParser implements IDataGenerationParser {
+    @Override
+    public void parse(String namespace, ItemConvertible value, String identifier, Field field, DatagenModContainer container) {
+        if(!(value instanceof DataGenerateable)){ return; }
+        ((DataGenerateable) value).generateData(container, identifier);
+    }
 }

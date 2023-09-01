@@ -1,7 +1,7 @@
 package de.sakurajin.evenbetterarcheology.block.custom;
 
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockGenerateable;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.DataGenerateable;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalFacingBlock;
@@ -22,7 +22,7 @@ import net.minecraft.world.World;
 
 import java.util.Map;
 
-public class EvokerTrapBlock extends HorizontalFacingBlock implements BlockGenerateable {
+public class EvokerTrapBlock extends HorizontalFacingBlock implements DataGenerateable {
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     public static final BooleanProperty TRIGGERED = Properties.TRIGGERED;
 
@@ -109,32 +109,22 @@ public class EvokerTrapBlock extends HorizontalFacingBlock implements BlockGener
     }
 
     @Override
-    public void generateBlockModel(DatagenModContainer container, String identifier) {
+    public ItemConvertible generateData(DatagenModContainer container, String identifier) {
         container.generateBlockModel(
             identifier, Map.of(
                 "front", "evoker_trap",
                 "side", "minecraft:block/furnace_side",
                 "top", "minecraft:block/furnace_top"
             ), "minecraft:block/orientable");
-    }
 
-    @Override
-    public void generateBlockState(DatagenModContainer container, String identifier) {
         container.generateBlockStateOrientable(identifier);
-    }
 
-    @Override
-    public void generateItemModel(DatagenModContainer container, String identifier) {
+        var blockItem = container.generateBlockItem(this, container.settings());
         container.generateBlockItemModel(identifier);
-    }
 
-    @Override
-    public ItemConvertible generateBlockItem(DatagenModContainer container, String identifier) {
-        return container.generateBlockItem(this, container.settings());
-    }
-
-    @Override
-    public void generateTags(DatagenModContainer container, String identifier) {
+        container.createBlockLootTable(identifier, null);
         container.addTag("minecraft:blocks/mineable/pickaxe", identifier);
+
+        return blockItem;
     }
 }

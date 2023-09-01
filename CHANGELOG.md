@@ -9,6 +9,7 @@
 * More config options
   * Disable Artifacts from Loot in Archaeology Table
   * Change the weight of the artifacts in the Archaeology Table
+* Simplified Data generation API
 
 ## 2.0.0-alpha.8
 

@@ -11,6 +11,8 @@ import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeRegistry
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeRegistry;
 import net.minecraft.block.BlockSetType;
 import net.minecraft.block.WoodType;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 
@@ -136,8 +138,8 @@ public class GeneratedWoodType {
             var blockSettings = getSettingsOf("log", genSettings);
             log = new CubeColumn(blockSettings, getTextureName("log_top"), getTextureName("log")){
                 @Override
-                public void generateTags(DatagenModContainer container, String identifier) {
-                    super.generateTags(container, identifier);
+                public ItemConvertible generateData(DatagenModContainer container, String identifier) {
+
                     container.addTag("minecraft:blocks/mineable/axe", identifier);
                     container.addTag("minecraft:blocks/enderman_holdable", identifier);
                     container.addTag("minecraft:blocks/logs", identifier);
@@ -146,16 +148,13 @@ public class GeneratedWoodType {
                     container.addTag("minecraft:items/logs_that_burn", identifier);
                     container.addTag(name, identifier);
                     container.addTags(genSettings.extraTags);
-                }
 
-                @Override
-                public void generateLootTable(DatagenModContainer container, String identifier) {
+                    var item = super.generateData(container, identifier);
                     if(genSettings.lootOptions != null){
-                        genSettings.lootOptions.conditionAdder = (entry) -> addExtraConditions(container, identifier, entry);
                         container.createBlockLootTable(identifier, genSettings.lootOptions);
-                    }else{
-                        super.generateLootTable(container, identifier);
                     }
+
+                    return item;
                 }
             };
         }
@@ -167,34 +166,28 @@ public class GeneratedWoodType {
             var settings = getSettingsOf("planks", genSettings);
             planks = new CubeAll(settings, getTextureName("planks")) {
                 @Override
-                public void generateRecepie(DatagenModContainer container, String identifier) {
-                    container.RESOURCE_PACK.addRecipe(
-                            container.getSimpleID(identifier),
-                            JRecipe.shapeless(
-                                    JIngredients.ingredients().add(JIngredient.ingredient().item(container.getStringID(name + "_log"))),
-                                    JResult.item(this.asItem())
-                            )
-                    );
-                }
-                @Override
-                public void generateTags(DatagenModContainer container, String identifier) {
-                    super.generateTags(container, identifier);
+                public ItemConvertible generateData(DatagenModContainer container, String identifier) {
+                    var item = super.generateData(container, identifier);
                     container.addTag("minecraft:blocks/mineable/axe", identifier);
                     container.addTag("minecraft:blocks/enderman_holdable", identifier);
                     container.addTag("minecraft:blocks/planks", identifier);
                     container.addTag("minecraft:items/planks", identifier);
                     container.addTag(name, identifier);
                     container.addTags(genSettings.extraTags);
-                }
 
-                @Override
-                public void generateLootTable(DatagenModContainer container, String identifier) {
+                    container.RESOURCE_PACK.addRecipe(
+                            container.getSimpleID(identifier),
+                            JRecipe.shapeless(
+                                    JIngredients.ingredients().add(JIngredient.ingredient().item(container.getStringID(name + "_log"))),
+                                    JResult.result(container.getStringID(identifier))
+                            )
+                    );
+
                     if(genSettings.lootOptions != null){
-                        genSettings.lootOptions.conditionAdder = (entry) -> addExtraConditions(container, identifier, entry);
                         container.createBlockLootTable(identifier, genSettings.lootOptions);
-                    }else{
-                        super.generateLootTable(container, identifier);
                     }
+
+                    return item;
                 }
             };
         }
@@ -206,23 +199,19 @@ public class GeneratedWoodType {
             var settings = getSettingsOf("slab", genSettings);
             slabs = new Slab(settings, name+"_planks", false, new String[]{getTextureName("planks")}){
                 @Override
-                public void generateTags(DatagenModContainer container, String identifier) {
-                    super.generateTags(container, identifier);
+                public ItemConvertible generateData(DatagenModContainer container, String identifier) {
+                    var item = super.generateData(container, identifier);
                     container.addTag("minecraft:blocks/mineable/axe", identifier);
                     container.addTag("minecraft:blocks/wodden_slabs", identifier);
                     container.addTag("minecraft:items/wooden_slabs", identifier);
                     container.addTag(name, identifier);
                     container.addTags(genSettings.extraTags);
-                }
 
-                @Override
-                public void generateLootTable(DatagenModContainer container, String identifier) {
                     if(genSettings.lootOptions != null){
-                        genSettings.lootOptions.conditionAdder = (entry) -> addExtraConditions(container, identifier, entry);
                         container.createBlockLootTable(identifier, genSettings.lootOptions);
-                    }else{
-                        super.generateLootTable(container, identifier);
                     }
+
+                    return item;
                 }
             };
         }
@@ -235,26 +224,23 @@ public class GeneratedWoodType {
                 throw new IllegalStateException("Stairs can only be generated after planks have been generated");
             }
             var settings = getSettingsOf("stairs", genSettings);
-            stairs = new Stairs(settings, planks, new String[]{getTextureName("planks")}, false){
+            stairs = new Stairs(settings, planks, name+"_planks", new String[]{getTextureName("planks")}, false){
                 @Override
-                public void generateTags(DatagenModContainer container, String identifier) {
-                    super.generateTags(container, identifier);
+                public ItemConvertible generateData(DatagenModContainer container, String identifier) {
+                    var item = super.generateData(container, identifier);
                     container.addTag("minecraft:blocks/mineable/axe", identifier);
                     container.addTag("minecraft:blocks/wodden_stairs", identifier);
                     container.addTag("minecraft:items/wooden_stairs", identifier);
                     container.addTag(name, identifier);
                     container.addTags(genSettings.extraTags);
+
+                    if(genSettings.lootOptions != null){
+                        container.createBlockLootTable(identifier, genSettings.lootOptions);
+                    }
+
+                    return item;
                 }
 
-                @Override
-                public void generateLootTable(DatagenModContainer container, String identifier) {
-                    if(genSettings.lootOptions != null){
-                        genSettings.lootOptions.conditionAdder = (entry) -> addExtraConditions(container, identifier, entry);
-                        container.createBlockLootTable(identifier, genSettings.lootOptions);
-                    }else{
-                        super.generateLootTable(container, identifier);
-                    }
-                }
             };
         }
         return stairs;
@@ -268,23 +254,19 @@ public class GeneratedWoodType {
             var settings = getSettingsOf("fence", genSettings);
             fence = new Fence(settings, getTextureName("planks"), name+"_planks"){
                 @Override
-                public void generateTags(DatagenModContainer container, String identifier) {
-                    super.generateTags(container, identifier);
+                public ItemConvertible generateData(DatagenModContainer container, String identifier) {
+                    var item = super.generateData(container, identifier);
                     container.addTag("minecraft:blocks/mineable/axe", identifier);
                     container.addTag("minecraft:blocks/wodden_fences", identifier);
                     container.addTag("minecraft:items/wooden_fences", identifier);
                     container.addTag(name, identifier);
                     container.addTags(genSettings.extraTags);
-                }
 
-                @Override
-                public void generateLootTable(DatagenModContainer container, String identifier) {
                     if(genSettings.lootOptions != null){
-                        genSettings.lootOptions.conditionAdder = (entry) -> addExtraConditions(container, identifier, entry);
                         container.createBlockLootTable(identifier, genSettings.lootOptions);
-                    }else{
-                        super.generateLootTable(container, identifier);
                     }
+
+                    return item;
                 }
             };
         }
@@ -299,20 +281,16 @@ public class GeneratedWoodType {
             var settings = getSettingsOf("fence_gate", genSettings);
             fenceGate = new FenceGate(settings, this.woodType, getTextureName("planks"), name+"_planks"){
                 @Override
-                public void generateTags(DatagenModContainer container, String identifier) {
-                    super.generateTags(container, identifier);
+                public ItemConvertible generateData(DatagenModContainer container, String identifier) {
+                    var item = super.generateData(container, identifier);
                     container.addTag(name, identifier);
                     container.addTags(genSettings.extraTags);
-                }
 
-                @Override
-                public void generateLootTable(DatagenModContainer container, String identifier) {
                     if(genSettings.lootOptions != null){
-                        genSettings.lootOptions.conditionAdder = (entry) -> addExtraConditions(container, identifier, entry);
                         container.createBlockLootTable(identifier, genSettings.lootOptions);
-                    }else{
-                        super.generateLootTable(container, identifier);
                     }
+
+                    return item;
                 }
             };
         }
@@ -327,23 +305,20 @@ public class GeneratedWoodType {
             var settings = getSettingsOf("door", genSettings);
             door = new Door(settings, this.blockSetType, getTextureName("door"), name+"_planks"){
                 @Override
-                public void generateTags(DatagenModContainer container, String identifier) {
-                    super.generateTags(container, identifier);
+                public ItemConvertible generateData(DatagenModContainer container, String identifier) {
+                    var item = super.generateData(container, identifier);
                     container.addTag("minecraft:blocks/mineable/axe", identifier);
                     container.addTag("minecraft:blocks/wodden_doors", identifier);
                     container.addTag("minecraft:items/wooden_doors", identifier);
                     container.addTag(name, identifier);
                     container.addTags(genSettings.extraTags);
-                }
 
-                @Override
-                public void generateLootTable(DatagenModContainer container, String identifier) {
                     if(genSettings.lootOptions != null){
                         genSettings.lootOptions.conditionAdder = (entry) -> addExtraConditions(container, identifier, entry);
                         container.createBlockLootTable(identifier, genSettings.lootOptions);
-                    }else{
-                        super.generateLootTable(container, identifier);
                     }
+
+                    return item;
                 }
             };
         }
@@ -358,23 +333,19 @@ public class GeneratedWoodType {
             var settings = getSettingsOf("trapdoor", genSettings);
             trapdoor = new Trapdoor(settings, this.blockSetType, getTextureName("trapdoor"), name+"_planks"){
                 @Override
-                public void generateTags(DatagenModContainer container, String identifier) {
-                    super.generateTags(container, identifier);
+                public ItemConvertible generateData(DatagenModContainer container, String identifier) {
+                    var item = super.generateData(container, identifier);
                     container.addTag("minecraft:blocks/mineable/axe", identifier);
                     container.addTag("minecraft:blocks/wodden_trapdoors", identifier);
                     container.addTag("minecraft:items/wooden_trapdoors", identifier);
                     container.addTag(name, identifier);
                     container.addTags(genSettings.extraTags);
-                }
 
-                @Override
-                public void generateLootTable(DatagenModContainer container, String identifier) {
                     if(genSettings.lootOptions != null){
-                        genSettings.lootOptions.conditionAdder = (entry) -> addExtraConditions(container, identifier, entry);
                         container.createBlockLootTable(identifier, genSettings.lootOptions);
-                    }else{
-                        super.generateLootTable(container, identifier);
                     }
+
+                    return item;
                 }
             };
         }

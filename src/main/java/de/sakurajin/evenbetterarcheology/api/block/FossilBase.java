@@ -1,9 +1,7 @@
 package de.sakurajin.evenbetterarcheology.api.block;
 
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockItemGenerateable;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockStateGenerateable;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.LootTableGenerateable;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.DataGenerateable;
 import net.minecraft.block.*;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
@@ -30,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 import com.google.common.collect.ImmutableMap;
 
-public abstract class FossilBase extends HorizontalFacingBlock implements BlockItemGenerateable, BlockStateGenerateable, LootTableGenerateable {
+public abstract class FossilBase extends HorizontalFacingBlock implements DataGenerateable {
     private final String[] textureVariants;
     private final int blockItemIndex;
     protected final Map<Direction, VoxelShape> SHAPE_DIRECTED;
@@ -126,32 +124,18 @@ public abstract class FossilBase extends HorizontalFacingBlock implements BlockI
     }
 
     @Override
-    public ItemConvertible generateBlockItem(DatagenModContainer container, String identifier) {
-        return container.generateBlockItem(this, container.settings().rarity(Rarity.UNCOMMON));
-    }
-
-    @Override
-    public void generateBlockState(DatagenModContainer container, String identifier) {
+    public ItemConvertible generateData(DatagenModContainer container, String identifier) {
         container.generateBlockStateOrientable(identifier, textureVariants);
-    }
 
-    @Override
-    public void generateItemModel(DatagenModContainer container, String identifier) {
-        String texture = container.getStringID(textureVariants[blockItemIndex], "block");
-        container.generateItemModel(identifier, texture);
-    }
+        container.createBlockLootTable(identifier, null);
 
-    @Override
-    public void generateTags(DatagenModContainer container, String identifier) {
         container.addTag("minecraft:blocks/mineable/pickaxe", identifier);
         if(this.isPart){
             container.addTag("evenbetterarcheology:fossil_parts", identifier);
         }
-    }
 
-    @Override
-    public void generateLootTable(DatagenModContainer container, String identifier){
-        container.createBlockLootTable(identifier, null);
+        String texture = container.getStringID(textureVariants[blockItemIndex], "block");
+        container.generateItemModel(identifier, texture);
+        return container.generateBlockItem(this, container.settings().rarity(Rarity.UNCOMMON));
     }
-
 }

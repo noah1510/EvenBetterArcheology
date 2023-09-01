@@ -1,7 +1,7 @@
 package de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.Blocks;
 
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockGenerateable;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.DataGenerateable;
 import net.devtech.arrp.json.blockstate.JBlockModel;
 import net.devtech.arrp.json.blockstate.JState;
 import net.devtech.arrp.json.blockstate.JVariant;
@@ -10,8 +10,9 @@ import net.devtech.arrp.json.models.JTextures;
 import net.devtech.arrp.json.recipe.*;
 import net.minecraft.block.BlockSetType;
 import net.minecraft.block.TrapdoorBlock;
+import net.minecraft.item.ItemConvertible;
 
-public class Trapdoor extends TrapdoorBlock implements BlockGenerateable {
+public class Trapdoor extends TrapdoorBlock implements DataGenerateable {
     private final String plankName;
     private final String textureBaseName;
     public Trapdoor(Settings settings, BlockSetType blockSetType, String textureBaseName, String plankName) {
@@ -20,7 +21,7 @@ public class Trapdoor extends TrapdoorBlock implements BlockGenerateable {
         this.textureBaseName = textureBaseName;
     }
 
-    public static void eGenerateBlockModel(DatagenModContainer container, String identifier, String textureBaseName){
+    public static void generateBlockModel(DatagenModContainer container, String identifier, String textureBaseName){
         JTextures textures = JModel.textures().var("texture", container.getStringID(textureBaseName, "block"));
         String[] parts = new String[]{"bottom", "open", "top"};
 
@@ -51,7 +52,7 @@ public class Trapdoor extends TrapdoorBlock implements BlockGenerateable {
         return "facing=" + direction + ",half=" + (isUpper ? "top" : "bottom") + ",open=" + open;
     }
 
-    public static void eGenerateBlockState(DatagenModContainer container, String identifier){
+    public static void generateBlockState(DatagenModContainer container, String identifier){
         String[] directions = new String[]{"north", "south", "east", "west"};
         JVariant variant = JState.variant();
         String modelBaseId = container.getStringID(identifier, "block");
@@ -65,34 +66,24 @@ public class Trapdoor extends TrapdoorBlock implements BlockGenerateable {
     }
 
     @Override
-    public void generateBlockModel(DatagenModContainer container, String identifier) {
-        eGenerateBlockModel(container, identifier, this.textureBaseName);
-    }
+    public ItemConvertible generateData(DatagenModContainer container, String identifier) {
+        generateBlockModel(container, identifier, this.textureBaseName);
+        generateBlockState(container, identifier);
+        container.createBlockLootTable(identifier, null);
 
-    @Override
-    public void generateBlockState(DatagenModContainer container, String identifier) {
-        eGenerateBlockState(container, identifier);
-    }
-
-    @Override
-    public void generateItemModel(DatagenModContainer container, String identifier) {
-        container.generateItemModel(identifier, container.getStringID(identifier+"_bottom", "block"));
-    }
-
-    @Override
-    public void generateRecepie(DatagenModContainer container, String identifier) {
         container.RESOURCE_PACK.addRecipe(container.getSimpleID(identifier),
-            JRecipe.shaped(
-                JPattern.pattern("###", "###"),
-                JKeys.keys().key("#", JIngredient.ingredient().item(container.getStringID(this.plankName))),
-                JResult.itemStack(this.asItem(), 2)
-            )
+                JRecipe.shaped(
+                        JPattern.pattern("###", "###"),
+                        JKeys.keys().key("#", JIngredient.ingredient().item(container.getStringID(this.plankName))),
+                        JResult.stackedResult(container.getStringID(identifier), 2)
+                )
         );
-    }
 
-    @Override
-    public void generateTags(DatagenModContainer container, String identifier) {
         container.addTag("minecraft:blocks/trapdoors", identifier);
         container.addTag("minecraft:items/trapdoors", identifier);
+
+        container.generateItemModel(identifier, container.getStringID(identifier+"_bottom", "block"));
+        return container.generateBlockItem(this, container.settings());
     }
+
 }

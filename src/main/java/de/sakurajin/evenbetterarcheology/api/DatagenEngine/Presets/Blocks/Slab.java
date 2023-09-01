@@ -1,7 +1,7 @@
 package de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.Blocks;
 
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockGenerateable;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.DataGenerateable;
 import net.devtech.arrp.json.blockstate.JState;
 import net.devtech.arrp.json.recipe.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -11,7 +11,7 @@ import net.minecraft.util.Identifier;
 
 import java.util.Map;
 
-public class Slab extends SlabBlock implements BlockGenerateable {
+public class Slab extends SlabBlock implements DataGenerateable {
     private final String texture_bottom;
     private final String texture_top;
     private final String texture_side;
@@ -48,8 +48,7 @@ public class Slab extends SlabBlock implements BlockGenerateable {
         }
     }
 
-    @Override
-    public void generateBlockModel(DatagenModContainer container, String identifier) {
+    public static void generateBlockModel(DatagenModContainer container, String identifier, String texture_bottom, String texture_top, String texture_side, String texture_double) {
         Map<String, String> textures = Map.of(
                 "top", texture_top,
                 "bottom", texture_bottom,
@@ -76,8 +75,7 @@ public class Slab extends SlabBlock implements BlockGenerateable {
         );
     }
 
-    @Override
-    public void generateBlockState(DatagenModContainer container, String identifier) {
+    public static void generateBlockState(DatagenModContainer container, String identifier) {
         String modelBasePath = container.MOD_ID + ":block/";
         container.RESOURCE_PACK.addBlockState(JState.state(JState.variant()
                 .put("type=bottom", JState.model(modelBasePath+identifier))
@@ -86,16 +84,10 @@ public class Slab extends SlabBlock implements BlockGenerateable {
         ), new Identifier(container.MOD_ID, identifier));
     }
 
-    @Override
-    public void generateItemModel(DatagenModContainer container, String identifier) {
-        container.generateBlockItemModel(identifier);
-    }
-
-    @Override
-    public void generateRecepie(DatagenModContainer container, String identifier) {
+    public static void generateRecepie(DatagenModContainer container, String identifier, String baseBlock, Slab slabBlock) {
         if(baseBlock == null) return;
+        if(slabBlock == null) return;
         String baseBlockID = container.getStringID(baseBlock);
-
         Identifier blockItemID = container.getSimpleID(identifier);
 
         container.RESOURCE_PACK.addRecipe(
@@ -103,7 +95,7 @@ public class Slab extends SlabBlock implements BlockGenerateable {
             JRecipe.shaped(
                 JPattern.pattern("###"),
                 JKeys.keys().key("#", JIngredient.ingredient().item(baseBlockID)),
-                JResult.itemStack(this.asItem(), 6)
+                JResult.stackedResult(blockItemID.toString(), 6)
         ));
 
         container.RESOURCE_PACK.addRecipe(
@@ -114,24 +106,28 @@ public class Slab extends SlabBlock implements BlockGenerateable {
                 JResult.result(baseBlockID)
         ));
 
-        if(stonecuttable){
+        if(slabBlock.stonecuttable){
             container.RESOURCE_PACK.addRecipe(
                 new Identifier(container.MOD_ID, identifier+"_cut"),
                 JRecipe.stonecutting(
                     JIngredient.ingredient().item(baseBlockID),
-                    JResult.itemStack(this.asItem(), 2)
+                    JResult.stackedResult(blockItemID.toString(), 2)
             ));
         }
     }
 
     @Override
-    public ItemConvertible generateBlockItem(DatagenModContainer container, String identifier) {
-        return container.generateBlockItem(this, container.settings());
-    }
-
-    @Override
-    public void generateTags(DatagenModContainer container, String identifier) {
+    public ItemConvertible generateData(DatagenModContainer container, String identifier) {
         container.addTag("minecraft:blocks/slabs", identifier);
         container.addTag("minecraft:items/slabs", identifier);
+
+        generateBlockModel(container, identifier, texture_bottom, texture_top, texture_side, texture_double);
+        generateBlockState(container, identifier);
+        generateRecepie(container, identifier, baseBlock, this);
+
+        container.generateBlockItemModel(identifier);
+        container.createBlockLootTable(identifier, null);
+
+        return container.generateBlockItem(this, container.settings());
     }
 }

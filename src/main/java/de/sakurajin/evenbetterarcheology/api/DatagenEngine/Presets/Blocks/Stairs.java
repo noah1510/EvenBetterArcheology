@@ -1,31 +1,32 @@
 package de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.Blocks;
 
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockGenerateable;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.DataGenerateable;
 import net.devtech.arrp.json.blockstate.JState;
 import net.devtech.arrp.json.recipe.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.StairsBlock;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.util.Identifier;
 
 import java.util.Map;
 
-public class Stairs extends StairsBlock implements BlockGenerateable {
+public class Stairs extends StairsBlock implements DataGenerateable {
     private final String texture_bottom;
     private final String texture_top;
     private final String texture_side;
-    private final Block baseBlock;
+    private final String baseBlockName;
     private final boolean stonecuttable;
 
-    public Stairs(FabricBlockSettings settings, Block BaseBlock, String[] textures){
-        this(settings, BaseBlock, textures, true);
+    public Stairs(FabricBlockSettings settings, Block BaseBlock, String baseBlockName, String[] textures){
+        this(settings, BaseBlock, baseBlockName, textures, true);
     }
 
-    public Stairs(FabricBlockSettings settings, Block BaseBlock, String[] textures, boolean stonecuttable){
+    public Stairs(FabricBlockSettings settings, Block BaseBlock, String baseBlockName, String[] textures, boolean stonecuttable){
         super(BaseBlock.getDefaultState(), settings);
-        this.baseBlock = BaseBlock;
         this.stonecuttable = stonecuttable;
+        this.baseBlockName = baseBlockName;
         if (textures.length == 1) {
             this.texture_bottom = textures[0];
             this.texture_top = textures[0];
@@ -39,8 +40,7 @@ public class Stairs extends StairsBlock implements BlockGenerateable {
         }
     }
 
-    @Override
-    public void generateBlockModel(DatagenModContainer container, String identifier) {
+    public static void generateBlockModel(DatagenModContainer container, String identifier, String texture_bottom, String texture_top, String texture_side) {
         Map<String, String> textures = Map.of(
                 "bottom", texture_bottom,
                 "top", texture_top,
@@ -65,8 +65,7 @@ public class Stairs extends StairsBlock implements BlockGenerateable {
         );
     }
 
-    @Override
-    public void generateBlockState(DatagenModContainer container, String identifier) {
+    public static void generateBlockState(DatagenModContainer container, String identifier) {
         String modelBaseID = container.MOD_ID + ":block/" + identifier;
         String modelInnerID = container.MOD_ID + ":block/" + identifier + "_inner";
         String modelOuterID = container.MOD_ID + ":block/" + identifier + "_outer";
@@ -115,37 +114,38 @@ public class Stairs extends StairsBlock implements BlockGenerateable {
         ), new Identifier(container.MOD_ID, identifier));
     }
 
-    @Override
-    public void generateItemModel(DatagenModContainer container, String identifier) {
-        container.generateBlockItemModel(identifier);
-    }
-
-    @Override
-    public void generateRecepie(DatagenModContainer container, String identifier) {
-        Identifier blockItemID = container.getSimpleID(identifier);
-
+    public static void generateRecepie(DatagenModContainer container, String identifier, Stairs stairsBlock){
         container.RESOURCE_PACK.addRecipe(
                 new Identifier(container.MOD_ID, identifier+"_from_blocks"),
                 JRecipe.shaped(
                         JPattern.pattern("#  ","## ","###"),
-                        JKeys.keys().key("#", JIngredient.ingredient().item(baseBlock.asItem())),
-                        JResult.itemStack(this.asItem(), 6)
+                        JKeys.keys().key("#", JIngredient.ingredient().item(container.getStringID(stairsBlock.baseBlockName))),
+                        JResult.stackedResult(container.getStringID(identifier), 6)
                 ));
 
-        if(stonecuttable){
+        if(stairsBlock.stonecuttable){
             container.RESOURCE_PACK.addRecipe(
                     new Identifier(container.MOD_ID, identifier+"_cut_from_block"),
                     JRecipe.stonecutting(
-                            JIngredient.ingredient().item(baseBlock.asItem()),
-                            JResult.itemStack(this.asItem(), 1)
+                            JIngredient.ingredient().item(container.getStringID(stairsBlock.baseBlockName)),
+                            JResult.stackedResult(container.getStringID(identifier), 1)
                     ));
         }
     }
 
     @Override
-    public void generateTags(DatagenModContainer container, String identifier) {
+    public ItemConvertible generateData(DatagenModContainer container, String identifier) {
         container.addTag("minecraft:blocks/stairs", identifier);
         container.addTag("minecraft:items/stairs", identifier);
+
+        generateBlockModel(container, identifier, texture_bottom, texture_top, texture_side);
+        generateBlockState(container, identifier);
+        generateRecepie(container, identifier, this);
+
+        container.generateBlockItemModel(identifier);
+        container.createBlockLootTable(identifier, null);
+
+        return container.generateBlockItem(this, container.settings());
     }
 
 }

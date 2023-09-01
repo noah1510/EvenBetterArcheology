@@ -1,10 +1,7 @@
 package de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.Blocks;
 
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockGenerateable;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockItemGenerateable;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockStateGenerateable;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockModelGenerateable;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.*;
 import net.devtech.arrp.json.blockstate.JState;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.PillarBlock;
@@ -13,7 +10,7 @@ import net.minecraft.util.Identifier;
 
 import java.util.Map;
 
-public class CubeColumn extends PillarBlock implements BlockGenerateable {
+public class CubeColumn extends PillarBlock implements DataGenerateable {
     private final String texture_end;
     private final String texture_side;
 
@@ -23,8 +20,7 @@ public class CubeColumn extends PillarBlock implements BlockGenerateable {
         this.texture_side = texture_side;
     }
 
-    @Override
-    public void generateBlockModel(DatagenModContainer container, String identifier) {
+    public static void generateBlockModel(DatagenModContainer container, String identifier, String texture_end, String texture_side) {
         Map<String, String> textures = Map.of(
                 "end", texture_end,
                 "side", texture_side
@@ -42,8 +38,7 @@ public class CubeColumn extends PillarBlock implements BlockGenerateable {
         );
     }
 
-    @Override
-    public void generateBlockState(DatagenModContainer container, String identifier) {
+    public static void generateBlockState(DatagenModContainer container, String identifier) {
         String modelBasePath = container.MOD_ID + ":block/";
         container.RESOURCE_PACK.addBlockState(JState.state(JState.variant()
                 .put("axis=x", JState.model(modelBasePath+identifier+"_horizontal").x(90).y(90))
@@ -53,12 +48,12 @@ public class CubeColumn extends PillarBlock implements BlockGenerateable {
     }
 
     @Override
-    public void generateItemModel(DatagenModContainer container, String identifier) {
+    public ItemConvertible generateData(DatagenModContainer container, String identifier) {
         container.generateBlockItemModel(identifier);
-    }
+        generateBlockModel(container, identifier, texture_end, texture_side);
+        generateBlockState(container, identifier);
+        container.createBlockLootTable(identifier, null);
 
-    @Override
-    public ItemConvertible generateBlockItem(DatagenModContainer container, String identifier) {
         return container.generateBlockItem(this, container.settings());
     }
 }

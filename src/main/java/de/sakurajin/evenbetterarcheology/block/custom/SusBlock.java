@@ -1,11 +1,11 @@
 package de.sakurajin.evenbetterarcheology.block.custom;
 
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.DataGenerateable;
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.Blocks.CubeAll;
 import de.sakurajin.evenbetterarcheology.block.entity.SusBlockEntity;
 import net.devtech.arrp.json.blockstate.JState;
 import net.devtech.arrp.json.blockstate.JVariant;
-import net.devtech.arrp.json.models.JModel;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -16,9 +16,8 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockGenerateable;
 
-public class SusBlock extends BrushableBlock implements BlockGenerateable{
+public class SusBlock extends BrushableBlock implements DataGenerateable {
 
     String[] textures;
 
@@ -36,49 +35,40 @@ public class SusBlock extends BrushableBlock implements BlockGenerateable{
     }
 
     @Override
-    public ItemConvertible generateBlockItem(DatagenModContainer container, String identifier) {
+    public ItemConvertible generateData(DatagenModContainer container, String identifier) {
+        container.generateItemModel(identifier, container.MOD_ID+":block/"+identifier+"_0");
+        generateBlockModel(container, identifier, this);
+        generateBlockState(container, identifier, this);
+        container.createBlockLootTable(identifier, null);
+
         return container.generateBlockItem(this, container.settings());
     }
 
-    private void initTextures(String identifier){
-        if(textures == null || textures.length == 0){
-            textures = new String[4];
+    private static void initTextures(String identifier, SusBlock block){
+        if(block.textures == null || block.textures.length == 0){
+            block.textures = new String[4];
             for (int i = 0; i < 4; i++) {
-                textures[i] = identifier+"/"+identifier + "_" + i;
+                block.textures[i] = identifier+"/"+identifier + "_" + i;
             }
         }
     }
 
-    @Override
-    public void generateBlockModel(DatagenModContainer container, String identifier) {
-        initTextures(identifier);
+    public static void generateBlockModel(DatagenModContainer container, String identifier, SusBlock block) {
+        initTextures(identifier, block);
 
-        for (int i = 0; i < textures.length; i++) {
-            CubeAll.eGenerateBlockModel(container, identifier + "_" + i, container.MOD_ID + ":block/"+textures[i]);
+        for (int i = 0; i < block.textures.length; i++) {
+            CubeAll.generateBlockModel(container, identifier + "_" + i, container.MOD_ID + ":block/"+block.textures[i]);
         }
     }
 
-    @Override
-    public void generateBlockState(DatagenModContainer container, String identifier) {
-        initTextures(identifier);
+    public static void generateBlockState(DatagenModContainer container, String identifier, SusBlock block) {
+        initTextures(identifier, block);
 
         JVariant variants = new JVariant();
-        for (int i = 0; i < textures.length; i++) {
+        for (int i = 0; i < block.textures.length; i++) {
             variants.put("dusted="+i, JState.model(container.MOD_ID + ":block/"+identifier+"_"+i));
         }
 
         container.RESOURCE_PACK.addBlockState(JState.state(variants), new Identifier(container.MOD_ID, identifier));
     }
-
-    @Override
-    public void generateItemModel(DatagenModContainer container, String identifier) {
-        container.generateItemModel(identifier, container.MOD_ID+":block/"+identifier+"_0");
-    }
-
-    @Override
-    public void generateRecepie(DatagenModContainer container, String identifier) {
-
-    }
-
-
 }

@@ -1,10 +1,9 @@
 package de.sakurajin.evenbetterarcheology.api.item;
 
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.ItemGenerateable;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.DataGenerateable;
 import io.wispforest.owo.itemgroup.OwoItemSettings;
 import net.devtech.arrp.json.recipe.*;
-import net.devtech.arrp.json.tags.JTag;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BrushableBlock;
@@ -13,10 +12,7 @@ import net.minecraft.block.entity.BrushableBlockEntity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.BrushItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -29,7 +25,7 @@ import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BetterBrushItem extends BrushItem implements ItemGenerateable{
+public class BetterBrushItem extends BrushItem implements DataGenerateable {
     private final float brushingSpeed;
     private final Item material;
     private final String materialName;
@@ -46,19 +42,11 @@ public class BetterBrushItem extends BrushItem implements ItemGenerateable{
     }
 
     @Override
-    public void generateTags(DatagenModContainer container, String identifier) {
-        container.addTag("c:items/brushitems", identifier);
-    }
-
-    @Override
-    public void generateItemModel(DatagenModContainer container, String identifier) {
-        container.generateItemModel(identifier, "minecraft:item/brush", identifier);
-    }
-
-    @Override
-    public void generateRecepie(DatagenModContainer container, String identifier){
+    public ItemConvertible generateData(DatagenModContainer container, String identifier) {
         if(material == null) throw new RuntimeException("Material is null cannot generate Resource Data");
 
+        container.addTag("c:items/brushitems", identifier);
+        container.generateItemModel(identifier, "minecraft:item/brush", identifier);
         container.RESOURCE_PACK.addRecipe(
                 new Identifier(identifier, "crafting_"+identifier+"_"+materialName),
                 JRecipe.shaped(
@@ -70,6 +58,8 @@ public class BetterBrushItem extends BrushItem implements ItemGenerateable{
                         JResult.item(this)
                 )
         );
+
+        return this;
     }
 
     public float getBrushingSpeed(){

@@ -1,7 +1,7 @@
 package de.sakurajin.evenbetterarcheology.api.DatagenEngine.Containers;
 
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Parsers.DataGenerationParser;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Parsers.IDataGenerationParser;
 import net.minecraft.item.ItemConvertible;
 
 import java.lang.reflect.Field;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public abstract class ParsedContainerBase {
     protected final DatagenModContainer initializer;
-    private final ArrayList<DataGenerationParser> parsers = new ArrayList<>();
+    private final ArrayList<IDataGenerationParser> parsers = new ArrayList<>();
     protected ParsedContainerBase(DatagenModContainer initializer) {
         super();
         this.initializer = initializer;
@@ -26,7 +26,7 @@ public abstract class ParsedContainerBase {
      *
      * @param parser The parser to add
      */
-    protected void addParser(DataGenerationParser parser){
+    protected void addParser(IDataGenerationParser parser){
         parsers.add(parser);
     }
 
@@ -44,7 +44,7 @@ public abstract class ParsedContainerBase {
         initializer.LOGGER.debug("Postprocessing block " + identifier);
 
         //call all registered parsers
-        for (DataGenerationParser parser : parsers) {
+        for (IDataGenerationParser parser : parsers) {
             parser.parse(namespace, value, identifier, field, initializer);
         }
 

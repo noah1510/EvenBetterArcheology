@@ -1,7 +1,7 @@
 package de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.Blocks;
 
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockGenerateable;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.DataGenerateable;
 import net.devtech.arrp.json.blockstate.JState;
 import net.devtech.arrp.json.blockstate.JVariant;
 import net.devtech.arrp.json.loot.JEntry;
@@ -11,9 +11,10 @@ import net.devtech.arrp.json.models.JTextures;
 import net.devtech.arrp.json.recipe.*;
 import net.minecraft.block.BlockSetType;
 import net.minecraft.block.DoorBlock;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.util.JsonHelper;
 
-public class Door extends DoorBlock implements BlockGenerateable {
+public class Door extends DoorBlock implements DataGenerateable {
     private final String textureBaseName;
     private final String plankName;
 
@@ -67,7 +68,7 @@ public class Door extends DoorBlock implements BlockGenerateable {
         return angle;
     }
 
-    public static void eGenerateBlockState(DatagenModContainer container, String identifier){
+    public static void generateBlockState(DatagenModContainer container, String identifier){
         String[] directions = new String[]{"north", "south", "east", "west"};
         JVariant variant = JState.variant();
         for(String direction : directions){
@@ -90,39 +91,36 @@ public class Door extends DoorBlock implements BlockGenerateable {
         container.RESOURCE_PACK.addBlockState(JState.state(variant), container.getSimpleID(identifier));
     }
 
+    protected DatagenModContainer.BlockLootOptions getLootOptions(DatagenModContainer container, String identifier){
+        DatagenModContainer.BlockLootOptions options = new DatagenModContainer.BlockLootOptions();
+        options.conditionAdder = (JEntry) -> addExtraConditions(container, identifier, JEntry);
+        return options;
+    }
+
     @Override
-    public void generateBlockModel(DatagenModContainer container, String identifier) {
+    public ItemConvertible generateData(DatagenModContainer container, String identifier) {
         generateBlockModel(container, identifier, this.textureBaseName);
-    }
+        generateBlockState(container, identifier);
 
-    @Override
-    public void generateBlockState(DatagenModContainer container, String identifier) {
-        eGenerateBlockState(container, identifier);
-    }
+        container.createBlockLootTable(identifier, getLootOptions(container, identifier));
 
-    @Override
-    public void generateItemModel(DatagenModContainer container, String identifier) {
-        container.generateItemModel(identifier, "minecraft:item/generated", container.getStringID(identifier, "item"));
-    }
-
-    @Override
-    public void generateRecepie(DatagenModContainer container, String identifier) {
         container.RESOURCE_PACK.addRecipe(container.getSimpleID(identifier),
-            JRecipe.shaped(
-                JPattern.pattern("##", "##", "##"),
-                JKeys.keys().key("#", JIngredient.ingredient().item(container.getStringID(this.plankName))),
-                JResult.itemStack(this.asItem(), 3)
-            )
+                JRecipe.shaped(
+                        JPattern.pattern("##", "##", "##"),
+                        JKeys.keys().key("#", JIngredient.ingredient().item(container.getStringID(this.plankName))),
+                        JResult.stackedResult(container.getStringID(identifier), 3)
+                )
         );
-    }
 
-    @Override
-    public void generateTags(DatagenModContainer container, String identifier) {
         container.addTag("minecraft:blocks/doors", identifier);
         container.addTag("minecraft:items/doors", identifier);
+
+
+        container.generateItemModel(identifier, "minecraft:item/generated", container.getStringID(identifier, "item"));
+
+        return container.generateBlockItem(this, container.settings());
     }
 
-    @Override
     public JEntry addExtraConditions(DatagenModContainer container, String identifier, JEntry entry){
         return entry.condition(JLootTable
             .predicate("minecraft:block_state_property")

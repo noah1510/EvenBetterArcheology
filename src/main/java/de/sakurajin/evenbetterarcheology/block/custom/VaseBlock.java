@@ -2,11 +2,10 @@ package de.sakurajin.evenbetterarcheology.block.custom;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockGenerateable;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.DataGenerateable;
 import de.sakurajin.evenbetterarcheology.util.ServerPlayerHelper;
 import net.devtech.arrp.json.blockstate.JState;
 import net.devtech.arrp.json.blockstate.JVariant;
-import net.devtech.arrp.json.loot.JEntry;
 import net.devtech.arrp.json.loot.JLootTable;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
@@ -29,9 +28,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
-
-public class VaseBlock extends Block implements BlockGenerateable {
+public class VaseBlock extends Block implements DataGenerateable {
     private static final VoxelShape SHAPE = Block.createCuboidShape(3, 0, 3, 13, 14, 13);
     //advancement id for granting the advancement in onBreak, condition of advancement is "impossible" and needs to be executed here
     Identifier ADVANCEMENT_ID = new Identifier(EvenBetterArcheology.DATA.MOD_ID, "loot_vase_broken");
@@ -74,33 +71,25 @@ public class VaseBlock extends Block implements BlockGenerateable {
     }
 
     @Override
-    public void generateBlockModel(DatagenModContainer container, String identifier) {}
-
-    @Override
-    public void generateBlockState(DatagenModContainer container, String identifier) {
+    public ItemConvertible generateData(DatagenModContainer container, String identifier) {
         JVariant variants = new JVariant();
         for (String texture_variant : texture_variants) {
             variants.put("", JState.model(EvenBetterArcheology.DATA.MOD_ID + ":block/vase/vase_" + texture_variant));
         }
 
         container.RESOURCE_PACK.addBlockState(
-            JState.state(variants),
-            new Identifier(EvenBetterArcheology.DATA.MOD_ID, identifier)
+                JState.state(variants),
+                new Identifier(EvenBetterArcheology.DATA.MOD_ID, identifier)
         );
-    }
 
-    @Override
-    public void generateItemModel(DatagenModContainer container, String identifier) {
         String texture = container.getStringID("vase/vase_"+texture_variants[0], "block");
         container.generateItemModel(identifier,texture);
-    }
 
-    @Override
-    public ItemConvertible generateBlockItem(DatagenModContainer container, String identifier) {
+        generateLootTable(container, identifier);
+
         return container.generateBlockItem(this, container.settings(!isLootVase));
     }
 
-    @Override
     public void generateLootTable(DatagenModContainer container, String identifier){
         if(!isLootVase){
             container.createBlockLootTable(identifier, null);

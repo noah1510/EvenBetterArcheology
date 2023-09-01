@@ -1,7 +1,7 @@
 package de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.Blocks;
 
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockGenerateable;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.DataGenerateable;
 import net.devtech.arrp.json.blockstate.JBlockModel;
 import net.devtech.arrp.json.blockstate.JState;
 import net.devtech.arrp.json.blockstate.JWhen;
@@ -9,8 +9,9 @@ import net.devtech.arrp.json.models.JModel;
 import net.devtech.arrp.json.models.JTextures;
 import net.devtech.arrp.json.recipe.*;
 import net.minecraft.block.FenceBlock;
+import net.minecraft.item.ItemConvertible;
 
-public class Fence extends FenceBlock implements BlockGenerateable {
+public class Fence extends FenceBlock implements DataGenerateable {
 
     private final String texture;
     private final String plankName;
@@ -31,7 +32,7 @@ public class Fence extends FenceBlock implements BlockGenerateable {
         }
     }
 
-    public static void eGenerateBlockState(DatagenModContainer container, String identifier){
+    public static void generateBlockState(DatagenModContainer container, String identifier){
         JBlockModel sideModel = JState.model(container.getStringID(identifier+"_side", "block")).uvlock();
         container.RESOURCE_PACK.addBlockState(
             JState.state()
@@ -45,34 +46,22 @@ public class Fence extends FenceBlock implements BlockGenerateable {
     }
 
     @Override
-    public void generateBlockModel(DatagenModContainer container, String identifier) {
+    public ItemConvertible generateData(DatagenModContainer container, String identifier) {
         generateBlockModel(container, identifier, this.texture);
-    }
+        generateBlockState(container, identifier);
+        container.createBlockLootTable(identifier, null);
 
-    @Override
-    public void generateBlockState(DatagenModContainer container, String identifier) {
-        eGenerateBlockState(container, identifier);
-    }
-
-    @Override
-    public void generateItemModel(DatagenModContainer container, String identifier) {
-        container.generateItemModel(identifier, container.getStringID(identifier + "_inventory", "block"));
-    }
-
-    @Override
-    public void generateRecepie(DatagenModContainer container, String identifier) {
         container.RESOURCE_PACK.addRecipe(container.getSimpleID(identifier),
                 JRecipe.shaped(
                         JPattern.pattern("#W#", "#W#"),
                         JKeys.keys().key("W", JIngredient.ingredient().item(container.getStringID(this.plankName))).key("#", JIngredient.ingredient().item("stick")),
-                        JResult.itemStack(this.asItem(),3)
+                        JResult.stackedResult(container.getStringID(identifier),3)
                 )
         );
-    }
-
-    @Override
-    public void generateTags(DatagenModContainer container, String identifier) {
         container.addTag("minecraft:blocks/fences", identifier);
         container.addTag("minecraft:items/fences", identifier);
+
+        container.generateItemModel(identifier, container.getStringID(identifier + "_inventory", "block"));
+        return container.generateBlockItem(this, container.settings());
     }
 }

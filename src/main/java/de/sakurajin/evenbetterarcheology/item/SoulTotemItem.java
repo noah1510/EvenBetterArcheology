@@ -2,13 +2,14 @@ package de.sakurajin.evenbetterarcheology.item;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.ItemModelGenerateable;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.DataGenerateable;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
@@ -28,7 +29,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class SoulTotemItem extends Item implements ItemModelGenerateable {
+public class SoulTotemItem extends Item implements DataGenerateable {
     public SoulTotemItem(Settings settings) {
         super(settings);
     }
@@ -110,7 +111,8 @@ public class SoulTotemItem extends Item implements ItemModelGenerateable {
     }
 
     @Override
-    public void generateItemModel(DatagenModContainer container, String identifier) {
+    public ItemConvertible generateData(DatagenModContainer container, String identifier) {
         container.generateItemModel(identifier, "minecraft:item/handheld", identifier);
+        return this;
     }
 }

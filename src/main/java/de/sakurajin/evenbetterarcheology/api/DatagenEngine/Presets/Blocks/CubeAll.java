@@ -1,14 +1,14 @@
 package de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.Blocks;
 
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockGenerateable;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.DataGenerateable;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemConvertible;
 
 import java.util.Map;
 
-public class CubeAll extends Block implements BlockGenerateable {
+public class CubeAll extends Block implements DataGenerateable {
     private final String texture;
 
     public CubeAll(FabricBlockSettings settings, String texture) {
@@ -20,7 +20,7 @@ public class CubeAll extends Block implements BlockGenerateable {
         this(FabricBlockSettings.copyOf(parentBlock), texture);
     }
 
-    public static void eGenerateBlockModel(DatagenModContainer container, String identifier, String texture) {
+    public static void generateBlockModel(DatagenModContainer container, String identifier, String texture) {
         container.generateBlockModel(
             identifier,
             Map.of(
@@ -30,23 +30,14 @@ public class CubeAll extends Block implements BlockGenerateable {
         );
     }
 
-    @Override
-    public void generateBlockModel(DatagenModContainer container, String identifier) {
-        eGenerateBlockModel(container, identifier, texture);
-    }
 
     @Override
-    public void generateBlockState(DatagenModContainer container, String identifier) {
+    public ItemConvertible generateData(DatagenModContainer container, String identifier) {
         container.generateBlockState(identifier);
-    }
-
-    @Override
-    public void generateItemModel(DatagenModContainer container, String identifier) {
         container.generateBlockItemModel(identifier);
-    }
+        generateBlockModel(container, identifier, texture);
+        container.createBlockLootTable(identifier, null);
 
-    @Override
-    public ItemConvertible generateBlockItem(DatagenModContainer container, String identifier) {
         return container.generateBlockItem(this, container.settings());
     }
 }

@@ -4,7 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.BlockGenerateable;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.DataGenerateable;
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.LootDistributionHelper;
 import de.sakurajin.evenbetterarcheology.block.entity.ArcheologyTableBlockEntity;
 import de.sakurajin.evenbetterarcheology.block.entity.ModBlockEntities;
@@ -18,6 +18,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.particle.BlockStateParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.screen.NamedScreenHandlerFactory;
@@ -32,7 +33,7 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class ArchelogyTable extends BlockWithEntity implements BlockGenerateable {
+public class ArchelogyTable extends BlockWithEntity implements DataGenerateable {
     //indicates if the table is currently "crafting" the identified artifact
     //triggers particle creation
     public static final BooleanProperty DUSTING = BooleanProperty.of("dusting");
@@ -124,35 +125,31 @@ public class ArchelogyTable extends BlockWithEntity implements BlockGenerateable
     }
 
     @Override
-    public void generateBlockState(DatagenModContainer container, String identifier) {
+    public ItemConvertible generateData(DatagenModContainer container, String identifier) {
         container.generateBlockState(identifier);
-    }
 
-    @Override
-    public void generateRecepie(DatagenModContainer container, String identifier) {
         container.RESOURCE_PACK.addRecipe(container.getSimpleID(identifier),
-            JRecipe.shaped(
-                JPattern.pattern(
-                    "bS",
-                    "OO",
-                    "OO"
-                ),
-                JKeys.keys()
-                    .key("b", JIngredient.ingredient().tag("c:brushitems"))
-                    .key("S", JIngredient.ingredient().item("evenbetterarcheology:artifact_shards"))
-                    .key("O", JIngredient.ingredient().tag("minecraft:planks")),
-                JResult.item(this.asItem())
-            )
+                JRecipe.shaped(
+                        JPattern.pattern(
+                                "bS",
+                                "OO",
+                                "OO"
+                        ),
+                        JKeys.keys()
+                                .key("b", JIngredient.ingredient().tag("c:brushitems"))
+                                .key("S", JIngredient.ingredient().item("evenbetterarcheology:artifact_shards"))
+                                .key("O", JIngredient.ingredient().tag("minecraft:planks")),
+                        JResult.result(container.getStringID(identifier))
+                )
         );
-    }
 
-    @Override
-    public void generateBlockModel(DatagenModContainer container, String identifier) {}
+        generateLootTable(container, identifier);
 
-    @Override
-    public void generateTags(DatagenModContainer container, String identifier) {
         container.addTag("minecraft:blocks/mineable/axe", identifier);
         container.addTag("minecraft:point_of_interest_type/acquirable_job_site", identifier+"_poi");
+
+        container.generateBlockItemModel(identifier);
+        return container.generateBlockItem(this, container.settings());
     }
 
     private JEntry createModEnchantmentBook(
@@ -182,8 +179,7 @@ public class ArchelogyTable extends BlockWithEntity implements BlockGenerateable
             .function(JLootTable.function("minecraft:set_name").parameter("name", name));
     }
 
-    @Override
-    public void generateLootTable(DatagenModContainer container, String identifier){
+    private void generateLootTable(DatagenModContainer container, String identifier){
         container.createBlockLootTable(identifier, null);
 
         JPool identifyPool = JLootTable.pool().rolls(1);

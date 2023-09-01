@@ -11,12 +11,10 @@ import net.devtech.arrp.json.recipe.JIngredient;
 import net.devtech.arrp.json.recipe.JRecipe;
 import net.devtech.arrp.json.recipe.JResult;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeRegistry;
-import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeRegistry;
 import net.minecraft.block.*;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.Identifier;
 
 public class ModBlocks extends ParsedBlockRegistryContainer {
     public ModBlocks() {super(EvenBetterArcheology.DATA);}
@@ -30,13 +28,15 @@ public class ModBlocks extends ParsedBlockRegistryContainer {
 
     public static final Block FOSSILIFEROUS_DIRT = new SusBlock(Blocks.DIRT, SoundEvents.BLOCK_GRAVEL_HIT, SoundEvents.BLOCK_GRAVEL_BREAK){
         @Override
-        public void generateTags(DatagenModContainer container, String identifier) {
+        public ItemConvertible generateData(DatagenModContainer container, String identifier) {
             container.addTag("minecraft:blocks/mineable/shovel", identifier);
             container.addTag("minecraft:blocks/bamboo_plantable", identifier);
             container.addTag("minecraft:blocks/dirt", identifier);
             container.addTag("minecraft:blocks/sand", identifier);
             container.addTag("minecraft:blocks/enderman_holdable", identifier);
             container.addTag("minecraft:blocks/lush_ground_replaceable", identifier);
+
+            return super.generateData(container, identifier);
         }
     };
 
@@ -114,33 +114,28 @@ public class ModBlocks extends ParsedBlockRegistryContainer {
 
     public static final Block CRACKED_MUD_BRICKS = new CubeAll(Blocks.MUD_BRICKS, "cracked_mud_bricks") {
         @Override
-        public void generateRecepie(DatagenModContainer container, String identifier) {
-            super.generateRecepie(container, identifier);
-            container.RESOURCE_PACK.addRecipe(container.getSimpleID("cracked_mud_bricks_from_smelt"),
-                JRecipe.smelting(JIngredient.ingredient().item("mud_bricks"), JResult.item(this.asItem())).cookingTime(200).experience(0.1f)
-            );
-        }
-
-        @Override
-        public void generateTags(DatagenModContainer container, String identifier) {
-            super.generateTags(container, identifier);
+        public ItemConvertible generateData(DatagenModContainer container, String identifier) {
             container.addTag("minecraft:blocks/mineable/pickaxe", identifier);
+            container.RESOURCE_PACK.addRecipe(container.getSimpleID("cracked_mud_bricks_from_smelt"),
+                    JRecipe.smelting(JIngredient.ingredient().item("mud_bricks"), JResult.result(container.getStringID(identifier))).cookingTime(200).experience(0.1f)
+            );
+            return super.generateData(container, identifier);
         }
     };
 
     public static final Block CRACKED_MUD_BRICK_SLAB = new Slab(FabricBlockSettings.copyOf(Blocks.MUD_BRICK_SLAB), "cracked_mud_bricks", new String[]{"cracked_mud_bricks"}){
         @Override
-        public void generateTags(DatagenModContainer container, String identifier) {
-            super.generateTags(container, identifier);
+        public ItemConvertible generateData(DatagenModContainer container, String identifier) {
             container.addTag("minecraft:blocks/mineable/pickaxe", identifier);
+            return super.generateData(container, identifier);
         }
     };
 
-    public static final Block CRACKED_MUD_BRICK_STAIRS = new Stairs(FabricBlockSettings.copyOf(Blocks.MUD_BRICK_STAIRS), CRACKED_MUD_BRICKS, new String[]{"cracked_mud_bricks"}){
+    public static final Block CRACKED_MUD_BRICK_STAIRS = new Stairs(FabricBlockSettings.copyOf(Blocks.MUD_BRICK_STAIRS), CRACKED_MUD_BRICKS, "cracked_mud_bricks", new String[]{"cracked_mud_bricks"}){
         @Override
-        public void generateTags(DatagenModContainer container, String identifier) {
-            super.generateTags(container, identifier);
+        public ItemConvertible generateData(DatagenModContainer container, String identifier) {
             container.addTag("minecraft:blocks/mineable/pickaxe", identifier);
+            return super.generateData(container, identifier);
         }
     };
 

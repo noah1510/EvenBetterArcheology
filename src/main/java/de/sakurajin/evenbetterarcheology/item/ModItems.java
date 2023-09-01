@@ -2,20 +2,16 @@ package de.sakurajin.evenbetterarcheology.item;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Parsers.DataGenerationParser;
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.Item.CraftableItem;
 import de.sakurajin.evenbetterarcheology.api.item.BetterBrushItem;
 import io.wispforest.owo.registration.annotations.AssignedName;
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Containers.ParsedItemRegistryContainer;
 import net.devtech.arrp.json.recipe.*;
-import net.devtech.arrp.json.tags.JTag;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
-
-import java.lang.reflect.Field;
 
 
 public class ModItems extends ParsedItemRegistryContainer {
@@ -34,7 +30,7 @@ public class ModItems extends ParsedItemRegistryContainer {
 
     public static final Item UNIDENTIFIED_ARTIFACT = new CraftableItem(EvenBetterArcheology.DATA.settings().rarity(Rarity.UNCOMMON)) {
         @Override
-        public void generateRecepie(DatagenModContainer container, String identifier) {
+        public ItemConvertible generateData(DatagenModContainer container, String identifier) {
             container.RESOURCE_PACK.addRecipe(
                 new Identifier(container.MOD_ID, identifier),
                 JRecipe.shaped(
@@ -43,6 +39,8 @@ public class ModItems extends ParsedItemRegistryContainer {
                     JResult.item(this)
                 )
             );
+            super.generateData(container, identifier);
+            return this;
         }
     };
 

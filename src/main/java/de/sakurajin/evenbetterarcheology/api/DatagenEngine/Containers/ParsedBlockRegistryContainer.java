@@ -38,13 +38,7 @@ public abstract class ParsedBlockRegistryContainer extends ParsedContainerBase i
      */
     protected ParsedBlockRegistryContainer(DatagenModContainer initializer) {
         super(initializer);
-        addParser(new BlockModelGenerationParser());
-        addParser(new BlockStateGenerationParser());
-        addParser(new BlockItemGenerationParser());
-        addParser(new ItemModelGenerationParser());
-        addParser(new RecepieGenerationParser());
-        addParser(new LootTableParser());
-        addParser(new TagGenerationParser());
+        addParser(new BlockDataGenerationParser());
     }
 
     /**
