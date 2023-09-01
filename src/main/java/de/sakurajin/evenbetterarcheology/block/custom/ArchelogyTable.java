@@ -197,13 +197,16 @@ public class ArchelogyTable extends BlockWithEntity implements BlockGenerateable
         }
 
         identifyPool.entry(createModEnchantmentBook("evenbetterarcheology:tunneling", "item.evenbetterarcheology.tunneling_tooltip", 1, 80));
+        identifyPool.entry(createModEnchantmentBook("evenbetterarcheology:seas_bounty", "item.evenbetterarcheology.seas_bounty_tooltip", 1, 80));
 
-        if(FabricLoader.getInstance().isModLoaded("artifacts")){
+        if(FabricLoader.getInstance().isModLoaded("artifacts")
+            && EvenBetterArcheology.CONFIG.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT()
+        ){
             identifyPool.entry(
                 JLootTable.entry()
                     .type("minecraft:loot_table")
                     .name("artifacts:artifact")
-                    .weight(20)
+                    .weight(EvenBetterArcheology.CONFIG.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT_WEIGHT())
             );
         }
 

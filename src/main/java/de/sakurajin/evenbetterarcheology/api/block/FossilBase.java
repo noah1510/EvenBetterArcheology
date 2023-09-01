@@ -39,8 +39,9 @@ public abstract class FossilBase extends HorizontalFacingBlock implements BlockI
     //gets blocks translationkey itself and appends "_tooltip" to get the xyz_tooltip lang content
     //also appends the [x/y] indicator for a set
     private final String translationSuffixKey;
+    private final boolean isPart;
 
-    public FossilBase(Settings settings, String[] textureVariants, int blockItemIndex, Map<Direction, VoxelShape> SHAPE_DIRECTED, String translationSuffixKey) {
+    public FossilBase(Settings settings, String[] textureVariants, int blockItemIndex, Map<Direction, VoxelShape> SHAPE_DIRECTED, String translationSuffixKey, boolean isPart) {
         super(settings);
         if(textureVariants.length <= blockItemIndex){
             throw new IllegalArgumentException("BlockItemIndex must be smaller than the length of the textureVariants array");
@@ -52,9 +53,16 @@ public abstract class FossilBase extends HorizontalFacingBlock implements BlockI
         this.blockItemIndex = blockItemIndex;
         this.SHAPE_DIRECTED = SHAPE_DIRECTED;
         this.translationSuffixKey = translationSuffixKey;
+        this.isPart = isPart;
     }
 
-    public FossilBase(Settings settings, String[] textureVariants, int blockItemIndex, VoxelShape SHAPE, String translationSuffixKey) {
+    public FossilBase(Settings settings, String[] textureVariants, int blockItemIndex, Map<Direction, VoxelShape> SHAPE_DIRECTED, String translationSuffixKey){
+        this(settings, textureVariants, blockItemIndex, SHAPE_DIRECTED, translationSuffixKey, true);
+    }
+    public FossilBase(Settings settings, String[] textureVariants, int blockItemIndex, VoxelShape SHAPE, String translationSuffixKey){
+        this(settings, textureVariants, blockItemIndex, SHAPE, translationSuffixKey, true);
+    }
+    public FossilBase(Settings settings, String[] textureVariants, int blockItemIndex, VoxelShape SHAPE, String translationSuffixKey, boolean isPart) {
         this(
             settings,
             textureVariants,
@@ -65,7 +73,8 @@ public abstract class FossilBase extends HorizontalFacingBlock implements BlockI
                 Direction.EAST, SHAPE,
                 Direction.WEST, SHAPE
             ),
-            translationSuffixKey
+            translationSuffixKey,
+            isPart
         );
     }
 
@@ -135,6 +144,9 @@ public abstract class FossilBase extends HorizontalFacingBlock implements BlockI
     @Override
     public void generateTags(DatagenModContainer container, String identifier) {
         container.addTag("minecraft:blocks/mineable/pickaxe", identifier);
+        if(this.isPart){
+            container.addTag("evenbetterarcheology:fossil_parts", identifier);
+        }
     }
 
     @Override

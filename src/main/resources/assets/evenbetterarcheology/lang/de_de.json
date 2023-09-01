@@ -110,6 +110,15 @@
   "text.config.even_better_archeology.option.OCELOT_FOSSIL_FLEE_RANGE": "Ocelot Fossil Flucht-Reichwite",
   "text.config.even_better_archeology.option.OCELOT_FOSSIL_FLEE_RANGE.tooltip": "In welchem Radius sollen Creeper fliehen, wenn sie ein Ocelot-Fossil sehen?",
 
-  "text.config.even_better_archeology.section.worldgen": "Weltgenerierungs Optionen"
+  "text.config.even_better_archeology.section.worldgen": "Weltgenerierungs Optionen",
+
+  "text.config.even_better_archeology.category.COMPATIBILITY_OPTIONS": "Kompatibilitäts Optionen",
+
+  "text.config.even_better_archeology.section.artifacts": "Artifacts Optionen",
+  "text.config.even_better_archeology.option.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT": "Artefakte beim identifizeiren im Tisch der Archäologi",
+  "text.config.even_better_archeology.option.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT.tooltip": "Sollen Artefakte beim identifizieren im Tisch der Archäologie gefunden werden?",
+  "text.config.even_better_archeology.option.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT_WEIGHT": "Das Gewicht der Artefakte beim identifizieren im Tisch der Archäologi",
+  "text.config.even_better_archeology.option.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT_WEIGHT.tooltip": "Wie hoch soll das Gewicht der Artefakte beim identifizieren im Tisch der Archäologie sein? Die Chance ein Artefact zu bekommen ist (Gewicht des Artefakts / Summe aller Gewichte)."
+
 
 }

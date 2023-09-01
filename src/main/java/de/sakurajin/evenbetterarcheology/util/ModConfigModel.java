@@ -20,6 +20,7 @@ public class ModConfigModel {
 
     @RangeConstraint(min = 1, max = 5)
     @Sync(Option.SyncMode.OVERRIDE_CLIENT)
+    @RestartRequired
     public int SOARING_WINDS_MAXLEVEL = 3;
 
     @SectionHeader("blocks")
@@ -28,4 +29,17 @@ public class ModConfigModel {
     public int OCELOT_FOSSIL_FLEE_RANGE = 20;
 
     //@SectionHeader("worldgen")
+    @Nest
+    public ModCompatibilityOptions COMPATIBILITY_OPTIONS = new ModCompatibilityOptions();
+
+    public static class ModCompatibilityOptions{
+        @SectionHeader("artifacts")
+        @Sync(Option.SyncMode.OVERRIDE_CLIENT)
+        @RestartRequired
+        public boolean ARCHEOLOGY_TABLE_ARTIFACTS_LOOT = true;
+
+        @Sync(Option.SyncMode.OVERRIDE_CLIENT)
+        @RestartRequired
+        public int ARCHEOLOGY_TABLE_ARTIFACTS_LOOT_WEIGHT = 20;
+    }
 }

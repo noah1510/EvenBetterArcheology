@@ -110,6 +110,14 @@
   "text.config.even_better_archeology.option.OCELOT_FOSSIL_FLEE_RANGE": "Ocelot Fossil Flee Range",
   "text.config.even_better_archeology.option.OCELOT_FOSSIL_FLEE_RANGE.tooltip": "Change the range in which Creepers will flee from Ocelot Fossils",
 
-  "text.config.even_better_archeology.section.worldgen": "World Generation Options"
+  "text.config.even_better_archeology.section.worldgen": "World Generation Options",
+
+  "text.config.even_better_archeology.category.COMPATIBILITY_OPTIONS": "Compatibility Options",
+
+  "text.config.even_better_archeology.section.artifacts": "Artifacts Options",
+  "text.config.even_better_archeology.option.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT": "Artifacts as Loot from Archeology Table",
+  "text.config.even_better_archeology.option.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT.tooltip": "Enable if you want to be able to get Artifacts from the Archeology Table",
+  "text.config.even_better_archeology.option.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT_WEIGHT": "The loot table weight of getting any Artifact from the Archeology Table",
+    "text.config.even_better_archeology.option.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT_WEIGHT.tooltip": "Change the chane of getting any Artifact from the Archeology Table. The chance of getting one is (weight of this option)/(sum of all weights)"
 
 }

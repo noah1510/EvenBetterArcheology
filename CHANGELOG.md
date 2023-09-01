@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.0.0-alpha.9
+
+* Enable seas bounty enchantment
+* Add Seas Bounty to Archeology Table loot
+* Simplify the Enchantments code
+* Generating tag for fossil parts
+* More config options
+  * Disable Artifacts from Loot in Archaeology Table
+  * Change the weight of the artifacts in the Archaeology Table
+
 ## 2.0.0-alpha.8
 
 * Move worldgen tags to the new data generation API (This should allow for easier adding of mod biomes)

@@ -20,7 +20,7 @@ public abstract class FossilCraftable extends FossilBase implements RecepieGener
     }
 
     protected FossilCraftable(Settings settings, String[] textureVariants, int blockItemIndex, VoxelShape SHAPE, String translationSuffixKey) {
-        super(settings, textureVariants, blockItemIndex, SHAPE, translationSuffixKey);
+        super(settings, textureVariants, blockItemIndex, SHAPE, translationSuffixKey, false);
     }
 
     protected FossilCraftable(Settings settings, String[] textureVariants, int blockItemIndex, Map<Direction, VoxelShape> SHAPE_DIRECTED) {
@@ -28,7 +28,7 @@ public abstract class FossilCraftable extends FossilBase implements RecepieGener
     }
 
     protected FossilCraftable(Settings settings, String[] textureVariants, int blockItemIndex, Map<Direction, VoxelShape> SHAPE_DIRECTED, String translationSuffixKey) {
-        super(settings, textureVariants, blockItemIndex, SHAPE_DIRECTED, translationSuffixKey);
+        super(settings, textureVariants, blockItemIndex, SHAPE_DIRECTED, translationSuffixKey, false);
     }
 
     @Override

@@ -43,7 +43,6 @@ jobs:
           github-token: ${{ secrets.CI_GITHUB_TOKEN }}
 
           version: ${{ github.ref_name }}
-          version-type: release
           changelog-file: CHANGELOG.md
 
           loaders: fabric
