@@ -25,6 +25,18 @@ import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+/**
+ * This is an extension of the BrushItem for Brushes that are made from better materials.
+ * It is recommended to use the Builder to create a new instance of this class.
+ *
+ * To generate the data using the data generator, a material has to be provided.
+ * This way the data generation system can generate the crafting recepie.
+ * The material has to be an Item that is registered in the game.
+ * The item model can always be generated even if no material is provided.
+ *
+ * @see BrushItem
+ * @see Builder
+ */
 public class BetterBrushItem extends BrushItem implements DataGenerateable {
     private final float brushingSpeed;
     private final Item material;
@@ -43,21 +55,23 @@ public class BetterBrushItem extends BrushItem implements DataGenerateable {
 
     @Override
     public ItemConvertible generateData(DatagenModContainer container, String identifier) {
-        if(material == null) throw new RuntimeException("Material is null cannot generate Resource Data");
-
         container.addTag("c:items/brushitems", identifier);
         container.generateItemModel(identifier, "minecraft:item/brush", identifier);
-        container.RESOURCE_PACK.addRecipe(
-                new Identifier(identifier, "crafting_"+identifier+"_"+materialName),
-                JRecipe.shaped(
-                        JPattern.pattern("x", "y", "z"),
-                        JKeys.keys()
-                                .key("x", JIngredient.ingredient().item(material))
-                                .key("y", JIngredient.ingredient().item(Items.STICK))
-                                .key("z", JIngredient.ingredient().item(Items.FEATHER)),
-                        JResult.item(this)
-                )
-        );
+        if(material != null) {
+            container.RESOURCE_PACK.addRecipe(
+                    new Identifier(identifier, "crafting_" + identifier + "_" + materialName),
+                    JRecipe.shaped(
+                            JPattern.pattern("x", "y", "z"),
+                            JKeys.keys()
+                                    .key("x", JIngredient.ingredient().item(material))
+                                    .key("y", JIngredient.ingredient().item(Items.STICK))
+                                    .key("z", JIngredient.ingredient().item(Items.FEATHER)),
+                            JResult.item(this)
+                    )
+            );
+        }else{
+            container.LOGGER.warn("No material provided for the BetterBrushItem {}. The crafting recipe will not be generated.", identifier);
+        }
 
         return this;
     }
@@ -69,63 +83,75 @@ public class BetterBrushItem extends BrushItem implements DataGenerateable {
     public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
         if (remainingUseTicks >= 0 && user instanceof PlayerEntity playerEntity) {
             HitResult hitResult = this.getHitResult(user);
-            if (hitResult instanceof BlockHitResult blockHitResult) {
-                if (hitResult.getType() == HitResult.Type.BLOCK) {
-                    int i = this.getMaxUseTime(stack) - remainingUseTicks + 1;
-                    boolean bl = i % brushingSpeed == brushingSpeed/2;
-                    if (bl) {
-                        BlockPos blockPos = blockHitResult.getBlockPos();
-                        BlockState blockState = world.getBlockState(blockPos);
-                        Arm arm = user.getActiveHand() == Hand.MAIN_HAND ? playerEntity.getMainArm() : playerEntity.getMainArm().getOpposite();
-                        this.addDustParticles(world, blockHitResult, blockState, user.getRotationVec(0.0F), arm);
-                        Block var15 = blockState.getBlock();
-                        SoundEvent soundEvent;
-                        if (var15 instanceof BrushableBlock) {
-                            BrushableBlock brushableBlock = (BrushableBlock)var15;
-                            soundEvent = brushableBlock.getBrushingSound();
-                        } else {
-                            soundEvent = SoundEvents.ITEM_BRUSH_BRUSHING_GENERIC;
-                        }
+            if (hitResult instanceof BlockHitResult blockHitResult && hitResult.getType() == HitResult.Type.BLOCK) {
+                //actually brush the block
+                if ((this.getMaxUseTime(stack) - remainingUseTicks + 1) % brushingSpeed == brushingSpeed/2) {
+                    BlockPos blockPos = blockHitResult.getBlockPos();
+                    BlockState blockState = world.getBlockState(blockPos);
 
-                        world.playSound(playerEntity, blockPos, soundEvent, SoundCategory.BLOCKS);
-                        if (!world.isClient()) {
-                            BlockEntity var18 = world.getBlockEntity(blockPos);
-                            if (var18 instanceof BrushableBlockEntity) {
-                                BrushableBlockEntity brushableBlockEntity = (BrushableBlockEntity)var18;
-                                boolean bl2 = brushableBlockEntity.brush(world.getTime(), playerEntity, blockHitResult.getSide());
-                                if (bl2) {
-                                    EquipmentSlot equipmentSlot = stack.equals(playerEntity.getEquippedStack(EquipmentSlot.OFFHAND)) ? EquipmentSlot.OFFHAND : EquipmentSlot.MAINHAND;
-                                    stack.damage(1, user, (userx) -> {
-                                        userx.sendEquipmentBreakStatus(equipmentSlot);
-                                    });
-                                }
+                    // spawn the particles
+                    Arm arm = user.getActiveHand() == Hand.MAIN_HAND ? playerEntity.getMainArm() : playerEntity.getMainArm().getOpposite();
+                    this.addDustParticles(world, blockHitResult, blockState, user.getRotationVec(0.0F), arm);
+                    Block targetedBlock = blockState.getBlock();
+
+                    // play the brushing sound
+                    SoundEvent soundEvent;
+                    if (targetedBlock instanceof BrushableBlock brushableBlock) {
+                        soundEvent = brushableBlock.getBrushingSound();
+                    } else {
+                        soundEvent = SoundEvents.ITEM_BRUSH_BRUSHING_GENERIC;
+                    }
+                    world.playSound(playerEntity, blockPos, soundEvent, SoundCategory.BLOCKS);
+
+                    // if on server, brush the block entity and damage the brush
+                    if (!world.isClient()) {
+                        BlockEntity targetedBlockEntity = world.getBlockEntity(blockPos);
+                        if (targetedBlockEntity instanceof BrushableBlockEntity brushableBlockEntity) {
+                            if (brushableBlockEntity.brush(world.getTime(), playerEntity, blockHitResult.getSide())) {
+                                EquipmentSlot equipmentSlot = stack.equals(playerEntity.getEquippedStack(EquipmentSlot.OFFHAND)) ? EquipmentSlot.OFFHAND : EquipmentSlot.MAINHAND;
+                                stack.damage(1, user, (userx) -> {
+                                    userx.sendEquipmentBreakStatus(equipmentSlot);
+                                });
                             }
                         }
                     }
-
-                    return;
                 }
-            }
 
-            user.stopUsingItem();
-        } else {
-            user.stopUsingItem();
+                //return early to prevent the item use from being stopped
+                return;
+            }
         }
+
+        user.stopUsingItem();
     }
 
     public static Builder Builder(DatagenModContainer container){
         return new Builder(container);
     }
 
+    /**
+     * A Builder for the BetterBrushItem.
+     * It is recommended to use this Builder to create a new instance of the BetterBrushItem.
+     * The default settings are created using the DatagenModContainer.
+     *
+     * The following properties can be set using the Builder:
+     *
+     * * brushingSpeed (default: 1.0f) - lower values mean faster brushing
+     * * maxDamage (default: container.settings()) - the maximum durability of the brush
+     * * maxCount (default: container.settings()) - the maximum stack size of the brush
+     * * rarity (default: container.settings()) - the rarity of the brush
+     * * material (default: null) - the material used to craft the brush
+     *
+     * @see BetterBrushItem
+     * @see DatagenModContainer
+     */
     public static class Builder{
         private float brushingSpeed = 1.0f;
         private final OwoItemSettings settings;
         private Item material = null;
-        private final DatagenModContainer container;
 
         public Builder(DatagenModContainer container) {
-            this.container = container;
-            this.settings = this.container.settings();
+            this.settings = container.settings();
         }
 
         public Builder setBrushingSpeed(float pBrushingSpeed){

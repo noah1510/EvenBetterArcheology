@@ -11,9 +11,23 @@ import net.minecraft.village.VillagerProfession;
 
 import java.util.ArrayList;
 
+/**
+ * A helper class to create trades for villagers.
+ * It will automatically use currency instead of emeralds if numismatic-overhaul is present.
+ * The prices can either be set using emeralds or currency and will be converted automatically.
+ * The use of currency is recommended as it will automatically scale with the currency value and will
+ * automatically use emerald blocks if the price is higher than 64 emeralds.
+ * The TradeParameters class is used to create all the individual trades.
+ * The registerTrades method can be used to register all trades for a profession at once using a list of TradeParameters.
+ *
+ * @see TradeParameters
+ */
 public class NumismaticTradeHelper {
     private static final boolean hasNumismatic = FabricLoader.getInstance().isModLoaded("numismatic-overhaul");
 
+    /**
+     * A class to store all the parameters for a trade.
+     */
     public static class TradeParameters{
         public int price = 125;
         public int emeraldAmount = 1;
@@ -107,7 +121,7 @@ public class NumismaticTradeHelper {
         for(int level = 1; level <= 5; level++) {
             final int currentLevel = level;
             ArrayList<TradeOffer> offers = trades.stream().filter(t -> t.tradeLevel == currentLevel).collect(ArrayList::new, (list, item) -> list.add(createOffer(item)), ArrayList::addAll);
-            TradeOfferHelper.registerVillagerOffers(profession, currentLevel, factories -> {offers.forEach(tradeOffer -> factories.add((entity, random) -> tradeOffer));});
+            TradeOfferHelper.registerVillagerOffers(profession, currentLevel, factories -> offers.forEach(tradeOffer -> factories.add((entity, random) -> tradeOffer)));
         }
     }
 

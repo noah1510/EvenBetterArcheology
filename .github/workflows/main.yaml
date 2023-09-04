@@ -18,6 +18,8 @@ jobs:
           cache: gradle
       - name: Build with Gradle
         run: ./gradlew build
+      - name: Build docs
+        run: ./gradlew doxygen
 
       - name: Release latest if push to 1.20
         if: ${{ github.ref_type != 'tag' }}
@@ -52,3 +54,10 @@ jobs:
           retry-attempts: 2
           retry-delay: 10000
           fail-mode: fail
+
+      - name: Deploy if tagged release 🚀
+        if: ${{ github.ref_type == 'tag' }}
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          token: ${{ secrets.CI_GITHUB_TOKEN }}
+          folder: build/docs/doxygen/html
