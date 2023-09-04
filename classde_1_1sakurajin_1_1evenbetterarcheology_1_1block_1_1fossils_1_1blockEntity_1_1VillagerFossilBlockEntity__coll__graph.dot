@@ -1,0 +1,17 @@
+digraph "de.sakurajin.evenbetterarcheology.block.fossils.blockEntity.VillagerFossilBlockEntity"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [label="de.sakurajin.evenbetterarcheology.block.fossils.block\lEntity.VillagerFossilBlockEntity",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="steelblue1",style="solid"];
+  Node2 [label="BlockEntity",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node3 -> Node1 [dir="back",color="steelblue1",style="solid"];
+  Node3 [label="NamedScreenHandlerFactory",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node4 -> Node1 [dir="back",color="steelblue1",style="solid"];
+  Node4 [label="de.sakurajin.evenbetterarcheology.block.entity.\lImplementedInventory",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$interfacede_1_1sakurajin_1_1evenbetterarcheology_1_1block_1_1entity_1_1ImplementedInventory.html",tooltip="A simple SidedInventory implementation with only default methods + an item list getter."];
+  Node5 -> Node4 [dir="back",color="steelblue1",style="solid"];
+  Node5 [label="SidedInventory",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+}

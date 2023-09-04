@@ -1,0 +1,27 @@
+digraph "de.sakurajin.evenbetterarcheology.item.ModItems"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [label="de.sakurajin.evenbetterarcheology.item.\lModItems",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="steelblue1",style="solid"];
+  Node2 [label="de.sakurajin.evenbetterarcheology.api.\lDatagenEngine.Containers.ParsedItemRegistry\lContainer",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classde_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1DatagenEngine_1_1Containers_1_1ParsedItemRegistryContainer.html",tooltip="A ParsedItemRegistryContainer is a Item Registry Container that works with the DatagenAPI."];
+  Node3 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node3 [label="de.sakurajin.evenbetterarcheology.api.\lDatagenEngine.Containers.ParsedContainerBase",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classde_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1DatagenEngine_1_1Containers_1_1ParsedContainerBase.html",tooltip="The base class to automatically parse all items and blocks in a class."];
+  Node4 -> Node3 [dir="back",color="darkorchid3",style="dashed",label=" initializer" ];
+  Node4 [label="de.sakurajin.evenbetterarcheology.api.\lDatagenEngine.DatagenModContainer",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classde_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1DatagenEngine_1_1DatagenModContainer.html",tooltip=" "];
+  Node5 -> Node4 [dir="back",color="darkorchid3",style="dashed",label=" RESOURCE_PACK" ];
+  Node5 [label="RuntimeResourcePack",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node6 -> Node4 [dir="back",color="darkorchid3",style="dashed",label=" LOGGER" ];
+  Node6 [label="Logger",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node7 -> Node4 [dir="back",color="darkorchid3",style="dashed",label=" GROUP" ];
+  Node7 [label="OwoItemGroup",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node8 -> Node4 [dir="back",color="darkorchid3",style="dashed",label=" VANILLA_GROUP_KEY" ];
+  Node8 [label="RegistryKey\< ItemGroup \>",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node9 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node9 [label="ItemRegistryContainer",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node10 -> Node1 [dir="back",color="darkorchid3",style="dashed",label=" ARTIFACT_SHARDS\nBOMB_ITEM\nDIAMOND_BRUSH\nIRON_BRUSH\nSOUL_TOTEM\nTORRENT_TOTEM\nUNIDENTIFIED_ARTIFACT" ];
+  Node10 [label="Item",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+}
