@@ -6,6 +6,8 @@ import com.google.gson.JsonObject;
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
 import net.minecraft.util.JsonHelper;
 
+import java.util.ArrayList;
+
 public class JProcessor {
     public static class ProcessorType{
         public final String type;
@@ -65,13 +67,22 @@ public class JProcessor {
         );
     }
 
-    public static void addToResourcePack(DatagenModContainer container, String outputName, JProcessor... processors){
+    public static JsonObject createProcessorList(JProcessor... processors){
         JsonObject rootObject = new JsonObject();
         JsonArray rootArray = new JsonArray();
         for (JProcessor processor : processors) {
             rootArray.add(processor.processor);
         }
         rootObject.add("processors", rootArray);
+        return rootObject;
+    }
+
+    public static JsonObject createProcessorList(ArrayList<JProcessor> processors){
+        return createProcessorList(processors.toArray(JProcessor[]::new));
+    }
+
+    public static void addToResourcePack(DatagenModContainer container, String outputName, JProcessor... processors){
+        JsonObject rootObject = createProcessorList(processors);
         container.RESOURCE_PACK.addData(
             container.getSimpleID("worldgen/processor_list/" + outputName + ".json"),
             rootObject.toString().getBytes()

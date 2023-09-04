@@ -1,0 +1,51 @@
+{
+  "structures": [
+    {
+      "structure": "evenbetterarcheology:buried_ruins_sand",
+      "weight": 1
+    },
+    {
+      "structure": "evenbetterarcheology:desert_obelisk",
+      "weight": 1
+    },
+    {
+      "structure": "evenbetterarcheology:mesa_ruins",
+      "weight": 1
+    },
+    {
+      "structure": "evenbetterarcheology:mott",
+      "weight": 1
+    },
+    {
+      "structure": "evenbetterarcheology:ruins_sand",
+      "weight": 1
+    },
+    {
+      "structure": "evenbetterarcheology:stonehenge_grassy",
+      "weight": 1
+    },
+    {
+      "structure": "evenbetterarcheology:temple_jungle",
+      "weight": 1
+    },
+    {
+      "structure": "evenbetterarcheology:tumulus_grassy",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+
+    "salt": 408839718,
+
+    "spacing": 32,
+
+    "separation": 16,
+
+    "exclusion_zone": {
+      "chunk_count": 8,
+      "other_set": "evenbetterarcheology:fossils"
+    }
+  },
+  "values": []
+}

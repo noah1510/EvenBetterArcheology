@@ -1,0 +1,41 @@
+{
+  "structures": [
+    {
+      "structure": "evenbetterarcheology:fossil_chicken",
+      "weight": 1
+    },
+    {
+      "structure": "evenbetterarcheology:fossil_chicken_birch",
+      "weight": 1
+    },
+    {
+      "structure": "evenbetterarcheology:fossil_creeper",
+      "weight": 1
+    },
+    {
+      "structure": "evenbetterarcheology:fossil_jungle_1",
+      "weight": 1
+    },
+    {
+      "structure": "evenbetterarcheology:fossil_jungle_0",
+      "weight": 1
+    },
+    {
+      "structure": "evenbetterarcheology:fossil_sheep_0",
+      "weight": 1
+    },
+    {
+      "structure": "evenbetterarcheology:villager_grave",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+
+    "salt": 143969686,
+
+    "spacing": 32,
+
+    "separation": 12
+  }
+}

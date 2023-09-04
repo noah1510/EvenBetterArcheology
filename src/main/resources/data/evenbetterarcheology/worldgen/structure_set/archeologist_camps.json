@@ -1,0 +1,30 @@
+{
+  "structures": [
+    {
+      "structure": "evenbetterarcheology:archeologist_camp_grassy",
+      "weight": 1
+    },
+    {
+      "structure": "evenbetterarcheology:archeologist_camp_redsand",
+      "weight": 1
+    },
+    {
+      "structure": "evenbetterarcheology:archeologist_camp_sand",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+
+    "salt": 759604004,
+
+    "spacing": 32,
+
+    "separation": 12,
+
+    "exclusion_zone": {
+      "chunk_count": 8,
+      "other_set": "minecraft:villages"
+    }
+  }
+}

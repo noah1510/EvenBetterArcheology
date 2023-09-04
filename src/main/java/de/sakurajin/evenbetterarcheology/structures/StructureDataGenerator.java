@@ -8,14 +8,148 @@ import java.util.HashMap;
 
 public class StructureDataGenerator {
     private final HashMap<String, JProcessor> processorsParts = new HashMap<>();
+    private final String structureType = "evenbetterarcheology_structures";
 
     public StructureDataGenerator(DatagenModContainer container){
         generateProcessorsParts(container);
 
-        generateStructureProcessors(container);
-
         generateBiomeTags(container);
         generateStructureTags(container);
+
+        generateStructures(container);
+    }
+
+    private void generateArcheologistCamps(DatagenModContainer container){
+        ModStructureDataBuilder.create("archeologist_camp_grassy", structureType)
+                .addProcessor(processorsParts.get("susdirt_taiga"))
+                .buildStructure(container)
+                .buildStructurePool(container);
+
+        ModStructureDataBuilder.create("archeologist_camp_redsand", structureType)
+                .addProcessor(processorsParts.get("susredsand_mesa"))
+                .buildStructure(container)
+                .buildStructurePool(container);
+
+        ModStructureDataBuilder.create("archeologist_camp_sand", structureType)
+                .addProcessor(processorsParts.get("sussand_desert"))
+                .buildStructure(container)
+                .buildStructurePool(container);
+    }
+
+    private void generateFossils(DatagenModContainer container){
+        ModStructureDataBuilder.create("fossil_chicken", structureType)
+                .addProcessor(processorsParts.get("fossil_chicken"))
+                .buildStructure(container)
+                .buildStructurePool(container);
+
+        ModStructureDataBuilder.create("fossil_chicken_birch", structureType)
+                .addProcessor(processorsParts.get("fossil_chicken"))
+                .buildStructure(container)
+                .buildStructurePool(container);
+
+        ModStructureDataBuilder.create("fossil_creeper", structureType)
+                .addProcessor(processorsParts.get("fossil_creeper"))
+                .buildStructure(container)
+                .buildStructurePool(container);
+
+        ModStructureDataBuilder.create("fossil_jungle_0", structureType)
+                .addProcessor(processorsParts.get("fossil_jungle"))
+                .startHeight(-3)
+                .buildStructure(container)
+                .buildStructurePool(container);
+
+        ModStructureDataBuilder.create("fossil_jungle_1", structureType)
+                .addProcessor(processorsParts.get("fossil_jungle"))
+                .startHeight(-1)
+                .buildStructure(container)
+                .buildStructurePool(container);
+
+        ModStructureDataBuilder.create("fossil_sheep_0", structureType)
+                .addProcessor(processorsParts.get("fossil_sheep"))
+                .buildStructure(container)
+                .buildStructurePool(container);
+
+        ModStructureDataBuilder.create("villager_grave", structureType)
+                .addProcessors(
+                        processorsParts.get("fossil_villager"),
+                        processorsParts.get("cobblestone_to_mossy_cobblestone_0.5")
+                )
+                .buildStructure(container)
+                .buildStructurePool(container);
+    }
+
+    private void generateUnderwater(DatagenModContainer container){
+        for(int i = 0; i < 4; i++){
+            ModStructureDataBuilder.create("underwater_"+i, structureType)
+                    .addProcessor(processorsParts.get("sussand_underwater"))
+                    .buildStructure(container)
+                    .buildStructurePool(container);
+        }
+    }
+
+    private void generateRuins(DatagenModContainer container){
+        ModStructureDataBuilder.create("ruins_sand", structureType)
+                .addProcessors(
+                        processorsParts.get("chest_buried_ruins_sand"),
+                        processorsParts.get("susgravel_plains")
+                )
+                .startHeight(-4)
+                .buildStructure(container)
+                .buildStructurePool(container);
+
+        ModStructureDataBuilder.create("buried_ruins_sand", structureType)
+                .addProcessor(processorsParts.get("susgravel_plains"))
+                .startHeight(-4)
+                .buildStructure(container)
+                .buildStructurePool(container);
+
+        ModStructureDataBuilder.create("desert_obelisk", structureType)
+                .addProcessors(
+                        processorsParts.get("sandstone_to_cut_sandstone_0.15"),
+                        processorsParts.get("sussand_desert")
+                )
+                .buildStructure(container)
+                .buildStructurePool(container);
+
+        ModStructureDataBuilder.create("mesa_ruins", structureType)
+                .addProcessor(processorsParts.get("susredsand_mesa"))
+                .buildStructure(container)
+                .buildStructurePool(container);
+
+        ModStructureDataBuilder.create("mott", structureType)
+                .addProcessors(processorsParts.get("susdirt_taiga"))
+                .startHeight(-2)
+                .buildStructure(container)
+                .buildStructurePool(container);
+
+        ModStructureDataBuilder.create("stonehenge_grassy", structureType)
+                .addProcessor(processorsParts.get("susgravel_plains"))
+                .buildStructure(container)
+                .buildStructurePool(container);
+
+        ModStructureDataBuilder.create("temple_jungle", structureType)
+                .addProcessors(
+                        processorsParts.get("mud_bricks_to_cracked_mud_bricks_0.1"),
+                        processorsParts.get("cobblestone_to_mossy_cobblestone_0.3"),
+                        processorsParts.get("stone_bricks_to_mossy_stone_bricks_0.3")
+                )
+                .buildStructure(container)
+                .buildStructurePool(container);
+
+        ModStructureDataBuilder.create("tumulus_grassy", structureType)
+                .addProcessors(
+                        processorsParts.get("chest_tumulus"),
+                        processorsParts.get("susgravel_plains")
+                )
+                .buildStructure(container)
+                .buildStructurePool(container);
+    }
+
+    private void generateStructures(DatagenModContainer container){
+        generateArcheologistCamps(container);
+        generateFossils(container);
+        generateUnderwater(container);
+        generateRuins(container);
     }
 
     private void generateBiomeTags(DatagenModContainer container){
@@ -94,47 +228,6 @@ public class StructureDataGenerator {
                 "minecraft:swamp"
         );
 
-    }
-
-    private void generateStructureProcessors(DatagenModContainer container){
-        String[] addDirect = new String[]{
-            "fossil_chicken", "fossil_creeper", "fossil_jungle", "fossil_sheep", "fossil_villager",
-            "sussand_underwater", "susgravel_plains", "susdirt_taiga", "susredsand_mesa", "sussand_desert"
-        };
-        for(String key : addDirect){
-            processorsParts.get(key).addToResourcePack(container, key);
-        }
-
-        JProcessor.addToResourcePack(
-                container, "temple_jungle",
-                processorsParts.get("mud_bricks_to_cracked_mud_bricks_0.1"),
-                processorsParts.get("cobblestone_to_mossy_cobblestone_0.3"),
-                processorsParts.get("stone_bricks_to_mossy_stone_bricks_0.3")
-        );
-
-        JProcessor.addToResourcePack(
-                container, "tumulus_grassy",
-                processorsParts.get("chest_tumulus"),
-                processorsParts.get("susgravel_plains")
-        );
-
-        JProcessor.addToResourcePack(
-                container, "villager_grave",
-                processorsParts.get("fossil_villager"),
-                processorsParts.get("cobblestone_to_mossy_cobblestone_0.5")
-        );
-
-        JProcessor.addToResourcePack(
-                container, "ruins_sand",
-                processorsParts.get("chest_buried_ruins_sand"),
-                processorsParts.get("susgravel_plains")
-        );
-
-        JProcessor.addToResourcePack(
-                container, "desert_obelisk",
-                processorsParts.get("sandstone_to_cut_sandstone_0.15"),
-                processorsParts.get("sussand_desert")
-        );
     }
 
     private void generateProcessorsParts(DatagenModContainer container){

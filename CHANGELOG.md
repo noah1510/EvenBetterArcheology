@@ -6,6 +6,8 @@
 * Add Seas Bounty to Archeology Table loot
 * Simplify the Enchantments code
 * Generating tag for fossil parts
+* Generating most of the structure data in code
+* Changing the structure sets to actually conform to minecrafts structure set format
 * More config options
   * Disable Artifacts from Loot in Archaeology Table
   * Change the weight of the artifacts in the Archaeology Table

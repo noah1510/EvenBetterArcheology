@@ -11,7 +11,7 @@ import de.sakurajin.evenbetterarcheology.structures.StructureDataGenerator;
 import de.sakurajin.evenbetterarcheology.util.evenbetterarcheologyConfig;
 import de.sakurajin.evenbetterarcheology.villager.ModVillagers;
 import de.sakurajin.evenbetterarcheology.enchantment.ModEnchantments;
-import de.sakurajin.evenbetterarcheology.structures.ModStructureFeatures;
+import de.sakurajin.evenbetterarcheology.structures.ModStructures;
 import io.wispforest.owo.itemgroup.Icon;
 import net.devtech.arrp.api.RRPCallback;
 import net.fabricmc.api.ModInitializer;
@@ -50,7 +50,7 @@ public class EvenBetterArcheology implements ModInitializer {
 		ModMessages.registerC2SPackets();
 		ModEnchantments.registerModEnchantments();
 
-		ModStructureFeatures.registerStructureFeatures();
+		ModStructures.registerStructureFeatures();
 
 		var structureData = new StructureDataGenerator(DATA);
 

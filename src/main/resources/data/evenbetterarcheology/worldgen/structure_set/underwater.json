@@ -1,0 +1,34 @@
+{
+  "structures": [
+    {
+      "structure": "evenbetterarcheology:underwater_0",
+      "weight": 1
+    },
+    {
+      "structure": "evenbetterarcheology:underwater_1",
+      "weight": 1
+    },
+    {
+      "structure": "evenbetterarcheology:underwater_2",
+      "weight": 1
+    },
+    {
+      "structure": "evenbetterarcheology:underwater_3",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+
+    "salt": 234743163,
+
+    "spacing": 32,
+
+    "separation": 12,
+
+    "exclusion_zone": {
+      "chunk_count": 8,
+      "other_set": "minecraft:ocean_ruins"
+    }
+  }
+}
