@@ -1,5 +1,6 @@
 package de.sakurajin.evenbetterarcheology.block.entity;
 
+import de.sakurajin.evenbetterarcheology.registry.ModBlockEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.entity.BrushableBlockEntity;

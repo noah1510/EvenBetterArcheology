@@ -1,4 +1,4 @@
-package de.sakurajin.evenbetterarcheology.mixin;
+package de.sakurajin.evenbetterarcheology.mixin.minecraft;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import de.sakurajin.evenbetterarcheology.util.ElytraHelper;

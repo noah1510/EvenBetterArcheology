@@ -1,8 +1,10 @@
-package de.sakurajin.evenbetterarcheology.block.entity;
+package de.sakurajin.evenbetterarcheology.registry;
 
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
-import de.sakurajin.evenbetterarcheology.block.ModBlocks;
+import de.sakurajin.evenbetterarcheology.block.entity.ArcheologyTableBlockEntity;
+import de.sakurajin.evenbetterarcheology.block.entity.SusBlockEntity;
+import de.sakurajin.evenbetterarcheology.registry.ModBlocks;
 import de.sakurajin.evenbetterarcheology.block.fossils.blockEntity.ChickenFossilBlockEntity;
 import de.sakurajin.evenbetterarcheology.block.fossils.blockEntity.FleeFromBlockEntity;
 import de.sakurajin.evenbetterarcheology.block.fossils.blockEntity.VillagerFossilBlockEntity;
@@ -14,10 +16,10 @@ import net.minecraft.util.Identifier;
 
 public class ModBlockEntities {
     public static BlockEntityType<ArcheologyTableBlockEntity> ARCHEOLOGY_TABLE;
-    public static BlockEntityType<VillagerFossilBlockEntity> VILLAGER_FOSSIL;
+    public static BlockEntityType<VillagerFossilBlockEntity>  VILLAGER_FOSSIL;
     public static BlockEntityType<ChickenFossilBlockEntity> CHICKEN_FOSSIL;
-    public static BlockEntityType<FleeFromBlockEntity> FLEE_FROM;
-    public static BlockEntityType<SusBlockEntity> SUSBLOCK;
+    public static BlockEntityType<FleeFromBlockEntity>        FLEE_FROM;
+    public static BlockEntityType<SusBlockEntity>             SUSBLOCK;
 
     public static void registerBlockEntities() {
         ARCHEOLOGY_TABLE = Registry.register(Registries.BLOCK_ENTITY_TYPE,

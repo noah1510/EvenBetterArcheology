@@ -1,4 +1,4 @@
-package de.sakurajin.evenbetterarcheology.block;
+package de.sakurajin.evenbetterarcheology.registry;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Containers.ParsedBlockRegistryContainer;

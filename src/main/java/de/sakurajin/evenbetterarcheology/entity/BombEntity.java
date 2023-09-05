@@ -1,6 +1,7 @@
 package de.sakurajin.evenbetterarcheology.entity;
 
-import de.sakurajin.evenbetterarcheology.item.ModItems;
+import de.sakurajin.evenbetterarcheology.registry.ModEntityTypes;
+import de.sakurajin.evenbetterarcheology.registry.ModItems;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.entity.EntityType;

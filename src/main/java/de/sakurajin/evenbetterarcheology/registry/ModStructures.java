@@ -1,6 +1,7 @@
-package de.sakurajin.evenbetterarcheology.structures;
+package de.sakurajin.evenbetterarcheology.registry;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
+import de.sakurajin.evenbetterarcheology.structures.ModStructure;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;

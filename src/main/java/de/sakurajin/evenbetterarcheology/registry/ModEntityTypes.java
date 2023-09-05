@@ -1,6 +1,7 @@
-package de.sakurajin.evenbetterarcheology.entity;
+package de.sakurajin.evenbetterarcheology.registry;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
+import de.sakurajin.evenbetterarcheology.entity.BombEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;

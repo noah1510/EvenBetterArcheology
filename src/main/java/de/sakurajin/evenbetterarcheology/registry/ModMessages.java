@@ -1,7 +1,7 @@
-package de.sakurajin.evenbetterarcheology.networking;
+package de.sakurajin.evenbetterarcheology.registry;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
-import de.sakurajin.evenbetterarcheology.networking.packet.ItemStackSyncS2CPacket;
+import de.sakurajin.evenbetterarcheology.networking.ItemStackSyncS2CPacket;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.util.Identifier;
 

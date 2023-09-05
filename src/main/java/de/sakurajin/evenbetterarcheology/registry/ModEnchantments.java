@@ -1,7 +1,8 @@
-package de.sakurajin.evenbetterarcheology.enchantment;
+package de.sakurajin.evenbetterarcheology.registry;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import de.sakurajin.evenbetterarcheology.api.ArtifactEnchantment;
+import de.sakurajin.evenbetterarcheology.enchantment.PenetratingStrikeEnchantment;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.entity.event.v1.FabricElytraItem;
 import net.minecraft.enchantment.Enchantment;

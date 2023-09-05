@@ -1,6 +1,6 @@
-package de.sakurajin.evenbetterarcheology.mixin;
+package de.sakurajin.evenbetterarcheology.mixin.minecraft;
 
-import de.sakurajin.evenbetterarcheology.item.ModItems;
+import de.sakurajin.evenbetterarcheology.registry.ModItems;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.Box;

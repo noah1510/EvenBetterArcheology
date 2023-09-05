@@ -1,11 +1,8 @@
-package de.sakurajin.evenbetterarcheology.villager;
+package de.sakurajin.evenbetterarcheology.registry;
 
 import com.google.common.collect.ImmutableSet;
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import de.sakurajin.evenbetterarcheology.api.villager.NumismaticTradeHelper;
-import de.sakurajin.evenbetterarcheology.block.ModBlocks;
-import de.sakurajin.evenbetterarcheology.item.ModItems;
-import net.fabricmc.fabric.api.object.builder.v1.villager.VillagerProfessionBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.world.poi.PointOfInterestHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -164,10 +161,21 @@ public class ModVillagers {
     }
 
     //REGISTRATION---------------------------------------------------------------//
-    public static VillagerProfession registerProfession(String name, RegistryKey<PointOfInterestType> type) {
-        return Registry.register(Registries.VILLAGER_PROFESSION, new Identifier(EvenBetterArcheology.DATA.MOD_ID, name),
-                VillagerProfessionBuilder.create().id(new Identifier(EvenBetterArcheology.DATA.MOD_ID, name)).workstation(type)
-                        .workSound(SoundEvents.ITEM_BRUSH_BRUSHING_SAND).build());                                            //TODO: Sound change later?
+    public static VillagerProfession registerProfession(String name, RegistryKey<PointOfInterestType> workstation) {
+        Identifier villagerID = new Identifier(EvenBetterArcheology.DATA.MOD_ID, name);
+
+        return Registry.register(
+            Registries.VILLAGER_PROFESSION,
+            villagerID,
+            new VillagerProfession(
+                villagerID.toString(),
+                (entry) -> entry.matchesKey(workstation),
+                (entry) -> entry.matchesKey(workstation),
+                ImmutableSet.of(),
+                ImmutableSet.of(),
+                SoundEvents.ITEM_BRUSH_BRUSHING_SAND
+            )
+        );
     }
 
     public static PointOfInterestType registerPOI(String name, Block block) {

@@ -1,9 +1,9 @@
 package de.sakurajin.evenbetterarcheology.block.fossils.blockEntity;
 
 import de.sakurajin.evenbetterarcheology.block.entity.ImplementedInventory;
-import de.sakurajin.evenbetterarcheology.block.entity.ModBlockEntities;
+import de.sakurajin.evenbetterarcheology.registry.ModBlockEntities;
 import de.sakurajin.evenbetterarcheology.block.fossils.VillagerFossilFull;
-import de.sakurajin.evenbetterarcheology.networking.ModMessages;
+import de.sakurajin.evenbetterarcheology.registry.ModMessages;
 import de.sakurajin.evenbetterarcheology.screen.FossilInventoryScreenHandler;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;

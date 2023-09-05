@@ -1,6 +1,6 @@
 package de.sakurajin.evenbetterarcheology.block.fossils.blockEntity;
 
-import de.sakurajin.evenbetterarcheology.block.entity.ModBlockEntities;
+import de.sakurajin.evenbetterarcheology.registry.ModBlockEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.util.math.BlockPos;

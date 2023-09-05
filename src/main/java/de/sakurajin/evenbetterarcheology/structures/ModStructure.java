@@ -2,6 +2,7 @@ package de.sakurajin.evenbetterarcheology.structures;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import de.sakurajin.evenbetterarcheology.registry.ModStructures;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.structure.pool.StructurePool;
 import net.minecraft.structure.pool.StructurePoolBasedGenerator;

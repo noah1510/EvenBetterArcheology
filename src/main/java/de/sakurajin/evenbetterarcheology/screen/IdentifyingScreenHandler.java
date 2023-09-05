@@ -1,7 +1,8 @@
 package de.sakurajin.evenbetterarcheology.screen;
 
 import de.sakurajin.evenbetterarcheology.block.entity.ArcheologyTableBlockEntity;
-import de.sakurajin.evenbetterarcheology.item.ModItems;
+import de.sakurajin.evenbetterarcheology.registry.ModItems;
+import de.sakurajin.evenbetterarcheology.registry.ModScreenHandlers;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;

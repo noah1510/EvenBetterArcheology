@@ -1,16 +1,15 @@
 package de.sakurajin.evenbetterarcheology;
 
-import de.sakurajin.evenbetterarcheology.block.ModBlocks;
-import de.sakurajin.evenbetterarcheology.block.entity.ModBlockEntities;
+import de.sakurajin.evenbetterarcheology.registry.ModBlocks;
+import de.sakurajin.evenbetterarcheology.registry.ModBlockEntities;
 import de.sakurajin.evenbetterarcheology.block.entity.client.ArcheologyTableBlockEntityRenderer;
 import de.sakurajin.evenbetterarcheology.block.entity.client.SusBlockEntityRenderer;
 import de.sakurajin.evenbetterarcheology.block.entity.client.VillagerFossilBlockEntityRenderer;
-import de.sakurajin.evenbetterarcheology.entity.ModEntityTypes;
-import de.sakurajin.evenbetterarcheology.networking.ModMessages;
+import de.sakurajin.evenbetterarcheology.registry.ModEntityTypes;
+import de.sakurajin.evenbetterarcheology.registry.ModMessages;
 import de.sakurajin.evenbetterarcheology.screen.FossilInventoryScreen;
 import de.sakurajin.evenbetterarcheology.screen.IdentifyingScreen;
-import de.sakurajin.evenbetterarcheology.screen.ModScreenHandlers;
-import io.wispforest.owo.config.ConfigSynchronizer;
+import de.sakurajin.evenbetterarcheology.registry.ModScreenHandlers;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;

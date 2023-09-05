@@ -3,7 +3,7 @@ package de.sakurajin.evenbetterarcheology.block.fossils;
 import com.google.common.collect.ImmutableMap;
 import de.sakurajin.evenbetterarcheology.api.block.FossilCraftableWithEntity;
 import de.sakurajin.evenbetterarcheology.block.fossils.blockEntity.ChickenFossilBlockEntity;
-import de.sakurajin.evenbetterarcheology.block.entity.ModBlockEntities;
+import de.sakurajin.evenbetterarcheology.registry.ModBlockEntities;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;

@@ -1,17 +1,10 @@
 package de.sakurajin.evenbetterarcheology;
 
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.block.ModBlocks;
-import de.sakurajin.evenbetterarcheology.block.entity.ModBlockEntities;
-import de.sakurajin.evenbetterarcheology.entity.ModEntityTypes;
-import de.sakurajin.evenbetterarcheology.item.ModItems;
-import de.sakurajin.evenbetterarcheology.networking.ModMessages;
-import de.sakurajin.evenbetterarcheology.screen.ModScreenHandlers;
+import de.sakurajin.evenbetterarcheology.compatibility.LevelZ;
+import de.sakurajin.evenbetterarcheology.registry.*;
 import de.sakurajin.evenbetterarcheology.structures.StructureDataGenerator;
 import de.sakurajin.evenbetterarcheology.util.evenbetterarcheologyConfig;
-import de.sakurajin.evenbetterarcheology.villager.ModVillagers;
-import de.sakurajin.evenbetterarcheology.enchantment.ModEnchantments;
-import de.sakurajin.evenbetterarcheology.structures.ModStructures;
 import io.wispforest.owo.itemgroup.Icon;
 import net.devtech.arrp.api.RRPCallback;
 import net.fabricmc.api.ModInitializer;
@@ -55,6 +48,7 @@ public class EvenBetterArcheology implements ModInitializer {
 		var structureData = new StructureDataGenerator(DATA);
 
 		//load all compatibility stuff
+		LevelZ.init(DATA);
 
 		//generate all tags
 		DATA.registerAllTags();

@@ -1,10 +1,11 @@
 package de.sakurajin.evenbetterarcheology.block.entity;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
-import de.sakurajin.evenbetterarcheology.networking.ModMessages;
+import de.sakurajin.evenbetterarcheology.registry.ModBlockEntities;
+import de.sakurajin.evenbetterarcheology.registry.ModMessages;
 import de.sakurajin.evenbetterarcheology.screen.IdentifyingScreenHandler;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
-import de.sakurajin.evenbetterarcheology.item.ModItems;
+import de.sakurajin.evenbetterarcheology.registry.ModItems;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;

@@ -1,7 +1,7 @@
-package de.sakurajin.evenbetterarcheology.mixin;
+package de.sakurajin.evenbetterarcheology.mixin.minecraft;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
-import de.sakurajin.evenbetterarcheology.enchantment.ModEnchantments;
+import de.sakurajin.evenbetterarcheology.registry.ModEnchantments;
 import net.minecraft.block.BlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EquipmentSlot;

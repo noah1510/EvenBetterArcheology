@@ -7,7 +7,7 @@ import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.DataGenerateable;
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.LootDistributionHelper;
 import de.sakurajin.evenbetterarcheology.block.entity.ArcheologyTableBlockEntity;
-import de.sakurajin.evenbetterarcheology.block.entity.ModBlockEntities;
+import de.sakurajin.evenbetterarcheology.registry.ModBlockEntities;
 import net.devtech.arrp.json.loot.JEntry;
 import net.devtech.arrp.json.loot.JLootTable;
 import net.devtech.arrp.json.loot.JPool;

@@ -1,4 +1,4 @@
-package de.sakurajin.evenbetterarcheology.networking.packet;
+package de.sakurajin.evenbetterarcheology.networking;
 
 import de.sakurajin.evenbetterarcheology.block.entity.ArcheologyTableBlockEntity;
 import de.sakurajin.evenbetterarcheology.block.fossils.blockEntity.VillagerFossilBlockEntity;

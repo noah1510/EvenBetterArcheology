@@ -1,7 +1,7 @@
 package de.sakurajin.evenbetterarcheology.util;
 
 import dev.emi.trinkets.api.TrinketsApi;
-import de.sakurajin.evenbetterarcheology.enchantment.ModEnchantments;
+import de.sakurajin.evenbetterarcheology.registry.ModEnchantments;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;

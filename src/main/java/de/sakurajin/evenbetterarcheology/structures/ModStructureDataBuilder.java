@@ -3,8 +3,10 @@ package de.sakurajin.evenbetterarcheology.structures;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
+import de.sakurajin.evenbetterarcheology.api.DatagenEngine.TagIdentifier;
 import de.sakurajin.evenbetterarcheology.api.DatagenEngine.json.worldgen.processor.JProcessor;
 import net.minecraft.structure.StructureSet;
+import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -14,25 +16,25 @@ public class ModStructureDataBuilder {
 
     protected final String name;
 
-    protected final String type;
-    protected String terrain_adaptation = "beard_thin";
-    protected int start_height = 0;
-    protected String project_start_to_heightmap = "WORLD_SURFACE_WG";
-    protected String structure_step = "surface_structures";
-    protected int structure_size = 1;
-    protected int max_distance_from_center = 80;
-    protected String placement_type = "minecraft:random_spread";
-    protected int placement_spacing = 96;
-    protected int placement_separation = 64;
-    protected int structure_weight = 1;
-    protected int salt = 0;
-    protected int exclusion_radius = 16;
-    protected String exculision_structure = null;
-
-    protected String structure_pool_fallback = "minecraft:empty";
-    protected int structure_pool_weight = 1;
-    protected String structure_projection = "rigid";
-    protected ArrayList<JProcessor> processors = new ArrayList<>();
+    protected final String                type;
+    protected       Identifier            structureBiomeID           = null;
+    protected       String                terrain_adaptation         = "beard_thin";
+    protected       int                   start_height               = 0;
+    protected       String                project_start_to_heightmap = "WORLD_SURFACE_WG";
+    protected       String                structure_step             = "surface_structures";
+    protected       int                   structure_size             = 1;
+    protected       int                   max_distance_from_center   = 80;
+    protected       String                placement_type             = "minecraft:random_spread";
+    protected       int                   placement_spacing          = 96;
+    protected       int                   placement_separation       = 64;
+    protected       int                   structure_weight           = 1;
+    protected       int                   salt                       = 0;
+    protected       int                   exclusion_radius           = 16;
+    protected       String                exculision_structure       = null;
+    protected       String                structure_pool_fallback    = "minecraft:empty";
+    protected       int                   structure_pool_weight      = 1;
+    protected       String                structure_projection       = "rigid";
+    protected       ArrayList<JProcessor> processors                 = new ArrayList<>();
 
     protected ModStructureDataBuilder(String name, String type) {
         this.name = name;
@@ -93,11 +95,21 @@ public class ModStructureDataBuilder {
         return this;
     }
 
-    public ModStructureDataBuilder addProcessor(JProcessor processor){
+    public ModStructureDataBuilder structureStep(String structure_step) {
+        this.structure_step = structure_step;
+        return this;
+    }
+
+    public ModStructureDataBuilder structureBiomeID(Identifier structureBiomeID) {
+        this.structureBiomeID = structureBiomeID;
+        return this;
+    }
+
+    public ModStructureDataBuilder addProcessor(JProcessor processor) {
         return addProcessors(processor);
     }
 
-    public ModStructureDataBuilder addProcessors(JProcessor... processors){
+    public ModStructureDataBuilder addProcessors(JProcessor... processors) {
         this.processors.addAll(Arrays.asList(processors));
         return this;
     }
@@ -129,16 +141,19 @@ public class ModStructureDataBuilder {
 
 
     //create the structure file
-    public ModStructureDataBuilder buildStructure(DatagenModContainer dataContainer){
-        if(name == null || type == null) throw new IllegalStateException("Name or type is somehow null");
+    public ModStructureDataBuilder buildStructure(DatagenModContainer dataContainer) {
+        if (name == null || type == null) throw new IllegalStateException("Name or type is somehow null");
 
-        String nameId = dataContainer.getStringID(name);
+        String     nameId    = dataContainer.getStringID(name);
         JsonObject structure = new JsonObject();
+        if (structureBiomeID == null) {
+            structureBiomeID = dataContainer.getSimpleID(name, "#has_structure");
+        }
 
         // set the start pool to the structure file
         structure.addProperty("start_pool", nameId);
         structure.addProperty("type", dataContainer.getStringID(type));
-        structure.addProperty("biomes", dataContainer.getStringID(name, "#has_structure"));
+        structure.addProperty("biomes", structureBiomeID.toString());
         structure.addProperty("terrain_adaptation", terrain_adaptation);
         var start_height_json = new JsonObject();
         start_height_json.addProperty("absolute", start_height);
@@ -153,20 +168,21 @@ public class ModStructureDataBuilder {
 
         // actually generate the data files and add them to the resource pack
         dataContainer.RESOURCE_PACK.addData(
-                dataContainer.getSimpleID(name+".json", "worldgen/structure"),
-                structure.toString().getBytes()
+            dataContainer.getSimpleID(name + ".json", "worldgen/structure"),
+            structure.toString().getBytes()
         );
 
         return this;
     }
 
     // generate the json for the structure set
-    public ModStructureDataBuilder buildStructureSet(DatagenModContainer dataContainer){
-        if(name == null || type == null) throw new IllegalStateException("Name or type is somehow null");
-        if(exclusion_radius < 1 || exclusion_radius > 16) throw new IllegalStateException("Exclusion radius is not between 1 and 16");
+    public ModStructureDataBuilder buildStructureSet(DatagenModContainer dataContainer) {
+        if (name == null || type == null) throw new IllegalStateException("Name or type is somehow null");
+        if (exclusion_radius < 1 || exclusion_radius > 16)
+            throw new IllegalStateException("Exclusion radius is not between 1 and 16");
 
         String nameId = dataContainer.getStringID(name);
-        if(salt <= 0){
+        if (salt <= 0) {
             salt = nameId.hashCode();
         }
 
@@ -196,16 +212,16 @@ public class ModStructureDataBuilder {
 
         // actually generate the data files and add them to the resource pack
         dataContainer.RESOURCE_PACK.addData(
-                dataContainer.getSimpleID(name+".json", "worldgen/structure_set"),
-                structure_set.toString().getBytes()
+            dataContainer.getSimpleID(name + ".json", "worldgen/structure_set"),
+            structure_set.toString().getBytes()
         );
 
         return this;
     }
 
     // generate the json for the structure template pool
-    public ModStructureDataBuilder buildStructurePool(DatagenModContainer dataContainer){
-        if(name == null || type == null) throw new IllegalStateException("Name or type is somehow null");
+    public ModStructureDataBuilder buildStructurePool(DatagenModContainer dataContainer) {
+        if (name == null || type == null) throw new IllegalStateException("Name or type is somehow null");
 
         JsonObject structure_pool = new JsonObject();
 
@@ -215,12 +231,12 @@ public class ModStructureDataBuilder {
         structureElement.addProperty("projection", structure_projection);
         structureElement.addProperty("element_type", "minecraft:single_pool_element");
 
-        JProcessor.addToResourcePack(dataContainer, name+"_processor" , processors.toArray(JProcessor[]::new));
-        structureElement.addProperty("processors", dataContainer.getStringID(name+"_processor"));
+        JProcessor.addToResourcePack(dataContainer, name + "_processor", processors.toArray(JProcessor[]::new));
+        structureElement.addProperty("processors", dataContainer.getStringID(name + "_processor"));
 
         //create a new object containing the weight for the element
         var element = new JsonObject();
-        element.addProperty("weight",structure_pool_weight);
+        element.addProperty("weight", structure_pool_weight);
         element.add("element", structureElement);
 
         //add the element to the elements array
@@ -233,8 +249,8 @@ public class ModStructureDataBuilder {
 
         // actually generate the data files and add them to the resource pack
         dataContainer.RESOURCE_PACK.addData(
-                dataContainer.getSimpleID(name+".json", "worldgen/template_pool"),
-                structure_pool.toString().getBytes()
+            dataContainer.getSimpleID(name + ".json", "worldgen/template_pool"),
+            structure_pool.toString().getBytes()
         );
 
         return this;

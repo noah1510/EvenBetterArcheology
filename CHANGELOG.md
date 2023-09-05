@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-alpha.10
+
+* Fix underwater structures
+* Move away from some deprecated apis
+* Prepare for datafixing better archeology
+* Moving all data declarations into registry package
+* Creating a mixin plugin to handle mixin loading for mods that are loaded
+
 ## 2.0.0-alpha.9
 
 * Enable seas bounty enchantment

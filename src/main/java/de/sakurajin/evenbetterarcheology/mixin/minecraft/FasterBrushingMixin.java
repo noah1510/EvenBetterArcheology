@@ -1,4 +1,4 @@
-package de.sakurajin.evenbetterarcheology.mixin;
+package de.sakurajin.evenbetterarcheology.mixin.minecraft;
 
 import de.sakurajin.evenbetterarcheology.api.item.BetterBrushItem;
 import net.minecraft.block.entity.BrushableBlockEntity;
