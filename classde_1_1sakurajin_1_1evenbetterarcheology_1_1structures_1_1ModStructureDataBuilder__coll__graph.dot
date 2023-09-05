@@ -6,6 +6,8 @@ digraph "de.sakurajin.evenbetterarcheology.structures.ModStructureDataBuilder"
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
   Node1 [label="de.sakurajin.evenbetterarcheology.structures.\lModStructureDataBuilder",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
-  Node2 -> Node1 [dir="back",color="darkorchid3",style="dashed",label=" processors" ];
-  Node2 [label="ArrayList\< de.sakurajin.evenbetterarcheology.api.\lDatagenEngine.json.worldgen.processor.JProcessor \>",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="darkorchid3",style="dashed",label=" structureBiomeID" ];
+  Node2 [label="Identifier",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node3 -> Node1 [dir="back",color="darkorchid3",style="dashed",label=" processors" ];
+  Node3 [label="ArrayList\< de.sakurajin.evenbetterarcheology.api.\lDatagenEngine.json.worldgen.processor.JProcessor \>",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
 }

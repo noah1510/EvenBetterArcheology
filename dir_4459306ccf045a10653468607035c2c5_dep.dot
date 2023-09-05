@@ -13,15 +13,16 @@ digraph "evenbetterarcheology"
   dir_57799d9d50d0036b87fa9ec9caa8eebf [label="api", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_57799d9d50d0036b87fa9ec9caa8eebf.html",tooltip=""];
   dir_1738a2a0b38ad0c4c8a19b37b3593541 [label="block", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_1738a2a0b38ad0c4c8a19b37b3593541.html",tooltip=""];
   dir_43d856a9607318a24ff78460221f87c7 [label="compatibility", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_43d856a9607318a24ff78460221f87c7.html",tooltip=""];
+  dir_4948e0111e013f3bb1727e5e83dbb0e2 [label="datafix", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_4948e0111e013f3bb1727e5e83dbb0e2.html",tooltip=""];
   dir_1755ad48b8f69a5b708869d54b3ec9ce [label="enchantment", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_1755ad48b8f69a5b708869d54b3ec9ce.html",tooltip=""];
   dir_633912bb04ff9898484493ef4b78db89 [label="entity", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_633912bb04ff9898484493ef4b78db89.html",tooltip=""];
   dir_119f13e9235d6949e8665af64b5cba82 [label="item", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_119f13e9235d6949e8665af64b5cba82.html",tooltip=""];
   dir_e2923f6eb5bee160416695ae6f614e84 [label="mixin", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_e2923f6eb5bee160416695ae6f614e84.html",tooltip=""];
   dir_91135077b18e22c4cdc588003091b8c7 [label="networking", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_91135077b18e22c4cdc588003091b8c7.html",tooltip=""];
+  dir_2e0c957d422ee0307fe60e25e8441260 [label="registry", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_2e0c957d422ee0307fe60e25e8441260.html",tooltip=""];
   dir_5872fc0dcae002c71a14de3c65869135 [label="screen", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_5872fc0dcae002c71a14de3c65869135.html",tooltip=""];
   dir_5d752779261a40c96170304cafcaa0a8 [label="structures", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_5d752779261a40c96170304cafcaa0a8.html",tooltip=""];
   dir_0867bf94c6c743cad52f031635e5df48 [label="util", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_0867bf94c6c743cad52f031635e5df48.html",tooltip=""];
-  dir_a87a21ac50fa38c920037f3c9c596cdc [label="villager", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_a87a21ac50fa38c920037f3c9c596cdc.html",tooltip=""];
   }
   }
 }

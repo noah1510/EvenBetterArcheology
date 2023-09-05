@@ -11,5 +11,5 @@ digraph "de.sakurajin.evenbetterarcheology.api.DatagenEngine.Containers.ParsedIt
   Node3 -> Node1 [dir="back",color="steelblue1",style="solid"];
   Node3 [label="ItemRegistryContainer",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
   Node1 -> Node4 [dir="back",color="steelblue1",style="solid"];
-  Node4 [label="de.sakurajin.evenbetterarcheology.item.\lModItems",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classde_1_1sakurajin_1_1evenbetterarcheology_1_1item_1_1ModItems.html",tooltip=" "];
+  Node4 [label="de.sakurajin.evenbetterarcheology.registry.\lModItems",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModItems.html",tooltip=" "];
 }

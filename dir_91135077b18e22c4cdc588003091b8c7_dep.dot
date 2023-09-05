@@ -7,10 +7,6 @@ digraph "networking"
   compound=true
   subgraph clusterdir_4459306ccf045a10653468607035c2c5 {
     graph [ bgcolor="#edf0f7", pencolor="grey50", label="evenbetterarcheology", fontname=Helvetica,fontsize=10 style="filled,dashed", URL="dir_4459306ccf045a10653468607035c2c5.html",tooltip=""]
-  subgraph clusterdir_91135077b18e22c4cdc588003091b8c7 {
-    graph [ bgcolor="#edf0f7", pencolor="grey25", label="", fontname=Helvetica,fontsize=10 style="filled,bold", URL="dir_91135077b18e22c4cdc588003091b8c7.html",tooltip=""]
-    dir_91135077b18e22c4cdc588003091b8c7 [shape=plaintext, label="networking"];
-  dir_2cc5caac5c463c8f3475805a6df26b3e [label="packet", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_2cc5caac5c463c8f3475805a6df26b3e.html",tooltip=""];
-  }
+  dir_91135077b18e22c4cdc588003091b8c7 [label="networking", fillcolor="#edf0f7", color="grey25", style="filled,bold", URL="dir_91135077b18e22c4cdc588003091b8c7.html",tooltip=""];
   }
 }

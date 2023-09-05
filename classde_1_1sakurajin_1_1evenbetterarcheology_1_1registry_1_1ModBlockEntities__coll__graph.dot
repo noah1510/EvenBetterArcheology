@@ -1,0 +1,19 @@
+digraph "de.sakurajin.evenbetterarcheology.registry.ModBlockEntities"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [label="de.sakurajin.evenbetterarcheology.registry.\lModBlockEntities",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="darkorchid3",style="dashed",label=" ARCHEOLOGY_TABLE" ];
+  Node2 [label="BlockEntityType\< de.sakurajin.evenbetterarcheology.block.entity.\lArcheologyTableBlockEntity \>",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node3 -> Node1 [dir="back",color="darkorchid3",style="dashed",label=" VILLAGER_FOSSIL" ];
+  Node3 [label="BlockEntityType\< de.sakurajin.evenbetterarcheology.block.fossils.block\lEntity.VillagerFossilBlockEntity \>",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node4 -> Node1 [dir="back",color="darkorchid3",style="dashed",label=" CHICKEN_FOSSIL" ];
+  Node4 [label="BlockEntityType\< de.sakurajin.evenbetterarcheology.block.fossils.block\lEntity.ChickenFossilBlockEntity \>",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node5 -> Node1 [dir="back",color="darkorchid3",style="dashed",label=" FLEE_FROM" ];
+  Node5 [label="BlockEntityType\< de.sakurajin.evenbetterarcheology.block.fossils.block\lEntity.FleeFromBlockEntity \>",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node6 -> Node1 [dir="back",color="darkorchid3",style="dashed",label=" SUSBLOCK" ];
+  Node6 [label="BlockEntityType\< de.sakurajin.evenbetterarcheology.block.entity.\lSusBlockEntity \>",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+}

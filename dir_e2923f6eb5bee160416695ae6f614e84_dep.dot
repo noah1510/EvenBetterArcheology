@@ -7,6 +7,10 @@ digraph "mixin"
   compound=true
   subgraph clusterdir_4459306ccf045a10653468607035c2c5 {
     graph [ bgcolor="#edf0f7", pencolor="grey50", label="evenbetterarcheology", fontname=Helvetica,fontsize=10 style="filled,dashed", URL="dir_4459306ccf045a10653468607035c2c5.html",tooltip=""]
-  dir_e2923f6eb5bee160416695ae6f614e84 [label="mixin", fillcolor="#edf0f7", color="grey25", style="filled,bold", URL="dir_e2923f6eb5bee160416695ae6f614e84.html",tooltip=""];
+  subgraph clusterdir_e2923f6eb5bee160416695ae6f614e84 {
+    graph [ bgcolor="#edf0f7", pencolor="grey25", label="", fontname=Helvetica,fontsize=10 style="filled,bold", URL="dir_e2923f6eb5bee160416695ae6f614e84.html",tooltip=""]
+    dir_e2923f6eb5bee160416695ae6f614e84 [shape=plaintext, label="mixin"];
+  dir_ed3b973c8b3255e867adecc7a8c18624 [label="minecraft", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_ed3b973c8b3255e867adecc7a8c18624.html",tooltip=""];
+  }
   }
 }

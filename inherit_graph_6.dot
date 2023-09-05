@@ -9,11 +9,11 @@ digraph "Graphical Class Hierarchy"
   Node0 -> Node1 [dir="back",color="steelblue1",style="solid"];
   Node1 [label="de.sakurajin.evenbetterarcheology.api.\lDatagenEngine.Containers.ParsedBlockRegistry\lContainer",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classde_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1DatagenEngine_1_1Containers_1_1ParsedBlockRegistryContainer.html",tooltip="A ParsedBlockRegistryContainer is a Block Registry Container that works with the DatagenAPI."];
   Node1 -> Node2 [dir="back",color="steelblue1",style="solid"];
-  Node2 [label="de.sakurajin.evenbetterarcheology.block.\lModBlocks",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classde_1_1sakurajin_1_1evenbetterarcheology_1_1block_1_1ModBlocks.html",tooltip=" "];
+  Node2 [label="de.sakurajin.evenbetterarcheology.registry.\lModBlocks",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModBlocks.html",tooltip=" "];
   Node0 -> Node4 [dir="back",color="steelblue1",style="solid"];
   Node4 [label="de.sakurajin.evenbetterarcheology.api.\lDatagenEngine.Containers.ParsedItemRegistry\lContainer",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classde_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1DatagenEngine_1_1Containers_1_1ParsedItemRegistryContainer.html",tooltip="A ParsedItemRegistryContainer is a Item Registry Container that works with the DatagenAPI."];
   Node4 -> Node5 [dir="back",color="steelblue1",style="solid"];
-  Node5 [label="de.sakurajin.evenbetterarcheology.item.\lModItems",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classde_1_1sakurajin_1_1evenbetterarcheology_1_1item_1_1ModItems.html",tooltip=" "];
+  Node5 [label="de.sakurajin.evenbetterarcheology.registry.\lModItems",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModItems.html",tooltip=" "];
   Node3 [label="BlockRegistryContainer",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
   Node3 -> Node1 [dir="back",color="steelblue1",style="solid"];
   Node6 [label="ItemRegistryContainer",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
