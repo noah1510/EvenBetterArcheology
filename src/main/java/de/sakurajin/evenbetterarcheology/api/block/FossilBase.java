@@ -1,7 +1,7 @@
 package de.sakurajin.evenbetterarcheology.api.block;
 
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.DataGenerateable;
+import de.sakurajin.sakuralib.util.DatagenModContainer;
+import de.sakurajin.sakuralib.Interfaces.DataGenerateable;
 import net.minecraft.block.*;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;

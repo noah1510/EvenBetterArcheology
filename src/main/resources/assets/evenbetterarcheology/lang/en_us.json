@@ -85,14 +85,20 @@
   "entity.minecraft.villager.archeologist": "Archeologist",
 
   "enchantment.evenbetterarcheology.penetrating_strike": "Penetrating Strike",
+  "enchantment.evenbetterarcheology.penetrating_strike.desc": "Partially ignores effects of Protection Enchantments",
   "item.evenbetterarcheology.penetrating_strike_tooltip": "Partially ignores effects of Protection Enchantments",
-  "enchantment.evenbetterarcheology.seas_bounty": "Sea's Bounty",
-  "item.evenbetterarcheology.seas_bounty_tooltip": "Catch a wider variety of treasures from the depths",
-  "enchantment.evenbetterarcheology.soaring_winds": "Soaring Winds",
-  "item.evenbetterarcheology.soaring_winds_tooltip": "Harnesses winds to give a startup-boost when using an Elytra",
-  "enchantment.evenbetterarcheology.tunneling": "Tunneling",
-  "item.evenbetterarcheology.tunneling_tooltip": "Also breaks the Block below the mined block",
 
+  "enchantment.evenbetterarcheology.seas_bounty": "Sea's Bounty",
+  "enchantment.evenbetterarcheology.seas_bounty.desc": "Catch a wider variety of treasures from the depths",
+  "item.evenbetterarcheology.seas_bounty_tooltip": "Catch a wider variety of treasures from the depths",
+
+  "enchantment.evenbetterarcheology.soaring_winds": "Soaring Winds",
+  "enchantment.evenbetterarcheology.soaring_winds.desc": "Harnesses winds to give a startup-boost when using an Elytra",
+  "item.evenbetterarcheology.soaring_winds_tooltip": "Harnesses winds to give a startup-boost when using an Elytra",
+
+  "enchantment.evenbetterarcheology.tunneling": "Tunneling",
+  "enchantment.evenbetterarcheology.tunneling.desc": "Also breaks the Block below the mined block",
+  "item.evenbetterarcheology.tunneling_tooltip": "Also breaks the Block below the mined block",
 
   "text.config.even_better_archeology.section.enchantments": "Enchantment Options",
 

@@ -1,15 +1,9 @@
 package de.sakurajin.evenbetterarcheology.compatibility;
 
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
+import de.sakurajin.sakuralib.util.DatagenModContainer;
 import net.fabricmc.loader.api.FabricLoader;
-import net.levelz.stats.Skill;
-import net.minecraft.util.Pair;
 
-import java.lang.invoke.MethodHandle;
-import java.lang.invoke.MethodHandles;
-import java.lang.invoke.MethodType;
-
-public class LevelZ {
+public class LevelZCompat {
 
     //private static Skill ARCHEOLOGY;
     public static void init(DatagenModContainer container) {

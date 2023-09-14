@@ -1,8 +1,8 @@
 package de.sakurajin.evenbetterarcheology.structures;
 
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.json.worldgen.processor.JProcessor;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.json.worldgen.processor.ProcessorRule;
+import de.sakurajin.sakuralib.util.DatagenModContainer;
+import de.sakurajin.sakuralib.json.worldgen.processor.JProcessor;
+import de.sakurajin.sakuralib.json.worldgen.processor.ProcessorRule;
 
 import java.util.HashMap;
 

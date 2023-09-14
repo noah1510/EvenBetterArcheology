@@ -1,8 +1,8 @@
 package de.sakurajin.evenbetterarcheology.block.custom;
 
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Interfaces.DataGenerateable;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.Blocks.CubeAll;
+import de.sakurajin.sakuralib.util.DatagenModContainer;
+import de.sakurajin.sakuralib.Interfaces.DataGenerateable;
+import de.sakurajin.sakuralib.Presets.Blocks.CubeAll;
 import net.minecraft.block.Block;
 import net.minecraft.block.InfestedBlock;
 import net.minecraft.item.ItemConvertible;

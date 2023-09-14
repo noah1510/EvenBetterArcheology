@@ -1,6 +1,6 @@
 package de.sakurajin.evenbetterarcheology.item;
 
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.Item.CraftableItem;
+import de.sakurajin.sakuralib.Presets.Item.CraftableItem;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;

@@ -4,7 +4,6 @@ package de.sakurajin.evenbetterarcheology.registry;
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import de.sakurajin.evenbetterarcheology.block.entity.ArcheologyTableBlockEntity;
 import de.sakurajin.evenbetterarcheology.block.entity.SusBlockEntity;
-import de.sakurajin.evenbetterarcheology.registry.ModBlocks;
 import de.sakurajin.evenbetterarcheology.block.fossils.blockEntity.ChickenFossilBlockEntity;
 import de.sakurajin.evenbetterarcheology.block.fossils.blockEntity.FleeFromBlockEntity;
 import de.sakurajin.evenbetterarcheology.block.fossils.blockEntity.VillagerFossilBlockEntity;

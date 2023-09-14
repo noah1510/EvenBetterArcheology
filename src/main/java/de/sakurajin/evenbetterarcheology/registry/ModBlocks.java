@@ -1,10 +1,10 @@
 package de.sakurajin.evenbetterarcheology.registry;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Containers.ParsedBlockRegistryContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.Blocks.*;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.GeneratedWoodType;
+import de.sakurajin.sakuralib.Containers.ParsedBlockRegistryContainer;
+import de.sakurajin.sakuralib.util.DatagenModContainer;
+import de.sakurajin.sakuralib.Presets.Blocks.*;
+import de.sakurajin.sakuralib.Presets.GeneratedWoodType;
 import de.sakurajin.evenbetterarcheology.block.custom.*;
 import de.sakurajin.evenbetterarcheology.block.fossils.*;
 import net.devtech.arrp.json.recipe.JIngredient;
@@ -77,13 +77,11 @@ public class ModBlocks extends ParsedBlockRegistryContainer {
 
 
     //-----------ROTTEN WOOD-------------//
-
-    public static final GeneratedWoodType ROTTEN_WOOD_TYPE = new GeneratedWoodType(
-            "rotten_wood",
-            EvenBetterArcheology.DATA,
-            "minecraft:oak",
-            new GeneratedWoodType.SettingsOverride[]{settings -> settings.sounds(BlockSoundGroup.NETHER_STEM)}
-    );
+    public static final GeneratedWoodType ROTTEN_WOOD_TYPE = GeneratedWoodType.GeneratedWoodTypeBuilder
+        .create("rotten_wood")
+        .baseWoodTypeString("minecraft:oak")
+        .addSettingsOverride(settings -> settings.sounds(BlockSoundGroup.NETHER_STEM))
+        .build(EvenBetterArcheology.DATA);
 
     public static final Block ROTTEN_WOOD_LOG = ROTTEN_WOOD_TYPE.getLog(new GeneratedWoodType.GenerationSettings(
             new DatagenModContainer.BlockLootOptions(true, "minecraft:stick", 8)));

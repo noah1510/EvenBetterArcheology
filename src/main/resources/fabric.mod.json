@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "evenbetterarcheology",
-  "version": "${version}",
+  "version": "${mod_version}",
 
   "name": "Even Better Archeology",
   "description": "Discover artifacts & fossils by encountering new structures that'll enhance your adventure and exploration!",
@@ -40,6 +40,7 @@
     "minecraft": "~1.20",
     "java": ">=17",
     "owo-lib": "*",
+    "sakuralib": ">=${sakuralib_version}",
     "advanced_runtime_resource_pack": ">=0.8.0"
   },
   "suggests": {
@@ -67,6 +68,9 @@
         "elytra-slot(optional)",
         "betterarcheology(incompatible)"
       ]
+    },
+    "sakuralib": {
+      "format_version": 1
     }
   }
 }

@@ -2,10 +2,8 @@ package de.sakurajin.evenbetterarcheology.structures;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.TagIdentifier;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.json.worldgen.processor.JProcessor;
-import net.minecraft.structure.StructureSet;
+import de.sakurajin.sakuralib.util.DatagenModContainer;
+import de.sakurajin.sakuralib.json.worldgen.processor.JProcessor;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.NotNull;
 

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0-beta.1
+
+* Use now external sakuralib for datagen (by default it is included in the jar)
+* Adding enchantment descriptions (works when enchantment descriptions mod is installed)
+* Setting sakuralib format_version to 1
+
 ## 2.0.0-alpha.10
 
 * Fix underwater structures

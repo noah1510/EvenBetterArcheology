@@ -1,7 +1,7 @@
 package de.sakurajin.evenbetterarcheology;
 
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.compatibility.LevelZ;
+import de.sakurajin.sakuralib.util.DatagenModContainer;
+import de.sakurajin.evenbetterarcheology.compatibility.LevelZCompat;
 import de.sakurajin.evenbetterarcheology.registry.*;
 import de.sakurajin.evenbetterarcheology.structures.StructureDataGenerator;
 import de.sakurajin.evenbetterarcheology.util.evenbetterarcheologyConfig;
@@ -48,7 +48,7 @@ public class EvenBetterArcheology implements ModInitializer {
 		var structureData = new StructureDataGenerator(DATA);
 
 		//load all compatibility stuff
-		LevelZ.init(DATA);
+		LevelZCompat.init(DATA);
 
 		//generate all tags
 		DATA.registerAllTags();

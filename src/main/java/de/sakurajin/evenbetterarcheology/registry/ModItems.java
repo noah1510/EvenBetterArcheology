@@ -1,14 +1,14 @@
 package de.sakurajin.evenbetterarcheology.registry;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.DatagenModContainer;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Presets.Item.CraftableItem;
+import de.sakurajin.sakuralib.util.DatagenModContainer;
+import de.sakurajin.sakuralib.Presets.Item.CraftableItem;
+import de.sakurajin.sakuralib.Containers.ParsedItemRegistryContainer;
 import de.sakurajin.evenbetterarcheology.api.item.BetterBrushItem;
 import de.sakurajin.evenbetterarcheology.item.BombItem;
 import de.sakurajin.evenbetterarcheology.item.SoulTotemItem;
 import de.sakurajin.evenbetterarcheology.item.TorrentTotemItem;
 import io.wispforest.owo.registration.annotations.AssignedName;
-import de.sakurajin.evenbetterarcheology.api.DatagenEngine.Containers.ParsedItemRegistryContainer;
 import net.devtech.arrp.json.recipe.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
