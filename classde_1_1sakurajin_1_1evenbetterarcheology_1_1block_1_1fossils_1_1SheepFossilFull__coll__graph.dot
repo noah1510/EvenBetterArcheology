@@ -13,7 +13,7 @@ digraph "de.sakurajin.evenbetterarcheology.block.fossils.SheepFossilFull"
   Node4 -> Node3 [dir="back",color="steelblue1",style="solid"];
   Node4 [label="HorizontalFacingBlock",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
   Node5 -> Node3 [dir="back",color="steelblue1",style="solid"];
-  Node5 [label="de.sakurajin.evenbetterarcheology.api.\lDatagenEngine.Interfaces.DataGenerateable",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$interfacede_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1DatagenEngine_1_1Interfaces_1_1DataGenerateable.html",tooltip=" "];
+  Node5 [label="DataGenerateable",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
   Node6 -> Node3 [dir="back",color="darkorchid3",style="dashed",label=" SHAPE_DIRECTED" ];
   Node6 [label="Map\< Direction, VoxelShape \>",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
   Node7 -> Node1 [dir="back",color="darkorchid3",style="dashed",label=" PLAYING" ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['generatedwoodtype_2ejava_0',['GeneratedWoodType.java',['../GeneratedWoodType_8java.html',1,'']]]
+  ['levelzcompat_2ejava_0',['LevelZCompat.java',['../LevelZCompat_8java.html',1,'']]]
 ];

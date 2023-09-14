@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['locationpredicate_0',['LocationPredicate',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1DatagenEngine_1_1json_1_1worldgen_1_1processor_1_1LocationPredicate.html#a449082749fa82457d204bf45afbcf75b',1,'de::sakurajin::evenbetterarcheology::api::DatagenEngine::json::worldgen::processor::LocationPredicate']]],
-  ['locationpredicate_1',['locationPredicate',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1DatagenEngine_1_1json_1_1worldgen_1_1processor_1_1ProcessorRule.html#aa789bd2ed976d25f1935d80441b58ca8',1,'de::sakurajin::evenbetterarcheology::api::DatagenEngine::json::worldgen::processor::ProcessorRule']]]
+  ['neighborupdate_0',['neighborUpdate',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1block_1_1fossils_1_1SheepFossilFull.html#a88bc6f3940f7bc890d04854423e11202',1,'de.sakurajin.evenbetterarcheology.block.fossils.SheepFossilFull.neighborUpdate()'],['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1block_1_1custom_1_1EvokerTrapBlock.html#a7ded0954f9510ed2e0be77987353f5b4',1,'de.sakurajin.evenbetterarcheology.block.custom.EvokerTrapBlock.neighborUpdate()']]]
 ];

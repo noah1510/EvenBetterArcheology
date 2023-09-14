@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jprocessor_2ejava_0',['JProcessor.java',['../JProcessor_8java.html',1,'']]]
+  ['numismatictradehelper_2ejava_0',['NumismaticTradeHelper.java',['../NumismaticTradeHelper_8java.html',1,'']]]
 ];

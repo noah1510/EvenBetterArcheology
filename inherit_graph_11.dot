@@ -5,5 +5,5 @@ digraph "Graphical Class Hierarchy"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [label="de.sakurajin.evenbetterarcheology.api.\lDatagenEngine.json.worldgen.processor.\lPositionPredicate",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classde_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1DatagenEngine_1_1json_1_1worldgen_1_1processor_1_1PositionPredicate.html",tooltip=" "];
+  Node0 [label="de.sakurajin.evenbetterarcheology.mixin.minecraft.\lElytraStartupMixin",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classde_1_1sakurajin_1_1evenbetterarcheology_1_1mixin_1_1minecraft_1_1ElytraStartupMixin.html",tooltip=" "];
 }

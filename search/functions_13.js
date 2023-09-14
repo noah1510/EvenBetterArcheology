@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['usagetick_0',['usageTick',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1item_1_1BetterBrushItem.html#a79148044d1eaa83fb235331da11fa5f6',1,'de::sakurajin::evenbetterarcheology::api::item::BetterBrushItem']]],
-  ['use_1',['use',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1item_1_1BombItem.html#af17437cf4186d2aae87b2f7c6a04fa68',1,'de.sakurajin.evenbetterarcheology.item.BombItem.use()'],['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1item_1_1SoulTotemItem.html#ab30cd603ea1aa7c0e5cddacd311e96fa',1,'de.sakurajin.evenbetterarcheology.item.SoulTotemItem.use()'],['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1item_1_1TorrentTotemItem.html#aa53840d4a4043db3b4187dedebf9a5fa',1,'de.sakurajin.evenbetterarcheology.item.TorrentTotemItem.use()']]]
+  ['writenbt_0',['writeNbt',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1block_1_1entity_1_1ArcheologyTableBlockEntity.html#ae9f8bc506351634940906350d1152320',1,'de.sakurajin.evenbetterarcheology.block.entity.ArcheologyTableBlockEntity.writeNbt()'],['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1block_1_1fossils_1_1blockEntity_1_1VillagerFossilBlockEntity.html#a4120972b447341ea90ea3bdca32951ba',1,'de.sakurajin.evenbetterarcheology.block.fossils.blockEntity.VillagerFossilBlockEntity.writeNbt()']]]
 ];

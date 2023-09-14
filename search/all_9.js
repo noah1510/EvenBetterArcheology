@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['jprocessor_0',['JProcessor',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1DatagenEngine_1_1json_1_1worldgen_1_1processor_1_1JProcessor.html',1,'de.sakurajin.evenbetterarcheology.api.DatagenEngine.json.worldgen.processor.JProcessor'],['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1DatagenEngine_1_1json_1_1worldgen_1_1processor_1_1JProcessor.html#a4124cebb1997c745ba7f03f2df7214c3',1,'de.sakurajin.evenbetterarcheology.api.DatagenEngine.json.worldgen.processor.JProcessor.JProcessor()']]],
-  ['jprocessor_2ejava_1',['JProcessor.java',['../JProcessor_8java.html',1,'']]]
+  ['levelzcompat_0',['LevelZCompat',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1compatibility_1_1LevelZCompat.html',1,'de::sakurajin::evenbetterarcheology::compatibility']]],
+  ['levelzcompat_2ejava_1',['LevelZCompat.java',['../LevelZCompat_8java.html',1,'']]],
+  ['loot_5fvase_2',['LOOT_VASE',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModBlocks.html#a7f8ab119e9dbf71f4dc3e6569fb79f89',1,'de::sakurajin::evenbetterarcheology::registry::ModBlocks']]],
+  ['loot_5fvase_5fcreeper_3',['LOOT_VASE_CREEPER',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModBlocks.html#afed3d2403a7eaf882033f3cb86566adc',1,'de::sakurajin::evenbetterarcheology::registry::ModBlocks']]]
 ];

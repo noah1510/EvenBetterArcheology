@@ -5,9 +5,7 @@ digraph "Graphical Class Hierarchy"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [label="Comparable",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node0 [label="CraftableItem",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
   Node0 -> Node1 [dir="back",color="steelblue1",style="solid"];
-  Node1 [label="de.sakurajin.evenbetterarcheology.api.\lDatagenEngine.json.worldgen.processor.\lLocationPredicate",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classde_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1DatagenEngine_1_1json_1_1worldgen_1_1processor_1_1LocationPredicate.html",tooltip=" "];
-  Node0 -> Node2 [dir="back",color="steelblue1",style="solid"];
-  Node2 [label="de.sakurajin.evenbetterarcheology.api.\lDatagenEngine.json.worldgen.processor.\lProcessorRule",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classde_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1DatagenEngine_1_1json_1_1worldgen_1_1processor_1_1ProcessorRule.html",tooltip=" "];
+  Node1 [label="de.sakurajin.evenbetterarcheology.item.\lTorrentTotemItem",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classde_1_1sakurajin_1_1evenbetterarcheology_1_1item_1_1TorrentTotemItem.html",tooltip=" "];
 }
