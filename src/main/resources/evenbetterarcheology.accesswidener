@@ -3,5 +3,7 @@ accessWidener	v2	named
 #used in CustomSusSandCompatibilityMixin:
 transitive-accessible    method    net/minecraft/item/Item    raycast    (Lnet/minecraft/world/World;Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/world/RaycastContext$FluidHandling;)Lnet/minecraft/util/hit/BlockHitResult;
 transitive-accessible method net/minecraft/item/BrushItem getHitResult (Lnet/minecraft/entity/LivingEntity;)Lnet/minecraft/util/hit/HitResult;
+
+accessible field net/minecraft/loot/LootTable$Builder pools Ljava/util/List;
 #transitive-extendable class net/levelz/stats/Skill
 #transitive-accessible method net/levelz/stats/Skill <init> (ILjava/lang/String;)V

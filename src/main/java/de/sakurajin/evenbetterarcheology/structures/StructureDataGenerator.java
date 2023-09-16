@@ -1,13 +1,20 @@
 package de.sakurajin.evenbetterarcheology.structures;
 
+import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import de.sakurajin.evenbetterarcheology.registry.ModItems;
 import de.sakurajin.sakuralib.util.DatagenModContainer;
 import de.sakurajin.sakuralib.json.worldgen.processor.JProcessor;
 import de.sakurajin.sakuralib.json.worldgen.processor.ProcessorRule;
 
+import net.fabricmc.fabric.api.loot.v2.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
+import net.fabricmc.fabric.mixin.loot.LootTableAccessor;
+import net.minecraft.loot.LootManager;
 import net.minecraft.loot.LootPool;
+import net.minecraft.loot.LootTable;
 import net.minecraft.loot.LootTables;
+import net.minecraft.loot.context.LootContextType;
+import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.util.Identifier;
 
@@ -42,10 +49,17 @@ public class StructureDataGenerator {
 
         LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, setter) -> {
             if (ArcheologyLootTables.contains(id) && setter.isBuiltin()) {
-                LootPool.Builder pool = LootPool
-                    .builder()
-                    .with(ItemEntry.builder(ModItems.ARTIFACT_SHARDS).weight(1));
-                tableBuilder.pool(pool);
+                var lootPools = tableBuilder.pools;
+                if(lootPools.size() != 1){
+                    EvenBetterArcheology.DATA.LOGGER.error("Loot table {} has {} pools, expected 1", id, lootPools.size());
+                }
+
+                lootPools.set(0,
+                    FabricLootPoolBuilder
+                        .copyOf(lootPools.get(0))
+                        .with(ItemEntry.builder(ModItems.ARTIFACT_SHARDS).weight(1))
+                        .build()
+                );
             }
         });
     }

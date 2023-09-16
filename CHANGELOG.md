@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.0-beta.3
+
+* Hotfix for the loot tables (I added the shards as extra pool not entry)
+
 ## 2.0.0-beta.2
 
 * actually have loot in the underwater chests
