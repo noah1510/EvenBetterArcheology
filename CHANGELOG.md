@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-beta.2
+
+* actually have loot in the underwater chests
+* get loot from underwater sus gravel
+* Simplify archeology loot tables
+  * All vanilla archeology loot tables contain artifact shards
+  * Now the custom structures also use the vanilla loot tables (other mod items that are injected into that loot table will also be found in the custom structures)
+
 ## 2.0.0-beta.1
 
 * Use now external sakuralib for datagen (by default it is included in the jar)

@@ -1,10 +1,19 @@
 package de.sakurajin.evenbetterarcheology.structures;
 
+import de.sakurajin.evenbetterarcheology.registry.ModItems;
 import de.sakurajin.sakuralib.util.DatagenModContainer;
 import de.sakurajin.sakuralib.json.worldgen.processor.JProcessor;
 import de.sakurajin.sakuralib.json.worldgen.processor.ProcessorRule;
 
+import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
+import net.minecraft.loot.LootPool;
+import net.minecraft.loot.LootTables;
+import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.util.Identifier;
+
+
 import java.util.HashMap;
+import java.util.List;
 
 public class StructureDataGenerator {
     private final HashMap<String, JProcessor> processorsParts = new HashMap<>();
@@ -17,6 +26,28 @@ public class StructureDataGenerator {
         generateStructureTags(container);
 
         generateStructures(container);
+
+        addArtifactShardsToLootTables();
+    }
+
+    private void addArtifactShardsToLootTables(){
+        final List<Identifier> ArcheologyLootTables = List.of(
+            LootTables.DESERT_WELL_ARCHAEOLOGY,
+            LootTables.DESERT_PYRAMID_ARCHAEOLOGY,
+            LootTables.TRAIL_RUINS_COMMON_ARCHAEOLOGY,
+            LootTables.TRAIL_RUINS_RARE_ARCHAEOLOGY,
+            LootTables.OCEAN_RUIN_WARM_ARCHAEOLOGY,
+            LootTables.OCEAN_RUIN_COLD_ARCHAEOLOGY
+        );
+
+        LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, setter) -> {
+            if (ArcheologyLootTables.contains(id) && setter.isBuiltin()) {
+                LootPool.Builder pool = LootPool
+                    .builder()
+                    .with(ItemEntry.builder(ModItems.ARTIFACT_SHARDS).weight(1));
+                tableBuilder.pool(pool);
+            }
+        });
     }
 
     private void generateArcheologistCamps(DatagenModContainer container) {
@@ -93,6 +124,8 @@ public class StructureDataGenerator {
             ModStructureDataBuilder
                 .create("underwater_" + i, structureType)
                 .addProcessor(processorsParts.get("sussand_underwater"))
+                .addProcessor(processorsParts.get("susgravel_underwater"))
+                .addProcessor(processorsParts.get("chest_underwater"))
                 .structureBiomeID(container.getSimpleID("underwater", "#has_structure"))
                 .buildStructure(container)
                 .buildStructurePool(container);
@@ -257,22 +290,27 @@ public class StructureDataGenerator {
     private void generateProcessorsParts(DatagenModContainer container) {
         processorsParts.put("susdirt_taiga", JProcessor
             .byRule()
-            .rule(ProcessorRule.addLootTable("evenbetterarcheology:suspicious_dirt", "evenbetterarcheology:archeology/taiga_dirt"))
+            .rule(ProcessorRule.addLootTable("evenbetterarcheology:suspicious_dirt", "minecraft:archaeology/desert_pyramid"))
         );
 
         processorsParts.put("susredsand_mesa", JProcessor
             .byRule()
-            .rule(ProcessorRule.addLootTable("evenbetterarcheology:suspicious_red_sand", "evenbetterarcheology:archeology/mesa_red_sand"))
+            .rule(ProcessorRule.addLootTable("evenbetterarcheology:suspicious_red_sand", "minecraft:archaeology/desert_pyramid"))
         );
 
         processorsParts.put("sussand_desert", JProcessor
             .byRule()
-            .rule(ProcessorRule.addLootTable("minecraft:suspicious_sand", "evenbetterarcheology:archeology/desert_sand"))
+            .rule(ProcessorRule.addLootTable("minecraft:suspicious_sand", "minecraft:archaeology/desert_well"))
         );
 
         processorsParts.put("sussand_underwater", JProcessor
             .byRule()
-            .rule(ProcessorRule.addLootTable("minecraft:suspicious_sand", "evenbetterarcheology:archeology/sussand_underwater"))
+            .rule(ProcessorRule.addLootTable("minecraft:suspicious_sand", "minecraft:archaeology/ocean_ruin_warm"))
+        );
+
+        processorsParts.put("susgravel_underwater", JProcessor
+            .byRule()
+            .rule(ProcessorRule.addLootTable("minecraft:suspicious_gravel", "minecraft:archaeology/ocean_ruin_cold"))
         );
 
         processorsParts.put("fossil_chicken", JProcessor
@@ -319,7 +357,7 @@ public class StructureDataGenerator {
             "minecraft:gravel",
             "minecraft:suspicious_gravel",
             0.1,
-            "evenbetterarcheology:archeology/plains_gravel"
+            "minecraft:archaeology/desert_pyramid"
         )));
 
         processorsParts.put("sandstone_to_cut_sandstone_0.15", JProcessor.byRule().rule(ProcessorRule.replaceBlock(

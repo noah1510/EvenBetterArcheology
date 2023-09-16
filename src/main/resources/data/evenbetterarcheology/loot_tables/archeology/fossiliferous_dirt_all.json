@@ -8,17 +8,12 @@
         {
           "type": "minecraft:item",
           "weight": 1,
-          "name": "evenbetterarcheology:ocelot_fossil_head"
+          "name": "minecraft:bone"
         },
         {
           "type": "minecraft:item",
           "weight": 1,
-          "name": "evenbetterarcheology:ocelot_fossil_body"
-        },
-        {
-          "type": "minecraft:loot_table",
-          "name": "evenbetterarcheology:archeology/fossiliferous_dirt_all",
-          "weight": 4
+          "name": "minecraft:bone_meal"
         }
       ]
     }

@@ -16,14 +16,9 @@
           "name": "evenbetterarcheology:villager_fossil_body"
         },
         {
-          "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:bone"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:bone_meal"
+          "type": "minecraft:loot_table",
+          "name": "evenbetterarcheology:archeology/fossiliferous_dirt_all",
+          "weight": 4
         }
       ]
     }
