@@ -10,7 +10,6 @@ var searchData=
   ['modmessages_2ejava_7',['ModMessages.java',['../ModMessages_8java.html',1,'']]],
   ['modscreenhandlers_2ejava_8',['ModScreenHandlers.java',['../ModScreenHandlers_8java.html',1,'']]],
   ['modstructure_2ejava_9',['ModStructure.java',['../ModStructure_8java.html',1,'']]],
-  ['modstructuredatabuilder_2ejava_10',['ModStructureDataBuilder.java',['../ModStructureDataBuilder_8java.html',1,'']]],
-  ['modstructures_2ejava_11',['ModStructures.java',['../ModStructures_8java.html',1,'']]],
-  ['modvillagers_2ejava_12',['ModVillagers.java',['../ModVillagers_8java.html',1,'']]]
+  ['modstructures_2ejava_10',['ModStructures.java',['../ModStructures_8java.html',1,'']]],
+  ['modvillagers_2ejava_11',['ModVillagers.java',['../ModVillagers_8java.html',1,'']]]
 ];

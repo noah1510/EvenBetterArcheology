@@ -1,12 +1,15 @@
 var searchData=
 [
-  ['rotten_5fwood_5fdoor_0',['ROTTEN_WOOD_DOOR',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModBlocks.html#abf15fcb26e9c006c5376ff5ffd9f0852',1,'de::sakurajin::evenbetterarcheology::registry::ModBlocks']]],
-  ['rotten_5fwood_5ffence_1',['ROTTEN_WOOD_FENCE',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModBlocks.html#ae7b14479e4c0027ea91b99a1ad29fad0',1,'de::sakurajin::evenbetterarcheology::registry::ModBlocks']]],
-  ['rotten_5fwood_5ffence_5fgate_2',['ROTTEN_WOOD_FENCE_GATE',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModBlocks.html#a7d41c81d256f3b485d77c715ee7c0011',1,'de::sakurajin::evenbetterarcheology::registry::ModBlocks']]],
-  ['rotten_5fwood_5flog_3',['ROTTEN_WOOD_LOG',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModBlocks.html#af6c68bd13e8ad7e97f5ef055e770fd39',1,'de::sakurajin::evenbetterarcheology::registry::ModBlocks']]],
-  ['rotten_5fwood_5fplanks_4',['ROTTEN_WOOD_PLANKS',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModBlocks.html#a3e1755f05b9290dd60b13ea8b4aa505b',1,'de::sakurajin::evenbetterarcheology::registry::ModBlocks']]],
-  ['rotten_5fwood_5fslab_5',['ROTTEN_WOOD_SLAB',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModBlocks.html#a83af57186a871b9a35858034cce14147',1,'de::sakurajin::evenbetterarcheology::registry::ModBlocks']]],
-  ['rotten_5fwood_5fstairs_6',['ROTTEN_WOOD_STAIRS',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModBlocks.html#aeefcaf1de548ab509b9553a85aa4939d',1,'de::sakurajin::evenbetterarcheology::registry::ModBlocks']]],
-  ['rotten_5fwood_5ftrapdoor_7',['ROTTEN_WOOD_TRAPDOOR',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModBlocks.html#a08273a27aca26d52be7f6e54b8776abd',1,'de::sakurajin::evenbetterarcheology::registry::ModBlocks']]],
-  ['rotten_5fwood_5ftype_8',['ROTTEN_WOOD_TYPE',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModBlocks.html#a28d92ad4cec420c6f43a2f05319c5465',1,'de::sakurajin::evenbetterarcheology::registry::ModBlocks']]]
+  ['seas_5fbounty_0',['SEAS_BOUNTY',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModEnchantments.html#ac7ba7dbc1e5c9c73fa22166888ef6fa6',1,'de::sakurajin::evenbetterarcheology::registry::ModEnchantments']]],
+  ['shape_5fdirected_1',['SHAPE_DIRECTED',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1block_1_1FossilBase.html#a107dce5796a091710204dee7074acefe',1,'de::sakurajin::evenbetterarcheology::api::block::FossilBase']]],
+  ['sheep_5ffossil_2',['SHEEP_FOSSIL',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModBlocks.html#a02fddca43e660b88d94faf618d419cb5',1,'de::sakurajin::evenbetterarcheology::registry::ModBlocks']]],
+  ['sheep_5ffossil_5fbody_3',['SHEEP_FOSSIL_BODY',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModBlocks.html#a09db47aa023bea0172c683b777e1e652',1,'de::sakurajin::evenbetterarcheology::registry::ModBlocks']]],
+  ['sheep_5ffossil_5fhead_4',['SHEEP_FOSSIL_HEAD',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModBlocks.html#a00ac5a340949c5f6385d3a31440dbd4d',1,'de::sakurajin::evenbetterarcheology::registry::ModBlocks']]],
+  ['soaring_5fwinds_5',['SOARING_WINDS',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModEnchantments.html#aa0b815b9ce78b326c191616c46dd3347',1,'de::sakurajin::evenbetterarcheology::registry::ModEnchantments']]],
+  ['soaring_5fwinds_5fboost_6',['SOARING_WINDS_BOOST',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1util_1_1ModConfigModel.html#a8df2ff8e370c9a546962af9311e1a44b',1,'de::sakurajin::evenbetterarcheology::util::ModConfigModel']]],
+  ['soaring_5fwinds_5fmaxlevel_7',['SOARING_WINDS_MAXLEVEL',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1util_1_1ModConfigModel.html#a46c52de2f27bc477797b3f3841714f0c',1,'de::sakurajin::evenbetterarcheology::util::ModConfigModel']]],
+  ['soul_5ftotem_8',['SOUL_TOTEM',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModItems.html#a124fd500ad0e762a5685f8d692ea706d',1,'de::sakurajin::evenbetterarcheology::registry::ModItems']]],
+  ['susblock_9',['SUSBLOCK',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModBlockEntities.html#aab7118bb3268826fb25ac207c88484c7',1,'de::sakurajin::evenbetterarcheology::registry::ModBlockEntities']]],
+  ['suspicious_5fdirt_10',['SUSPICIOUS_DIRT',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModBlocks.html#ae3f13c405ae193419e2fb0044f12f8ea',1,'de::sakurajin::evenbetterarcheology::registry::ModBlocks']]],
+  ['suspicious_5fred_5fsand_11',['SUSPICIOUS_RED_SAND',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModBlocks.html#a006879bf8e84c8659359e91417449c5f',1,'de::sakurajin::evenbetterarcheology::registry::ModBlocks']]]
 ];

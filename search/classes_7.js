@@ -10,7 +10,6 @@ var searchData=
   ['modmessages_7',['ModMessages',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModMessages.html',1,'de::sakurajin::evenbetterarcheology::registry']]],
   ['modscreenhandlers_8',['ModScreenHandlers',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModScreenHandlers.html',1,'de::sakurajin::evenbetterarcheology::registry']]],
   ['modstructure_9',['ModStructure',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1structures_1_1ModStructure.html',1,'de::sakurajin::evenbetterarcheology::structures']]],
-  ['modstructuredatabuilder_10',['ModStructureDataBuilder',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1structures_1_1ModStructureDataBuilder.html',1,'de::sakurajin::evenbetterarcheology::structures']]],
-  ['modstructures_11',['ModStructures',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModStructures.html',1,'de::sakurajin::evenbetterarcheology::registry']]],
-  ['modvillagers_12',['ModVillagers',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModVillagers.html',1,'de::sakurajin::evenbetterarcheology::registry']]]
+  ['modstructures_10',['ModStructures',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModStructures.html',1,'de::sakurajin::evenbetterarcheology::registry']]],
+  ['modvillagers_11',['ModVillagers',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModVillagers.html',1,'de::sakurajin::evenbetterarcheology::registry']]]
 ];

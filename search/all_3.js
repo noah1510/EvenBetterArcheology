@@ -22,6 +22,5 @@ var searchData=
   ['registry_19',['registry',['../namespacede_1_1sakurajin_1_1evenbetterarcheology_1_1registry.html',1,'de::sakurajin::evenbetterarcheology']]],
   ['screen_20',['screen',['../namespacede_1_1sakurajin_1_1evenbetterarcheology_1_1screen.html',1,'de::sakurajin::evenbetterarcheology']]],
   ['structures_21',['structures',['../namespacede_1_1sakurajin_1_1evenbetterarcheology_1_1structures.html',1,'de::sakurajin::evenbetterarcheology']]],
-  ['util_22',['util',['../namespacede_1_1sakurajin_1_1evenbetterarcheology_1_1util.html',1,'de::sakurajin::evenbetterarcheology']]],
-  ['villager_23',['villager',['../namespacede_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1villager.html',1,'de::sakurajin::evenbetterarcheology::api']]]
+  ['util_22',['util',['../namespacede_1_1sakurajin_1_1evenbetterarcheology_1_1util.html',1,'de::sakurajin::evenbetterarcheology']]]
 ];

@@ -11,8 +11,5 @@ var searchData=
   ['bombentity_2ejava_8',['BombEntity.java',['../BombEntity_8java.html',1,'']]],
   ['bombitem_9',['BombItem',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1item_1_1BombItem.html#ab24f5c83ba8401da4d6803b16f6e0bbe',1,'de.sakurajin.evenbetterarcheology.item.BombItem.BombItem()'],['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1item_1_1BombItem.html',1,'de.sakurajin.evenbetterarcheology.item.BombItem']]],
   ['bombitem_2ejava_10',['BombItem.java',['../BombItem_8java.html',1,'']]],
-  ['builder_11',['Builder',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1item_1_1BetterBrushItem.html#a0a9f3b82c8e9fff5d2fa3cfe1be7b92f',1,'de::sakurajin::evenbetterarcheology::api::item::BetterBrushItem']]],
-  ['buildstructure_12',['buildStructure',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1structures_1_1ModStructureDataBuilder.html#af9bec0b1835bcbcb588ddfe65e09aaf7',1,'de::sakurajin::evenbetterarcheology::structures::ModStructureDataBuilder']]],
-  ['buildstructurepool_13',['buildStructurePool',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1structures_1_1ModStructureDataBuilder.html#acdbddc35aa259a081e3967d1ed30c0ca',1,'de::sakurajin::evenbetterarcheology::structures::ModStructureDataBuilder']]],
-  ['buildstructureset_14',['buildStructureSet',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1structures_1_1ModStructureDataBuilder.html#a2b3c7a92a2301a233ce4ce6deff46ae3',1,'de::sakurajin::evenbetterarcheology::structures::ModStructureDataBuilder']]]
+  ['builder_11',['Builder',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1item_1_1BetterBrushItem.html#a0a9f3b82c8e9fff5d2fa3cfe1be7b92f',1,'de::sakurajin::evenbetterarcheology::api::item::BetterBrushItem']]]
 ];
