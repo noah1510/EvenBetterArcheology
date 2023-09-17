@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.0-beta.4
+
+* Update sakuralib to 1.2.2 (fixes a crash in singelplayer and removes several classes)
+
 ## 2.0.0-beta.3
 
 * Hotfix for the loot tables (I added the shards as extra pool not entry)

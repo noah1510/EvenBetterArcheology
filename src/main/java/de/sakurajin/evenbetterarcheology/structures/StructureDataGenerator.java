@@ -1,20 +1,14 @@
 package de.sakurajin.evenbetterarcheology.structures;
 
-import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import de.sakurajin.evenbetterarcheology.registry.ModItems;
-import de.sakurajin.sakuralib.util.DatagenModContainer;
-import de.sakurajin.sakuralib.json.worldgen.processor.JProcessor;
-import de.sakurajin.sakuralib.json.worldgen.processor.ProcessorRule;
 
-import net.fabricmc.fabric.api.loot.v2.FabricLootPoolBuilder;
-import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
-import net.fabricmc.fabric.mixin.loot.LootTableAccessor;
-import net.minecraft.loot.LootManager;
-import net.minecraft.loot.LootPool;
-import net.minecraft.loot.LootTable;
+import de.sakurajin.sakuralib.datagen.v1.DatagenModContainer;
+import de.sakurajin.sakuralib.arrp.v1.worldgen.processor.JProcessor;
+import de.sakurajin.sakuralib.arrp.v1.worldgen.processor.ProcessorRule;
+import de.sakurajin.sakuralib.arrp.v1.worldgen.StructureDataBuilder;
+import de.sakurajin.sakuralib.loot.v1.LootTableManager;
+
 import net.minecraft.loot.LootTables;
-import net.minecraft.loot.context.LootContextType;
-import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.util.Identifier;
 
@@ -47,37 +41,25 @@ public class StructureDataGenerator {
             LootTables.OCEAN_RUIN_COLD_ARCHAEOLOGY
         );
 
-        LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, setter) -> {
-            if (ArcheologyLootTables.contains(id) && setter.isBuiltin()) {
-                var lootPools = tableBuilder.pools;
-                if(lootPools.size() != 1){
-                    EvenBetterArcheology.DATA.LOGGER.error("Loot table {} has {} pools, expected 1", id, lootPools.size());
-                }
-
-                lootPools.set(0,
-                    FabricLootPoolBuilder
-                        .copyOf(lootPools.get(0))
-                        .with(ItemEntry.builder(ModItems.ARTIFACT_SHARDS).weight(1))
-                        .build()
-                );
-            }
-        });
+        for(Identifier lootTable : ArcheologyLootTables){
+            LootTableManager.insertEntry(lootTable, ItemEntry.builder(ModItems.ARTIFACT_SHARDS).build());
+        }
     }
 
     private void generateArcheologistCamps(DatagenModContainer container) {
-        ModStructureDataBuilder
+        StructureDataBuilder
             .create("archeologist_camp_grassy", structureType)
             .addProcessor(processorsParts.get("susdirt_taiga"))
             .buildStructure(container)
             .buildStructurePool(container);
 
-        ModStructureDataBuilder
+        StructureDataBuilder
             .create("archeologist_camp_redsand", structureType)
             .addProcessor(processorsParts.get("susredsand_mesa"))
             .buildStructure(container)
             .buildStructurePool(container);
 
-        ModStructureDataBuilder
+        StructureDataBuilder
             .create("archeologist_camp_sand", structureType)
             .addProcessor(processorsParts.get("sussand_desert"))
             .buildStructure(container)
@@ -85,45 +67,45 @@ public class StructureDataGenerator {
     }
 
     private void generateFossils(DatagenModContainer container) {
-        ModStructureDataBuilder
+        StructureDataBuilder
             .create("fossil_chicken", structureType)
             .addProcessor(processorsParts.get("fossil_chicken"))
             .buildStructure(container)
             .buildStructurePool(container);
 
-        ModStructureDataBuilder
+        StructureDataBuilder
             .create("fossil_chicken_birch", structureType)
             .addProcessor(processorsParts.get("fossil_chicken"))
             .buildStructure(container)
             .buildStructurePool(container);
 
-        ModStructureDataBuilder
+        StructureDataBuilder
             .create("fossil_creeper", structureType)
             .addProcessor(processorsParts.get("fossil_creeper"))
             .buildStructure(container)
             .buildStructurePool(container);
 
-        ModStructureDataBuilder
+        StructureDataBuilder
             .create("fossil_jungle_0", structureType)
             .addProcessor(processorsParts.get("fossil_jungle"))
             .startHeight(-3)
             .buildStructure(container)
             .buildStructurePool(container);
 
-        ModStructureDataBuilder
+        StructureDataBuilder
             .create("fossil_jungle_1", structureType)
             .addProcessor(processorsParts.get("fossil_jungle"))
             .startHeight(-1)
             .buildStructure(container)
             .buildStructurePool(container);
 
-        ModStructureDataBuilder
+        StructureDataBuilder
             .create("fossil_sheep_0", structureType)
             .addProcessor(processorsParts.get("fossil_sheep"))
             .buildStructure(container)
             .buildStructurePool(container);
 
-        ModStructureDataBuilder
+        StructureDataBuilder
             .create("villager_grave", structureType)
             .addProcessors(
                 processorsParts.get("fossil_villager"),
@@ -135,7 +117,7 @@ public class StructureDataGenerator {
 
     private void generateUnderwater(DatagenModContainer container) {
         for (int i = 0; i < 4; i++) {
-            ModStructureDataBuilder
+            StructureDataBuilder
                 .create("underwater_" + i, structureType)
                 .addProcessor(processorsParts.get("sussand_underwater"))
                 .addProcessor(processorsParts.get("susgravel_underwater"))
@@ -147,7 +129,7 @@ public class StructureDataGenerator {
     }
 
     private void generateRuins(DatagenModContainer container) {
-        ModStructureDataBuilder
+        StructureDataBuilder
             .create("ruins_sand", structureType)
             .addProcessors(
                 processorsParts.get("chest_buried_ruins_sand"),
@@ -157,14 +139,14 @@ public class StructureDataGenerator {
             .buildStructure(container)
             .buildStructurePool(container);
 
-        ModStructureDataBuilder
+        StructureDataBuilder
             .create("buried_ruins_sand", structureType)
             .addProcessor(processorsParts.get("susgravel_plains"))
             .startHeight(-4)
             .buildStructure(container)
             .buildStructurePool(container);
 
-        ModStructureDataBuilder
+        StructureDataBuilder
             .create("desert_obelisk", structureType)
             .addProcessors(
                 processorsParts.get("sandstone_to_cut_sandstone_0.15"),
@@ -173,26 +155,26 @@ public class StructureDataGenerator {
             .buildStructure(container)
             .buildStructurePool(container);
 
-        ModStructureDataBuilder
+        StructureDataBuilder
             .create("mesa_ruins", structureType)
             .addProcessor(processorsParts.get("susredsand_mesa"))
             .buildStructure(container)
             .buildStructurePool(container);
 
-        ModStructureDataBuilder
+        StructureDataBuilder
             .create("mott", structureType)
             .addProcessors(processorsParts.get("susdirt_taiga"))
             .startHeight(-2)
             .buildStructure(container)
             .buildStructurePool(container);
 
-        ModStructureDataBuilder
+        StructureDataBuilder
             .create("stonehenge_grassy", structureType)
             .addProcessor(processorsParts.get("susgravel_plains"))
             .buildStructure(container)
             .buildStructurePool(container);
 
-        ModStructureDataBuilder
+        StructureDataBuilder
             .create("temple_jungle", structureType)
             .addProcessors(
                 processorsParts.get("mud_bricks_to_cracked_mud_bricks_0.1"),
@@ -202,7 +184,7 @@ public class StructureDataGenerator {
             .buildStructure(container)
             .buildStructurePool(container);
 
-        ModStructureDataBuilder
+        StructureDataBuilder
             .create("tumulus_grassy", structureType)
             .addProcessors(
                 processorsParts.get("chest_tumulus"),

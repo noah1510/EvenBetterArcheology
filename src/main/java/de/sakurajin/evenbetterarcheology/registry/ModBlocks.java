@@ -1,16 +1,20 @@
 package de.sakurajin.evenbetterarcheology.registry;
 
+import de.sakurajin.sakuralib.datagen.v1.Containers.ParsedBlockRegistryContainer;
+import de.sakurajin.sakuralib.datagen.v1.DatagenModContainer;
+import de.sakurajin.sakuralib.datagen.v1.Presets.Blocks.*;
+import de.sakurajin.sakuralib.datagen.v1.Presets.GeneratedWoodType;
+
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
-import de.sakurajin.sakuralib.Containers.ParsedBlockRegistryContainer;
-import de.sakurajin.sakuralib.util.DatagenModContainer;
-import de.sakurajin.sakuralib.Presets.Blocks.*;
-import de.sakurajin.sakuralib.Presets.GeneratedWoodType;
 import de.sakurajin.evenbetterarcheology.block.custom.*;
 import de.sakurajin.evenbetterarcheology.block.fossils.*;
+
 import net.devtech.arrp.json.recipe.JIngredient;
 import net.devtech.arrp.json.recipe.JRecipe;
 import net.devtech.arrp.json.recipe.JResult;
+
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+
 import net.minecraft.block.*;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.sound.BlockSoundGroup;

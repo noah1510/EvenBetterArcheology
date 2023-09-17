@@ -1,8 +1,8 @@
 package de.sakurajin.evenbetterarcheology.block.custom;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
-import de.sakurajin.sakuralib.util.DatagenModContainer;
-import de.sakurajin.sakuralib.Interfaces.DataGenerateable;
+import de.sakurajin.sakuralib.datagen.v1.DatagenModContainer;
+import de.sakurajin.sakuralib.datagen.v1.DataGenerateable;
 import de.sakurajin.evenbetterarcheology.util.ServerPlayerHelper;
 import net.devtech.arrp.json.blockstate.JState;
 import net.devtech.arrp.json.blockstate.JVariant;

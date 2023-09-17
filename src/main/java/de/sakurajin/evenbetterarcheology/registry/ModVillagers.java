@@ -1,9 +1,13 @@
 package de.sakurajin.evenbetterarcheology.registry;
 
 import com.google.common.collect.ImmutableSet;
+
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
-import de.sakurajin.evenbetterarcheology.api.villager.NumismaticTradeHelper;
+
+import de.sakurajin.sakuralib.villager.v1.TradeHelper;
+import de.sakurajin.sakuralib.villager.v1.TradeParameters;
 import net.fabricmc.fabric.api.object.builder.v1.world.poi.PointOfInterestHelper;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.Items;
@@ -25,10 +29,10 @@ public class ModVillagers {
 
     //TRADES---------------------------------------------------------------------//
     public static void registerTrades() {
-        ArrayList<NumismaticTradeHelper.TradeParameters> trades = new ArrayList<>();
+        ArrayList<TradeParameters> trades = new ArrayList<>();
 
         // level 1 trades
-        trades.add(new NumismaticTradeHelper.TradeParameters(
+        trades.add(new TradeParameters(
                 80,
                 ModBlocks.ROTTEN_WOOD_PLANKS,
                 4,
@@ -36,7 +40,7 @@ public class ModVillagers {
                 true,
                 1
         ));
-        trades.add(new NumismaticTradeHelper.TradeParameters(
+        trades.add(new TradeParameters(
                 250,
                 Items.BRUSH,
                 1,
@@ -44,7 +48,7 @@ public class ModVillagers {
                 true,
                 1
         ));
-        trades.add(new NumismaticTradeHelper.TradeParameters(
+        trades.add(new TradeParameters(
                 150,
                 Items.BONE,
                 16,
@@ -54,7 +58,7 @@ public class ModVillagers {
         ));
 
         //level 2 trades
-        trades.add(new NumismaticTradeHelper.TradeParameters(
+        trades.add(new TradeParameters(
                 150,
                 Blocks.MUD_BRICKS,
                 1,
@@ -62,7 +66,7 @@ public class ModVillagers {
                 true,
                 2
         ));
-        trades.add(new NumismaticTradeHelper.TradeParameters(
+        trades.add(new TradeParameters(
                 400,
                 Blocks.LANTERN,
                 1,
@@ -70,7 +74,7 @@ public class ModVillagers {
                 true,
                 2
         ));
-        trades.add(new NumismaticTradeHelper.TradeParameters(
+        trades.add(new TradeParameters(
                 250,
                 Items.TORCHFLOWER,
                 1,
@@ -80,7 +84,7 @@ public class ModVillagers {
         ));
 
         //level 3 trades
-        trades.add(new NumismaticTradeHelper.TradeParameters(
+        trades.add(new TradeParameters(
                 500,
                 Items.COBWEB,
                 1,
@@ -88,7 +92,7 @@ public class ModVillagers {
                 true,
                 3
         ));
-        trades.add(new NumismaticTradeHelper.TradeParameters(
+        trades.add(new TradeParameters(
                 1000,
                 ModItems.IRON_BRUSH,
                 1,
@@ -96,7 +100,7 @@ public class ModVillagers {
                 true,
                 3
         ));
-        trades.add(new NumismaticTradeHelper.TradeParameters(
+        trades.add(new TradeParameters(
                 250,
                 Items.SPYGLASS,
                 1,
@@ -106,7 +110,7 @@ public class ModVillagers {
         ));
 
         //level 4 trades
-        trades.add(new NumismaticTradeHelper.TradeParameters(
+        trades.add(new TradeParameters(
                 1000,
                 ModBlocks.VASE_CREEPER,
                 1,
@@ -114,7 +118,7 @@ public class ModVillagers {
                 true,
                 4
         ));
-        trades.add(new NumismaticTradeHelper.TradeParameters(
+        trades.add(new TradeParameters(
                 1000,
                 ModBlocks.VASE,
                 1,
@@ -122,7 +126,7 @@ public class ModVillagers {
                 true,
                 4
         ));
-        trades.add(new NumismaticTradeHelper.TradeParameters(
+        trades.add(new TradeParameters(
                 1000,
                 ModItems.BOMB_ITEM,
                 1,
@@ -130,7 +134,7 @@ public class ModVillagers {
                 true,
                 4
         ));
-        trades.add(new NumismaticTradeHelper.TradeParameters(
+        trades.add(new TradeParameters(
                 1000,
                 Items.SNIFFER_EGG,
                 1,
@@ -140,7 +144,7 @@ public class ModVillagers {
         ));
 
         //level 5 trades
-        trades.add(new NumismaticTradeHelper.TradeParameters(
+        trades.add(new TradeParameters(
                 2000,
                 ModItems.DIAMOND_BRUSH,
                 1,
@@ -148,7 +152,7 @@ public class ModVillagers {
                 true,
                 5
         ));
-        trades.add(new NumismaticTradeHelper.TradeParameters(
+        trades.add(new TradeParameters(
                 5000,
                 ModItems.ARTIFACT_SHARDS,
                 1,
@@ -157,7 +161,7 @@ public class ModVillagers {
                 5
         ));
 
-        NumismaticTradeHelper.registerTrades(ModVillagers.ARCHEOLOGIST, trades);
+        TradeHelper.registerTrades(ModVillagers.ARCHEOLOGIST, trades);
     }
 
     //REGISTRATION---------------------------------------------------------------//

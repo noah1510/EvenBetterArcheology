@@ -1,7 +1,7 @@
 package de.sakurajin.evenbetterarcheology.api.item;
 
-import de.sakurajin.sakuralib.util.DatagenModContainer;
-import de.sakurajin.sakuralib.Interfaces.DataGenerateable;
+import de.sakurajin.sakuralib.datagen.v1.DatagenModContainer;
+import de.sakurajin.sakuralib.datagen.v1.DataGenerateable;
 import io.wispforest.owo.itemgroup.OwoItemSettings;
 import net.devtech.arrp.json.recipe.*;
 import net.minecraft.block.Block;

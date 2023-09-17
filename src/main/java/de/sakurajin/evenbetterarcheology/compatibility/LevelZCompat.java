@@ -1,6 +1,6 @@
 package de.sakurajin.evenbetterarcheology.compatibility;
 
-import de.sakurajin.sakuralib.util.DatagenModContainer;
+import de.sakurajin.sakuralib.datagen.v1.DatagenModContainer;
 import net.fabricmc.loader.api.FabricLoader;
 
 public class LevelZCompat {

@@ -3,9 +3,9 @@ package de.sakurajin.evenbetterarcheology.block.custom;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
-import de.sakurajin.sakuralib.util.DatagenModContainer;
-import de.sakurajin.sakuralib.Interfaces.DataGenerateable;
-import de.sakurajin.sakuralib.util.LootDistributionHelper;
+import de.sakurajin.sakuralib.datagen.v1.DatagenModContainer;
+import de.sakurajin.sakuralib.datagen.v1.DataGenerateable;
+import de.sakurajin.sakuralib.loot.v1.LootDistributionHelper;
 import de.sakurajin.evenbetterarcheology.block.entity.ArcheologyTableBlockEntity;
 import de.sakurajin.evenbetterarcheology.registry.ModBlockEntities;
 import net.devtech.arrp.json.loot.JEntry;
@@ -186,7 +186,7 @@ public class ArchelogyTable extends BlockWithEntity implements DataGenerateable 
         identifyPool.entry(createModEnchantmentBook("evenbetterarcheology:penetrating_strike", "item.evenbetterarcheology.penetrating_strike_tooltip", 1, 80));
 
         int soaringWindsMaxLevel = EvenBetterArcheology.CONFIG.SOARING_WINDS_MAXLEVEL();
-        var scaleWeigths = LootDistributionHelper.getDistribution(3, soaringWindsMaxLevel);
+        var scaleWeigths = LootDistributionHelper.getPowerDistribution(3, soaringWindsMaxLevel);
         for(int i = 0; i < soaringWindsMaxLevel; i++){
             int weight = (int) Math.ceil(scaleWeigths.get(i) * 90);
             identifyPool.entry(createModEnchantmentBook("evenbetterarcheology:soaring_winds", "item.evenbetterarcheology.soaring_winds_tooltip", i+1, weight));

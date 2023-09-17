@@ -58,15 +58,7 @@
       "modrinth": "LWRxA5tQ",
       "loaders": ["fabric"],
       "dependencies": [
-        "fabric-api(required)",
-        "owo-lib(required)",
-        "advanced_runtime_resource_pack(required){modrinth:arrp}",
-        "cit-resewn(recommended)",
-        "modmenu(optional)",
-        "numismatic-overhaul(optional)",
-        "trinkets(optional)",
-        "elytra-slot(optional)",
-        "betterarcheology(incompatible)"
+        "advanced_runtime_resource_pack(required){modrinth:arrp}"
       ]
     },
     "sakuralib": {

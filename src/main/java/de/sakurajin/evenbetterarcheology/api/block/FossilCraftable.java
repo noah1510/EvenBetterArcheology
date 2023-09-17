@@ -1,6 +1,6 @@
 package de.sakurajin.evenbetterarcheology.api.block;
 
-import de.sakurajin.sakuralib.util.DatagenModContainer;
+import de.sakurajin.sakuralib.datagen.v1.DatagenModContainer;
 import net.devtech.arrp.json.recipe.JIngredient;
 import net.devtech.arrp.json.recipe.JIngredients;
 import net.devtech.arrp.json.recipe.JRecipe;

@@ -1,6 +1,6 @@
 package de.sakurajin.evenbetterarcheology;
 
-import de.sakurajin.sakuralib.util.DatagenModContainer;
+import de.sakurajin.sakuralib.datagen.v1.DatagenModContainer;
 import de.sakurajin.evenbetterarcheology.compatibility.LevelZCompat;
 import de.sakurajin.evenbetterarcheology.registry.*;
 import de.sakurajin.evenbetterarcheology.structures.StructureDataGenerator;
