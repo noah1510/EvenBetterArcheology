@@ -3,10 +3,16 @@ package de.sakurajin.evenbetterarcheology.compatibility;
 import de.sakurajin.sakuralib.datagen.v1.DatagenModContainer;
 import net.fabricmc.loader.api.FabricLoader;
 
+/**
+ * This class loads all compatibility with levelz.
+ * At the moment it does nothing.
+ * In the future it will add the archeology skill to the levelz mod.
+ * This will also set the level requirements for block interaction and use.
+ */
 public class LevelZCompat {
 
     //private static Skill ARCHEOLOGY;
-    public static void init(DatagenModContainer container) {
+    public static void init() {
         if (!FabricLoader.getInstance().isModLoaded("levelz")) {
             return;
         }

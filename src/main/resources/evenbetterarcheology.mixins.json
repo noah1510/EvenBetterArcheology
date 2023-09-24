@@ -7,6 +7,7 @@
     "minecraft.AddCreeperGoalsMixin",
     "minecraft.ElytraStartupMixin",
     "minecraft.FasterBrushingMixin",
+    "minecraft.ProtectionEnchantmentMixin",
     "minecraft.TorrentTotemItemTickMixin",
     "minecraft.TunnelingEnchantmentMixin"
   ],

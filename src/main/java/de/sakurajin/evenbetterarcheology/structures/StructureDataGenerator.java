@@ -6,6 +6,8 @@ import de.sakurajin.sakuralib.datagen.v1.DatagenModContainer;
 import de.sakurajin.sakuralib.arrp.v1.worldgen.processor.JProcessor;
 import de.sakurajin.sakuralib.arrp.v1.worldgen.processor.ProcessorRule;
 import de.sakurajin.sakuralib.arrp.v1.worldgen.StructureDataBuilder;
+import de.sakurajin.sakuralib.loot.v1.LootEntryInsert;
+import de.sakurajin.sakuralib.loot.v1.LootSourceHelper;
 import de.sakurajin.sakuralib.loot.v1.LootTableManager;
 
 import net.minecraft.loot.LootTables;
@@ -32,7 +34,12 @@ public class StructureDataGenerator {
     }
 
     private void addArtifactShardsToLootTables(){
-        final List<Identifier> ArcheologyLootTables = List.of(
+        LootTableManager.insertEntry(
+            new LootEntryInsert(
+                ItemEntry.builder(ModItems.ARTIFACT_SHARDS).build(),
+                0,
+                LootSourceHelper.ALL
+            ),
             LootTables.DESERT_WELL_ARCHAEOLOGY,
             LootTables.DESERT_PYRAMID_ARCHAEOLOGY,
             LootTables.TRAIL_RUINS_COMMON_ARCHAEOLOGY,
@@ -40,10 +47,6 @@ public class StructureDataGenerator {
             LootTables.OCEAN_RUIN_WARM_ARCHAEOLOGY,
             LootTables.OCEAN_RUIN_COLD_ARCHAEOLOGY
         );
-
-        for(Identifier lootTable : ArcheologyLootTables){
-            LootTableManager.insertEntry(lootTable, ItemEntry.builder(ModItems.ARTIFACT_SHARDS).build());
-        }
     }
 
     private void generateArcheologistCamps(DatagenModContainer container) {

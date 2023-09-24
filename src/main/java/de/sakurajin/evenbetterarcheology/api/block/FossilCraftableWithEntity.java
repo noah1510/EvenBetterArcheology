@@ -29,16 +29,17 @@ public abstract class FossilCraftableWithEntity extends FossilCraftable implemen
         super(settings, textureVariants, blockItemIndex, SHAPE_DIRECTED);
     }
 
+    @SuppressWarnings("unchecked")
     @Nullable
     protected static <E extends BlockEntity, A extends BlockEntity> BlockEntityTicker<A> checkType(
             BlockEntityType<A> givenType, BlockEntityType<E> expectedType, BlockEntityTicker<? super E> ticker
     ) {
         if(expectedType != givenType) return null;
-        //noinspection unchecked
         return (BlockEntityTicker<A>) ticker;
     }
 
     //Creates the Screen-Handler belonging to the BlockEntity
+    @SuppressWarnings("deprecation")
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {

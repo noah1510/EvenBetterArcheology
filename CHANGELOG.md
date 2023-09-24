@@ -1,5 +1,23 @@
 # Changelog
 
+## 2.0.0-beta.5
+
+* update sakuralib to 1.3.4
+* inject artifact shards into Dungeons and Taverns archeology table loot
+* Rework of penetrating strike
+  * Now it reduces the armor of the target by (effectiveness) per level
+  * Default max level is now 3
+  * The effective armor reduction can be configured default is 1
+* Reworked implementation of Artifact Enchantments
+  * All artifact enchantments now are added to a loot table (evenbetterarcheology:artifact_enchantments)
+  * Moving the register code into the class
+* Moving Artifacts Compatibility into its own class
+* Use the new enchantment loot table in the archeology table loot
+* Add initial patchouli book
+  * Generate Patchouli pages in datagen of BetterBrushItem
+* Rewoked chest loot tables
+  * Now there are common loot tables to unify some of the outputs
+
 ## 2.0.0-beta.4
 
 * Update sakuralib to 1.2.2 (fixes a crash in singelplayer and removes several classes)

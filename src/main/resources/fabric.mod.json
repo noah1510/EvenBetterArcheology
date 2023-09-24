@@ -48,7 +48,8 @@
     "numismatic-overhaul": "*",
     "modmenu": "*",
     "trinkets": "*",
-    "elytra-slot": "*"
+    "elytra-slot": "*",
+    "patchouli": "*"
   },
   "conflicts": {
     "betterarcheology": "*"

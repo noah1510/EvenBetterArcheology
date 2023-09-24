@@ -5,30 +5,17 @@
 			"rolls": 1,
 			"entries": [
 				{
-					"type": "minecraft:item",
-					"name": "minecraft:rotten_flesh"
-				},
-				{
-					"type": "minecraft:item",
-					"name": "minecraft:bone"
-				},
-				{
-					"type": "minecraft:item",
-					"name": "minecraft:bone_meal"
-				},
-				{
-					"type": "minecraft:item",
-					"name": "minecraft:poisonous_potato"
+					"type": "minecraft:loot_table",
+					"name": "evenbetterarcheology:common/bad_loot"
 				}
-			],
-			"functions": [
+			]
+		},
+		{
+			"rolls": 2,
+			"entries": [
 				{
-					"function": "minecraft:set_count",
-					"count": {
-						"type": "minecraft:uniform",
-						"min": 3,
-						"max": 7
-					}
+					"type": "minecraft:loot_table",
+					"name": "evenbetterarcheology:common/food_loot"
 				}
 			]
 		},
@@ -94,33 +81,6 @@
 							]
 						}
 					]
-				}
-			]
-		},
-		{
-			"rolls": 2,
-			"entries": [
-				{
-					"type": "minecraft:item",
-					"name": "minecraft:cooked_mutton"
-				},
-				{
-					"type": "minecraft:item",
-					"name": "minecraft:baked_potato"
-				},
-				{
-					"type": "minecraft:item",
-					"name": "minecraft:cooked_salmon"
-				}
-			],
-			"functions": [
-				{
-					"function": "minecraft:set_count",
-					"count": {
-						"type": "minecraft:uniform",
-						"min": 3,
-						"max": 5
-					}
 				}
 			]
 		}

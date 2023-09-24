@@ -10,9 +10,14 @@ public class ModConfigModel {
     @Sync(Option.SyncMode.OVERRIDE_CLIENT)
     @RestartRequired
     public boolean ARTIFACT_ENCHANTMENTS_ENABLED = true;
-    @RangeConstraint(min = 0.01f, max = 1.00f)
+    @RangeConstraint(min = 0.1f, max = 2.00f)
     @Sync(Option.SyncMode.OVERRIDE_CLIENT)
-    public float PENETRATING_STRIKE_PROTECTION_IGNORANCE = 0.33f;
+    public float PENETRATING_STRIKE_EFFECTIVENESS = 1.0f;
+
+    @RangeConstraint(min = 1, max = 10)
+    @Sync(Option.SyncMode.OVERRIDE_CLIENT)
+    @RestartRequired
+    public int PENETRATING_STRIKE_MAXLEVEL = 3;
 
     @RangeConstraint(min = 0.1f, max = 1.0f)
     @Sync(Option.SyncMode.OVERRIDE_CLIENT)
@@ -40,6 +45,10 @@ public class ModConfigModel {
 
         @Sync(Option.SyncMode.OVERRIDE_CLIENT)
         @RestartRequired
-        public int ARCHEOLOGY_TABLE_ARTIFACTS_LOOT_WEIGHT = 20;
+        public int ARCHEOLOGY_TABLE_ARTIFACTS_LOOT_WEIGHT = 15;
+
+        @Sync(Option.SyncMode.OVERRIDE_CLIENT)
+        @RestartRequired
+        public int ARCHEOLOGY_TABLE_ARTIFACTS_LOOT_QUALITY = 2;
     }
 }

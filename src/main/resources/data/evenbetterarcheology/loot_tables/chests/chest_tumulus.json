@@ -5,78 +5,13 @@
 			"rolls": 2,
 			"entries": [
 				{
-					"type": "minecraft:item",
-					"name": "minecraft:rotten_flesh",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"type": "minecraft:uniform",
-								"min": 3,
-								"max": 5
-							}
-						}
-					]
-				},
-				{
-					"type": "minecraft:item",
-					"name": "minecraft:string",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"type": "minecraft:uniform",
-								"min": 2,
-								"max": 4
-							}
-						}
-					]
-				},
-				{
-					"type": "minecraft:item",
-					"name": "minecraft:stick",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"type": "minecraft:uniform",
-								"min": 3,
-								"max": 5
-							}
-						}
-					]
-				},
-				{
-					"type": "minecraft:item",
-					"name": "minecraft:flint",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"type": "minecraft:uniform",
-								"min": 2,
-								"max": 4
-							}
-						}
-					]
+					"type": "minecraft:loot_table",
+					"name": "evenbetterarcheology:common/bad_loot",
+					"weight": 8
 				},
 				{
 					"type": "minecraft:item",
 					"name": "minecraft:leather",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"type": "minecraft:uniform",
-								"min": 2,
-								"max": 4
-							}
-						}
-					]
-				},
-				{
-					"type": "minecraft:item",
-					"name": "minecraft:bone",
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -109,20 +44,8 @@
 					]
 				},
 				{
-					"type": "minecraft:item",
-					"name": "minecraft:wayfinder_armor_trim_smithing_template"
-				},
-				{
-					"type": "minecraft:item",
-					"name": "minecraft:raiser_armor_trim_smithing_template"
-				},
-				{
-					"type": "minecraft:item",
-					"name": "minecraft:shaper_armor_trim_smithing_template"
-				},
-				{
-					"type": "minecraft:item",
-					"name": "minecraft:host_armor_trim_smithing_template"
+					"type": "minecraft:loot_table",
+					"name": "evenbetterarcheology:common/archeology_templates"
 				},
 				{
 					"type": "minecraft:item",

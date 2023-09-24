@@ -105,8 +105,10 @@
 
   "text.config.even_better_archeology.option.ARTIFACT_ENCHANTMENTS_ENABLED": "Artefakt-Verzauberungen aktiviert",
   "text.config.even_better_archeology.option.ARTIFACT_ENCHANTMENTS_ENABLED.tooltip": "Sollen die Artefakt-Verzauberungen aktiviert sein?",
-  "text.config.even_better_archeology.option.PENETRATING_STRIKE_PROTECTION_IGNORANCE": "Durchdringender Hieb Schutz-Ignoranz",
-  "text.config.even_better_archeology.option.PENETRATING_STRIKE_PROTECTION_IGNORANCE.tooltip": "Wie viel Prozent der Schutz-Verzauberung soll ignoriert werden?",
+  "text.config.even_better_archeology.option.PENETRATING_STRIKE_EFFECTIVENESS": "Durchdringender Hieb Effektivität",
+  "text.config.even_better_archeology.option.PENETRATING_STRIKE_EFFECTIVENESS.tooltip": "Wie viele Level Schutz sollen pro Level Durchdringender Hieb ignoriert werden?",
+  "text.config.even_better_archeology.option.PENETRATING_STRIKE_MAXLEVEL": "Durchdringender Hieb Maximallevel",
+  "text.config.even_better_archeology.option.PENETRATING_STRIKE_MAXLEVEL.tooltip": "Wie hoch soll das Maximallevel von Durchdringender Hieb sein?",
   "text.config.even_better_archeology.option.SOARING_WINDS_BOOST": "Aufwinde Boost",
   "text.config.even_better_archeology.option.SOARING_WINDS_BOOST.tooltip": "Wie viel Boost soll Aufwinde pro Level geben?",
   "text.config.even_better_archeology.option.SOARING_WINDS_MAXLEVEL": "Aufwinde Maximallevel",
@@ -125,7 +127,53 @@
   "text.config.even_better_archeology.option.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT": "Artefakte beim identifizeiren im Tisch der Archäologi",
   "text.config.even_better_archeology.option.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT.tooltip": "Sollen Artefakte beim identifizieren im Tisch der Archäologie gefunden werden?",
   "text.config.even_better_archeology.option.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT_WEIGHT": "Das Gewicht der Artefakte beim identifizieren im Tisch der Archäologi",
-  "text.config.even_better_archeology.option.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT_WEIGHT.tooltip": "Wie hoch soll das Gewicht der Artefakte beim identifizieren im Tisch der Archäologie sein? Die Chance ein Artefact zu bekommen ist (Gewicht des Artefakts / Summe aller Gewichte)."
+  "text.config.even_better_archeology.option.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT_WEIGHT.tooltip": "Wie hoch soll das Gewicht der Artefakte beim identifizieren im Tisch der Archäologie sein? Die Chance ein Artefact zu bekommen ist (Gewicht des Artefakts / Summe aller Gewichte).",
+  "text.config.even_better_archeology.option.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT_QUALITY": "Die Qualität der Artefakte beim identifizieren im Tisch der Archäologi",
+  "text.config.even_better_archeology.option.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT_QUALITY.tooltip": "Ändere um wie viel das Gewicht pro Level Glück erhöht wird. (Gewicht des Artefakts + (Glückslevel * Qualität))",
 
+  "patchouli_book.even_better_archeology.better_archeology_guide.name": "Archäologie Guide",
+  "patchouli_book.even_better_archeology.better_archeology_guide.landing": "Willkommen zum Archäologie Guide! Hier findest du alle Informationen, die du brauchst, um die Welt zu erkunden und Artefakte zu finden.",
 
+  "patchouli_book.even_better_archeology.better_archeology_guide.brushes.name": "Pinsel Items",
+  "patchouli_book.even_better_archeology.better_archeology_guide.brushes.description": "Informationen über alle verfügbaren Pinsel",
+
+  "patchouli_book.even_better_archeology.better_archeology_guide.brush_template": [
+    "", { "index": 0 }, "$(br)",
+    "$(li)Haltbarkeit: ", { "index": 1 },
+    "$(li)Geschwindigkeit: ", { "index": 2 }
+  ],
+
+  "patchouli_book.even_better_archeology.better_archeology_guide.brush.vanilla_brush": [
+    "",
+    {
+      "translate": "patchouli_book.even_better_archeology.better_archeology_guide.brush_template",
+      "with": [
+        "Der Standard-Pinsel. Er ist langsam und nicht sehr haltbar.",
+        64,
+        10
+      ]
+    }
+  ],
+  "patchouli_book.even_better_archeology.better_archeology_guide.brush.iron_brush": [
+    "",
+    {
+      "translate": "patchouli_book.even_better_archeology.better_archeology_guide.brush_template",
+      "with": [
+        "Der erste bessere Pinsel. Er ist schneller und haltbarer als der Holzpinsel.",
+        128,
+        8
+      ]
+    }
+  ],
+  "patchouli_book.even_better_archeology.better_archeology_guide.brush.diamond_brush":[
+    "",
+    {
+      "translate": "patchouli_book.even_better_archeology.better_archeology_guide.brush_template",
+      "with": [
+        "Das gute Zeug. Er ist schneller und haltbarer als der Eisener Pinsel. Wahrscheinlich der letzte Pinsel den du brauchst.",
+        256,
+        6
+      ]
+    }
+  ]
 }

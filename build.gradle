@@ -67,17 +67,24 @@ dependencies {
 	annotationProcessor modImplementation("io.wispforest:owo-lib:${project.owo_version}")
 
 	// add sakuralib for date generation
-	modImplementation "maven.modrinth:sakura-lib:${sakuralib_version}"
-	include("maven.modrinth:sakura-lib:${sakuralib_version}")
+	modImplementation include("maven.modrinth:sakura-lib:${sakuralib_version}")
 
 	// Uncomment the following line to enable the deprecated Fabric API modules. 
 	// These are included in the Fabric API production distribution and allow you to update your mod to the latest modules at a later more convenient time.
 
 	// modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"
-	modCompileOnly("dev.emi:trinkets:${trinkets_version}")
+	modCompileOnly modLocalRuntime("dev.emi:trinkets:${trinkets_version}")
 
-	modCompileOnly("maven.modrinth:libz:${libz_version}")
-	modCompileOnly("maven.modrinth:levelz:${levelz_version}")
+	modCompileOnly modLocalRuntime("maven.modrinth:libz:${libz_version}")
+	modCompileOnly modLocalRuntime("maven.modrinth:levelz:${levelz_version}")
+
+	//add mods to local runtime for testing
+	modLocalRuntime("maven.modrinth:mixin-conflict-helper:${mixin_conflict_helper_version}")
+	modLocalRuntime("maven.modrinth:mixintrace:${mixin_trace_version}")
+	modLocalRuntime("maven.modrinth:emi:${emi_version}")
+	modLocalRuntime("maven.modrinth:emi-loot:${emi_loot_version}")
+	modLocalRuntime("maven.modrinth:emitrades:${emi_trades_version}")
+	modLocalRuntime("maven.modrinth:modmenu:${modmenu_version}")
 }
 
 processResources {

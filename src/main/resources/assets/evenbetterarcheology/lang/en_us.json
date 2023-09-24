@@ -104,8 +104,10 @@
 
   "text.config.even_better_archeology.option.ARTIFACT_ENCHANTMENTS_ENABLED": "Enable Artifact Enchantments",
   "text.config.even_better_archeology.option.ARTIFACT_ENCHANTMENTS_ENABLED.tooltip": "Toggle if Artifact Enchantments should be enabled",
-  "text.config.even_better_archeology.option.PENETRATING_STRIKE_PROTECTION_IGNORANCE": "Penetrating Strike Protection Ignorance",
-  "text.config.even_better_archeology.option.PENETRATING_STRIKE_PROTECTION_IGNORANCE.tooltip": "How much Protection should be ignored by Penetrating Strike? (0-1)",
+  "text.config.even_better_archeology.option.PENETRATING_STRIKE_EFFECTIVENESS": "Penetrating Strike Protection Effectiveness",
+  "text.config.even_better_archeology.option.PENETRATING_STRIKE_EFFECTIVENESS.tooltip": "How many levels of Protection should be reduced per Penetrating Strike level?",
+  "text.config.even_better_archeology.option.PENETRATING_STRIKE_MAXLEVEL": "Penetrating Strike Max Level",
+  "text.config.even_better_archeology.option.PENETRATING_STRIKE_MAXLEVEL.tooltip": "Change the maximum level of Penetrating Strike",
   "text.config.even_better_archeology.option.SOARING_WINDS_BOOST": "Soaring Winds Boost",
   "text.config.even_better_archeology.option.SOARING_WINDS_BOOST.tooltip": "Change the boost given per level of Soaring Winds",
   "text.config.even_better_archeology.option.SOARING_WINDS_MAXLEVEL": "Soaring Winds Max Level",
@@ -124,6 +126,53 @@
   "text.config.even_better_archeology.option.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT": "Artifacts as Loot from Archeology Table",
   "text.config.even_better_archeology.option.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT.tooltip": "Enable if you want to be able to get Artifacts from the Archeology Table",
   "text.config.even_better_archeology.option.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT_WEIGHT": "The loot table weight of getting any Artifact from the Archeology Table",
-    "text.config.even_better_archeology.option.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT_WEIGHT.tooltip": "Change the chane of getting any Artifact from the Archeology Table. The chance of getting one is (weight of this option)/(sum of all weights)"
+  "text.config.even_better_archeology.option.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT_WEIGHT.tooltip": "Change the chane of getting any Artifact from the Archeology Table. The chance of getting one is (weight of this option)/(sum of all weights)",
+  "text.config.even_better_archeology.option.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT_QUALITY": "The loot table quality of getting any Artifact from the Archeology Table",
+  "text.config.even_better_archeology.option.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT_QUALITY.tooltip": "Change the amount by which the weight increases for each level of luck the player has. The weight of getting an Artifact is (weight of this option)+(luck level)*(this option)",
 
+  "patchouli_book.even_better_archeology.better_archeology_guide.name": "Archeology Guide",
+  "patchouli_book.even_better_archeology.better_archeology_guide.landing": "Welcome to the Archeology Guide! Here you can find all the information you need to know about the minecraft archeology system and the mod Even Better Archeology!",
+
+  "patchouli_book.even_better_archeology.better_archeology_guide.brushes.name": "Brush Items",
+  "patchouli_book.even_better_archeology.better_archeology_guide.brushes.description": "Information about available brushes",
+
+  "patchouli_book.even_better_archeology.better_archeology_guide.brush_template": [
+    "", { "index": 0 }, "$(br)",
+    "$(li)Durability: ", { "index": 1 },
+    "$(li)Speed: ", { "index": 2 }
+  ],
+
+  "patchouli_book.even_better_archeology.better_archeology_guide.brush.vanilla_brush": [
+    "",
+    {
+      "translate": "patchouli_book.even_better_archeology.better_archeology_guide.brush_template",
+      "with": [
+        "The vanilla brush. It is slow and not very durable but gets the job done",
+        64,
+        10
+      ]
+    }
+  ],
+  "patchouli_book.even_better_archeology.better_archeology_guide.brush.iron_brush": [
+    "",
+    {
+      "translate": "patchouli_book.even_better_archeology.better_archeology_guide.brush_template",
+      "with": [
+        "The first upgrade over the vanilla brush. It is faster and more durable.",
+        128,
+        8
+      ]
+    }
+  ],
+  "patchouli_book.even_better_archeology.better_archeology_guide.brush.diamond_brush":[
+    "",
+    {
+      "translate": "patchouli_book.even_better_archeology.better_archeology_guide.brush_template",
+      "with": [
+        "The good stuff. It is likely the last brush you will ever need. It is faster and more durable than the iron brush.",
+        256,
+        6
+      ]
+    }
+  ]
 }

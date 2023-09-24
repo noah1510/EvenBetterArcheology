@@ -2,22 +2,23 @@ package de.sakurajin.evenbetterarcheology.enchantment;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
 import de.sakurajin.evenbetterarcheology.api.ArtifactEnchantment;
+import de.sakurajin.evenbetterarcheology.registry.ModEnchantments;
+import de.sakurajin.evenbetterarcheology.util.ElytraHelper;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.AxeItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.*;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 
 public class PenetratingStrikeEnchantment extends ArtifactEnchantment {
 
     public PenetratingStrikeEnchantment(Rarity weight, EquipmentSlot... slotTypes) {
-        super(weight, EnchantmentTarget.WEAPON, slotTypes);
+        super("penetrating_strike", weight, EnchantmentTarget.WEAPON, slotTypes);
     }
 
     //also allowing axes
@@ -29,59 +30,32 @@ public class PenetratingStrikeEnchantment extends ArtifactEnchantment {
         return super.isAcceptableItem(stack);
     }
 
-    //Enchantment Functionality-------------------------------------------------------------------------//
     @Override
     public int getMaxLevel() {
-        return 1;
+        return EvenBetterArcheology.CONFIG.PENETRATING_STRIKE_MAXLEVEL();
     }
 
-    /*
-    Decreases the damage reduction caused from the target's armor
-    by dealing additional damage relative to the armor and level
-    for reference, see: https://minecraft.fandom.com/wiki/Armor#Enchantments
+    /**
+     * This function returns the level of the penetrating strike enchantment of the player.
+     * It checks both hands and returns the first level it finds.
+     * If no level is found it returns 0
+     * @param entity the entity to check
+     * @return int the level of the penetrating strike enchantment
      */
-    @Override
-    public void onTargetDamaged(LivingEntity user, Entity target, int level) {
-        if (!EvenBetterArcheology.CONFIG.ARTIFACT_ENCHANTMENTS_ENABLED()) {
-            super.onTargetDamaged(user, target, level);
-            return;
+    public static int getPenetratingStrikeLevel(LivingEntity entity){
+        int penetratingStrikeLevel = 0;
+
+        penetratingStrikeLevel = ElytraHelper.getSafeEnchantLevel(ModEnchantments.PENETRATING_STRIKE, entity.getMainHandStack());
+        if(penetratingStrikeLevel > 0){
+            return penetratingStrikeLevel;
         }
 
-        //calculate total Protection of Armor
-        int enchantmentProtectionFactor = 0;
-        for (ItemStack itemStack : target.getArmorItems()) {
-            enchantmentProtectionFactor += EnchantmentHelper.getLevel(Enchantments.PROTECTION, itemStack);
-        }
-        //capping the protection at 20, as minecraft does it
-        enchantmentProtectionFactor = Math.min(enchantmentProtectionFactor, 20);
-
-        //damage in % that was subtracted due to the Enchantments' protections
-        double damagePercentageProtected = enchantmentProtectionFactor / 25f;
-
-        //damagevalue of the current weapon
-        float damageInflicted = 0;
-
-        //set to value of getAttackDamage
-        //method is not inherited, therefore a hard if-check is needed
-        if (user.getMainHandStack().getItem() instanceof SwordItem) {
-            damageInflicted = ((SwordItem) user.getMainHandStack().getItem()).getAttackDamage() + 1;
-        } else if (user.getMainHandStack().getItem() instanceof AxeItem) {
-            damageInflicted = ((AxeItem) user.getMainHandStack().getItem()).getAttackDamage() + 1;
+        penetratingStrikeLevel = ElytraHelper.getSafeEnchantLevel(ModEnchantments.PENETRATING_STRIKE, entity.getOffHandStack());
+        if(penetratingStrikeLevel > 0){
+            return penetratingStrikeLevel;
         }
 
-        //calculates total damage that was reduced
-        float totalProtectedDamage = (float) (damageInflicted * damagePercentageProtected);
-
-        if (level > 0) {
-            double penetration = EvenBetterArcheology.CONFIG.PENETRATING_STRIKE_PROTECTION_IGNORANCE();
-
-            target.damage(user.getDamageSources().mobAttack(user), (float) (totalProtectedDamage * penetration));
-        }
-
-        //Audio Feedback
-        if (!user.getWorld().isClient()) {
-            user.getWorld().playSound(null, target.getBlockPos(), SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, SoundCategory.BLOCKS);
-        }
+        return 0;
     }
 }
 

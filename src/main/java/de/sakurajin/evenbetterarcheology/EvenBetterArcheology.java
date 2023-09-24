@@ -46,9 +46,10 @@ public class EvenBetterArcheology implements ModInitializer {
 		ModStructures.registerStructureFeatures();
 
 		var structureData = new StructureDataGenerator(DATA);
+		PatchouliBookGeneration.generateBook();
 
 		//load all compatibility stuff
-		LevelZCompat.init(DATA);
+		ModCompatibilityLoader.init();
 
 		//generate all tags
 		DATA.registerAllTags();
