@@ -3,6 +3,7 @@
 ## 2.0.0-beta.5
 
 * update sakuralib to 1.3.4
+* switch to maven modrinth for arrp
 * inject artifact shards into Dungeons and Taverns archeology table loot
 * Rework of penetrating strike
   * Now it reduces the armor of the target by (effectiveness) per level

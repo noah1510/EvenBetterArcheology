@@ -35,9 +35,6 @@ repositories {
 		}
 	}
 	maven {
-		url = uri("https://ueaj.dev/maven")
-	}
-	maven {
 		name = "TerraformersMC"
 		url = "https://maven.terraformersmc.com/"
 	}
@@ -56,7 +53,7 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	//Arrp to generate resources during runtime
-	modImplementation("net.devtech:arrp:0.8.0")
+	modImplementation("maven.modrinth:arrp:0.8.0")
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
