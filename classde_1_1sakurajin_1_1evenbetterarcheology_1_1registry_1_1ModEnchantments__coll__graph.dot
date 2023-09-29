@@ -6,5 +6,7 @@ digraph "de.sakurajin.evenbetterarcheology.registry.ModEnchantments"
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   Node1 [label="de.sakurajin.evenbetterarcheology.registry.\lModEnchantments",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
   Node2 -> Node1 [dir="back",color="darkorchid3",style="dashed",label=" PENETRATING_STRIKE\nSEAS_BOUNTY\nSOARING_WINDS\nTUNNELING" ];
-  Node2 [label="Enchantment",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node2 [label="de.sakurajin.evenbetterarcheology.api.enchantment.\lArtifactEnchantment",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classde_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1enchantment_1_1ArtifactEnchantment.html",tooltip="A generic class representing an enchantment that is only available as loot."];
+  Node3 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node3 [label="Enchantment",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
 }

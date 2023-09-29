@@ -11,4 +11,6 @@ digraph "de.sakurajin.evenbetterarcheology.block.custom.ArchelogyTable"
   Node3 [label="DataGenerateable",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
   Node4 -> Node1 [dir="back",color="darkorchid3",style="dashed",label=" DUSTING" ];
   Node4 [label="BooleanProperty",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node5 -> Node1 [dir="back",color="darkorchid3",style="dashed",label=" IDENTIFY_LOOT_TABLE" ];
+  Node5 [label="Identifier",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
 }

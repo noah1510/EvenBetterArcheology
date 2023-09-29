@@ -11,5 +11,7 @@ var searchData=
   ['bombentity_2ejava_8',['BombEntity.java',['../BombEntity_8java.html',1,'']]],
   ['bombitem_9',['BombItem',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1item_1_1BombItem.html#ab24f5c83ba8401da4d6803b16f6e0bbe',1,'de.sakurajin.evenbetterarcheology.item.BombItem.BombItem()'],['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1item_1_1BombItem.html',1,'de.sakurajin.evenbetterarcheology.item.BombItem']]],
   ['bombitem_2ejava_10',['BombItem.java',['../BombItem_8java.html',1,'']]],
-  ['builder_11',['Builder',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1item_1_1BetterBrushItem.html#a0a9f3b82c8e9fff5d2fa3cfe1be7b92f',1,'de::sakurajin::evenbetterarcheology::api::item::BetterBrushItem']]]
+  ['book_11',['BOOK',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1PatchouliBookGeneration.html#ad25e53afef48a50f9ebbb40658a008f4',1,'de::sakurajin::evenbetterarcheology::registry::PatchouliBookGeneration']]],
+  ['brushes_5fcategory_12',['BRUSHES_CATEGORY',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1PatchouliBookGeneration.html#a856c1fff95a51586e92c1ca538c42eb3',1,'de::sakurajin::evenbetterarcheology::registry::PatchouliBookGeneration']]],
+  ['builder_13',['Builder',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1item_1_1BetterBrushItem.html#a0a9f3b82c8e9fff5d2fa3cfe1be7b92f',1,'de::sakurajin::evenbetterarcheology::api::item::BetterBrushItem']]]
 ];

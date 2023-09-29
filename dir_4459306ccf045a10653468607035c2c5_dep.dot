@@ -14,7 +14,6 @@ digraph "evenbetterarcheology"
   dir_1738a2a0b38ad0c4c8a19b37b3593541 [label="block", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_1738a2a0b38ad0c4c8a19b37b3593541.html",tooltip=""];
   dir_43d856a9607318a24ff78460221f87c7 [label="compatibility", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_43d856a9607318a24ff78460221f87c7.html",tooltip=""];
   dir_4948e0111e013f3bb1727e5e83dbb0e2 [label="datafix", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_4948e0111e013f3bb1727e5e83dbb0e2.html",tooltip=""];
-  dir_1755ad48b8f69a5b708869d54b3ec9ce [label="enchantment", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_1755ad48b8f69a5b708869d54b3ec9ce.html",tooltip=""];
   dir_633912bb04ff9898484493ef4b78db89 [label="entity", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_633912bb04ff9898484493ef4b78db89.html",tooltip=""];
   dir_119f13e9235d6949e8665af64b5cba82 [label="item", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_119f13e9235d6949e8665af64b5cba82.html",tooltip=""];
   dir_e2923f6eb5bee160416695ae6f614e84 [label="mixin", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_e2923f6eb5bee160416695ae6f614e84.html",tooltip=""];

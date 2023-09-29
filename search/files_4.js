@@ -1,12 +1,9 @@
 var searchData=
 [
-  ['fasterbrushingmixin_2ejava_0',['FasterBrushingMixin.java',['../FasterBrushingMixin_8java.html',1,'']]],
-  ['fleeblockgoal_2ejava_1',['FleeBlockGoal.java',['../FleeBlockGoal_8java.html',1,'']]],
-  ['fleefromblockentity_2ejava_2',['FleeFromBlockEntity.java',['../FleeFromBlockEntity_8java.html',1,'']]],
-  ['fossilbase_2ejava_3',['FossilBase.java',['../FossilBase_8java.html',1,'']]],
-  ['fossilcraftable_2ejava_4',['FossilCraftable.java',['../FossilCraftable_8java.html',1,'']]],
-  ['fossilcraftablewithentity_2ejava_5',['FossilCraftableWithEntity.java',['../FossilCraftableWithEntity_8java.html',1,'']]],
-  ['fossilinventoryscreen_2ejava_6',['FossilInventoryScreen.java',['../FossilInventoryScreen_8java.html',1,'']]],
-  ['fossilinventoryscreenhandler_2ejava_7',['FossilInventoryScreenHandler.java',['../FossilInventoryScreenHandler_8java.html',1,'']]],
-  ['fossilpartitem_2ejava_8',['FossilPartItem.java',['../FossilPartItem_8java.html',1,'']]]
+  ['ebadatafixer_2ejava_0',['EBADatafixer.java',['../EBADatafixer_8java.html',1,'']]],
+  ['elytrastartupmixin_2ejava_1',['ElytraStartupMixin.java',['../ElytraStartupMixin_8java.html',1,'']]],
+  ['enchantmenthelper_2ejava_2',['EnchantmentHelper.java',['../EnchantmentHelper_8java.html',1,'']]],
+  ['evenbetterarcheology_2ejava_3',['EvenBetterArcheology.java',['../EvenBetterArcheology_8java.html',1,'']]],
+  ['evenbetterarcheologyclient_2ejava_4',['EvenBetterArcheologyClient.java',['../EvenBetterArcheologyClient_8java.html',1,'']]],
+  ['evokertrapblock_2ejava_5',['EvokerTrapBlock.java',['../EvokerTrapBlock_8java.html',1,'']]]
 ];

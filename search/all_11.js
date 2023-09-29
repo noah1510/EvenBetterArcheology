@@ -8,7 +8,7 @@ var searchData=
   ['torrenttotemitemtickmixin_5',['TorrentTotemItemTickMixin',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1mixin_1_1minecraft_1_1TorrentTotemItemTickMixin.html',1,'de::sakurajin::evenbetterarcheology::mixin::minecraft']]],
   ['torrenttotemitemtickmixin_2ejava_6',['TorrentTotemItemTickMixin.java',['../TorrentTotemItemTickMixin_8java.html',1,'']]],
   ['triggered_7',['TRIGGERED',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1block_1_1custom_1_1EvokerTrapBlock.html#a10399c575f4500264422b0c651b680f7',1,'de::sakurajin::evenbetterarcheology::block::custom::EvokerTrapBlock']]],
-  ['tunneling_8',['TUNNELING',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModEnchantments.html#a8347594b2753955fd5df861370159ea8',1,'de::sakurajin::evenbetterarcheology::registry::ModEnchantments']]],
+  ['tunneling_8',['TUNNELING',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModEnchantments.html#aaa9e323aa2d7ff4ca866c8790cd61829',1,'de::sakurajin::evenbetterarcheology::registry::ModEnchantments']]],
   ['tunnelingenchantmentmixin_9',['TunnelingEnchantmentMixin',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1mixin_1_1minecraft_1_1TunnelingEnchantmentMixin.html',1,'de::sakurajin::evenbetterarcheology::mixin::minecraft']]],
   ['tunnelingenchantmentmixin_2ejava_10',['TunnelingEnchantmentMixin.java',['../TunnelingEnchantmentMixin_8java.html',1,'']]]
 ];

@@ -1,9 +1,12 @@
 var searchData=
 [
-  ['identifyingoutputslot_0',['IdentifyingOutputSlot',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1screen_1_1IdentifyingOutputSlot.html',1,'de::sakurajin::evenbetterarcheology::screen']]],
-  ['identifyingscreen_1',['IdentifyingScreen',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1screen_1_1IdentifyingScreen.html',1,'de::sakurajin::evenbetterarcheology::screen']]],
-  ['identifyingscreenhandler_2',['IdentifyingScreenHandler',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1screen_1_1IdentifyingScreenHandler.html',1,'de::sakurajin::evenbetterarcheology::screen']]],
-  ['implementedinventory_3',['ImplementedInventory',['../interfacede_1_1sakurajin_1_1evenbetterarcheology_1_1block_1_1entity_1_1ImplementedInventory.html',1,'de::sakurajin::evenbetterarcheology::block::entity']]],
-  ['infestedmudbricks_4',['InfestedMudBricks',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1block_1_1custom_1_1InfestedMudBricks.html',1,'de::sakurajin::evenbetterarcheology::block::custom']]],
-  ['itemstacksyncs2cpacket_5',['ItemStackSyncS2CPacket',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1networking_1_1ItemStackSyncS2CPacket.html',1,'de::sakurajin::evenbetterarcheology::networking']]]
+  ['fasterbrushingmixin_0',['FasterBrushingMixin',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1mixin_1_1minecraft_1_1FasterBrushingMixin.html',1,'de::sakurajin::evenbetterarcheology::mixin::minecraft']]],
+  ['fleeblockgoal_1',['FleeBlockGoal',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1util_1_1FleeBlockGoal.html',1,'de::sakurajin::evenbetterarcheology::util']]],
+  ['fleefromblockentity_2',['FleeFromBlockEntity',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1block_1_1fossils_1_1blockEntity_1_1FleeFromBlockEntity.html',1,'de::sakurajin::evenbetterarcheology::block::fossils::blockEntity']]],
+  ['fossilbase_3',['FossilBase',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1block_1_1FossilBase.html',1,'de::sakurajin::evenbetterarcheology::api::block']]],
+  ['fossilcraftable_4',['FossilCraftable',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1block_1_1FossilCraftable.html',1,'de::sakurajin::evenbetterarcheology::api::block']]],
+  ['fossilcraftablewithentity_5',['FossilCraftableWithEntity',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1block_1_1FossilCraftableWithEntity.html',1,'de::sakurajin::evenbetterarcheology::api::block']]],
+  ['fossilinventoryscreen_6',['FossilInventoryScreen',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1screen_1_1FossilInventoryScreen.html',1,'de::sakurajin::evenbetterarcheology::screen']]],
+  ['fossilinventoryscreenhandler_7',['FossilInventoryScreenHandler',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1screen_1_1FossilInventoryScreenHandler.html',1,'de::sakurajin::evenbetterarcheology::screen']]],
+  ['fossilpartitem_8',['FossilPartItem',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1item_1_1FossilPartItem.html',1,'de::sakurajin::evenbetterarcheology::api::item']]]
 ];
