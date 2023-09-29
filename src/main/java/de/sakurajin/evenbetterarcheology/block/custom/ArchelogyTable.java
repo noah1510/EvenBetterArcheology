@@ -1,19 +1,13 @@
 package de.sakurajin.evenbetterarcheology.block.custom;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
-import de.sakurajin.evenbetterarcheology.api.ArtifactEnchantment;
+import de.sakurajin.evenbetterarcheology.api.enchantment.ArtifactEnchantment;
+import de.sakurajin.evenbetterarcheology.api.enchantment.ArtifactEnchantmentRegistry;
 import de.sakurajin.sakuralib.datagen.v1.DatagenModContainer;
 import de.sakurajin.sakuralib.datagen.v1.DataGenerateable;
-import de.sakurajin.sakuralib.loot.v1.LootDistributionHelper;
 import de.sakurajin.evenbetterarcheology.block.entity.ArcheologyTableBlockEntity;
 import de.sakurajin.evenbetterarcheology.registry.ModBlockEntities;
-import net.devtech.arrp.json.loot.JEntry;
 import net.devtech.arrp.json.loot.JLootTable;
-import net.devtech.arrp.json.loot.JPool;
 import net.devtech.arrp.json.recipe.*;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -156,7 +150,7 @@ public class ArchelogyTable extends BlockWithEntity implements DataGenerateable 
                 JLootTable
                     .pool()
                     .rolls(1)
-                    .entry(ArtifactEnchantment.getLootTableEntry().weight(300))
+                    .entry(ArtifactEnchantmentRegistry.getLootTableEntry().weight(300))
             )
         );
 

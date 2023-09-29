@@ -1,27 +1,26 @@
 package de.sakurajin.evenbetterarcheology.api.item;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import de.sakurajin.evenbetterarcheology.registry.PatchouliBookGeneration;
+
 import de.sakurajin.sakuralib.arrp.v2.patchouli.JPatchouliEntry;
-import de.sakurajin.sakuralib.arrp.v2.patchouli.pages.JRecipePage;
+import de.sakurajin.sakuralib.arrp.v2.patchouli.pages.JCraftingPage;
 import de.sakurajin.sakuralib.arrp.v2.patchouli.pages.JTextPage;
 import de.sakurajin.sakuralib.datagen.v1.DatagenModContainer;
 import de.sakurajin.sakuralib.datagen.v1.DataGenerateable;
+
 import io.wispforest.owo.itemgroup.OwoItemSettings;
-import io.wispforest.owo.text.TranslationContext;
+
 import net.devtech.arrp.json.recipe.*;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BrushableBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BrushableBlockEntity;
-import net.minecraft.client.resource.language.TranslationStorage;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
-import net.minecraft.registry.Registries;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -33,10 +32,6 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
-import java.util.Map;
 
 /**
  * This is an extension of the BrushItem for Brushes that are made from better materials.
@@ -74,7 +69,7 @@ public class BetterBrushItem extends BrushItem implements DataGenerateable {
         JTextPage mainPage = JTextPage.create("patchouli_book.even_better_archeology.better_archeology_guide.brush." + identifier);
 
         JPatchouliEntry brushEntry = JPatchouliEntry
-            .create("item.evenbetterarcheology."+identifier, PatchouliBookGeneration.BRUSHES_CATEGORY_ID.toString(), container.getStringID(identifier))
+            .create("item.evenbetterarcheology." + identifier, PatchouliBookGeneration.BRUSHES_CATEGORY.IDString(), container.getStringID(identifier))
             .addPage(mainPage);
 
         if (material != null) {
@@ -91,12 +86,12 @@ public class BetterBrushItem extends BrushItem implements DataGenerateable {
                 )
             );
 
-            brushEntry = brushEntry.addPage(JRecipePage.create(recipeID.toString()));
+            brushEntry = brushEntry.addPage(JCraftingPage.create(recipeID.toString()));
         } else {
             container.LOGGER.warn("No material provided for the BetterBrushItem {}. The crafting recipe will not be generated.", identifier);
         }
 
-        container.registerPatchouliEntry(PatchouliBookGeneration.BOOK_NAME, brushEntry);
+        container.registerPatchouliEntry(PatchouliBookGeneration.BOOK.name(), brushEntry);
 
         return this;
     }

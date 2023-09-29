@@ -2,7 +2,8 @@
 
 ## 2.0.0-beta.5
 
-* update sakuralib to 1.3.4
+* update sakuralib to 1.4.0
+* Changing config options no longer requires a restart (however you need to call /reload to apply them if you were in game)
 * switch to maven modrinth for arrp
 * inject artifact shards into Dungeons and Taverns archeology table loot
 * Rework of penetrating strike

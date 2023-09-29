@@ -1,7 +1,6 @@
 package de.sakurajin.evenbetterarcheology.mixin.minecraft;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
-import de.sakurajin.evenbetterarcheology.enchantment.PenetratingStrikeEnchantment;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import org.spongepowered.asm.mixin.Mixin;
@@ -19,7 +18,7 @@ public abstract class ProtectionEnchantmentMixin {
     public void reduceProtectionWhenPen(int level, DamageSource source, CallbackInfoReturnable<Integer> cir){
         if(source.getAttacker() instanceof LivingEntity evenbetterarcheology$entity){
             //check if the entity has the penetrating strike enchantment and return early if not
-            int evenbetterarcheology$penetratingStrikeLevel = PenetratingStrikeEnchantment.getPenetratingStrikeLevel(evenbetterarcheology$entity);
+            int evenbetterarcheology$penetratingStrikeLevel = de.sakurajin.evenbetterarcheology.util.EnchantmentHelper.getPenetratingStrikeLevel(evenbetterarcheology$entity);
             if(evenbetterarcheology$penetratingStrikeLevel == 0){
                 return;
             }

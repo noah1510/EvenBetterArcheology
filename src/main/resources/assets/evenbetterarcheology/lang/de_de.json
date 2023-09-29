@@ -136,6 +136,8 @@
 
   "patchouli_book.even_better_archeology.better_archeology_guide.brushes.name": "Pinsel Items",
   "patchouli_book.even_better_archeology.better_archeology_guide.brushes.description": "Informationen über alle verfügbaren Pinsel",
+  "patchouli_book.even_better_archeology.better_archeology_guide.archeology.name": "Archäologie",
+  "patchouli_book.even_better_archeology.better_archeology_guide.archeology.description": "Informationen über Archäologie",
 
   "patchouli_book.even_better_archeology.better_archeology_guide.brush_template": [
     "", { "index": 0 }, "$(br)",

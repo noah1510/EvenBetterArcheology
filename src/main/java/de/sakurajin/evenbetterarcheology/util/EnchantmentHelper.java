@@ -1,16 +1,18 @@
 package de.sakurajin.evenbetterarcheology.util;
 
 import dev.emi.trinkets.api.TrinketsApi;
+
 import de.sakurajin.evenbetterarcheology.registry.ModEnchantments;
+
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Vec3d;
 
-public class ElytraHelper {
+public class EnchantmentHelper {
     /**
      * Checks if the given player has an Item with soaring winds equipped and returns the enchantment level
      * @param player the player to check
@@ -42,6 +44,29 @@ public class ElytraHelper {
     }
 
     /**
+     * This function returns the level of the penetrating strike enchantment of the player.
+     * It checks both hands and returns the first level it finds.
+     * If no level is found it returns 0
+     * @param entity the entity to check
+     * @return int the level of the penetrating strike enchantment
+     */
+    public static int getPenetratingStrikeLevel(LivingEntity entity){
+        int penetratingStrikeLevel = 0;
+
+        penetratingStrikeLevel = getSafeEnchantLevel(ModEnchantments.PENETRATING_STRIKE, entity.getMainHandStack());
+        if(penetratingStrikeLevel > 0){
+            return penetratingStrikeLevel;
+        }
+
+        penetratingStrikeLevel = getSafeEnchantLevel(ModEnchantments.PENETRATING_STRIKE, entity.getOffHandStack());
+        if(penetratingStrikeLevel > 0){
+            return penetratingStrikeLevel;
+        }
+
+        return 0;
+    }
+
+    /**
      * Returns the enchantment level of an item, or 0 if the item has no enchantments
      * @param enchantment the enchantment to check
      * @param item the item to check
@@ -51,7 +76,7 @@ public class ElytraHelper {
         if (!item.hasEnchantments()) {
             return 0;
         }
-        return EnchantmentHelper.getLevel(enchantment, item);
+        return net.minecraft.enchantment.EnchantmentHelper.getLevel(enchantment, item);
     }
 
     /**

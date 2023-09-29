@@ -2,28 +2,26 @@ package de.sakurajin.evenbetterarcheology.structures;
 
 import de.sakurajin.evenbetterarcheology.registry.ModItems;
 
-import de.sakurajin.sakuralib.datagen.v1.DatagenModContainer;
 import de.sakurajin.sakuralib.arrp.v1.worldgen.processor.JProcessor;
 import de.sakurajin.sakuralib.arrp.v1.worldgen.processor.ProcessorRule;
 import de.sakurajin.sakuralib.arrp.v1.worldgen.StructureDataBuilder;
-import de.sakurajin.sakuralib.loot.v1.LootEntryInsert;
-import de.sakurajin.sakuralib.loot.v1.LootSourceHelper;
-import de.sakurajin.sakuralib.loot.v1.LootTableManager;
+
+import de.sakurajin.sakuralib.datagen.v1.DatagenModContainer;
+import de.sakurajin.sakuralib.loot.v2.table_insert.LootEntryInsert;
+import de.sakurajin.sakuralib.loot.v2.LootSourceHelper;
+import de.sakurajin.sakuralib.loot.v2.LootTableManager;
 
 import net.minecraft.loot.LootTables;
 import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.util.Identifier;
-
 
 import java.util.HashMap;
-import java.util.List;
 
 public class StructureDataGenerator {
     private final HashMap<String, JProcessor> processorsParts = new HashMap<>();
     private final String                      structureType   = "evenbetterarcheology_structures";
 
     public StructureDataGenerator(DatagenModContainer container) {
-        generateProcessorsParts(container);
+        generateProcessorsParts();
 
         generateBiomeTags(container);
         generateStructureTags(container);
@@ -34,7 +32,7 @@ public class StructureDataGenerator {
     }
 
     private void addArtifactShardsToLootTables(){
-        LootTableManager.insertEntry(
+        LootTableManager.addInsertion(
             new LootEntryInsert(
                 ItemEntry.builder(ModItems.ARTIFACT_SHARDS).build(),
                 0,
@@ -286,7 +284,7 @@ public class StructureDataGenerator {
 
     }
 
-    private void generateProcessorsParts(DatagenModContainer container) {
+    private void generateProcessorsParts() {
         processorsParts.put("susdirt_taiga", JProcessor
             .byRule()
             .rule(ProcessorRule.addLootTable("evenbetterarcheology:suspicious_dirt", "minecraft:archaeology/desert_pyramid"))

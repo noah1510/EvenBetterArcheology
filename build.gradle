@@ -43,7 +43,10 @@ repositories {
 		url = 'https://maven.ladysnake.org/releases'
 	}
 	maven { url 'https://maven.wispforest.io' }
-
+	maven {
+		name = "QuiltMC"
+		url = "https://maven.quiltmc.org/repository/release/"
+	}
 }
 
 dependencies {
@@ -78,9 +81,10 @@ dependencies {
 	//add mods to local runtime for testing
 	modLocalRuntime("maven.modrinth:mixin-conflict-helper:${mixin_conflict_helper_version}")
 	modLocalRuntime("maven.modrinth:mixintrace:${mixin_trace_version}")
-	modLocalRuntime("maven.modrinth:emi:${emi_version}")
-	modLocalRuntime("maven.modrinth:emi-loot:${emi_loot_version}")
-	modLocalRuntime("maven.modrinth:emitrades:${emi_trades_version}")
+	modLocalRuntime("maven.modrinth:emi:${emi_version}"){transitive = true}
+	modLocalRuntime("maven.modrinth:emi-loot:${emi_loot_version}"){transitive = true}
+	modLocalRuntime("maven.modrinth:emitrades:${emi_trades_version}"){transitive = true}
+	modLocalRuntime("org.quiltmc.parsers:json:0.2.1")
 	modLocalRuntime("maven.modrinth:modmenu:${modmenu_version}")
 }
 

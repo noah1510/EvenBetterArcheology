@@ -1,10 +1,13 @@
 package de.sakurajin.evenbetterarcheology.compatibility;
 
 import de.sakurajin.evenbetterarcheology.registry.ModItems;
-import de.sakurajin.sakuralib.loot.v1.LootEntryInsert;
-import de.sakurajin.sakuralib.loot.v1.LootSourceHelper;
-import de.sakurajin.sakuralib.loot.v1.LootTableManager;
+
+import de.sakurajin.sakuralib.loot.v2.table_insert.LootEntryInsert;
+import de.sakurajin.sakuralib.loot.v2.LootSourceHelper;
+import de.sakurajin.sakuralib.loot.v2.LootTableManager;
+
 import net.fabricmc.loader.api.FabricLoader;
+
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.util.Identifier;
 
@@ -31,7 +34,7 @@ public class DungeonsAndTavernsCompat {
         );
 
         DUNGEONS_AND_TAVERNS_LOOT_TABLES.forEach(table -> {
-            LootTableManager.insertEntry(ArtifactShardEntry, table);
+            LootTableManager.addInsertion(ArtifactShardEntry, table);
         });
     }
 }
