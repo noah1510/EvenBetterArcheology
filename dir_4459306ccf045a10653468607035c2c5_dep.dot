@@ -17,7 +17,6 @@ digraph "evenbetterarcheology"
   dir_633912bb04ff9898484493ef4b78db89 [label="entity", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_633912bb04ff9898484493ef4b78db89.html",tooltip=""];
   dir_119f13e9235d6949e8665af64b5cba82 [label="item", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_119f13e9235d6949e8665af64b5cba82.html",tooltip=""];
   dir_e2923f6eb5bee160416695ae6f614e84 [label="mixin", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_e2923f6eb5bee160416695ae6f614e84.html",tooltip=""];
-  dir_91135077b18e22c4cdc588003091b8c7 [label="networking", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_91135077b18e22c4cdc588003091b8c7.html",tooltip=""];
   dir_2e0c957d422ee0307fe60e25e8441260 [label="registry", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_2e0c957d422ee0307fe60e25e8441260.html",tooltip=""];
   dir_5872fc0dcae002c71a14de3c65869135 [label="screen", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_5872fc0dcae002c71a14de3c65869135.html",tooltip=""];
   dir_5d752779261a40c96170304cafcaa0a8 [label="structures", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_5d752779261a40c96170304cafcaa0a8.html",tooltip=""];

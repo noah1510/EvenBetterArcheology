@@ -7,13 +7,15 @@ digraph "de.sakurajin.evenbetterarcheology.block.entity.ArcheologyTableBlockEnti
   rankdir="LR";
   Node1 [label="de.sakurajin.evenbetterarcheology.block.entity.\lArcheologyTableBlockEntity",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
   Node2 -> Node1 [dir="back",color="steelblue1",style="solid"];
-  Node2 [label="BlockEntity",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
-  Node3 -> Node1 [dir="back",color="steelblue1",style="solid"];
-  Node3 [label="NamedScreenHandlerFactory",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
-  Node4 -> Node1 [dir="back",color="steelblue1",style="solid"];
-  Node4 [label="de.sakurajin.evenbetterarcheology.block.entity.\lImplementedInventory",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$interfacede_1_1sakurajin_1_1evenbetterarcheology_1_1block_1_1entity_1_1ImplementedInventory.html",tooltip="A simple SidedInventory implementation with only default methods + an item list getter."];
-  Node5 -> Node4 [dir="back",color="steelblue1",style="solid"];
-  Node5 [label="SidedInventory",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
-  Node6 -> Node1 [dir="back",color="darkorchid3",style="dashed",label=" propertyDelegate" ];
-  Node6 [label="PropertyDelegate",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node2 [label="de.sakurajin.evenbetterarcheology.api.block.entity.\lBlockEntityWithInventory",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classde_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1block_1_1entity_1_1BlockEntityWithInventory.html",tooltip="A simple SidedInventory implementation with only default methods + an item list getter."];
+  Node3 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node3 [label="BlockEntity",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node4 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node4 [label="SidedInventory",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node5 -> Node2 [dir="back",color="darkorchid3",style="dashed",label=" inventory" ];
+  Node5 [label="DefaultedList\< ItemStack \>",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node6 -> Node1 [dir="back",color="steelblue1",style="solid"];
+  Node6 [label="NamedScreenHandlerFactory",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node7 -> Node1 [dir="back",color="darkorchid3",style="dashed",label=" propertyDelegate" ];
+  Node7 [label="PropertyDelegate",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
 }

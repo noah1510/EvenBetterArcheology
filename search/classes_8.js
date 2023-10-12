@@ -8,7 +8,7 @@ var searchData=
   ['modenchantments_5',['ModEnchantments',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModEnchantments.html',1,'de::sakurajin::evenbetterarcheology::registry']]],
   ['modentitytypes_6',['ModEntityTypes',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModEntityTypes.html',1,'de::sakurajin::evenbetterarcheology::registry']]],
   ['moditems_7',['ModItems',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModItems.html',1,'de::sakurajin::evenbetterarcheology::registry']]],
-  ['modmessages_8',['ModMessages',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModMessages.html',1,'de::sakurajin::evenbetterarcheology::registry']]],
+  ['modnetworking_8',['ModNetworking',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModNetworking.html',1,'de::sakurajin::evenbetterarcheology::registry']]],
   ['modscreenhandlers_9',['ModScreenHandlers',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModScreenHandlers.html',1,'de::sakurajin::evenbetterarcheology::registry']]],
   ['modstructure_10',['ModStructure',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1structures_1_1ModStructure.html',1,'de::sakurajin::evenbetterarcheology::structures']]],
   ['modstructures_11',['ModStructures',['../classde_1_1sakurajin_1_1evenbetterarcheology_1_1registry_1_1ModStructures.html',1,'de::sakurajin::evenbetterarcheology::registry']]],

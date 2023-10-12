@@ -8,7 +8,7 @@ var searchData=
   ['modenchantments_2ejava_5',['ModEnchantments.java',['../ModEnchantments_8java.html',1,'']]],
   ['modentitytypes_2ejava_6',['ModEntityTypes.java',['../ModEntityTypes_8java.html',1,'']]],
   ['moditems_2ejava_7',['ModItems.java',['../ModItems_8java.html',1,'']]],
-  ['modmessages_2ejava_8',['ModMessages.java',['../ModMessages_8java.html',1,'']]],
+  ['modnetworking_2ejava_8',['ModNetworking.java',['../ModNetworking_8java.html',1,'']]],
   ['modscreenhandlers_2ejava_9',['ModScreenHandlers.java',['../ModScreenHandlers_8java.html',1,'']]],
   ['modstructure_2ejava_10',['ModStructure.java',['../ModStructure_8java.html',1,'']]],
   ['modstructures_2ejava_11',['ModStructures.java',['../ModStructures_8java.html',1,'']]],

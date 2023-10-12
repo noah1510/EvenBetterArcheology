@@ -7,6 +7,10 @@ digraph "block"
   compound=true
   subgraph clusterdir_57799d9d50d0036b87fa9ec9caa8eebf {
     graph [ bgcolor="#edf0f7", pencolor="grey50", label="api", fontname=Helvetica,fontsize=10 style="filled,dashed", URL="dir_57799d9d50d0036b87fa9ec9caa8eebf.html",tooltip=""]
-  dir_9767037da01c0633d18e736ed0ae598b [label="block", fillcolor="#edf0f7", color="grey25", style="filled,bold", URL="dir_9767037da01c0633d18e736ed0ae598b.html",tooltip=""];
+  subgraph clusterdir_9767037da01c0633d18e736ed0ae598b {
+    graph [ bgcolor="#edf0f7", pencolor="grey25", label="", fontname=Helvetica,fontsize=10 style="filled,bold", URL="dir_9767037da01c0633d18e736ed0ae598b.html",tooltip=""]
+    dir_9767037da01c0633d18e736ed0ae598b [shape=plaintext, label="block"];
+  dir_30b92dc588688bda88adf1507472c9d9 [label="entity", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_30b92dc588688bda88adf1507472c9d9.html",tooltip=""];
+  }
   }
 }

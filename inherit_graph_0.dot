@@ -7,19 +7,18 @@ digraph "Graphical Class Hierarchy"
   rankdir="LR";
   Node0 [label="BlockEntity",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
   Node0 -> Node1 [dir="back",color="steelblue1",style="solid"];
-  Node1 [label="de.sakurajin.evenbetterarcheology.block.entity.\lArcheologyTableBlockEntity",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classde_1_1sakurajin_1_1evenbetterarcheology_1_1block_1_1entity_1_1ArcheologyTableBlockEntity.html",tooltip=" "];
+  Node1 [label="de.sakurajin.evenbetterarcheology.api.block.entity.\lBlockEntityWithInventory",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classde_1_1sakurajin_1_1evenbetterarcheology_1_1api_1_1block_1_1entity_1_1BlockEntityWithInventory.html",tooltip="A simple SidedInventory implementation with only default methods + an item list getter."];
+  Node1 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node2 [label="de.sakurajin.evenbetterarcheology.block.entity.\lArcheologyTableBlockEntity",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classde_1_1sakurajin_1_1evenbetterarcheology_1_1block_1_1entity_1_1ArcheologyTableBlockEntity.html",tooltip=" "];
+  Node1 -> Node4 [dir="back",color="steelblue1",style="solid"];
+  Node4 [label="de.sakurajin.evenbetterarcheology.block.fossils.block\lEntity.VillagerFossilBlockEntity",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classde_1_1sakurajin_1_1evenbetterarcheology_1_1block_1_1fossils_1_1blockEntity_1_1VillagerFossilBlockEntity.html",tooltip=" "];
   Node0 -> Node6 [dir="back",color="steelblue1",style="solid"];
   Node6 [label="de.sakurajin.evenbetterarcheology.block.fossils.block\lEntity.ChickenFossilBlockEntity",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classde_1_1sakurajin_1_1evenbetterarcheology_1_1block_1_1fossils_1_1blockEntity_1_1ChickenFossilBlockEntity.html",tooltip=" "];
   Node0 -> Node7 [dir="back",color="steelblue1",style="solid"];
   Node7 [label="de.sakurajin.evenbetterarcheology.block.fossils.block\lEntity.FleeFromBlockEntity",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classde_1_1sakurajin_1_1evenbetterarcheology_1_1block_1_1fossils_1_1blockEntity_1_1FleeFromBlockEntity.html",tooltip=" "];
-  Node0 -> Node3 [dir="back",color="steelblue1",style="solid"];
-  Node3 [label="de.sakurajin.evenbetterarcheology.block.fossils.block\lEntity.VillagerFossilBlockEntity",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classde_1_1sakurajin_1_1evenbetterarcheology_1_1block_1_1fossils_1_1blockEntity_1_1VillagerFossilBlockEntity.html",tooltip=" "];
-  Node2 [label="NamedScreenHandlerFactory",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
-  Node2 -> Node1 [dir="back",color="steelblue1",style="solid"];
-  Node2 -> Node3 [dir="back",color="steelblue1",style="solid"];
+  Node3 [label="NamedScreenHandlerFactory",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node3 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node3 -> Node4 [dir="back",color="steelblue1",style="solid"];
   Node5 [label="SidedInventory",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
-  Node5 -> Node4 [dir="back",color="steelblue1",style="solid"];
-  Node4 [label="de.sakurajin.evenbetterarcheology.block.entity.\lImplementedInventory",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$interfacede_1_1sakurajin_1_1evenbetterarcheology_1_1block_1_1entity_1_1ImplementedInventory.html",tooltip="A simple SidedInventory implementation with only default methods + an item list getter."];
-  Node4 -> Node1 [dir="back",color="steelblue1",style="solid"];
-  Node4 -> Node3 [dir="back",color="steelblue1",style="solid"];
+  Node5 -> Node1 [dir="back",color="steelblue1",style="solid"];
 }
