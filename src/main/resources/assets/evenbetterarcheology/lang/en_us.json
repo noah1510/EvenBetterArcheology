@@ -130,51 +130,21 @@
   "text.config.even_better_archeology.option.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT_QUALITY": "The loot table quality of getting any Artifact from the Archeology Table",
   "text.config.even_better_archeology.option.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT_QUALITY.tooltip": "Change the amount by which the weight increases for each level of luck the player has. The weight of getting an Artifact is (weight of this option)+(luck level)*(this option)",
 
-  "patchouli_book.even_better_archeology.better_archeology_guide.name": "Archeology Guide",
-  "patchouli_book.even_better_archeology.better_archeology_guide.landing": "Welcome to the Archeology Guide! Here you can find all the information you need to know about the minecraft archeology system and the mod Even Better Archeology!",
+  "sakuralib_dynamic_book.ebe.maintext": "Welcome to the Archeology Guide! Here you can find all the information about the stuff added by Even Better Archeology",
 
-  "patchouli_book.even_better_archeology.better_archeology_guide.brushes.name": "Brush Items",
-  "patchouli_book.even_better_archeology.better_archeology_guide.brushes.description": "Information about available brushes",
-  "patchouli_book.even_better_archeology.better_archeology_guide.archeology.name": "Archeology",
-  "patchouli_book.even_better_archeology.better_archeology_guide.archeology.description": "Information about the archeology system",
+  "sakuralib_dynamic_book.minecraft.archeology.name": "Archeology",
+  "sakuralib_dynamic_book.minecraft.archeology.description": "Information about the archeology system",
 
-  "patchouli_book.even_better_archeology.better_archeology_guide.brush_template": [
-    "", { "index": 0 }, "$(br)",
-    "$(li)Durability: ", { "index": 1 },
-    "$(li)Speed: ", { "index": 2 }
-  ],
+  "sakuralib_dynamic_book.minecraft.archeology.brushes.name": "Brush Items",
+  "sakuralib_dynamic_book.minecraft.archeology.brushes.description": "Information about available brushes",
 
-  "patchouli_book.even_better_archeology.better_archeology_guide.brush.vanilla_brush": [
+  "sakuralib_dynamic_book.minecraft.archeology.brush.vanilla_brush.text": "The vanilla brush. It is slow and not very durable but gets the job done",
+  "sakuralib_dynamic_book.minecraft.archeology.brush.iron_brush.text": "The first upgrade over the vanilla brush. It is faster and more durable.",
+  "sakuralib_dynamic_book.minecraft.archeology.brush.diamond_brush.text": "The good stuff. It is likely the last brush you will ever need. It is faster and more durable than the iron brush.",
+
+  "sakuralib_dynamic_book.minecraft.archeology.brush.brush_stats": [
     "",
-    {
-      "translate": "patchouli_book.even_better_archeology.better_archeology_guide.brush_template",
-      "with": [
-        "The vanilla brush. It is slow and not very durable but gets the job done",
-        64,
-        10
-      ]
-    }
-  ],
-  "patchouli_book.even_better_archeology.better_archeology_guide.brush.iron_brush": [
-    "",
-    {
-      "translate": "patchouli_book.even_better_archeology.better_archeology_guide.brush_template",
-      "with": [
-        "The first upgrade over the vanilla brush. It is faster and more durable.",
-        128,
-        8
-      ]
-    }
-  ],
-  "patchouli_book.even_better_archeology.better_archeology_guide.brush.diamond_brush":[
-    "",
-    {
-      "translate": "patchouli_book.even_better_archeology.better_archeology_guide.brush_template",
-      "with": [
-        "The good stuff. It is likely the last brush you will ever need. It is faster and more durable than the iron brush.",
-        256,
-        6
-      ]
-    }
+    "$(li)Durability: ", { "index": 0 },
+    "$(li)Speed: ", { "index": 1 }
   ]
 }

@@ -8,8 +8,12 @@ import de.sakurajin.sakuralib.arrp.v2.patchouli.pages.JTextPage;
 import de.sakurajin.sakuralib.datagen.v1.DatagenModContainer;
 import de.sakurajin.sakuralib.datagen.v1.DataGenerateable;
 
+import de.sakurajin.sakuralib.datagen.v2.DynamicOwOLangManager;
+import de.sakurajin.sakuralib.util.v1.JsonObjectBuilder;
+import de.sakurajin.sakuralib.util.v1.SakuraJsonHelper;
 import io.wispforest.owo.itemgroup.OwoItemSettings;
 
+import net.devtech.arrp.json.lang.JLang;
 import net.devtech.arrp.json.recipe.*;
 
 import net.minecraft.block.Block;
@@ -66,11 +70,25 @@ public class BetterBrushItem extends BrushItem implements DataGenerateable {
         container.addTag("c:items/brushitems", identifier);
         container.generateItemModel(identifier, "minecraft:item/brush", identifier);
 
-        JTextPage mainPage = JTextPage.create("patchouli_book.even_better_archeology.better_archeology_guide.brush." + identifier);
+        //create the lang file entry for the stats and update the rrp
+        String statsLang = "sakuralib_dynamic_book.minecraft.archeology.brush." + identifier + ".stats";
+        DynamicOwOLangManager.addGlobalEntry(
+            statsLang,
+            SakuraJsonHelper.createArray(
+                "",
+                JsonObjectBuilder
+                    .create()
+                    .add("translate", "sakuralib_dynamic_book.minecraft.archeology.brush.brush_stats")
+                    .add("with", SakuraJsonHelper.createArray(this.getMaxDamage(), this.brushingSpeed))
+                    .build()
+            )
+        );
+        DynamicOwOLangManager.updateRRP();
 
+        //create the patchouli entry
         JPatchouliEntry brushEntry = JPatchouliEntry
-            .create("item.evenbetterarcheology." + identifier, PatchouliBookGeneration.BRUSHES_CATEGORY.IDString(), container.getStringID(identifier))
-            .addPage(mainPage);
+            .create("item.evenbetterarcheology." + identifier, null, container.getStringID(identifier))
+            .addTextPage("sakuralib_dynamic_book.minecraft.archeology.brush." + identifier + ".text");
 
         if (material != null) {
             Identifier recipeID = container.getSimpleID("crafting_" + identifier + "_" + materialName);
@@ -86,12 +104,13 @@ public class BetterBrushItem extends BrushItem implements DataGenerateable {
                 )
             );
 
-            brushEntry = brushEntry.addPage(JCraftingPage.create(recipeID.toString()));
+            brushEntry.addPage(JCraftingPage.create(recipeID.toString()).setText(statsLang));
         } else {
+            brushEntry.addTextPage(statsLang);
             container.LOGGER.warn("No material provided for the BetterBrushItem {}. The crafting recipe will not be generated.", identifier);
         }
 
-        container.registerPatchouliEntry(PatchouliBookGeneration.BOOK.name(), brushEntry);
+        PatchouliBookGeneration.BRUSHES_CATEGORY.add(brushEntry);
 
         return this;
     }

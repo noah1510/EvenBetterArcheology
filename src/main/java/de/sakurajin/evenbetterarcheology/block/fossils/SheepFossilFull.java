@@ -30,7 +30,7 @@ import java.util.stream.Stream;
 
 public class SheepFossilFull extends FossilCraftable {
     public static final BooleanProperty PLAYING = BooleanProperty.of("playing"); //true while sound is played and for the duration of "playCooldown"
-    private static final int playCooldown = 80; //used to prevent sound-spamming
+    private static final int playCooldown = 40; //used to prevent sound-spamming
     public static final IntProperty HORN_SOUND = IntProperty.of("horn_sound", 0, 7); //index of the goat horn sound currently used
 
     //Map of hitboxes for every direction the model can be facing
@@ -68,7 +68,7 @@ public class SheepFossilFull extends FossilCraftable {
 
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
         boolean powered = world.isReceivingRedstonePower(pos) || world.isReceivingRedstonePower(pos.up());
-        boolean playing = (Boolean) state.get(PLAYING);
+        boolean playing = state.get(PLAYING);
 
         if (powered && !playing) {
             //play sound and set state to playing
@@ -81,19 +81,13 @@ public class SheepFossilFull extends FossilCraftable {
         }
     }
 
-    //used to tune the SheepFossilBlock to an Index of the GoatHornsSounds
-    @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    public ActionResult playSound(BlockState state, World world, BlockPos pos){
         //if sound is already being played, abort
         if(state.get(PLAYING)){return ActionResult.FAIL;}
 
         if (!world.isClient()) {
             //increase index or set to 0 if at max
-            if (state.get(HORN_SOUND) + 1 <= 7) {
-                world.setBlockState(pos, state.with(HORN_SOUND, state.get(HORN_SOUND) + 1).with(PLAYING, true));
-            } else {
-                world.setBlockState(pos, state.with(HORN_SOUND, 0).with(PLAYING, true));
-            }
+            world.setBlockState(pos, state.with(HORN_SOUND, state.get(HORN_SOUND) + 1 % 8).with(PLAYING, true));
 
             //play sound and set cooldown to reset "playing" property
             world.playSound(null, pos, SoundEvents.GOAT_HORN_SOUNDS.get(world.getBlockState(pos).get(HORN_SOUND)).value(), SoundCategory.BLOCKS);

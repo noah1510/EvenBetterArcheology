@@ -14,7 +14,7 @@ public class ModScreenHandlers {
     public static ScreenHandlerType<FossilInventoryScreenHandler> FOSSIL_SCREEN_HANDLER      = new ScreenHandlerType<>(FossilInventoryScreenHandler::new, FeatureFlags.VANILLA_FEATURES);
 
     public static void registerAllScreenHandlers(){
-        Registry.register(Registries.SCREEN_HANDLER, new Identifier(EvenBetterArcheology.DATA.MOD_ID, "archeology_table"), IDENTIFYING_SCREEN_HANDLER);
-        Registry.register(Registries.SCREEN_HANDLER, new Identifier(EvenBetterArcheology.DATA.MOD_ID, "fossil"), FOSSIL_SCREEN_HANDLER);
+        Registry.register(Registries.SCREEN_HANDLER, EvenBetterArcheology.DATA.getSimpleID("archeology_table"), IDENTIFYING_SCREEN_HANDLER);
+        Registry.register(Registries.SCREEN_HANDLER, EvenBetterArcheology.DATA.getSimpleID("fossil"), FOSSIL_SCREEN_HANDLER);
     }
 }

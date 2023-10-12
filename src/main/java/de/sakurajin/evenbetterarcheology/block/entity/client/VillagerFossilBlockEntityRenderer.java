@@ -59,7 +59,7 @@ public class VillagerFossilBlockEntityRenderer implements BlockEntityRenderer<Vi
         matrices.scale(0.5f, 0.5f, 0.5f);
 
         //render item in inventory to hand position with lightlevel at blockpos
-        itemRenderer.renderItem(entity.getInventoryContents(), ModelTransformationMode.FIXED, getLightLevel(Objects.requireNonNull(entity.getWorld()), entity.getPos()), OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, entity.getWorld(), 1);
+        itemRenderer.renderItem(entity.getInventoryContents().get(0), ModelTransformationMode.FIXED, getLightLevel(Objects.requireNonNull(entity.getWorld()), entity.getPos()), OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, entity.getWorld(), 1);
 
         matrices.pop();
     }

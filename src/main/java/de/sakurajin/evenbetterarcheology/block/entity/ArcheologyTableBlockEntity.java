@@ -1,14 +1,11 @@
 package de.sakurajin.evenbetterarcheology.block.entity;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
+import de.sakurajin.evenbetterarcheology.api.block.entity.BlockEntityWithInventory;
 import de.sakurajin.evenbetterarcheology.registry.ModBlockEntities;
-import de.sakurajin.evenbetterarcheology.registry.ModMessages;
 import de.sakurajin.evenbetterarcheology.screen.IdentifyingScreenHandler;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import de.sakurajin.evenbetterarcheology.registry.ModItems;
-import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
-import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -24,11 +21,9 @@ import net.minecraft.loot.context.LootContextParameterSet;
 import net.minecraft.loot.context.LootContextParameters;
 import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -41,22 +36,14 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Arrays;
-import java.util.List;
-
 import static de.sakurajin.evenbetterarcheology.block.custom.ArchelogyTable.DUSTING;
 
-public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
-
-    //default inventory size of the archeology table,
-    public static final int INV_SIZE = 3;
+public class ArcheologyTableBlockEntity extends BlockEntityWithInventory implements NamedScreenHandlerFactory {
     //default number of Properties of ArcheologyTableBlockEntity
     public static final int PROPERTY_DELEGATES = 2;
 
-    //count of custom slots inside the table
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(INV_SIZE, ItemStack.EMPTY);
-
-    private final String translationKey = "archeology_table";   //used in getDisplayName using getTranslationKey
+    //used in getDisplayName using getTranslationKey
+    private final String translationKey = "archeology_table";
 
     //synchronises Ints between server and client
     protected final PropertyDelegate propertyDelegate;
@@ -67,7 +54,7 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
     private static final Identifier CRAFTING_LOOT = new Identifier(EvenBetterArcheology.DATA.MOD_ID, "identifying_loot");
 
     public ArcheologyTableBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.ARCHEOLOGY_TABLE, pos, state);
+        super(ModBlockEntities.ARCHEOLOGY_TABLE, pos, state, DefaultedList.ofSize(3, ItemStack.EMPTY));
 
         //getter und setter für PropertyDelegate based on index (progress, maxProgress)
         this.propertyDelegate = new PropertyDelegate() {
@@ -90,11 +77,6 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
                 return PROPERTY_DELEGATES;
             }
         };
-    }
-
-    @Override
-    public DefaultedList<ItemStack> getItems() {
-        return this.inventory;
     }
 
     @Override
@@ -181,7 +163,7 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
             }
 
             //if on server
-            if (!this.world.isClient()) {
+            if (this.world != null && !this.world.isClient()) {
                 //play sound after crafting
                 this.world.playSound(null, this.pos, SoundEvents.ITEM_BRUSH_BRUSHING_SAND_COMPLETE, SoundCategory.BLOCKS, 0.5f, 1f);
             }
@@ -255,33 +237,5 @@ public class ArcheologyTableBlockEntity extends BlockEntity implements NamedScre
 
     private static boolean canInsertAmountIntoOutputSlot(SimpleInventory inventory) {
         return inventory.getStack(2).getMaxCount() > inventory.getStack(2).getCount();
-    }
-
-    public List<ItemStack> getInventoryContents() {
-        return Arrays.asList(this.getStack(0), this.getStack(1), this.getStack(2));
-    }
-
-    public void setInventory(DefaultedList<ItemStack> inventory) {
-        for (int i = 0; i < inventory.size(); i++) {
-            this.inventory.set(i, inventory.get(i));
-        }
-    }
-
-    @Override
-    public void markDirty() {
-        if (world != null && !world.isClient()) {
-            PacketByteBuf data = PacketByteBufs.create();
-            data.writeInt(inventory.size());
-            for (ItemStack itemStack : inventory) {
-                data.writeItemStack(itemStack);
-            }
-            data.writeBlockPos(getPos());
-
-            for (ServerPlayerEntity player : PlayerLookup.tracking((ServerWorld) world, getPos())) {
-                ServerPlayNetworking.send(player, ModMessages.ITEM_SYNC, data);
-            }
-        }
-
-        super.markDirty();
     }
 }

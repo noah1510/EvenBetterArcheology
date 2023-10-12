@@ -131,51 +131,22 @@
   "text.config.even_better_archeology.option.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT_QUALITY": "Die Qualität der Artefakte beim identifizieren im Tisch der Archäologi",
   "text.config.even_better_archeology.option.COMPATIBILITY_OPTIONS.ARCHEOLOGY_TABLE_ARTIFACTS_LOOT_QUALITY.tooltip": "Ändere um wie viel das Gewicht pro Level Glück erhöht wird. (Gewicht des Artefakts + (Glückslevel * Qualität))",
 
-  "patchouli_book.even_better_archeology.better_archeology_guide.name": "Archäologie Guide",
-  "patchouli_book.even_better_archeology.better_archeology_guide.landing": "Willkommen zum Archäologie Guide! Hier findest du alle Informationen, die du brauchst, um die Welt zu erkunden und Artefakte zu finden.",
 
-  "patchouli_book.even_better_archeology.better_archeology_guide.brushes.name": "Pinsel Items",
-  "patchouli_book.even_better_archeology.better_archeology_guide.brushes.description": "Informationen über alle verfügbaren Pinsel",
-  "patchouli_book.even_better_archeology.better_archeology_guide.archeology.name": "Archäologie",
-  "patchouli_book.even_better_archeology.better_archeology_guide.archeology.description": "Informationen über Archäologie",
+  "sakuralib_dynamic_book.ebe.maintext": "Willkommen zum Archäologie Guide! Hier findest du alle Informationen über die Even Better Archeology Mod.",
 
-  "patchouli_book.even_better_archeology.better_archeology_guide.brush_template": [
-    "", { "index": 0 }, "$(br)",
-    "$(li)Haltbarkeit: ", { "index": 1 },
-    "$(li)Geschwindigkeit: ", { "index": 2 }
-  ],
+  "sakuralib_dynamic_book.minecraft.archeology.name": "Archäologie",
+  "sakuralib_dynamic_book.minecraft.archeology.description": "Informationen über Archäologie",
 
-  "patchouli_book.even_better_archeology.better_archeology_guide.brush.vanilla_brush": [
+  "sakuralib_dynamic_book.minecraft.archeology.brushes.name": "Pinsel Items",
+  "sakuralib_dynamic_book.minecraft.archeology.brushes.description": "Informationen über alle verfügbaren Pinsel",
+
+  "sakuralib_dynamic_book.minecraft.archeology.brush.vanilla_brush.text": "Der Standard-Pinsel. Er ist langsam und nicht sehr haltbar.",
+  "sakuralib_dynamic_book.minecraft.archeology.brush.iron_brush.text": "Der erste bessere Pinsel. Er ist schneller und haltbarer als der Holzpinsel.",
+  "sakuralib_dynamic_book.minecraft.archeology.brush.diamond_brush.text": "Das gute Zeug. Er ist schneller und haltbarer als der Eisener Pinsel. Wahrscheinlich der letzte Pinsel den du brauchst.",
+
+  "sakuralib_dynamic_book.minecraft.archeology.brush.brush_stats": [
     "",
-    {
-      "translate": "patchouli_book.even_better_archeology.better_archeology_guide.brush_template",
-      "with": [
-        "Der Standard-Pinsel. Er ist langsam und nicht sehr haltbar.",
-        64,
-        10
-      ]
-    }
-  ],
-  "patchouli_book.even_better_archeology.better_archeology_guide.brush.iron_brush": [
-    "",
-    {
-      "translate": "patchouli_book.even_better_archeology.better_archeology_guide.brush_template",
-      "with": [
-        "Der erste bessere Pinsel. Er ist schneller und haltbarer als der Holzpinsel.",
-        128,
-        8
-      ]
-    }
-  ],
-  "patchouli_book.even_better_archeology.better_archeology_guide.brush.diamond_brush":[
-    "",
-    {
-      "translate": "patchouli_book.even_better_archeology.better_archeology_guide.brush_template",
-      "with": [
-        "Das gute Zeug. Er ist schneller und haltbarer als der Eisener Pinsel. Wahrscheinlich der letzte Pinsel den du brauchst.",
-        256,
-        6
-      ]
-    }
+    "$(li)Haltbarkeit: ", { "index": 0 },
+    "$(li)Geschwindigkeit: ", { "index": 1 }
   ]
 }

@@ -31,7 +31,7 @@ public class EvokerTrapBlock extends HorizontalFacingBlock implements DataGenera
 
     public EvokerTrapBlock(Settings settings) {
         super(settings);
-        this.setDefaultState((BlockState) ((BlockState) ((BlockState) this.stateManager.getDefaultState()).with(FACING, Direction.NORTH)).with(TRIGGERED, false).with(ACTIVE, false));
+        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(TRIGGERED, false).with(ACTIVE, false));
     }
 
     @Override

@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.0.0-beta.6
+
+* update sakuralib to 1.5.3
+* Switch from Archeology book to the new sakuralib dynamic book
+* Using dynamic lang entries for the book
+* Moving away from deprecated APIs (now only some tick and updateNeighbor methods need to be replaced)
+* Rewritten networking and inventory code (Now the inventory content is always synced)
+* Some loot table fixes
+* Fixing nbt data of villagers spawned by archeology camps
+* Remove some entities from other structures (they spawn there anyway)
+
 ## 2.0.0-beta.5
 
 * update sakuralib to 1.4.0

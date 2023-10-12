@@ -52,34 +52,6 @@ public class ArchelogyTable extends BlockWithEntity implements DataGenerateable 
     }
 
 
-    //Drops Items present in the table at the time of destruction
-    @Override
-    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
-        if (state.getBlock() != newState.getBlock()) {
-            BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof ArcheologyTableBlockEntity) {
-                ItemScatterer.spawn(world, pos, (ArcheologyTableBlockEntity) blockEntity);
-                world.updateComparators(pos, this);
-            }
-        }
-        super.onStateReplaced(state, world, pos, newState, moved);
-    }
-
-    //Creates the Screen-Handler belonging to the BlockEntity
-    @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!world.isClient) {
-            NamedScreenHandlerFactory handledScreen = state.createScreenHandlerFactory(world, pos);
-
-            if (handledScreen != null) {
-                player.openHandledScreen(handledScreen);
-            }
-        }
-
-        return ActionResult.SUCCESS;
-
-    }
-
     // creates ArcheologyTableBlockEntity for each ArcheologyTable
     @Nullable
     @Override

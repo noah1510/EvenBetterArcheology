@@ -1,5 +1,9 @@
-package de.sakurajin.evenbetterarcheology.block.entity;
+package de.sakurajin.evenbetterarcheology.api.block.entity;
 
+import de.sakurajin.evenbetterarcheology.registry.ModNetworking;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
@@ -7,9 +11,11 @@ import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -22,34 +28,23 @@ import java.util.List;
  * License: <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>
  * @author Juuz
  */
-@FunctionalInterface
-public interface ImplementedInventory extends SidedInventory {
+public abstract class BlockEntityWithInventory extends BlockEntity implements SidedInventory {
+
+    //count of custom slots inside the table
+    protected final DefaultedList<ItemStack> inventory;
+    public BlockEntityWithInventory(BlockEntityType<?> type, BlockPos pos, BlockState state, DefaultedList<ItemStack> inventory) {
+        super(type, pos, state);
+        this.inventory = inventory;
+    }
+
     /**
      * Gets the item list of this inventory.
      * Must return the same instance every time it's called.
      *
      * @return the item list
      */
-    DefaultedList<ItemStack> getItems();
-
-    /**
-     * Creates an inventory from the item list.
-     *
-     * @param items the item list
-     * @return a new inventory
-     */
-    static ImplementedInventory of(DefaultedList<ItemStack> items) {
-        return () -> items;
-    }
-
-    /**
-     * Creates a new inventory with the size.
-     *
-     * @param size the inventory size
-     * @return a new inventory
-     */
-    static ImplementedInventory ofSize(int size) {
-        return of(DefaultedList.ofSize(size, ItemStack.EMPTY));
+    public DefaultedList<ItemStack> getItems(){
+        return inventory;
     }
 
     // SidedInventory
@@ -63,7 +58,7 @@ public interface ImplementedInventory extends SidedInventory {
      * @return the available slots
      */
     @Override
-    default int[] getAvailableSlots(Direction side) {
+    public int[] getAvailableSlots(Direction side) {
         int[] result = new int[getItems().size()];
         for (int i = 0; i < result.length; i++) {
             result[i] = i;
@@ -83,7 +78,7 @@ public interface ImplementedInventory extends SidedInventory {
      * @return true if the stack can be inserted
      */
     @Override
-    default boolean canInsert(int slot, ItemStack stack, @Nullable Direction side) {
+    public boolean canInsert(int slot, ItemStack stack, @Nullable Direction side) {
         return true;
     }
 
@@ -98,7 +93,7 @@ public interface ImplementedInventory extends SidedInventory {
      * @return true if the stack can be extracted
      */
     @Override
-    default boolean canExtract(int slot, ItemStack stack, Direction side) {
+    public boolean canExtract(int slot, ItemStack stack, Direction side) {
         return true;
     }
 
@@ -112,7 +107,7 @@ public interface ImplementedInventory extends SidedInventory {
      * @return the inventory size
      */
     @Override
-    default int size() {
+    public int size() {
         return getItems().size();
     }
 
@@ -120,7 +115,7 @@ public interface ImplementedInventory extends SidedInventory {
      * @return true if this inventory has only empty stacks, false otherwise
      */
     @Override
-    default boolean isEmpty() {
+    public boolean isEmpty() {
         for (int i = 0; i < size(); i++) {
             ItemStack stack = getStack(i);
             if (!stack.isEmpty()) {
@@ -138,7 +133,7 @@ public interface ImplementedInventory extends SidedInventory {
      * @return the item in the slot
      */
     @Override
-    default ItemStack getStack(int slot) {
+    public ItemStack getStack(int slot) {
         return getItems().get(slot);
     }
 
@@ -153,7 +148,7 @@ public interface ImplementedInventory extends SidedInventory {
      * @return a stack
      */
     @Override
-    default ItemStack removeStack(int slot, int count) {
+    public ItemStack removeStack(int slot, int count) {
         ItemStack result = Inventories.splitStack(getItems(), slot, count);
         if (!result.isEmpty()) {
             markDirty();
@@ -171,7 +166,7 @@ public interface ImplementedInventory extends SidedInventory {
      * @return the removed stack
      */
     @Override
-    default ItemStack removeStack(int slot) {
+    public ItemStack removeStack(int slot) {
         return Inventories.removeStack(getItems(), slot);
     }
 
@@ -185,10 +180,20 @@ public interface ImplementedInventory extends SidedInventory {
      * @param stack the stack
      */
     @Override
-    default void setStack(int slot, ItemStack stack) {
+    public void setStack(int slot, ItemStack stack) {
         getItems().set(slot, stack);
         if (stack.getCount() > getMaxCountPerStack()) {
             stack.setCount(getMaxCountPerStack());
+        }
+    }
+
+    public List<ItemStack> getInventoryContents() {
+        return Arrays.asList(this.inventory.toArray(new ItemStack[0]));
+    }
+
+    public void setInventory(DefaultedList<ItemStack> inventory) {
+        for (int i = 0; i < inventory.size(); i++) {
+            this.inventory.set(i, inventory.get(i));
         }
     }
 
@@ -196,17 +201,39 @@ public interface ImplementedInventory extends SidedInventory {
      * Clears {@linkplain #getItems() the item list}}.
      */
     @Override
-    default void clear() {
+    public void clear() {
         getItems().clear();
     }
 
     @Override
-    default void markDirty() {
-        // Override if you want behavior.
+    public void markDirty() {
+        transferDataToClients();
+        super.markDirty();
     }
 
     @Override
-    default boolean canPlayerUse(PlayerEntity player) {
+    public boolean canPlayerUse(PlayerEntity player) {
         return true;
+    }
+
+    public void transferDataToClients(){
+        transferDataToClients(null);
+    }
+
+    public void transferDataToClients(PlayerEntity player){
+        if(world != null && !world.isClient()) {
+            ModNetworking.ItemUpdatePacket packet = new ModNetworking.ItemUpdatePacket(getPos(), getInventoryContents());
+            if(player == null) {
+                ModNetworking.ARCHEOLOGY_CHANNEL.serverHandle(this).send(packet);
+            } else {
+                ModNetworking.ARCHEOLOGY_CHANNEL.serverHandle(player).send(packet);
+            }
+        }
+    }
+
+    public void requestDataTransfer(){
+        if(world != null){
+            ModNetworking.ARCHEOLOGY_CHANNEL.clientHandle().send(new ModNetworking.UpdateRequestPacket(getPos()));
+        }
     }
 }

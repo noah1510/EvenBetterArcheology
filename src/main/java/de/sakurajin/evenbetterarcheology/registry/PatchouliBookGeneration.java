@@ -1,80 +1,84 @@
 package de.sakurajin.evenbetterarcheology.registry;
 
 import de.sakurajin.evenbetterarcheology.EvenBetterArcheology;
-import de.sakurajin.sakuralib.arrp.v2.patchouli.JPatchouliBook;
 import de.sakurajin.sakuralib.arrp.v2.patchouli.JPatchouliCategory;
 import de.sakurajin.sakuralib.arrp.v2.patchouli.JPatchouliEntry;
 import de.sakurajin.sakuralib.arrp.v2.patchouli.pages.JCraftingPage;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.Pair;
+import de.sakurajin.sakuralib.datagen.v2.DynamicOwOLangManager;
+import de.sakurajin.sakuralib.datagen.v2.patchouli.DynamicPatchouliCategoryContainer;
+import de.sakurajin.sakuralib.datagen.v2.patchouli.PatchouliDataManager;
+import de.sakurajin.sakuralib.util.v1.JsonObjectBuilder;
+import de.sakurajin.sakuralib.util.v1.SakuraJsonHelper;
 
 public class PatchouliBookGeneration {
-    static public class NameIDPair extends Pair<String, Identifier>{
-        public NameIDPair(String name) {
-            super(name, EvenBetterArcheology.DATA.getSimpleID(name));
-        }
 
-        public String name(){
-            return getLeft();
-        }
-
-        public Identifier ID(){
-            return getRight();
-        }
-
-        public String IDString(){
-            return ID().toString();
-        }
-    }
-
-    static public final NameIDPair BOOK = new NameIDPair("better_archeology_guide");
-    static public final NameIDPair BRUSHES_CATEGORY = new NameIDPair("brushes");
-    static public final NameIDPair ARCHEOLOGY_CATEGORY = new NameIDPair("archeology");
+    static public final DynamicPatchouliCategoryContainer MAIN_CATEGORY = PatchouliDataManager.getOrCreateDynamicCategory(
+        EvenBetterArcheology.DATA.MOD_ID,
+        JPatchouliCategory.create(
+            "itemGroup.evenbetterarcheology.evenbetterarcheology",
+            "sakuralib_dynamic_book.ebe.maintext",
+            "evenbetterarcheology:artifact_shards"
+        )
+    );
+    static public final DynamicPatchouliCategoryContainer ARCHEOLOGY_CATEGORY = PatchouliDataManager.MINECRAFT_CATEGORY.add(
+        JPatchouliCategory
+            .create(
+                "sakuralib_dynamic_book.minecraft.archeology.name",
+                "sakuralib_dynamic_book.minecraft.archeology.description",
+                "evenbetterarcheology:artifact_shards"
+            ),
+        "archeology"
+    );
+    static public final DynamicPatchouliCategoryContainer BRUSHES_CATEGORY = ARCHEOLOGY_CATEGORY.add(
+        JPatchouliCategory.create(
+            "sakuralib_dynamic_book.minecraft.archeology.brushes.name",
+            "sakuralib_dynamic_book.minecraft.archeology.brushes.description",
+            "minecraft:brush"
+        ),
+        "brushes"
+    );
 
     public static void generateBook() {
-        //create the book and register it
-        //or at least that would be the case if patchouli would allow loading books from datapacks
-        //for whatever reason pachouli only loads books from the jar file so this is commented out
-        //since it does not work atm anyway
-        /*
-        JPatchouliBook book = JPatchouliBook
-            .create(
-                "patchouli_book.even_better_archeology.better_archeology_guide.name",
-                "patchouli_book.even_better_archeology.better_archeology_guide.landing"
-            ).setVersion("2")
-            .setCreativeTab("evenbetterarcheology:evenbetterarcheology");
-        EvenBetterArcheology.DATA.registerPatchouliBook(BOOK.name(), book);
-        */
+        //generate the book contents
+        generateVanillaBrush();
+        generateArcheologyContent();
 
-        //create the brushes category and register it
-        JPatchouliCategory brushes = JPatchouliCategory
-            .create(
-                "patchouli_book.even_better_archeology.better_archeology_guide.brushes.name",
-                "patchouli_book.even_better_archeology.better_archeology_guide.brushes.description",
-                "minecraft:brush"
-            );
-        EvenBetterArcheology.DATA.registerPatchouliCategory(BOOK.name(), BRUSHES_CATEGORY.name(), brushes);
+        //write the data to the json files
+        MAIN_CATEGORY.registerData();
 
-        //create the archeology category and register it
-        JPatchouliCategory archeology = JPatchouliCategory
-            .create(
-                "patchouli_book.even_better_archeology.better_archeology_guide.archeology.name",
-                "patchouli_book.even_better_archeology.better_archeology_guide.archeology.description",
-                "evenbetterarcheology:artifact_shards"
-            ).setSecret(true);
-        EvenBetterArcheology.DATA.registerPatchouliCategory(BOOK.name(), ARCHEOLOGY_CATEGORY.name(), archeology);
+        //add the lang de_de to the dynamic lang manager and actually update the rrp
+        DynamicOwOLangManager.declareLang("de_de");
+        DynamicOwOLangManager.updateRRP();
+    }
 
+    private static void generateVanillaBrush(){
         //create and register the entry for the vanilla brush other entries will be added by the BetterBrushItem
-        EvenBetterArcheology.DATA.registerPatchouliEntry(
-            BOOK.name(),
+        String statsLang = "sakuralib_dynamic_book.minecraft.archeology.brush.vanilla_brush.stats";
+        DynamicOwOLangManager.addGlobalEntry(
+            statsLang,
+            SakuraJsonHelper.createArray(
+                "",
+                JsonObjectBuilder
+                    .create()
+                    .add("translate", "sakuralib_dynamic_book.minecraft.archeology.brush.brush_stats")
+                    .add("with", SakuraJsonHelper.createArray(64, 10))
+                    .build()
+            )
+        );
+        BRUSHES_CATEGORY.add(
             JPatchouliEntry
                 .create(
                     "item.minecraft.brush",
-                    BRUSHES_CATEGORY.IDString(),
+                    null,
                     "minecraft:brush"
-                ).addTextPage("patchouli_book.even_better_archeology.better_archeology_guide.brush.vanilla_brush")
-                .addPage(JCraftingPage.create("minecraft:brush"))
+                ).addTextPage("sakuralib_dynamic_book.minecraft.archeology.brush.vanilla_brush.text")
+                .addPage(JCraftingPage.create("minecraft:brush").setText(statsLang))
         );
+    }
 
+    private static void generateArcheologyContent(){
+
+
+        ARCHEOLOGY_CATEGORY.registerData();
     }
 }

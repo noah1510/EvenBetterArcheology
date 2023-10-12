@@ -60,19 +60,6 @@ public class VillagerFossilFull extends FossilCraftableWithEntity implements Blo
         this.craftingParts = new String[]{"villager_fossil_head", "villager_fossil_body"};
     }
 
-    //Drops Items present in the table at the time of destruction//
-    @Override
-    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
-        if (state.getBlock() != newState.getBlock()) {
-            BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof VillagerFossilBlockEntity) {
-                ItemScatterer.spawn(world, pos, (VillagerFossilBlockEntity) blockEntity);
-                world.updateComparators(pos, this);
-            }
-        }
-        super.onStateReplaced(state, world, pos, newState, moved);
-    }
-
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
