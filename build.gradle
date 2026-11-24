@@ -22,7 +22,7 @@ doxygen {
 
 
 repositories {
-	// TODO: Remove mavenLocal() once Sakura Lib Phase 0 (1.6.2+) is published to Modrinth Maven.
+	// TODO: Remove mavenLocal() once Sakura Lib 2.0.0-alpha.1+ is published to Modrinth Maven.
 	mavenLocal()
 	// Add repositories to retrieve artifacts from in here.
 	// You should only use this when depending on other mods because
@@ -69,7 +69,7 @@ dependencies {
 	annotationProcessor modImplementation("io.wispforest:owo-lib:${project.owo_version}")
 
 	// add sakuralib for data generation
-	// TODO: Switch back to maven.modrinth:sakura-lib:<release> once Sakura Lib Phase 0 (1.6.2+) is published.
+	// TODO: Switch back to maven.modrinth:sakura-lib:<release> once Sakura Lib 2.0.0-alpha.1+ is published.
 	modImplementation include("de.noasakurajin:v1_20_1:${sakuralib_version}")
 
 	// Uncomment the following line to enable the deprecated Fabric API modules. 
