@@ -26,6 +26,9 @@
     ],
     "client": [
       "de.sakurajin.evenbetterarcheology.EvenBetterArcheologyClient"
+    ],
+    "fabric-datagen": [
+      "de.sakurajin.evenbetterarcheology.datagen.EvenBetterArcheologyDataGenerator"
     ]
   },
   "mixins": [
@@ -35,13 +38,13 @@
   "accessWidener" : "evenbetterarcheology.accesswidener",
 
   "depends": {
-    "fabricloader": ">=0.14.14",
+    "fabricloader": ">=0.15.10",
     "fabric-api": "*",
     "minecraft": "~1.20",
     "java": ">=17",
     "owo-lib": "*",
     "sakuralib": ">=${sakuralib_version}",
-    "advanced_runtime_resource_pack": ">=0.8.0"
+    "advanced_runtime_resource_pack": ">=0.8.1"
   },
   "suggests": {
     "cit-resewn": ">=1.1.3+1.20",

@@ -16,6 +16,8 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: gradle
+      - name: Run Fabric Datagen
+        run: ./gradlew runDatagen
       - name: Build with Gradle
         run: ./gradlew build
       - name: Build docs
